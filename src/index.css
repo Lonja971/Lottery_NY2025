@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+/*----------SCROLLBAR----------*/
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--color1);
+  border-radius: 50px;
+  background-color: #28303f;
+  /*background-color: #415683;*/
+  box-shadow: 1px -1px 196px 159px var(--color1);
+  transition: all 0.2s ease 0s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2a272b;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bg);
+  border-left: 2px solid var(--color1);
+}
+
+::selection {
+  background-color: var(--color1);
+  color: var(--bg);
+}
+
+/*----------ROOT----------*/
+
+:root {
+  --danger: #ff0000;
+  --white: #fff;
+  --green: rgb(10, 180, 10);
+  --gray: #423d43;
+  --bg: #495d8a;
+
+  --color1: #ffd8ff;
+}
+
+/*----------BASIC----------*/
+
+body {
+  font-family: "Roboto Slab";
+  font-size: 18px;
+  position: relative;
+
+  background-color: var(--bg);
+  background-image: url("../public/img/background/bg.jpg");
+  color: var(--color1);
+}
+body.lock {
+  overflow-y: hidden;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+._container {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0px 30px;
+  /*border: 1px solid rgb(231, 68, 117);*/
+}
+._glass {
+  background: #f1faff27;
+  color: var(--color1);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.8px);
+  -webkit-backdrop-filter: blur(6.8px);
+  border: 2px solid var(--color1);
+}
+.btn {
+  position: relative;
+  border-radius: 0px;
+  padding: 10px 40px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+.btn .line {
+  position: absolute;
+  transition: all 0.3s ease 0s;
+  background-color: var(--green);
+}
+.btn .line-top {
+  top: -2px;
+  left: -2px;
+  width: 0%;
+  height: 2.6px;
+}
+.btn .line-right {
+  top: -2px;
+  right: -2px;
+  width: 2px;
+  height: 0%;
+}
+.btn .line-bottom {
+  bottom: -2px;
+  right: -2px;
+  width: 0%;
+  height: 2px;
+}
+.btn .line-left {
+  left: -2px;
+  bottom: -2px;
+  height: 0%;
+  width: 2px;
+}
+.btn:hover {
+  color: var(--green);
+  box-shadow: 0px 0px 26px 12px rgba(8, 143, 8, 0.47);
+}
+.btn:hover .line-top {
+  width: 101.5%;
+}
+.btn:hover .line-right {
+  height: 105%;
+}
+.btn:hover .line-bottom {
+  width: 101.5%;
+}
+.btn:hover .line-left {
+  height: 103%;
+}
+a {
+  color: var(--color1);
+  transition: all 0.3s ease 0s;
+}
+a:hover {
+  color: var(--green);
+}
+.red {
+  color: var(--danger);
+}
+
+/*----------CONTENT----------*/
+
+.content {
+  transition: all 0.3s ease 0s;
+}
