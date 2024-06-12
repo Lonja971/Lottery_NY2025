@@ -1,0 +1,12 @@
+/*----------HEADER----------*/
+
+.header {
+}
+.header__container {
+  height: 700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
