@@ -1,10 +1,10 @@
 import React from "react";
 import "../../css/lottery.css";
 
-export function Lottery({addComment}) {
+export function Lottery({addMessage}) {
 
-  const handleAddComment = () => {
-    addComment(10000, "gold");
+  const handleaddMessage = () => {
+    addMessage(10000, "gold");
   };
 
   return (
@@ -13,7 +13,7 @@ export function Lottery({addComment}) {
         <div className="caseblock">
           <div className="caseblock__text">Кейс</div>
           <img src="img/cases/main_case.png" alt="" />
-          <button className="btn _glass" onClick={handleAddComment}>
+          <button className="btn _glass" onClick={handleaddMessage}>
             Відкрий
             <div className="line line-top"></div>
             <div className="line line-right"></div>

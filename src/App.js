@@ -24,32 +24,32 @@ function App() {
 
   //---Додавання-повідомлень---
 
-  const [comments, setComments] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setComments((prevComments) =>
-        prevComments
-          .map((comment) => ({
-            ...comment,
-            seconds: comment.seconds > 0 ? comment.seconds - 1 : 0,
+      setMessages((prevMessages) =>
+        prevMessages
+          .map((message) => ({
+            ...message,
+            seconds: message.seconds > 0 ? message.seconds - 1 : 0,
           }))
-          .filter((comment) => comment.seconds > 0)
+          .filter((message) => message.seconds > 0)
       );
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const addComment = (value, resource) => {
-    const commentObject = {
+  const addMessage = (value, resource) => {
+    const messageObject = {
       value: value,
       resource: resource,
       id: Date.now(),
       seconds: 10,
     };
 
-    setComments([...comments, commentObject]);
+    setMessages([...messages, messageObject]);
   };
 
 
@@ -91,9 +91,9 @@ function App() {
         </Modal>
       )}
 
-      <Comments isComments={isComments} setIsComments={handleToggleComments} comments={comments}/>
+      <Comments isComments={isComments} setIsComments={handleToggleComments} messages={messages}/>
       <Header />
-      <Lottery addComment={addComment}/>
+      <Lottery addMessage={addMessage}/>
     </AppLayout>
   );
 }
