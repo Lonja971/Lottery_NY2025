@@ -10,14 +10,14 @@ import { NavBarGold } from "./ui/nav-bar-gold";
 import { NavBarTokens } from "./ui/nav-bar-tokens";
 import { NavBarRedTokens } from "./ui/nav-bar-red-tokens";
 
-export function NavBar({ setActiveStorage, setActiveExchange }) {
+export function NavBar({ setActiveStorage, setActiveExchange, addComment }) {
   return (
     <NavBarLayout
       storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} />}
       exchangeBlock={<NavBarExchange setActiveExchange={setActiveExchange} />}
       nameBlock={<NavBarName name={PLAYER.name} />}
       goldBlock={<NavBarGold gold={PLAYER.gold} />}
-      tokensBlock={<NavBarTokens tokens={PLAYER.tokens} />}
+      tokensBlock={<NavBarTokens tokens={PLAYER.tokens} addComment={addComment} />}
       redTokensBlock={<NavBarRedTokens redTokens={PLAYER.redTokens} />}
     />
   );

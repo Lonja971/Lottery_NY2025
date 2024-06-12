@@ -1,13 +1,10 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import "../../css/lottery.css";
-import { Comments, AddComment } from "../comments/comments";
 
-export function Lottery() {
-  const [isComments, setIsComments] = useState(true);
-  const commentsBlockRef = useRef(null);
+export function Lottery({addComment}) {
 
   const handleAddComment = () => {
-    AddComment(commentsBlockRef.current, "gold", 12345);
+    addComment(10000, "gold");
   };
 
   return (
@@ -24,11 +21,6 @@ export function Lottery() {
             <div className="line line-left"></div>
           </button>
         </div>
-        <Comments
-          isComments={isComments}
-          setIsComments={setIsComments}
-          commentsBlockRef={commentsBlockRef}
-        />
       </div>
     </div>
   );

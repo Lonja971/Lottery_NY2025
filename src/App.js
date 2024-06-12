@@ -9,8 +9,8 @@ import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
 
 function App() {
 
-  //---Відстежувати-коментарі---
-  
+  //---Відстежувати-дозвіл-на-коментарі---
+
   const getInitialCommentsState = () => {
     const savedState = localStorage.getItem("isComments");
     return savedState !== null ? JSON.parse(savedState) : true;
@@ -22,11 +22,46 @@ function App() {
     localStorage.setItem("isComments", JSON.stringify(isComments));
   }, [isComments]);
 
+  //---Додавання-повідомлень---
+
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setComments((prevComments) =>
+        prevComments
+          .map((comment) => ({
+            ...comment,
+            seconds: comment.seconds > 0 ? comment.seconds - 1 : 0,
+          }))
+          .filter((comment) => comment.seconds > 0)
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const addComment = (value, resource) => {
+    const commentObject = {
+      value: value,
+      resource: resource,
+      id: Date.now(),
+      seconds: 10,
+    };
+
+    setComments([...comments, commentObject]);
+  };
+
+
   //---Відстежувати-відкриття-модального-вікна-Складу---
+
+  const handleToggleComments = () => {
+    setIsComments(!isComments);
+  };
 
   const [modalStorageActive, setModalStorageActive] = useState(false);
 
-  //---Відстежувати-відкриття-модального-вікна-Обміну---
+    //---Відстежувати-відкриття-модального-вікна-Обміну---
 
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
 
@@ -56,9 +91,9 @@ function App() {
         </Modal>
       )}
 
-      <Comments isComments={isComments} setIsComments={setIsComments}/>
+      <Comments isComments={isComments} setIsComments={handleToggleComments} comments={comments}/>
       <Header />
-      <Lottery />
+      <Lottery addComment={addComment}/>
     </AppLayout>
   );
 }
