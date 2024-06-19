@@ -11,7 +11,7 @@ export function NavBarExchange({ setActiveExchange }) {
     setExchangeRotateNum(newExchangeRotateNum);
     setIsAnimating(true);
     setTimeout(() => {
-      setExchangeRotateNum(prevNum => prevNum + 180);
+      setExchangeRotateNum((prevNum) => prevNum + 180);
     }, 800);
 
     setTimeout(() => {

@@ -17,8 +17,10 @@ export function NavBar({ setActiveStorage, setActiveExchange, addComment }) {
       exchangeBlock={<NavBarExchange setActiveExchange={setActiveExchange} />}
       nameBlock={<NavBarName name={PLAYER.name} />}
       goldBlock={<NavBarGold gold={PLAYER.gold} />}
-      tokensBlock={<NavBarTokens tokens={PLAYER.tokens} addComment={addComment} />}
-      redTokensBlock={<NavBarRedTokens redTokens={PLAYER.redTokens} />}
+      tokensBlock={
+        <NavBarTokens tokens={PLAYER.tokens} addComment={addComment} />
+      }
+      redTokensBlock={<NavBarRedTokens redTokens={PLAYER.red_tokens} />}
     />
   );
 }

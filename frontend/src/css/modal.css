@@ -7,6 +7,7 @@
   top: 0;
   transition: all 0.3s ease 0s;
   border: none;
+  overflow: auto;
 
   display: flex;
   align-items: center;
@@ -16,7 +17,7 @@
 }
 .modal__container {
   width: 100%;
-  padding: 50px 15px;
+  padding: 15px;
 }
 .modal.active {
   /*animation-name: newToken;
@@ -41,9 +42,9 @@
   height: 1.5px;
   border-radius: 15px;
   transition: all 0.2s ease 0s;
-  background-color: #fcf;
-  outline: 1px solid #fcf;
-  box-shadow: 0px 0px 26px 3px rgba(255, 204, 255, 0.582);
+  background-color: var(--color1);
+  outline: 1px solid var(--color1);
+  box-shadow: 0px 0px 26px 3px #fdffe296;
 }
 .modal__close:hover span {
   background-color: rgb(10, 180, 10);

@@ -8,7 +8,6 @@ import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
 
 function App() {
-
   //---Відстежувати-дозвіл-на-коментарі---
 
   const getInitialCommentsState = () => {
@@ -22,6 +21,10 @@ function App() {
     localStorage.setItem("isComments", JSON.stringify(isComments));
   }, [isComments]);
 
+  const handleToggleComments = () => {
+    setIsComments(!isComments);
+  };
+
   //---Додавання-повідомлень---
 
   const [messages, setMessages] = useState([]);
@@ -34,7 +37,7 @@ function App() {
             ...message,
             seconds: message.seconds > 0 ? message.seconds - 1 : 0,
           }))
-          .filter((message) => message.seconds > 0)
+          .filter((message) => message.seconds > 0),
       );
     }, 1000);
 
@@ -52,16 +55,11 @@ function App() {
     setMessages([...messages, messageObject]);
   };
 
-
   //---Відстежувати-відкриття-модального-вікна-Складу---
-
-  const handleToggleComments = () => {
-    setIsComments(!isComments);
-  };
 
   const [modalStorageActive, setModalStorageActive] = useState(false);
 
-    //---Відстежувати-відкриття-модального-вікна-Обміну---
+  //---Відстежувати-відкриття-модального-вікна-Обміну---
 
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
 
@@ -69,6 +67,20 @@ function App() {
     document.body.classList.add("lock");
   } else {
     document.body.classList.remove("lock");
+  }
+
+  function clickHandler() {
+    fetch("http://ny2025/index.php", {
+      method : 'POST',
+      header : {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body : JSON.stringify({action : 1})
+    })
+    .then (response => response.text())
+    .then (response => {
+      console.log(response);
+    })
   }
 
   return (
@@ -79,6 +91,7 @@ function App() {
           setActiveExchange={setModalExchangeActive}
         />
       }
+      clickHandler={clickHandler}
     >
       {modalStorageActive && (
         <Modal active={modalStorageActive} setActive={setModalStorageActive}>
@@ -91,19 +104,26 @@ function App() {
         </Modal>
       )}
 
-      <Comments isComments={isComments} setIsComments={handleToggleComments} messages={messages}/>
+      <Comments
+        isComments={isComments}
+        setIsComments={handleToggleComments}
+        messages={messages}
+      />
       <Header />
-      <Lottery addMessage={addMessage}/>
+      <Lottery addMessage={addMessage} />
     </AppLayout>
   );
 }
 
-function AppLayout({ navBar, children }) {
+function AppLayout({ navBar, children, clickHandler }) {
   return (
     <>
       <div className="wrapper">
         {navBar}
-        <div className="content">{children}</div>
+        <div className="content">
+          <button onClick={clickHandler}>Click</button>
+          {children}
+          </div>
       </div>
     </>
   );

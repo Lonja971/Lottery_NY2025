@@ -1,0 +1,161 @@
+.storage{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.storage__user{
+   margin-top: 5px;
+   height: 450px;
+   background: url('../../public/img/background/vignette.png') 50%/auto 100% no-repeat;
+
+   display: flex;
+   justify-content: center;
+   align-items: end;
+}
+.storage__user h1{
+   margin-bottom: 65px;
+   font-size: min(50px, 8vw);
+   position: relative;
+   z-index: 2;
+   color: var(--color1);
+   padding: 5px 8px;
+   filter: drop-shadow(0px 0px 15px var(--color1));
+
+   /*filter: drop-shadow(0px 0px 5px var(--color1));
+   color: var(--color1);
+   -webkit-text-stroke: px #1a2130;*/
+}
+.storage__resources{
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   z-index: 2;
+}
+.storage__resources-block{
+   display: grid;
+   grid-template-columns: repeat(7, 1fr);
+   margin: 0 auto;
+   text-align: center;
+}
+@media (max-width:940px) {
+   .storage__resources-block{
+      grid-template-columns: repeat(4, 1fr);
+   }
+   .storage__user{
+      height: 400px;
+      background: url('../../public/img/background/vignette.png') 50% 25%/auto 80% no-repeat;
+   }
+}
+@media (max-width:550px) {
+   .storage__resources-block{
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .storage__user h1{
+   }
+   .storage__user{
+      height: 600px;
+      background: url('../../public/img/background/vignette.png') 50% 85%/auto 45% no-repeat;
+   }
+}
+
+.item__block{
+   width: 130px;
+   height: 130px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 10px;
+   border: none;
+   box-sizing: border-box;
+}
+.item__block:hover{
+   background: var(--glass-color);
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(6.8px);
+   -webkit-backdrop-filter: blur(6.8px);
+}
+.item__block img{
+   height: 80px;
+   transition: all 0.2s ease 0s;
+}
+.item__block:hover img{
+   transform: scale(1.2);
+}
+
+/*---TANKS-BLOCK---*/
+
+.tank-block{
+   position: relative;
+   display: flex;
+   justify-content: end;
+   transition: all 0.2s ease 0s;
+   border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.tank-block p{
+   position: relative;
+   margin-bottom: 5px;
+}
+.tank__img-block{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.tank__img-block .tank-icon{
+   position: absolute;
+   top: 3px;
+   left: 3px;
+   width: 24px;
+   height: auto;
+   z-index: 1;
+}
+.tank-block img{
+   margin-bottom: 15%;
+   width: 75%;
+   height: auto;
+}
+.tank-block:hover img{
+   transform: scale(1.1);
+}
+.tank-block:hover .tank-icon{
+   transform: scale(1);
+}
+.tank-block:hover{
+   border: 2px solid var(--green);
+}
+
+.tank__img-block.ua {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
+      url("../../public/img/flags/UkraineTank160.jpg");
+}
+.tank__img-block.usa {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/usa.png");
+}
+.tank__img-block.ussr {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/ussr.png");
+}
+.tank__img-block.ge {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/germany.png");
+}
+.tank__img-block.br {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/britaine.png");
+}
+.tank__img-block.fr {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/france.png");
+}
+.tank__img-block.sw {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/sweden.png");
+}
+.tank__img-block.ch {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/china.png");
+}
+.tank__img-block.ja {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%), url("../../public/img/flags/japan.png");
+}
