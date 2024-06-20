@@ -41,7 +41,7 @@ img {
 
 ::selection {
   background-color: var(--color1);
-  color: var(--bg);
+  color: var(--dark-bg);
 }
 
 /*----------ROOT----------*/
@@ -72,6 +72,7 @@ body {
 body.lock {
   overflow-y: hidden;
 }
+
 .wrapper {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -97,6 +98,15 @@ body.lock {
   padding: 10px 40px;
   transition: all 0.3s ease 0s;
   cursor: pointer;
+}
+.btn-squard{
+  padding: 10px;
+}
+.btn-squard:hover .line-top {
+  width: 105% !important;
+}
+.btn-squard:hover .line-bottom {
+  width: 105% !important;
 }
 .btn .line {
   position: absolute;
@@ -158,4 +168,17 @@ a:hover {
 
 .content {
   transition: all 0.3s ease 0s;
+}
+
+
+@media (max-width: 700px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: -100% !important;
+  }
 }

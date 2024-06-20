@@ -4,10 +4,16 @@ import { Header } from "./components/header/header";
 import { Lottery } from "./components/lottery/lottery";
 import { NavBar } from "./components/nav-bar/nav-bar";
 import { Modal } from "./components/uikit/modal";
+import { BurgerMenuBtn } from "./components/uikit/burger-menu-btn";
 import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
 
 function App() {
+
+  //---Бургер-меню---
+
+  const [isMenu, setIsMenu] = useState(false)
+
   //---Відстежувати-дозвіл-на-коментарі---
 
   const getInitialCommentsState = () => {
@@ -63,14 +69,14 @@ function App() {
 
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
 
-  if (modalStorageActive === true || modalExchangeActive === true) {
+  if (modalStorageActive === true || modalExchangeActive === true || isMenu === true) {
     document.body.classList.add("lock");
   } else {
     document.body.classList.remove("lock");
   }
 
   function clickHandler() {
-    fetch("http://ny2025/index.php", {
+    fetch("http://ny2025/backend/index.php", {
       method : 'POST',
       header : {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -87,12 +93,14 @@ function App() {
     <AppLayout
       navBar={
         <NavBar
+          isMenu={isMenu}
           setActiveStorage={setModalStorageActive}
           setActiveExchange={setModalExchangeActive}
         />
       }
       clickHandler={clickHandler}
     >
+      <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu}/>
       {modalStorageActive && (
         <Modal active={modalStorageActive} setActive={setModalStorageActive}>
           <ModalStorage />

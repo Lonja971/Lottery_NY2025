@@ -41,6 +41,9 @@
    .storage__resources-block{
       grid-template-columns: repeat(4, 1fr);
    }
+   .storage__user h1{
+      margin-bottom: 90px;
+   }
    .storage__user{
       height: 400px;
       background: url('../../public/img/background/vignette.png') 50% 25%/auto 80% no-repeat;
@@ -51,10 +54,12 @@
       grid-template-columns: repeat(2, 1fr);
    }
    .storage__user h1{
+      margin-bottom: 20px;
    }
    .storage__user{
       height: 600px;
-      background: url('../../public/img/background/vignette.png') 50% 85%/auto 45% no-repeat;
+      border: 1px solid red;
+      background: url('../../public/img/background/vignette.png') 50% 100%/auto 45% no-repeat;
    }
 }
 

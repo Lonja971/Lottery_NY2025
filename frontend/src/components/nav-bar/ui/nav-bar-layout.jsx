@@ -5,9 +5,10 @@ export function NavBarLayout({
   goldBlock,
   tokensBlock,
   redTokensBlock,
+  isMenu
 }) {
   return (
-    <nav className="nav _glass">
+    <nav className={`nav _glass ${isMenu ? "active" : ""}`}>
       <div className="_container nav__container">
         <div className="nav-top">
           <ul className="nav__menu">
