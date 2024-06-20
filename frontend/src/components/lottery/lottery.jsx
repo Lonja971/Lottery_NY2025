@@ -3,8 +3,8 @@ import "../../css/lottery.css";
 
 export function Lottery({ addMessage }) {
   const handleaddMessage = () => {
-    addMessage(10000, "gold")
-  }
+    addMessage(10000, "gold");
+  };
 
   return (
     <div className="lottery">

@@ -9,14 +9,22 @@ import { NavBarGold } from "./ui/nav-bar-gold";
 import { NavBarTokens } from "./ui/nav-bar-tokens";
 import { NavBarRedTokens } from "./ui/nav-bar-red-tokens";
 
-export function NavBar({ player, setActiveStorage, setActiveExchange, addComment, isMenu }) {
+export function NavBar({
+  player,
+  setActiveStorage,
+  setActiveExchange,
+  addComment,
+  isMenu,
+}) {
   return (
     <>
       {player && (
         <NavBarLayout
           isMenu={isMenu}
           storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} />}
-          exchangeBlock={<NavBarExchange setActiveExchange={setActiveExchange} />}
+          exchangeBlock={
+            <NavBarExchange setActiveExchange={setActiveExchange} />
+          }
           nameBlock={<NavBarName name={player.name} />}
           goldBlock={<NavBarGold gold={player.gold} />}
           tokensBlock={

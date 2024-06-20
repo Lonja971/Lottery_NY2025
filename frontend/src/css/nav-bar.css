@@ -16,7 +16,7 @@ nav {
   border-right: 1px solid var(--color1);
 }
 
-nav.active{
+nav.active {
   left: 0 !important;
 }
 
@@ -114,7 +114,7 @@ nav.active{
 
 /*---HAMBURGER-MENU---*/
 
-.hamburger__container{
+.hamburger__container {
   display: none;
   position: fixed;
   top: 0;
@@ -122,51 +122,51 @@ nav.active{
   padding: 15px 15px;
 }
 
-.hamburger{
-	width: 30px;
-	height: 18px;
-	cursor: pointer;
+.hamburger {
+  width: 30px;
+  height: 18px;
+  cursor: pointer;
 
-	position: relative;
-	z-index: 5;
+  position: relative;
+  z-index: 5;
 }
 .hamburger span {
-	position: absolute;
-	top: calc(50% - 1px);
-	left: 0;
-	width: 100%;
-	height: 1.5px;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 1.5px;
   background-color: var(--green);
   outline: 1px solid var(--green);
   box-shadow: 0px 0px 26px 2px var(--green);
-	border-radius: 15px;
-	-webkit-transition: all 0.2s;
-	transition: all 0.2s;
+  border-radius: 15px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 .hamburger span:first-child {
-	top: 0;
+  top: 0;
 }
 .hamburger span:last-child {
-	top: auto;
-	bottom: 0;
+  top: auto;
+  bottom: 0;
 }
 .hamburger.active span {
-	-webkit-transform: scale(0);
-			  transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
 .hamburger.active span:first-child {
-	-webkit-transform: rotate(-45deg);
-			  transform: rotate(-45deg);
-	top: calc(50% - 1px);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
 }
 .hamburger.active span:last-child {
-   -webkit-transform: rotate(45deg);
-			  transform: rotate(45deg);
-	bottom: calc(50% - 1px);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: calc(50% - 1px);
 }
 
 @media (max-width: 700px) {
-	.hamburger__container{
-		display: block;
-	}
+  .hamburger__container {
+    display: block;
+  }
 }

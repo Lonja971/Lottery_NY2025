@@ -99,7 +99,7 @@ body.lock {
   transition: all 0.3s ease 0s;
   cursor: pointer;
 }
-.btn-squard{
+.btn-squard {
   padding: 10px;
 }
 .btn-squard:hover .line-top {
@@ -169,7 +169,6 @@ a:hover {
 .content {
   transition: all 0.3s ease 0s;
 }
-
 
 @media (max-width: 700px) {
   .wrapper {

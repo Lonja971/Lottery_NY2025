@@ -5,7 +5,7 @@ export function NavBarLayout({
   goldBlock,
   tokensBlock,
   redTokensBlock,
-  isMenu
+  isMenu,
 }) {
   return (
     <nav className={`nav _glass ${isMenu ? "active" : ""}`}>

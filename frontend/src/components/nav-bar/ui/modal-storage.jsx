@@ -3,32 +3,47 @@ import "../../../css/storage.css";
 import { TankBlock } from "../../uikit/tank-block";
 
 export function ModalStorage({ player }) {
-
   return (
     <>
       {player && (
         <ModalStorageLayout
-          goldItem={ <ItemBlock  resource="gold" value={player.gold} /> }
-          silverItem={ <ItemBlock  resource="silver" value={player.silver} /> }
-          tokensItem={ <ItemBlock  resource="tokens" value={player.tokens} /> }
-          redTokensItem={ <ItemBlock  resource="red_tokens" value={player.red_tokens} /> }
-          tanksItem={ <ItemBlock  resource="tanks" value={player.tanks} /> }
-          premiumAkkItem={ <ItemBlock  resource="premium_akk" value={player.premium_akk} /> }
-          drawingsItem={ <ItemBlock  resource="drawings" value={player.drawings} /> }
-
-          Obj_490Item={ <TankBlock  tank="obj_490" /> }
-          MausItem={ <TankBlock  tank="maus" /> }
-          Pz_b2Item={ <TankBlock  tank="pz_b2" /> }
+          goldItem={<ItemBlock resource="gold" value={player.gold} />}
+          silverItem={<ItemBlock resource="silver" value={player.silver} />}
+          tokensItem={<ItemBlock resource="tokens" value={player.tokens} />}
+          redTokensItem={
+            <ItemBlock resource="red_tokens" value={player.red_tokens} />
+          }
+          tanksItem={<ItemBlock resource="tanks" value={player.tanks} />}
+          premiumAkkItem={
+            <ItemBlock resource="premium_akk" value={player.premium_akk} />
+          }
+          drawingsItem={
+            <ItemBlock resource="drawings" value={player.drawings} />
+          }
+          Obj_490Item={<TankBlock tank="obj_490" />}
+          MausItem={<TankBlock tank="maus" />}
+          Pz_b2Item={<TankBlock tank="pz_b2" />}
         >
           {player.name}
         </ModalStorageLayout>
       )}
     </>
-  )
+  );
 }
 
-function ModalStorageLayout({ children, goldItem, silverItem, tokensItem, redTokensItem, tanksItem, premiumAkkItem, drawingsItem, Obj_490Item, MausItem, Pz_b2Item }) {
-
+function ModalStorageLayout({
+  children,
+  goldItem,
+  silverItem,
+  tokensItem,
+  redTokensItem,
+  tanksItem,
+  premiumAkkItem,
+  drawingsItem,
+  Obj_490Item,
+  MausItem,
+  Pz_b2Item,
+}) {
   return (
     <div className="storage">
       <div className="storage__user">
@@ -51,5 +66,5 @@ function ModalStorageLayout({ children, goldItem, silverItem, tokensItem, redTok
         </div>
       </div>
     </div>
-  )
+  );
 }

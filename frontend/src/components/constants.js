@@ -20,16 +20,16 @@ export const TANKS = {
   maus: {
     name: "Maus",
     type: "ht",
-    land: "ge"
+    land: "ge",
   },
   obj_490: {
     name: "Об'єкт 490",
     type: "ht",
-    land: "ua"
+    land: "ua",
   },
   pz_b2: {
     name: "Pz B2",
     type: "ht",
-    land: "ge"
-  }
+    land: "ge",
+  },
 };
