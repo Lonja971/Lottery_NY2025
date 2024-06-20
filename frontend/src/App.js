@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
 import { Comments } from "./components/comments/comments";
 import { Header } from "./components/header/header";
 import { Lottery } from "./components/lottery/lottery";
@@ -66,44 +68,45 @@ function App() {
   const [modalStorageActive, setModalStorageActive] = useState(false);
 
   //---Відстежувати-відкриття-модального-вікна-Обміну---
-
+  
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
-
+  
   if (modalStorageActive === true || modalExchangeActive === true || isMenu === true) {
     document.body.classList.add("lock");
   } else {
     document.body.classList.remove("lock");
   }
 
-  function clickHandler() {
-    fetch("http://ny2025/backend/index.php", {
-      method : 'POST',
-      header : {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body : JSON.stringify({action : 1})
-    })
-    .then (response => response.text())
-    .then (response => {
-      console.log(response);
-    })
-  }
+  //---Отримання-даних-гравця-з-бази-даних---
+
+  const [player, setPlayer] = useState(null);
+
+  useEffect(() => {
+    axios.get('http://ny2025/backend/api/getData.php')
+      .then(response => {
+        setPlayer(response.data[0]);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+  }, []);
 
   return (
     <AppLayout
       navBar={
         <NavBar
+          player={player}
           isMenu={isMenu}
           setActiveStorage={setModalStorageActive}
           setActiveExchange={setModalExchangeActive}
         />
       }
-      clickHandler={clickHandler}
+      player={player}
     >
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu}/>
       {modalStorageActive && (
         <Modal active={modalStorageActive} setActive={setModalStorageActive}>
-          <ModalStorage />
+          <ModalStorage player={player}/>
         </Modal>
       )}
       {modalExchangeActive && (
@@ -123,13 +126,15 @@ function App() {
   );
 }
 
-function AppLayout({ navBar, children, clickHandler }) {
+function AppLayout({ player, userData, navBar, children }) {
   return (
     <>
       <div className="wrapper">
         {navBar}
         <div className="content">
-          <button onClick={clickHandler}>Click</button>
+          <div>
+            {userData}
+          </div>
           {children}
           </div>
       </div>
