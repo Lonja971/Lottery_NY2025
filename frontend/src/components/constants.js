@@ -12,8 +12,11 @@ export const PLAYER = {
 
 export const RESOURCES = {
   gold: "Золота",
+  silver: "Срібла",
   tokens: "Токен",
+  tanks: "Танків",
   red_tokens: "Червоний Токен",
+  drawings: "Креслення",
 };
 
 export const TANKS = {
@@ -33,3 +36,20 @@ export const TANKS = {
     land: "ge",
   },
 };
+
+//---CASES-RESOURCES-INFO---
+
+export const REGULAR_CASE = [
+  { type: "silver", probability: 20, amounts: [1000, 1500, 2000, 2500], default: true },
+  { type: "gold", probability: 20, amounts: [50, 100, 150] },
+  { type: "tanks", probability: 20, amounts: [1, 2, 3] },
+  { name: "Т-64 БМ Оплот", probability: 20, amounts: [1] }
+];
+
+export const LEGENDARY_CASE = [
+  { type: "drawings", probability: 25, amounts: [1, 2], default: true },
+  { type: "gold", probability: 25, amounts: [1500, 2000] },
+  { name: "Танк 1", probability: 25, amounts: [1] },
+  { name: "Танк 2", probability: 25, amounts: [1] },
+  { type: "red_tokens", probability: 10, amounts: [2, 6] },
+];
