@@ -2,9 +2,14 @@ import { ItemBlock } from "../../uikit/item-block";
 import "../../../css/storage.css";
 import { TankBlock } from "../../uikit/tank-block";
 
-export function ModalStorage({ player }) {
+export function ModalStorage({ setActive, player }) {
   return (
     <>
+      <div className="modal__close" onClick={() => setActive(false)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       {player && (
         <ModalStorageLayout
           goldItem={<ItemBlock resource="gold" value={player.gold} />}

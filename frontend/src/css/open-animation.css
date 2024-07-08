@@ -1,0 +1,163 @@
+.fz12 {
+   font-size: 12px;
+}
+.anima-btn{
+   position: absolute;
+   bottom: 8%;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 1;
+   border: 2px solid rgba(255, 255, 255, 0.2);
+   color: #bababa;
+}
+
+/*------------------OPENING-------------------*/
+
+.opening {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #000;
+   overflow: hidden;
+}
+.video {
+   width: 100%;
+   height: auto;
+}
+@media (max-width: 768px) {
+   .video {
+      width: auto;
+      height: 100%;
+   }
+}
+.opening__video {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.opening__container {
+   height: 100%;
+   transition: all 0.3s ease 0s;
+   position: relative;
+}
+
+/*--ЕЛЕМЕНТИ-ЯКІ-ВИПАДАЮТЬ--*/
+
+.obj {
+   font-weight: 400;
+   font-size: 14px;
+   width: 110px;
+   min-height: 160px;
+   display: flex;
+   flex-direction: column;
+   color: var(--gray);
+   transition: all 0.3s ease 0s;
+
+   color: #bababa;
+   border: 2px solid rgba(255, 255, 255, 0.2);
+   background: rgba(255, 255, 255, 0.232);
+
+   position: absolute;
+   bottom: 25%;
+   opacity: 0;
+
+   left: 50%;
+   transform: translate(-50%, 0%);
+}
+.obj:hover {
+   cursor: pointer;
+   border: 2px solid var(--green);
+   color: var(--green);
+   box-shadow: 0px 2px 20px 2px var(--green);
+}
+@media (max-width: 1024px) {
+   .obj {
+      width: 88px;
+      min-height: 128px;
+      font-size: 11px;
+   }
+}
+@media (max-width: 431px) {
+   .obj {
+      font-size: 14px;
+      width: 110px;
+      min-height: 160px;
+   }
+}
+.obj__container {
+   flex: 1;
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   gap: 5px;
+   align-items: center;
+   position: relative;
+}
+.obj__img {
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-image: linear-gradient(180deg, #000000a8 5%, rgba(0, 0, 0, 0) 100%);
+}
+.obj__text {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   gap: 5px;
+   padding: 0px 2px;
+}
+.obj__text-price{
+   display: flex;
+   gap: 5px;
+}
+.obj__text-price img {
+   height: 20px;
+}
+
+/*--НАЛАШТУВАННЯ-ДЛЯ-ТАНКІВ--*/
+
+/*-356px-for-tanks-*/
+.obj__img img {
+   width: 75%;
+}
+._obj-tank > .obj__img {
+   width: 100%;
+   background-size: 100% auto;
+   background-repeat: no-repeat;
+}
+.obj__tank-flag {
+   width: 100%;
+}
+
+.obj__img.ua {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
+      url("../../public/img/flags/UkraineTank160.jpg");
+}
+.obj__img.usa {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/usa.png");
+}
+.obj__img.ussr {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/ussr.png");
+}
+.obj__img.ge {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/germany.png");
+}
+.obj__img.br {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/britaine.png");
+}
+.obj__img.fr {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/france.png");
+}
+.obj__img.sw {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/sweden.png");
+}
+.obj__img.ch {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/china.png");
+}
+.obj__img.ja {
+   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%), url("../../public/img/flags/japan.png");
+}

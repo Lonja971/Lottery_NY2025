@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import { Comments } from "./components/comments/comments";
 import { Header } from "./components/header/header";
@@ -9,12 +9,12 @@ import { Modal } from "./components/uikit/modal";
 import { BurgerMenuBtn } from "./components/uikit/burger-menu-btn";
 import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
+import { ModalOpenCaseAnimation } from "./components/cases/ui/modal-open-case-animation";
 
 export function Home() {
-
   //---Бургер-меню---
 
-  const [isMenu, setIsMenu] = useState(false)
+  const [isMenu, setIsMenu] = useState(false);
 
   //---Відстежувати-дозвіл-на-коментарі---
 
@@ -68,10 +68,19 @@ export function Home() {
   const [modalStorageActive, setModalStorageActive] = useState(false);
 
   //---Відстежувати-відкриття-модального-вікна-Обміну---
-  
+
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
-  
-  if (modalStorageActive === true || modalExchangeActive === true || isMenu === true) {
+
+  //---Відстежувати-відкриття-модального-вікна-анімації-випадіння---
+
+    const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState(false);
+
+  if (
+    modalStorageActive === true ||
+    modalExchangeActive === true ||
+    modalOpenCaseAnimation === true ||
+    isMenu === true
+  ) {
     document.body.classList.add("lock");
   } else {
     document.body.classList.remove("lock");
@@ -82,12 +91,13 @@ export function Home() {
   const [player, setPlayer] = useState(null);
 
   useEffect(() => {
-    axios.get('http://ny2025/backend/api/getData.php')
-      .then(response => {
+    axios
+      .get("http://ny2025/backend/api/getData.php")
+      .then((response) => {
         setPlayer(response.data[0]);
       })
-      .catch(error => {
-        console.error('There was an error!', error);
+      .catch((error) => {
+        console.error("There was an error!", error);
       });
   }, []);
 
@@ -105,23 +115,28 @@ export function Home() {
     >
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
-        <Modal active={modalStorageActive} setActive={setModalStorageActive}>
-          <ModalStorage player={player} />
+        <Modal active={modalStorageActive}>
+          <ModalStorage player={player} setActive={setModalStorageActive}/>
         </Modal>
       )}
       {modalExchangeActive && (
-        <Modal active={modalExchangeActive} setActive={setModalExchangeActive}>
-          <ModalExchange />
+        <Modal active={modalExchangeActive}>
+          <ModalExchange setActive={setModalExchangeActive}/>
         </Modal>
       )}
-        
+      {modalOpenCaseAnimation && (
+        <Modal active={modalOpenCaseAnimation}>
+          <ModalOpenCaseAnimation setActive={setModalOpenCaseAnimation}/>
+        </Modal>
+      )}
+
       <Comments
         isComments={isComments}
         setIsComments={handleToggleComments}
         messages={messages}
       />
       <Header />
-      <Lottery addMessage={addMessage} />
+      <Lottery addMessage={addMessage} setModalOpenCaseAnimation={setModalOpenCaseAnimation} />
     </HomeLayout>
   );
 }
@@ -132,11 +147,9 @@ function HomeLayout({ player, userData, navBar, children }) {
       <div className="wrapper">
         {navBar}
         <div className="content">
-          <div>
-            {userData}
-          </div>
+          <div>{userData}</div>
           {children}
-          </div>
+        </div>
       </div>
     </>
   );
