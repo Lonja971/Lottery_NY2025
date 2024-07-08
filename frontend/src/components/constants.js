@@ -36,7 +36,7 @@ export const TANKS = {
     name: "Об'єкт 490 Білка",
     transcription: "obj_490-squirrel",
     type: "camo",
-    land: 'ua',
+    land: "ua",
   },
   pz_b2: {
     name: "Pz B2",
@@ -51,18 +51,24 @@ export const TANKS = {
 export const REGULAR_CASE = [
   {
     type: "silver",
-    probability: 1,
+    probability: 100,
     amounts: [1000, 1500, 2000, 2500],
     default: true,
   },
-  { type: "gold", probability: 1, amounts: [50, 100, 150] },
+  { type: "gold", probability: 100, amounts: [50, 100, 150] },
   { type: "tanks", probability: 90, amounts: [1, 2, 3] },
   { type: "tank", name: "maus", probability: 90, amounts: [1] },
   { type: "tank", name: "obj_490_squirrel", probability: 90, amounts: [1] },
 ];
 
 export const LEGENDARY_CASE = [
-  { type: "drawings", probability: 15, amounts: [1, 2], default: true, dafaultAmount: 1 },
+  {
+    type: "drawings",
+    probability: 15,
+    amounts: [1, 2],
+    default: true,
+    dafaultAmount: 1,
+  },
   { type: "gold", probability: 25, amounts: [1500, 2000] },
   { type: "tank", name: "obj_490", probability: 15, amounts: [1] },
   { type: "tank", name: "pz_b2", probability: 15, amounts: [1] },

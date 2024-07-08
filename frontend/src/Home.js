@@ -73,12 +73,15 @@ export function Home() {
 
   //---Відстежувати-відкриття-модального-вікна-анімації-випадіння---
 
-    const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState(false);
+  const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState({
+    isOpen: false,
+    type: null,
+  });
 
   if (
     modalStorageActive === true ||
     modalExchangeActive === true ||
-    modalOpenCaseAnimation === true ||
+    modalOpenCaseAnimation.isOpen === true ||
     isMenu === true
   ) {
     document.body.classList.add("lock");
@@ -116,17 +119,20 @@ export function Home() {
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
         <Modal active={modalStorageActive}>
-          <ModalStorage player={player} setActive={setModalStorageActive}/>
+          <ModalStorage player={player} setActive={setModalStorageActive} />
         </Modal>
       )}
       {modalExchangeActive && (
         <Modal active={modalExchangeActive}>
-          <ModalExchange setActive={setModalExchangeActive}/>
+          <ModalExchange setActive={setModalExchangeActive} />
         </Modal>
       )}
-      {modalOpenCaseAnimation && (
+      {modalOpenCaseAnimation.isOpen && (
         <Modal active={modalOpenCaseAnimation}>
-          <ModalOpenCaseAnimation setActive={setModalOpenCaseAnimation}/>
+          <ModalOpenCaseAnimation
+            active={modalOpenCaseAnimation}
+            setActive={setModalOpenCaseAnimation}
+          />
         </Modal>
       )}
 
@@ -136,7 +142,10 @@ export function Home() {
         messages={messages}
       />
       <Header />
-      <Lottery addMessage={addMessage} setModalOpenCaseAnimation={setModalOpenCaseAnimation} />
+      <Lottery
+        addMessage={addMessage}
+        setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+      />
     </HomeLayout>
   );
 }

@@ -8,5 +8,5 @@ export function ModalExchange({ setActive }) {
       </div>
       <div>Text from Modal Exchange</div>
     </>
-  )
+  );
 }
