@@ -14,6 +14,7 @@ export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
 
       if (randomValue <= item.probability) {
         let amount;
+
         if (item.amounts && item.amounts.length > 0) {
           const randomIndex = Math.floor(Math.random() * item.amounts.length);
           amount = item.amounts[randomIndex];
@@ -22,14 +23,15 @@ export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
         }
 
         const { amounts, ...itemWithoutAmounts } = item;
-        let id = item.id || (item.type ? RESOURCES[item.type] : "");
+        let name = item.name || (item.type ? RESOURCES[item.type] : "");
         let tankInfo = null;
+        let id = item.id || (item.type === "tank" ? RESOURCES.tanks : "");
 
         if (item.type === "tank") {
           tankInfo = TANKS[id.toLowerCase()];
         }
 
-        droppedItems.push({ ...itemWithoutAmounts, id, amount, tankInfo });
+        droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
       }
     });
 
@@ -54,30 +56,34 @@ export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
           }
         }
         const { amounts, ...itemWithoutAmounts } = defaultItem;
-        let id =
-          defaultItem.id ||
+        let name =
+          defaultItem.name ||
           (defaultItem.type ? RESOURCES[defaultItem.type] : "");
         let tankInfo = null;
+        let id =
+          defaultItem.id || (defaultItem.type === "tank" ? RESOURCES.tanks : "");
 
         if (defaultItem.type === "tank") {
           tankInfo = TANKS[id.toLowerCase()];
         }
 
-        droppedItems.push({ ...itemWithoutAmounts, id, amount, tankInfo });
+        droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
       } else {
         const { amounts, ...itemWithoutAmounts } = caseResourcesInfo[0];
-        let id =
-          caseResourcesInfo[0].id ||
+        let name =
+          caseResourcesInfo[0].name ||
           (caseResourcesInfo[0].type
             ? RESOURCES[caseResourcesInfo[0].type]
             : "");
         let tankInfo = null;
+        let id =
+          caseResourcesInfo[0].id || (caseResourcesInfo[0].type === "tank" ? RESOURCES.tanks : "");
 
         if (caseResourcesInfo[0].type === "tank") {
           tankInfo = TANKS[id.toLowerCase()];
         }
 
-        droppedItems.push({ ...itemWithoutAmounts, id, amount: 1, tankInfo });
+        droppedItems.push({ ...itemWithoutAmounts, name, amount: 1, tankInfo });
       }
     } else if (droppedItems.length > limit) {
       console.log("--обмеження до " + limit + " елементів");

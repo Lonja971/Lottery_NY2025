@@ -98,6 +98,7 @@ export function Home() {
   const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState({
     isOpen: false,
     type: null,
+    caseName: null,
   });
 
   if (

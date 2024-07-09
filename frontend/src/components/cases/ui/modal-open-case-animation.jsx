@@ -1,5 +1,6 @@
 import "../../../css/open-animation.css";
 import "../../../css/dropping-animation.css";
+import { OpeningMainCaseLogic } from "../opening-main-case-logic";
 import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
 
@@ -15,7 +16,11 @@ export function ModalOpenCaseAnimation({ active, setActive }) {
   const limit = 4;
 
   useEffect(() => {
-    OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems);
+    if(active.caseName === 'main_case'){
+      OpeningMainCaseLogic(setDroppedItems);
+    }else{
+      OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems);
+    }
   }, []);
 
   return (
@@ -35,7 +40,7 @@ export function ModalOpenCaseAnimation({ active, setActive }) {
           muted
           id="video"
           className="video opening__video"
-          src="video/Відео без назви — зроблено у Clipchamp (2).mp4"
+          src={"video/"+ active.caseName +".mp4"}
           autoPlay
           onLoadedData={handleVideoLoaded}
         ></video>
@@ -52,12 +57,17 @@ export function ModalOpenCaseAnimation({ active, setActive }) {
               >
                 <div
                   className={`obj__container ${
-                    item.type === "tank" ? "_obj-tank" : ""
+                    item.type !== "tank" ? "_obj-tank" : ""
                   }`}
+                  //className="obj__container _obj-tank"
                 >
                   <div
                     className={`obj__img ${
-                      item.type === "tank" ? item.tankInfo.land : ""
+                      item.type === "tank" 
+                        ? item.tankInfo.land !== undefined 
+                          ? item.tankInfo.land 
+                          : "default" 
+                        : ""
                     }`}
                   >
                     {item.type === "tank" ? (

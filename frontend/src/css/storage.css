@@ -99,6 +99,7 @@
   justify-content: end;
   transition: all 0.2s ease 0s;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  background-image: linear-gradient(180deg, #000000c7 5%, #424142 100%);
 }
 .tank-block p {
   position: relative;
@@ -136,6 +137,7 @@
 }
 .tank-block:hover {
   border: 2px solid var(--green);
+  background-image: linear-gradient(180deg, #000000c7 5%, #424142 100%);
 }
 
 .tank__img-block.ua {
@@ -173,4 +175,8 @@
 .tank__img-block.ja {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
     url("../../public/img/flags/japan.png");
+}
+.tank__img-block.default {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
+    url("../../public/img/flags/default.png");
 }

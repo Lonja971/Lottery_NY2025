@@ -173,3 +173,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
     url("../../public/img/flags/japan.png");
 }
+.obj__img.default {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
+    url("../../public/img/flags/default.png");
+}

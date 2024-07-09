@@ -5,7 +5,7 @@ export function TankBlock({ tankInfo }) {
 
   return (
     <div className="item__block tank-block">
-      <div className={"tank__img-block " + fullTankInfo.land}>
+      <div className={"tank__img-block " + (fullTankInfo.land !== undefined ? fullTankInfo.land : "default")}>
         { fullTankInfo.type !== "camo" ? (
           <img
             className="tank-icon"
