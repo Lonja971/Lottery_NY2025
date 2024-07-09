@@ -120,12 +120,13 @@ nav.active {
   top: 0;
   right: 0;
   padding: 15px 15px;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .hamburger {
   width: 30px;
   height: 18px;
-  cursor: pointer;
 
   position: relative;
   z-index: 5;

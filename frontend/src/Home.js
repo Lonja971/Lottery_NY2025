@@ -4,6 +4,7 @@ import axios from "axios";
 import { Comments } from "./components/comments/comments";
 import { Header } from "./components/header/header";
 import { Lottery } from "./components/lottery/lottery";
+import { Footer } from "./components/footer/footer";
 import { NavBar } from "./components/nav-bar/nav-bar";
 import { Modal } from "./components/uikit/modal";
 import { BurgerMenuBtn } from "./components/uikit/burger-menu-btn";
@@ -154,6 +155,7 @@ export function Home() {
         addMessage={addMessage}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
       />
+      <Footer />
     </HomeLayout>
   );
 }

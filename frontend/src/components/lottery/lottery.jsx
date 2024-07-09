@@ -18,7 +18,7 @@ export function Lottery({ addMessage, setModalOpenCaseAnimation }) {
               setModalOpenCaseAnimation({ isOpen: true, type: MAIN_CASE, caseName: 'main_case' })
             }
           >
-            Відкрий
+            Відкрити
             <div className="line line-top"></div>
             <div className="line line-right"></div>
             <div className="line line-bottom"></div>
@@ -34,7 +34,7 @@ export function Lottery({ addMessage, setModalOpenCaseAnimation }) {
               setModalOpenCaseAnimation({ isOpen: true, type: REGULAR_CASE, caseName: 'regular_case' })
             }
           >
-            Відкрий
+            Відкрити
             <div className="line line-top"></div>
             <div className="line line-right"></div>
             <div className="line line-bottom"></div>
@@ -50,7 +50,7 @@ export function Lottery({ addMessage, setModalOpenCaseAnimation }) {
               setModalOpenCaseAnimation({ isOpen: true, type: SPECIAL_CASE, caseName: 'special_case' })
             }
           >
-            Відкрий
+            Відкрити
             <div className="line line-top"></div>
             <div className="line line-right"></div>
             <div className="line line-bottom"></div>
@@ -66,7 +66,7 @@ export function Lottery({ addMessage, setModalOpenCaseAnimation }) {
               setModalOpenCaseAnimation({ isOpen: true, type: RARE_CASE, caseName: 'rare_case' })
             }
           >
-            Відкрий
+            Відкрити
             <div className="line line-top"></div>
             <div className="line line-right"></div>
             <div className="line line-bottom"></div>
@@ -82,7 +82,7 @@ export function Lottery({ addMessage, setModalOpenCaseAnimation }) {
               setModalOpenCaseAnimation({ isOpen: true, type: MYTHICAL_CASE, caseName: 'mythical_case' })
             }
           >
-            Відкрий
+            Відкрити
             <div className="line line-top"></div>
             <div className="line line-right"></div>
             <div className="line line-bottom"></div>
@@ -98,7 +98,7 @@ export function Lottery({ addMessage, setModalOpenCaseAnimation }) {
               setModalOpenCaseAnimation({ isOpen: true, type: LEGENDARY_CASE, caseName: 'legendary_case' })
             }
           >
-            Відкрий
+            Відкрити
             <div className="line line-top"></div>
             <div className="line line-right"></div>
             <div className="line line-bottom"></div>
