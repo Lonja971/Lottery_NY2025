@@ -1,3 +1,4 @@
+import axios from "axios";
 import { RESOURCES, TANKS } from "../constants";
 
 export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
@@ -21,14 +22,14 @@ export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
         }
 
         const { amounts, ...itemWithoutAmounts } = item;
-        let name = item.name || (item.type ? RESOURCES[item.type] : "");
+        let id = item.id || (item.type ? RESOURCES[item.type] : "");
         let tankInfo = null;
 
         if (item.type === "tank") {
-          tankInfo = TANKS[name.toLowerCase()];
+          tankInfo = TANKS[id.toLowerCase()];
         }
 
-        droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
+        droppedItems.push({ ...itemWithoutAmounts, id, amount, tankInfo });
       }
     });
 
@@ -53,30 +54,30 @@ export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
           }
         }
         const { amounts, ...itemWithoutAmounts } = defaultItem;
-        let name =
-          defaultItem.name ||
+        let id =
+          defaultItem.id ||
           (defaultItem.type ? RESOURCES[defaultItem.type] : "");
         let tankInfo = null;
 
         if (defaultItem.type === "tank") {
-          tankInfo = TANKS[name.toLowerCase()];
+          tankInfo = TANKS[id.toLowerCase()];
         }
 
-        droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
+        droppedItems.push({ ...itemWithoutAmounts, id, amount, tankInfo });
       } else {
         const { amounts, ...itemWithoutAmounts } = caseResourcesInfo[0];
-        let name =
-          caseResourcesInfo[0].name ||
+        let id =
+          caseResourcesInfo[0].id ||
           (caseResourcesInfo[0].type
             ? RESOURCES[caseResourcesInfo[0].type]
             : "");
         let tankInfo = null;
 
         if (caseResourcesInfo[0].type === "tank") {
-          tankInfo = TANKS[name.toLowerCase()];
+          tankInfo = TANKS[id.toLowerCase()];
         }
 
-        droppedItems.push({ ...itemWithoutAmounts, name, amount: 1, tankInfo });
+        droppedItems.push({ ...itemWithoutAmounts, id, amount: 1, tankInfo });
       }
     } else if (droppedItems.length > limit) {
       console.log("--обмеження до " + limit + " елементів");
@@ -85,6 +86,20 @@ export function OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems) {
         droppedItems.splice(resourceNum, 1);
       }
     }
+
+    axios.post('http://NY2025/backend/api/assignData.php', {
+      droppedItems: droppedItems,
+    })
+    .then(response => {
+      if (response.data.status === 'success') {
+        console.log('Data assigned successfully');
+      } else {
+        console.log(response.data.message);
+      }
+    })
+    .catch(error => {
+      console.error('There was an error!', error);
+    });
 
     return droppedItems;
   }

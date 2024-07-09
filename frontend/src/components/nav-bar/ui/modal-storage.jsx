@@ -1,8 +1,11 @@
 import { ItemBlock } from "../../uikit/item-block";
 import "../../../css/storage.css";
-import { TankBlock } from "../../uikit/tank-block";
+import { ModalStorageTanks } from "./modal-storage-tanks";
 
-export function ModalStorage({ setActive, player }) {
+export function ModalStorage({ setActive, playerData }) {
+
+  const userTanks = playerData.userTanks;
+
   return (
     <>
       <div className="modal__close" onClick={() => setActive(false)}>
@@ -10,26 +13,24 @@ export function ModalStorage({ setActive, player }) {
         <span></span>
         <span></span>
       </div>
-      {player && (
+      {playerData && (
         <ModalStorageLayout
-          goldItem={<ItemBlock resource="gold" value={player.gold} />}
-          silverItem={<ItemBlock resource="silver" value={player.silver} />}
-          tokensItem={<ItemBlock resource="tokens" value={player.tokens} />}
+          goldItem={<ItemBlock resource="gold" value={playerData.gold} />}
+          silverItem={<ItemBlock resource="silver" value={playerData.silver} />}
+          tokensItem={<ItemBlock resource="tokens" value={playerData.tokens} />}
           redTokensItem={
-            <ItemBlock resource="red_tokens" value={player.red_tokens} />
+            <ItemBlock resource="red_tokens" value={playerData.red_tokens} />
           }
-          tanksItem={<ItemBlock resource="tanks" value={player.tanks} />}
+          tanksItem={<ItemBlock resource="tanks" value={playerData.tanks} />}
           premiumAkkItem={
-            <ItemBlock resource="premium_akk" value={player.premium_akk} />
+            <ItemBlock resource="premium_akk" value={playerData.premium_akk} />
           }
           drawingsItem={
-            <ItemBlock resource="drawings" value={player.drawings} />
+            <ItemBlock resource="drawings" value={playerData.drawings} />
           }
-          Obj_490Item={<TankBlock tank="obj_490" />}
-          MausItem={<TankBlock tank="maus" />}
-          Pz_b2Item={<TankBlock tank="pz_b2" />}
+          userTanksItem={<ModalStorageTanks userTanks={userTanks} />}
         >
-          {player.name}
+          {playerData.name}
         </ModalStorageLayout>
       )}
     </>
@@ -45,9 +46,7 @@ function ModalStorageLayout({
   tanksItem,
   premiumAkkItem,
   drawingsItem,
-  Obj_490Item,
-  MausItem,
-  Pz_b2Item,
+  userTanksItem,
 }) {
   return (
     <div className="storage">
@@ -65,9 +64,7 @@ function ModalStorageLayout({
           {drawingsItem}
         </div>
         <div className="storage__resources-block">
-          {Obj_490Item}
-          {MausItem}
-          {Pz_b2Item}
+          {userTanksItem}
         </div>
       </div>
     </div>

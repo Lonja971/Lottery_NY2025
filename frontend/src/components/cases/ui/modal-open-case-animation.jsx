@@ -5,6 +5,11 @@ import { useState, useEffect } from "react";
 
 export function ModalOpenCaseAnimation({ active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true);
+  };
 
   const caseResourcesInfo = active.type;
   const limit = 4;
@@ -32,66 +37,73 @@ export function ModalOpenCaseAnimation({ active, setActive }) {
           className="video opening__video"
           src="video/Відео без назви — зроблено у Clipchamp (2).mp4"
           autoPlay
+          onLoadedData={handleVideoLoaded}
         ></video>
-        <div
-          className={
-            "opening__container anima" + droppedItems.length + " _container"
-          }
-        >
-          {droppedItems.map((item, index) => (
-            <div
-              key={index}
-              className={"obj obj" + (index + 1) + " " + item.type}
-            >
+        {videoLoaded && (
+          <div
+            className={
+              "opening__container anima" + droppedItems.length + " _container"
+            }
+          >
+            {droppedItems.map((item, index) => (
               <div
-                className={`obj__container ${item.type === "tank" ? "_obj-tank" : ""}`}
+                key={index}
+                className={"obj obj" + (index + 1) + " " + item.type}
               >
                 <div
-                  className={`obj__img ${item.type === "tank" ? item.tankInfo.land : ""}`}
+                  className={`obj__container ${
+                    item.type === "tank" ? "_obj-tank" : ""
+                  }`}
                 >
-                  {item.type === "tank" ? (
-                    <>
-                      <img
-                        src={
-                          "img/tanks/" + item.tankInfo.transcription + ".png"
-                        }
-                        alt={item.name + "_photo"}
-                      />
-                    </>
-                  ) : (
-                    <img
-                      src={"img/resources/" + item.type + ".png"}
-                      alt={item.name + "_photo"}
-                    />
-                  )}
-                </div>
-                <div className="obj__text">
-                  <div className="obj__text-price">
-                    {item.type === "tank" && item.tankInfo.type === "camo" ? (
-                      <span className="fz12">Камуфляж</span>
-                    ) : item.type === "tank" ? (
+                  <div
+                    className={`obj__img ${
+                      item.type === "tank" ? item.tankInfo.land : ""
+                    }`}
+                  >
+                    {item.type === "tank" ? (
                       <>
                         <img
-                          src={`img/flags/${item.tankInfo.land}-big.png`}
-                          alt="tank-img"
-                        />
-                        <img
-                          src={`img/icons/${item.tankInfo.type}.png`}
-                          alt="tank-type"
+                          src={
+                            "img/tanks/" + item.tankInfo.transcription + ".png"
+                          }
+                          alt={item.name + "_photo"}
                         />
                       </>
                     ) : (
-                      <span>{item.amount}</span>
+                      <img
+                        src={"img/resources/" + item.type + ".png"}
+                        alt={item.name + "_photo"}
+                      />
                     )}
                   </div>
-                  <p className="obj__text-name">
-                    {item.type === "tank" ? item.tankInfo.name : item.name}
-                  </p>
+                  <div className="obj__text">
+                    <div className="obj__text-price">
+                      {item.type === "tank" && item.tankInfo.type === "camo" ? (
+                        <span className="fz12">Камуфляж</span>
+                      ) : item.type === "tank" ? (
+                        <>
+                          <img
+                            src={`img/flags/${item.tankInfo.land}-big.png`}
+                            alt="tank-img"
+                          />
+                          <img
+                            src={`img/icons/${item.tankInfo.type}.png`}
+                            alt="tank-type"
+                          />
+                        </>
+                      ) : (
+                        <span>{item.amount}</span>
+                      )}
+                    </div>
+                    <p className="obj__text-name">
+                      {item.type === "tank" ? item.tankInfo.name : item.name}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

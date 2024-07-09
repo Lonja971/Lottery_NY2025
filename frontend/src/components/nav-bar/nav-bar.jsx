@@ -10,27 +10,30 @@ import { NavBarTokens } from "./ui/nav-bar-tokens";
 import { NavBarRedTokens } from "./ui/nav-bar-red-tokens";
 
 export function NavBar({
-  player,
+  playerData,
   setActiveStorage,
   setActiveExchange,
   addComment,
   isMenu,
-}) {
+})  {
+  if (playerData !== null && playerData.userData !== undefined) {
+    console.log(playerData.userData[0].id);
+  }
   return (
     <>
-      {player && (
+      {playerData && (
         <NavBarLayout
           isMenu={isMenu}
           storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} />}
           exchangeBlock={
             <NavBarExchange setActiveExchange={setActiveExchange} />
           }
-          nameBlock={<NavBarName name={player.name} />}
-          goldBlock={<NavBarGold gold={player.gold} />}
+          nameBlock={<NavBarName name={playerData.name} />}
+          goldBlock={<NavBarGold gold={playerData.gold} />}
           tokensBlock={
-            <NavBarTokens tokens={player.tokens} addComment={addComment} />
+            <NavBarTokens tokens={playerData.tokens} addComment={addComment} />
           }
-          redTokensBlock={<NavBarRedTokens redTokens={player.red_tokens} />}
+          redTokensBlock={<NavBarRedTokens redTokens={playerData.red_tokens} />}
         />
       )}
     </>

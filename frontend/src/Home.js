@@ -12,6 +12,28 @@ import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
 import { ModalOpenCaseAnimation } from "./components/cases/ui/modal-open-case-animation";
 
 export function Home() {
+
+  //---Отримання-даних-гравця-з-бази-даних---
+
+  const [playerData, setPlayerData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://NY2025/backend/api/getData.php");
+        setPlayerData(response.data);
+      } catch (error) {
+        console.error("There was an error!", error);
+      }
+    };
+
+    fetchData(); // Initial fetch
+
+    const interval = setInterval(fetchData, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+  
   //---Бургер-меню---
 
   const [isMenu, setIsMenu] = useState(false);
@@ -89,37 +111,22 @@ export function Home() {
     document.body.classList.remove("lock");
   }
 
-  //---Отримання-даних-гравця-з-бази-даних---
-
-  const [player, setPlayer] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get("http://NY2025/backend/api/getData.php")
-      .then((response) => {
-        setPlayer(response.data[0]);
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
-  }, []);
-
   return (
     <HomeLayout
       navBar={
         <NavBar
-          player={player}
+        playerData={playerData}
           isMenu={isMenu}
           setActiveStorage={setModalStorageActive}
           setActiveExchange={setModalExchangeActive}
         />
       }
-      player={player}
+      playerData={playerData}
     >
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
         <Modal active={modalStorageActive}>
-          <ModalStorage player={player} setActive={setModalStorageActive} />
+          <ModalStorage playerData={playerData} setActive={setModalStorageActive} />
         </Modal>
       )}
       {modalExchangeActive && (
@@ -150,7 +157,7 @@ export function Home() {
   );
 }
 
-function HomeLayout({ player, userData, navBar, children }) {
+function HomeLayout({ userData, navBar, children }) {
   return (
     <>
       <div className="wrapper">

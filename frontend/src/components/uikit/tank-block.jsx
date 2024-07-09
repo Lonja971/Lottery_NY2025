@@ -1,19 +1,21 @@
 import { TANKS } from "../constants";
 
-export function TankBlock({ tank }) {
-  const tankInfo = TANKS[tank];
+export function TankBlock({ tankInfo }) {
+  const fullTankInfo = TANKS[tankInfo];
 
   return (
     <div className="item__block tank-block">
-      <div className={"tank__img-block " + tankInfo.land}>
-        <img
-          className="tank-icon"
-          src={"img/icons/" + tankInfo.type + ".png"}
-          alt="SYMBOL_IMG"
-        />
-        <img src={"img/tanks/" + tank + ".png"} alt="TANK_IMG" />
+      <div className={"tank__img-block " + fullTankInfo.land}>
+        { fullTankInfo.type !== "camo" ? (
+          <img
+            className="tank-icon"
+            src={"img/icons/" + fullTankInfo.type + ".png"}
+            alt="SYMBOL_IMG"
+          />
+        ) : ( "" )}
+        <img src={"img/tanks/" + fullTankInfo.transcription + ".png"} alt="TANK_IMG" />
       </div>
-      <p>{tankInfo.name}</p>
+      <p>{fullTankInfo.name}</p>
     </div>
   );
 }
