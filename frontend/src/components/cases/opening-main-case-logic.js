@@ -1,7 +1,12 @@
 import axios from "axios";
 import { CASES, MAIN_CASE, RESOURCES } from "../constants";
 
-export function OpeningMainCaseLogic(setDroppedItems) {
+export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
+
+  const handleSetIsUpdated = () => {
+    setIsUpdated(true);
+  }
+
   function openCase(MAIN_CASE) {
     let droppedItems = [];
     let droppedCaseInfo;
@@ -60,6 +65,7 @@ export function OpeningMainCaseLogic(setDroppedItems) {
     .then(response => {
       if (response.data.status === 'success') {
         console.log('Data assigned successfully');
+        handleSetIsUpdated();
       } else {
         console.log(response.data.message);
       }

@@ -68,7 +68,7 @@ body {
   background-color: var(--bg);
   background-image: url("../public/img/background/bg.png");
   color: var(--color1);
-  line-height: 200%;
+  line-height: 140%;
 }
 body.lock {
   overflow-y: hidden;

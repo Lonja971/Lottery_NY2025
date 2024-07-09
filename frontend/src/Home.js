@@ -16,24 +16,25 @@ export function Home() {
 
   //---Отримання-даних-гравця-з-бази-даних---
 
+  const [isUpdated, setIsUpdated] = useState(true);
   const [playerData, setPlayerData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://NY2025/backend/api/getData.php");
-        setPlayerData(response.data);
-      } catch (error) {
-        console.error("There was an error!", error);
-      }
-    };
+    if (isUpdated) {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get("http://NY2025/backend/api/getData.php");
+          setPlayerData(response.data);
+        } catch (error) {
+          console.error("There was an error!", error);
+        }
+      };
 
-    fetchData(); // Initial fetch
+      fetchData();
+      setIsUpdated(false);
 
-    const interval = setInterval(fetchData, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+    }
+  }, [isUpdated]);
   
   //---Бургер-меню---
 
@@ -117,7 +118,7 @@ export function Home() {
     <HomeLayout
       navBar={
         <NavBar
-        playerData={playerData}
+          playerData={playerData}
           isMenu={isMenu}
           setActiveStorage={setModalStorageActive}
           setActiveExchange={setModalExchangeActive}
@@ -139,6 +140,7 @@ export function Home() {
       {modalOpenCaseAnimation.isOpen && (
         <Modal active={modalOpenCaseAnimation}>
           <ModalOpenCaseAnimation
+            setIsUpdated={setIsUpdated}
             active={modalOpenCaseAnimation}
             setActive={setModalOpenCaseAnimation}
           />

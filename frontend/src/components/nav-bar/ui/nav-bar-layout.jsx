@@ -1,4 +1,5 @@
 export function NavBarLayout({
+  setIsUpdated,
   exchangeBlock,
   storageBlock,
   nameBlock,
