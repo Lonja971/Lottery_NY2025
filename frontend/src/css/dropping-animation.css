@@ -89,30 +89,38 @@
 }
 @media (max-width: 630px) {
   .opening__container.anima3 .obj1 {
-    animation-name: media330-drop_anima_3-1;
+    animation-name: media630-drop_anima_3-1;
   }
   .opening__container.anima3 .obj2 {
     animation-name: media630-drop_anima_3-2;
     animation-delay: 1.5s;
   }
   .opening__container.anima3 .obj3 {
-    animation-name: media630-drop_anima_3-3;
+    animation-name: media330-drop_anima_3-3;
     animation-delay: 1.8s;
   }
 }
-@keyframes media630-drop_anima_3-2 {
+@keyframes media630-drop_anima_3-1 {
   100% {
-    bottom: 55%;
+    bottom: 80%;
     transform: translate(-50%, 50%);
     left: calc(50% - 80px);
     opacity: 1;
   }
 }
-@keyframes media630-drop_anima_3-3 {
+@keyframes media630-drop_anima_3-2 {
   100% {
-    bottom: 55%;
+    bottom: 80%;
     transform: translate(-50%, 50%);
     left: calc(50% + 80px);
+    opacity: 1;
+  }
+}
+@keyframes media330-drop_anima_3-3 {
+  100% {
+    bottom: 58.5%;
+    transform: translate(-50%, 50%);
+    left: 50%;
     opacity: 1;
   }
 }
@@ -141,11 +149,145 @@
     opacity: 1;
   }
 }
-@keyframes media330-drop_anima_3-1 {
+
+/*------------------4-ITEMS-------------------*/
+
+.opening__container.anima4 .obj {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  animation-fill-mode: forwards;
+  animation-delay: 1.1s;
+}
+.opening__container.anima4 .obj1 {
+  animation-name: drop_anima_4-1;
+}
+.opening__container.anima4 .obj2 {
+  animation-name: drop_anima_4-2;
+  animation-delay: 1.5s;
+}
+.opening__container.anima4 .obj3 {
+  animation-name: drop_anima_4-3;
+  animation-delay: 1.8s;
+}
+.opening__container.anima4 .obj4 {
+  animation-name: drop_anima_4-4;
+  animation-delay: 2.1s;
+}
+
+@keyframes drop_anima_4-1 {
+  100% {
+    bottom: 75%;
+    transform: translate(-50%, 50%);
+    left: calc(50% - 300px);
+    opacity: 1;
+  }
+}
+@keyframes drop_anima_4-2 {
+  100% {
+    bottom: 75%;
+    transform: translate(-50%, 50%);
+    left: calc(50% - 100px);
+    opacity: 1;
+  }
+}
+@keyframes drop_anima_4-3 {
+  100% {
+    bottom: 75%;
+    transform: translate(-50%, 50%);
+    left: calc(50% + 100px);
+    opacity: 1;
+  }
+}
+@keyframes drop_anima_4-4 {
+  100% {
+    bottom: 75%;
+    transform: translate(-50%, 50%);
+    left: calc(50% + 300px);
+    opacity: 1;
+  }
+}
+@keyframes media700-drop_anima_4-1 {
   100% {
     bottom: 80%;
     transform: translate(-50%, 50%);
-    left: 50%;
+    left: calc(50% - 70px);
     opacity: 1;
+  }
+}
+@keyframes media700-drop_anima_4-2 {
+  100% {
+    bottom: 80%;
+    transform: translate(-50%, 50%);
+    left: calc(50% + 70px);
+    opacity: 1;
+  }
+}
+@keyframes media700-drop_anima_4-3 {
+  100% {
+    bottom: 58.5%;
+    transform: translate(-50%, 50%);
+    left: calc(50% - 70px);
+    opacity: 1;
+  }
+}
+@keyframes media700-drop_anima_4-4 {
+  100% {
+    bottom: 58.5%;
+    transform: translate(-50%, 50%);
+    left: calc(50% + 70px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1000px) {
+  @keyframes drop_anima_4-1 {
+    100% {
+      bottom: 75%;
+      transform: translate(-50%, 50%);
+      left: calc(50% - 225px);
+      opacity: 1;
+    }
+  }
+  @keyframes drop_anima_4-2 {
+    100% {
+      bottom: 75%;
+      transform: translate(-50%, 50%);
+      left: calc(50% - 75px);
+      opacity: 1;
+    }
+  }
+  @keyframes drop_anima_4-3 {
+    100% {
+      bottom: 75%;
+      transform: translate(-50%, 50%);
+      left: calc(50% + 75px);
+      opacity: 1;
+    }
+  }
+  @keyframes drop_anima_4-4 {
+    100% {
+      bottom: 75%;
+      transform: translate(-50%, 50%);
+      left: calc(50% + 225px);
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .opening__container.anima4 .obj1 {
+    animation-name: media700-drop_anima_4-1;
+  }
+  .opening__container.anima4 .obj2 {
+    animation-name: media700-drop_anima_4-2;
+    animation-delay: 1.5s;
+  }
+  .opening__container.anima4 .obj3 {
+    animation-name: media700-drop_anima_4-3;
+    animation-delay: 1.8s;
+  }
+  .opening__container.anima4 .obj4 {
+    animation-name: media700-drop_anima_4-4;
+    animation-delay: 2.1s;
   }
 }

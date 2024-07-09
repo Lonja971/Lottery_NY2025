@@ -7,7 +7,7 @@ export function ModalOpenCaseAnimation({ active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
 
   const caseResourcesInfo = active.type;
-  const limit = 3;
+  const limit = 4;
 
   useEffect(() => {
     OpeningCasesLogic(limit, caseResourcesInfo, setDroppedItems);

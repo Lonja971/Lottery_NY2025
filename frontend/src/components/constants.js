@@ -56,8 +56,8 @@ export const REGULAR_CASE = [
     default: true,
   },
   { type: "gold", probability: 100, amounts: [50, 100, 150] },
-  { type: "tanks", probability: 90, amounts: [1, 2, 3] },
-  { type: "tank", name: "maus", probability: 90, amounts: [1] },
+  { type: "tanks", probability: 100, amounts: [1, 2, 3] },
+  { type: "tank", name: "maus", probability: 100, amounts: [1] },
   { type: "tank", name: "obj_490_squirrel", probability: 90, amounts: [1] },
 ];
 

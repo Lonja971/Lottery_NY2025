@@ -95,7 +95,7 @@ export function Home() {
 
   useEffect(() => {
     axios
-      .get("http://ny2025/backend/api/getData.php")
+      .get("http://NY2025/backend/api/getData.php")
       .then((response) => {
         setPlayer(response.data[0]);
       })
