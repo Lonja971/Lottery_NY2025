@@ -76,15 +76,19 @@ export function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const addMessage = (value, resource) => {
+  const addMessage = (type, valueType, value, resource = "", convertedType = "", convertedValue = "", convertedItem = "") => {
     const messageObject = {
+      type: type,
+      valueType: valueType,
       value: value,
       resource: resource,
-      id: Date.now(),
+      convertedType: convertedType,
+      convertedValue: convertedValue,
+      convertedItem: convertedItem,
       seconds: 10,
     };
-
-    setMessages([...messages, messageObject]);
+  
+    setMessages(prevMessages => [...prevMessages, messageObject]);
   };
 
   //---Відстежувати-відкриття-модального-вікна-Складу---
@@ -96,12 +100,16 @@ export function Home() {
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
 
   //---Відстежувати-відкриття-модального-вікна-анімації-випадіння---
-
+  
   const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState({
     isOpen: false,
     type: null,
     caseName: null,
+    //openValue: null,
+    //openResource: null,
   });
+  
+  //---Забороняємо-скролл-якщо-відкрите-модальне-вікно---
 
   if (
     modalStorageActive === true ||
@@ -124,7 +132,6 @@ export function Home() {
           setActiveExchange={setModalExchangeActive}
         />
       }
-      playerData={playerData}
     >
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
@@ -140,6 +147,7 @@ export function Home() {
       {modalOpenCaseAnimation.isOpen && (
         <Modal active={modalOpenCaseAnimation}>
           <ModalOpenCaseAnimation
+            addMessage={addMessage}
             setIsUpdated={setIsUpdated}
             active={modalOpenCaseAnimation}
             setActive={setModalOpenCaseAnimation}
@@ -154,6 +162,7 @@ export function Home() {
       />
       <Header />
       <Lottery
+        playerData={playerData}
         addMessage={addMessage}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
       />
@@ -162,13 +171,12 @@ export function Home() {
   );
 }
 
-function HomeLayout({ userData, navBar, children }) {
+function HomeLayout({ navBar, children }) {
   return (
     <>
       <div className="wrapper">
         {navBar}
         <div className="content">
-          <div>{userData}</div>
           {children}
         </div>
       </div>

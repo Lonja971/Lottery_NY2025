@@ -14,17 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($data !== null) {
-    $userId = 1;
+    $userId = 6;
     $updateFields = [];
     $insertUserTanks = [];
     $existingTanks = [];
+    $goldToAdd = 0;
+    $convertedItems = [];
+    $newDroppedTanks = [];
 
     foreach ($data['droppedItems'] as $item) {
         if ($item['type'] !== 'tank') {
             $type = $item['type'];
             $amount = $item['amount'];
             $updateFields[] = "$type = $type + $amount";
-         } else {
+        } else {
             $tankId = $item['tankInfo']['id'];
 
             $checkQuery = "SELECT id FROM user_tanks WHERE user_id = ? AND tank_id = ?";
@@ -34,14 +37,35 @@ if ($data !== null) {
             $resultCheck = $stmtCheck->get_result();
             if ($resultCheck->num_rows > 0) {
                 $existingTanks[] = $item['tankInfo']['name'] . ' (' . $item['tankInfo']['transcription'] . ')';
+
+                // Отримання conversion_value з таблиці tanks
+                $conversionQuery = "SELECT conversion_value FROM tanks WHERE id = ?";
+                $stmtConversion = $conn->prepare($conversionQuery);
+                $stmtConversion->bind_param('i', $tankId);
+                $stmtConversion->execute();
+                $resultConversion = $stmtConversion->get_result();
+                if ($row = $resultConversion->fetch_assoc()) {
+                    $goldToAdd += $row['conversion_value'];
+                    $convertedItems[] = [
+                        'id' => $tankId,
+                        'conversion_value' => $row['conversion_value']
+                    ];
+                }
+                $stmtConversion->close();
             } else {
                 $insertUserTanks[] = "($userId, $tankId)";
+                $newDroppedTanks[] = [
+                    'id' => $tankId,
+                ];
             }
-            $stmtCheck->close(); // Закриваємо підготовлений запит для перевірки
-         }
+            $stmtCheck->close();
+        }
     }
 
-    if (!empty($updateFields)) {
+    if (!empty($updateFields) || $goldToAdd > 0) {
+        if ($goldToAdd > 0) {
+            $updateFields[] = "gold = gold + $goldToAdd";
+        }
         $updateQuery = "UPDATE users SET " . implode(', ', $updateFields) . " WHERE id = ?";
         
         $stmt = $conn->prepare($updateQuery);
@@ -50,15 +74,21 @@ if ($data !== null) {
             if ($stmt->execute()) {
                 $response = [
                     'status' => 'success',
-                    'message' => 'Data updated successfully',
+                    'message' => 'Data updated successfully'
                 ];
+                if (!empty($convertedItems)) {
+                    $response['converted_items'] = $convertedItems;
+                }
+                if (!empty($newDroppedTanks)) {
+                    $response['new_dropped_tanks'] = $newDroppedTanks;
+                }
             } else {
                 $response = [
                     'status' => 'error',
                     'message' => 'Failed to execute user update query: ' . $stmt->error,
                 ];
             }
-            $stmt->close(); // Закриваємо підготовлений запит для оновлення користувача
+            $stmt->close();
         } else {
             $response = [
                 'status' => 'error',
@@ -87,7 +117,7 @@ if ($data !== null) {
     }
 
     if (!empty($existingTanks)) {
-        $response['status'] = 'warning';
+        $response['status'] = $response['status'] === 'success' ? 'success' : 'warning';
         $response['message'] .= ', Tanks already assigned: ' . implode(', ', $existingTanks);
     }
 
@@ -97,4 +127,5 @@ if ($data !== null) {
 }
 
 echo json_encode($response);
+
 ?>

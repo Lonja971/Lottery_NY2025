@@ -52,6 +52,11 @@ nav.active {
   display: flex;
   align-items: center;
 }
+/*.nav__menu-item, .nav__menu-item a{
+  font-weight: 900;
+  -webkit-text-stroke: 1px #1a2130;
+}*/
+
 .nav__menu-item a:hover {
   color: var(--green);
 }

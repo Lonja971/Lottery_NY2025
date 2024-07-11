@@ -1,7 +1,7 @@
 <?php
 include '../db/connect.php';
 
-$userId = 1;
+$userId = 6;
 
 $sql = "SELECT u.*, ut.tank_id
         FROM users u
@@ -24,12 +24,26 @@ if ($result->num_rows > 0) {
                 'tanks' => $row['tanks'],
                 'premium_akk' => $row['premium_akk'],
                 'drawings' => $row['drawings'],
+                'regular_cases' => $row['regular_cases'],
+                'special_cases' => $row['special_cases'],
+                'rare_cases' => $row['rare_cases'],
+                'mythical_cases' => $row['mythical_cases'],
+                'legendary_cases' => $row['legendary_cases'],
             );
         }
         if (!is_null($row['tank_id'])) {
             $userTanks[] = $row['tank_id'];
         }
     }
+    
+    usort($userTanks, function($a, $b) {
+        global $conn;
+        $tankA = getTankDetails($a, $conn);
+        $tankB = getTankDetails($b, $conn);
+        
+        return strcmp($tankA['land'], $tankB['land']);
+    });
+    
     $user['userTanks'] = $userTanks;
     echo json_encode($user);
 } else {
@@ -37,4 +51,14 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
+
+function getTankDetails($tankId, $conn) {
+    $sql = "SELECT * FROM tanks WHERE id = $tankId";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return array();
+    }
+}
 ?>

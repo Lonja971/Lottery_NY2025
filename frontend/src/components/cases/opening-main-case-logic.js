@@ -15,19 +15,19 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
     const randomValue = Math.floor(Math.random() * 100) + 1;
 
     if (randomValue <= 40) {
-      droppedCaseInfo = "regular_case";
+      droppedCaseInfo = "regular_cases";
       console.log('Звичайний кейс');
     } else if (randomValue <= 72) {
-      droppedCaseInfo = "special_case";
+      droppedCaseInfo = "special_cases";
       console.log('Особовий кейс');
     } else if (randomValue <= 90) {
-      droppedCaseInfo = "rare_case";
+      droppedCaseInfo = "rare_cases";
       console.log('Рідкий кейс');
     } else if (randomValue <= 97) {
-      droppedCaseInfo = "mythical_case";
+      droppedCaseInfo = "mythical_cases";
       console.log('Міфічний кейс');
     } else {
-      droppedCaseInfo = "legendary_case";
+      droppedCaseInfo = "legendary_cases";
       console.log('Легендарний кейс');
     }
 
@@ -65,10 +65,10 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
     .then(response => {
       if (response.data.status === 'success') {
         console.log('Data assigned successfully');
-        handleSetIsUpdated();
       } else {
         console.log(response.data.message);
       }
+      handleSetIsUpdated();
     })
     .catch(error => {
       console.error('There was an error!', error);

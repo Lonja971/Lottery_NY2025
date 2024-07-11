@@ -4,22 +4,39 @@ import { OpeningMainCaseLogic } from "../opening-main-case-logic";
 import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
 
-export function ModalOpenCaseAnimation({ setIsUpdated, active, setActive }) {
+export function ModalOpenCaseAnimation({ addMessage, setIsUpdated, active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [compensatedItems, setCompensatedItems] = useState(null);
+  const [newDroppedTanks, setNewDroppedTanks] = useState(null);
 
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
+  };
+
+  const handleClick = () => {
+    if (compensatedItems && compensatedItems.length > 0) {
+      console.log(compensatedItems);
+      compensatedItems.forEach(item => {
+        addMessage("converted", "resource", item.conversion_value, "gold", "tank", null, item.id);
+      });
+    }
+    if(newDroppedTanks && newDroppedTanks.length > 0){
+      newDroppedTanks.forEach(item => {
+        addMessage("added", "tank", null, item.id);
+      });
+    }
+    setActive({ isOpen: false, type: null, caseName: null, openValue: null, openResource: null});
   };
 
   const caseResourcesInfo = active.type;
   const limit = 4;
 
   useEffect(() => {
-    if(active.caseName === 'main_case'){
+    if(active.caseName === 'main_cases'){
       OpeningMainCaseLogic( setIsUpdated, setDroppedItems);
     }else{
-      OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDroppedItems);
+      OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks);
     }
   }, []);
 
@@ -27,7 +44,7 @@ export function ModalOpenCaseAnimation({ setIsUpdated, active, setActive }) {
     <>
       <button
         className="btn _glass anima-btn"
-        onClick={() => setActive({ isOpen: false, type: null })}
+        onClick={handleClick}
       >
         Забрати
         <div className="line line-top"></div>
@@ -93,7 +110,7 @@ export function ModalOpenCaseAnimation({ setIsUpdated, active, setActive }) {
                       ) : item.type === "tank" ? (
                         <>
                           <img
-                            src={`img/flags/${item.tankInfo.land}-big.png`}
+                            src={`img/flags/${item.tankInfo.land}_big.png`}
                             alt="tank-img"
                           />
                           <img

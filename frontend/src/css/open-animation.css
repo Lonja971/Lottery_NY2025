@@ -139,7 +139,7 @@
 
 .obj__img.ua {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/UkraineTank160.jpg");
+    url("../../public/img/flags/ua.png");
 }
 .obj__img.usa {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
@@ -151,27 +151,31 @@
 }
 .obj__img.ge {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/germany.png");
+    url("../../public/img/flags/ge.png");
 }
 .obj__img.br {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/britaine.png");
+    url("../../public/img/flags/br.png");
 }
 .obj__img.fr {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/france.png");
+    url("../../public/img/flags/fr.png");
 }
 .obj__img.sw {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/sweden.png");
+    url("../../public/img/flags/sw.png");
 }
 .obj__img.ch {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/china.png");
+    url("../../public/img/flags/ch.png");
 }
-.obj__img.ja {
+.obj__img.jp {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
-    url("../../public/img/flags/japan.png");
+    url("../../public/img/flags/jp.png");
+}
+.obj__img.it {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),
+    url("../../public/img/flags/it.png");
 }
 .obj__img.default {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #414141 80%),

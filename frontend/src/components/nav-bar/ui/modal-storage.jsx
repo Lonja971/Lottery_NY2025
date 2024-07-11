@@ -15,18 +15,41 @@ export function ModalStorage({ setActive, playerData }) {
       </div>
       {playerData && (
         <ModalStorageLayout
-          goldItem={<ItemBlock resource="gold" value={playerData.gold} />}
-          silverItem={<ItemBlock resource="silver" value={playerData.silver} />}
-          tokensItem={<ItemBlock resource="tokens" value={playerData.tokens} />}
+          goldItem={
+            <ItemBlock resource="gold" value={playerData.gold} />
+          }
+          silverItem={
+            <ItemBlock resource="silver" value={playerData.silver} />
+          }
+          tokensItem={
+            <ItemBlock resource="tokens" value={playerData.tokens} />
+          }
           redTokensItem={
             <ItemBlock resource="red_tokens" value={playerData.red_tokens} />
           }
-          tanksItem={<ItemBlock resource="tanks" value={playerData.tanks} />}
+          tanksItem={
+            <ItemBlock resource="tanks" value={playerData.tanks} />
+          }
           premiumAkkItem={
             <ItemBlock resource="premium_akk" value={playerData.premium_akk} />
           }
           drawingsItem={
             <ItemBlock resource="drawings" value={playerData.drawings} />
+          }
+          regularCasesItem={
+            <ItemBlock resource="regular_case" value={playerData.regular_cases} />
+          }
+          specialCasesItem={
+            <ItemBlock resource="special_case" value={playerData.special_cases} />
+          }
+          rareCasesItem={
+            <ItemBlock resource="rare_case" value={playerData.rare_cases} />
+          }
+          mythicalCasesItem={
+            <ItemBlock resource="mythical_case" value={playerData.mythical_cases} />
+          }
+          legendaryCasesItem={
+            <ItemBlock resource="legendary_case" value={playerData.legendary_cases} />
           }
           userTanksItem={<ModalStorageTanks userTanks={userTanks} />}
         >
@@ -46,6 +69,11 @@ function ModalStorageLayout({
   tanksItem,
   premiumAkkItem,
   drawingsItem,
+  regularCasesItem,
+  specialCasesItem,
+  rareCasesItem,
+  mythicalCasesItem,
+  legendaryCasesItem,
   userTanksItem,
 }) {
   return (
@@ -62,6 +90,11 @@ function ModalStorageLayout({
           {tanksItem}
           {premiumAkkItem}
           {drawingsItem}
+          {regularCasesItem}
+          {specialCasesItem}
+          {rareCasesItem}
+          {mythicalCasesItem}
+          {legendaryCasesItem}
         </div>
         <div className="storage__resources-block">
           {userTanksItem}

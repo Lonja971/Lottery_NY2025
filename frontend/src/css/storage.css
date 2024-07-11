@@ -19,7 +19,7 @@
   position: relative;
   z-index: 2;
   color: var(--color1);
-  padding: 5px 8px;
+  padding: 25px 30px;
   filter: drop-shadow(0px 0px 15px var(--color1));
 
   /*filter: drop-shadow(0px 0px 5px var(--color1));
@@ -142,7 +142,7 @@
 
 .tank__img-block.ua {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/UkraineTank160.jpg");
+    url("../../public/img/flags/ua.png");
 }
 .tank__img-block.usa {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
@@ -154,27 +154,35 @@
 }
 .tank__img-block.ge {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/germany.png");
+    url("../../public/img/flags/ge.png");
 }
 .tank__img-block.br {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/britaine.png");
+    url("../../public/img/flags/br.png");
 }
 .tank__img-block.fr {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/france.png");
+    url("../../public/img/flags/fr.png");
 }
 .tank__img-block.sw {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/sweden.png");
+    url("../../public/img/flags/sw.png");
 }
 .tank__img-block.ch {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/china.png");
+    url("../../public/img/flags/ch.png");
 }
-.tank__img-block.ja {
+.tank__img-block.jp {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/japan.png");
+    url("../../public/img/flags/jp.png");
+}
+.tank__img-block.it {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
+    url("../../public/img/flags/it.png");
+}
+.tank__img-block.inter {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
+    url("../../public/img/flags/inter.png");
 }
 .tank__img-block.default {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),

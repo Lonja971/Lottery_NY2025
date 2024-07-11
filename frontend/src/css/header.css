@@ -13,40 +13,39 @@
 }
 .header-bg{
   position: absolute;
-  background: url("../../public/img/background/bg_header.jpg") 0 50%/100% auto no-repeat;
+  background: url("../../public/img/background/bg_header_v2.jpg") 0 0/100% auto no-repeat;
   box-shadow: -1px -12px 25px 1px rgba(0, 0, 0, 0.808) inset;
   width: 100vw;
   height: 100%;
   top: 0px;
-  right: 0;
-  padding-right: 250px;
+  right: 0px;
 }
 @media (max-width: 1023px) {
 	.header-bg {
-		background: url("../../public/img/background/bg_header.jpg") 0 0/100% auto no-repeat;
+		background: url("../../public/img/background/bg_header_v2.jpg") 0 0/100% auto no-repeat;
 		width: 100vw;
 		height: 400px;
 	}
 }
 @media (max-width: 725px) {
 	.header-bg {
-		background: url("../../public/img/background/bg_header.jpg") 0 0/100% auto no-repeat;
+		background: url("../../public/img/background/bg_header_v2.jpg") 0 0/100% auto no-repeat;
 		width: 100vw;
 		height: 300px;
 	}
 }
 @media (max-width: 600px) {
 	.header-bg {
-		background: url("../../public/img/background/bg_header.jpg") 0 0/100% auto no-repeat;
+		background: url("../../public/img/background/bg_header_v2.jpg") 0 0/100% auto no-repeat;
 		width: 100vw;
 		height: 250px;
 	}
 }
 @media (max-width: 517px) {
 	.header-bg {
-		background: url("../../public/img/background/bg_header.jpg") 0 0/100% auto no-repeat;
+		background: url("../../public/img/background/bg_header_v2.jpg") 0 0/100% auto no-repeat;
 		width: 100vw;
-		height: 200px;
+		height: 250px;
 	}
 }
 @media (max-width: 375px) {
@@ -58,4 +57,5 @@
 .header__content{
   position: relative;
   z-index: 1;
+  line-height: 110%;
 }
