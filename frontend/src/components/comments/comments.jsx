@@ -9,14 +9,21 @@ export function Comments({ isComments, setIsComments, messages }) {
     <div className="comments">
       <div id="commentsBlock" className="comments__block">
       {messages.map((message, index) => {
-        if (message.type === "not_enough") {
+        if (message.type === "not_enough_v2") {
+
+          return (
+            <div key={message.id || index}>
+              У вас недостатньо ресурсів!
+            </div>
+          );
+        }else if (message.type === "not_enough") {
         
           return (
             <div key={message.id || index}>
               У вас немає {message.value} {RESOURCES[message.resource]} <img src={"img/resources/" + message.resource + ".png"} alt="RES_IMG" />
             </div>
           );
-        }if (message.type === "added") {
+        }else if (message.type === "added") {
           let tankName = null;
         
           if (message.valueType === "tank" && TANKS[message.resource]) {

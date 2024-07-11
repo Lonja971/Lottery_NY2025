@@ -37,19 +37,19 @@ export function ModalStorage({ setActive, playerData }) {
             <ItemBlock resource="drawings" value={playerData.drawings} />
           }
           regularCasesItem={
-            <ItemBlock resource="regular_case" value={playerData.regular_cases} />
+            <ItemBlock resource="regular_cases" value={playerData.regular_cases} />
           }
           specialCasesItem={
-            <ItemBlock resource="special_case" value={playerData.special_cases} />
+            <ItemBlock resource="special_cases" value={playerData.special_cases} />
           }
           rareCasesItem={
-            <ItemBlock resource="rare_case" value={playerData.rare_cases} />
+            <ItemBlock resource="rare_cases" value={playerData.rare_cases} />
           }
           mythicalCasesItem={
-            <ItemBlock resource="mythical_case" value={playerData.mythical_cases} />
+            <ItemBlock resource="mythical_cases" value={playerData.mythical_cases} />
           }
           legendaryCasesItem={
-            <ItemBlock resource="legendary_case" value={playerData.legendary_cases} />
+            <ItemBlock resource="legendary_cases" value={playerData.legendary_cases} />
           }
           userTanksItem={<ModalStorageTanks userTanks={userTanks} />}
         >

@@ -10,7 +10,7 @@ import { Modal } from "./components/uikit/modal";
 import { BurgerMenuBtn } from "./components/uikit/burger-menu-btn";
 import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
-import { ModalOpenCaseAnimation } from "./components/cases/ui/modal-open-case-animation";
+import { CheckCases } from "./components/cases/check-cases";
 
 export function Home() {
 
@@ -106,7 +106,7 @@ export function Home() {
     type: null,
     caseName: null,
     //openValue: null,
-    //openResource: null,
+    openResource: null,
   });
   
   //---Забороняємо-скролл-якщо-відкрите-модальне-вікно---
@@ -114,7 +114,6 @@ export function Home() {
   if (
     modalStorageActive === true ||
     modalExchangeActive === true ||
-    modalOpenCaseAnimation.isOpen === true ||
     isMenu === true
   ) {
     document.body.classList.add("lock");
@@ -145,14 +144,12 @@ export function Home() {
         </Modal>
       )}
       {modalOpenCaseAnimation.isOpen && (
-        <Modal active={modalOpenCaseAnimation}>
-          <ModalOpenCaseAnimation
-            addMessage={addMessage}
-            setIsUpdated={setIsUpdated}
-            active={modalOpenCaseAnimation}
-            setActive={setModalOpenCaseAnimation}
+        <CheckCases
+          addMessage={addMessage}
+          setIsUpdated={setIsUpdated}
+          active={modalOpenCaseAnimation}
+          setActive={setModalOpenCaseAnimation}
           />
-        </Modal>
       )}
 
       <Comments

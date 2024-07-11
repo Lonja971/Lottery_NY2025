@@ -301,7 +301,7 @@ export const TANKS = {
 export const CASES = {
   main_cases: {
     name: "Main Кейс",
-    transcription: "main_case"
+    transcription: "main_case",
   },
   regular_cases: {
     name: "Звичайний Кейс",
@@ -365,7 +365,7 @@ export const MYTHICAL_CASE = [
 export const LEGENDARY_CASE = [
   { type: "drawings", probability: 25, amounts: [2], default: true, dafaultAmount: 2, },
   { type: "gold", probability: 25, amounts: [2000] },
-  { type: "tank", id: "16", probability: 25, amounts: [1] },
+  { type: "tank", id: "21", probability: 25, amounts: [1] },
   { type: "tank", id: "2", probability: 25, amounts: [1] },
   { type: "red_tokens", probability: 25, amounts: [2, 6] },
 ];
