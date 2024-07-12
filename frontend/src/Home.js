@@ -17,6 +17,11 @@ export function Home() {
 
   //---Отримання-даних-гравця-з-бази-даних---
 
+  function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : null;
+  }
+
   const [isUpdated, setIsUpdated] = useState(true);
   const [playerData, setPlayerData] = useState(null);
   const navigate = useNavigate();
@@ -25,20 +30,23 @@ export function Home() {
     if (isUpdated) {
       const fetchData = async () => {
         try {
-          const response = await axios.get("http://NY2025/backend/api/getData.php");
+          const token = getCookie('t'); 
+          if (!token) {
+            navigate('/login');
+            return;
+          }
+  
+          const response = await axios.get(`http://NY2025/backend/api/getData.php?token=${token}`);
           setPlayerData(response.data);
         } catch (error) {
           console.error("There was an error!", error);
         }
       };
-
+  
       fetchData();
       setIsUpdated(false);
-
     }
-  }, [isUpdated]);
-
-  console.log(playerData);
+  }, [isUpdated, navigate]);
   
   //---Бургер-меню---
 
@@ -149,6 +157,7 @@ export function Home() {
       )}
       {modalOpenCaseAnimation.isOpen && (
         <CheckCases
+          playerId={playerData.id}
           addMessage={addMessage}
           setIsUpdated={setIsUpdated}
           active={modalOpenCaseAnimation}

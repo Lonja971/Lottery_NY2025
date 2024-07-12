@@ -82,7 +82,7 @@ function ModalStorageLayout({
         <div className="storage__user-block">
           <img className="storage__user-vignette" src="img/background/vignette.png" alt="VIGNETTE_IMG" />
           <div className="storage__user-nickname">
-            <h1 className="_glass">Відкривачкін</h1>
+            <h1 className="_glass">{children}</h1>
           </div>
         </div>
       </div>

@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-if ($data !== null && isset($data['case_name'], $data['case_open_resource'])) {
-    $userId = 6;
+if ($data !== null && isset($data['playerId'], $data['case_name'], $data['case_open_resource'])) {
+    $userId = $data['playerId'];
     $caseName = $data['case_name'];
     $caseOpenResource = $data['case_open_resource'];
 

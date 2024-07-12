@@ -1,12 +1,12 @@
 import axios from "axios";
 import { CASES, MAIN_CASE, RESOURCES } from "../constants";
 
-export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
-
+export function OpeningMainCaseLogic( playerId, setIsUpdated, setDroppedItems ) {
+  
   const handleSetIsUpdated = () => {
     setIsUpdated(true);
   }
-
+  
   function openCase(MAIN_CASE) {
     let droppedItems = [];
     let droppedCaseInfo;
@@ -54,13 +54,14 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
     });
 
     axios.post('http://NY2025/backend/api/assignData.php', {
+      playerId: playerId,
       droppedItems: droppedItems,
     })
     .then(response => {
       if (response.data.status === 'success') {
         //console.log('Data assigned successfully');
       } else {
-        console.log(response.data.message);
+        //console.log(response.data.message);
       }
       handleSetIsUpdated();
     })

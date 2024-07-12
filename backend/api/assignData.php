@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($data !== null) {
-    $userId = 6;
+    $userId = $data['playerId'];
     $updateFields = [];
     $insertUserTanks = [];
     $existingTanks = [];

@@ -4,7 +4,7 @@ import { OpeningMainCaseLogic } from "../opening-main-case-logic";
 import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
 
-export function ModalOpenCaseAnimation({ addMessage, setIsUpdated, active, setActive }) {
+export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [compensatedItems, setCompensatedItems] = useState(null);
@@ -34,9 +34,9 @@ export function ModalOpenCaseAnimation({ addMessage, setIsUpdated, active, setAc
 
   useEffect(() => {
     if(active.caseName === 'main_cases'){
-      OpeningMainCaseLogic( setIsUpdated, setDroppedItems);
+      OpeningMainCaseLogic( playerId, setIsUpdated, setDroppedItems);
     }else{
-      OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks);
+      OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks);
     }
   }, []);
 

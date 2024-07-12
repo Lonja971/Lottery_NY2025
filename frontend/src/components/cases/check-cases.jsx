@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import { ModalOpenCaseAnimation } from "./ui/modal-open-case-animation";
 import { Modal } from "../uikit/modal";
 
-export function CheckCases({ active, addMessage, setIsUpdated, setActive }) {
+export function CheckCases({ playerId, active, addMessage, setIsUpdated, setActive }) {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
   const [hasChecked, setHasChecked] = useState(false);
 
   useEffect(() => {
     if (!hasChecked) {
       axios.post('http://NY2025/backend/api/subtractData.php', {
+        playerId: playerId,
         case_name: active.caseName,
         case_open_resource: active.openResource,
       })
@@ -38,6 +39,7 @@ export function CheckCases({ active, addMessage, setIsUpdated, setActive }) {
       {isPaymentSuccessful && (
         <Modal active={true}>
           <ModalOpenCaseAnimation
+            playerId={playerId}
             addMessage={addMessage}
             setIsUpdated={setIsUpdated}
             active={active}

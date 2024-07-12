@@ -1,7 +1,7 @@
 import axios from "axios";
 import { RESOURCES, TANKS } from "../constants";
 
-export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks) {
+export function OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks) {
 
   const handleSetIsUpdated = () => {
     setIsUpdated(true);
@@ -99,6 +99,7 @@ export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDr
     }
 
     axios.post('http://NY2025/backend/api/assignData.php', {
+      playerId: playerId,
       droppedItems: droppedItems,
     })
     .then(response => {
