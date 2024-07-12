@@ -16,19 +16,14 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
 
     if (randomValue <= 40) {
       droppedCaseInfo = "regular_cases";
-      console.log('Звичайний кейс');
     } else if (randomValue <= 72) {
       droppedCaseInfo = "special_cases";
-      console.log('Особовий кейс');
     } else if (randomValue <= 90) {
       droppedCaseInfo = "rare_cases";
-      console.log('Рідкий кейс');
     } else if (randomValue <= 97) {
       droppedCaseInfo = "mythical_cases";
-      console.log('Міфічний кейс');
     } else {
       droppedCaseInfo = "legendary_cases";
-      console.log('Легендарний кейс');
     }
 
     droppedCase = { type: droppedCaseInfo, case: true, name: CASES[droppedCaseInfo].name, amount: 1 };
@@ -36,9 +31,9 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
 
     MAIN_CASE.forEach((item) => {
       var randomValue = Math.floor(Math.random() * 100) + 1;
-      console.log(
-        "( " + randomValue + "% для item " + (item.name || item.type) + " )",
-      );
+      //console.log(
+      //  "( " + randomValue + "% для item " + (item.name || item.type) + " )",
+      //);
 
       if (randomValue <= item.probability) {
         let amount;
@@ -53,7 +48,6 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
         const { amounts, ...itemWithoutAmounts } = item;
         let name = item.name || (item.type ? RESOURCES[item.type] : "");
         let tankInfo = null;
-        let id = item.id;
 
         droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
       }
@@ -64,7 +58,7 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
     })
     .then(response => {
       if (response.data.status === 'success') {
-        console.log('Data assigned successfully');
+        //console.log('Data assigned successfully');
       } else {
         console.log(response.data.message);
       }
@@ -78,6 +72,6 @@ export function OpeningMainCaseLogic( setIsUpdated, setDroppedItems ) {
   }
 
   const result = openCase(MAIN_CASE);
-  console.log("Випали ресурси:", result);
+  //console.log("Випали ресурси:", result);
   setDroppedItems(result);
 }

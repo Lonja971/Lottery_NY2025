@@ -1,27 +1,17 @@
-import React, { useEffect, useState } from "react";
-import "./css/register.css";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
-export function Register() {
-  const navigate = useNavigate();
+export function Login() {
+  const location = useLocation();
+  const message = location.state?.message || "";
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    confirmPassword: "",
   });
   const [isMistake, setIsMistake] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    if (isMistake) {
-      const timer = setTimeout(() => {
-        setIsMistake(false);
-      }, 8000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isMistake]);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,28 +24,37 @@ export function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://NY2025/backend/api/register.php', {
-      userInfo: JSON.stringify(formData),
-    })
-    .then(response => {
-      if (response.data.status === 'success') {
-        navigate('/login', { state: { message: "Тепер ви можете увійти в свій аккаунт тут." } });
-      } else {
-        setErrorMessage(response.data.message);
+    axios
+      .post("http://NY2025/backend/api/login.php", {
+        userInfo: formData,
+      })
+      .then((response) => {
+        console.log("Response:", response.data);
+
+        if (response.data.status === "success") {
+          console.log("Login successful");
+
+          // Збереження токену у куці у браузері клієнта
+          const token = response.data.token;
+          document.cookie = `t=${token}; expires=${new Date(Date.now() + 30 * 24 * 3600 * 1000).toUTCString()}; path=/`;
+
+          // Перенаправлення на головну сторінку
+          navigate("/");
+        } else {
+          console.log("Login error:", response.data.message);
+          setIsMistake(true);
+        }
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
         setIsMistake(true);
-      }
-    })
-    .catch(error => {
-      setErrorMessage('There was an error!');
-      setIsMistake(true);
-      console.error('There was an error!', error);
-    });
+      });
   };
 
   return (
     <>
       <div className="register">
-        <div className={`register__container _glass ${ isMistake ? "mistake" : "" }`}>
+        <div className={`register__container _glass ${isMistake ? "mistake" : ""}`}>
           <form onSubmit={handleSubmit}>
             <div>
               <label>
@@ -83,22 +82,9 @@ export function Register() {
                 />
               </label>
             </div>
-            <div>
-              <label>
-                <h3>Підтвердіть пароль:</h3>
-                <input
-                  className="center"
-                  type="password"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            </div>
             <div className="center">
               <button className="btn _glass">
-                <p>Зареєструватися</p>
+                <p>Увійти</p>
                 <div className="line line-top"></div>
                 <div className="line line-right"></div>
                 <div className="line line-bottom"></div>
@@ -110,10 +96,16 @@ export function Register() {
       </div>
       <div className="comments">
         <div className="comments__block">
-          { isMistake ? <div className="error">{errorMessage}</div> : "" }
+          {isMistake ? (
+            <div className="error">
+              Помилка входу! Перевірте своє ім'я або пароль!
+            </div>
+          ) : (
+            ""
+          )}
+          {message ? <div>{message}</div> : ""}
         </div>
-        <div className="comments__panel">
-        </div>
+        <div className="comments__panel"></div>
       </div>
     </>
   );

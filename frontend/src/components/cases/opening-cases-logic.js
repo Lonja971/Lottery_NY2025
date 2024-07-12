@@ -8,14 +8,14 @@ export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDr
   }
 
   function openCase(caseResourcesInfo) {
-    console.log("");
+    //console.log("");
     let droppedItems = [];
 
     caseResourcesInfo.forEach((item) => {
       var randomValue = Math.floor(Math.random() * 100) + 1;
-      console.log(
-        "( " + randomValue + "% для item " + (item.name || item.type) + " )",
-      );
+      //console.log(
+      //  "( " + randomValue + "% для item " + (item.name || item.type) + " )",
+      //);
 
       if (randomValue <= item.probability) {
         let amount;
@@ -41,7 +41,7 @@ export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDr
     });
 
     if (droppedItems.length === 0) {
-      console.log("--за дефолтом");
+      //console.log("--за дефолтом");
       const defaultItem = caseResourcesInfo.find(
         (item) => item.default === true,
       );
@@ -91,7 +91,7 @@ export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDr
         droppedItems.push({ ...itemWithoutAmounts, name, amount: 1, tankInfo });
       }
     } else if (droppedItems.length > limit) {
-      console.log("--обмеження до " + limit + " елементів");
+      //console.log("--обмеження до " + limit + " елементів");
       while (droppedItems.length > limit) {
         let resourceNum = Math.floor(Math.random() * droppedItems.length);
         droppedItems.splice(resourceNum, 1);
@@ -103,7 +103,7 @@ export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDr
     })
     .then(response => {
       if (response.data.status === 'success') {
-        console.log('Data assigned successfully');
+        //console.log('Data assigned successfully');
     
         // Check for new_dropped_tanks
         if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
@@ -128,6 +128,6 @@ export function OpeningCasesLogic( setIsUpdated, limit, caseResourcesInfo, setDr
   }
 
   const result = openCase(caseResourcesInfo);
-  console.log("Випали ресурси:", result);
+  //console.log("Випали ресурси:", result);
   setDroppedItems(result);
 }

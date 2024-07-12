@@ -51,3 +51,7 @@ label {
   flex-direction: column;
   gap: 10px;
 }
+.mistake{
+  border: 2px solid var(--danger);
+  box-shadow: 0px 0px 26px 12px rgba(255, 0, 0, 0.541);
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { Comments } from "./components/comments/comments";
@@ -18,6 +19,7 @@ export function Home() {
 
   const [isUpdated, setIsUpdated] = useState(true);
   const [playerData, setPlayerData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isUpdated) {
@@ -35,6 +37,8 @@ export function Home() {
 
     }
   }, [isUpdated]);
+
+  console.log(playerData);
   
   //---Бургер-меню---
 

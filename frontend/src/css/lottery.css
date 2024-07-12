@@ -41,15 +41,18 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  padding: 3px 5px;
   min-height: 30px;
 }
 .caseblock__main-moreinfo{
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 3px 15px;
   min-height: 30px;
+  background: none;
+  transition: all 0.3s ease 0s;
+}
+.caseblock__main-moreinfo:hover{
+  filter: drop-shadow(0px 0px 15px var(--green));
 }
 .caseblock__info{
   flex: 0 1 50%;

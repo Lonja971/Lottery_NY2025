@@ -15,7 +15,7 @@ export function CheckCases({ active, addMessage, setIsUpdated, setActive }) {
       })
       .then(response => {
         if (response.data.status === 'success') {
-          console.log('Data assigned successfully');
+          //console.log('Data assigned successfully');
           setIsPaymentSuccessful(true);
         } else {
           console.log(response.data.message);

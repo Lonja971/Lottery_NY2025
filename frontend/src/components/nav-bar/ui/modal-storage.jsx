@@ -78,26 +78,44 @@ function ModalStorageLayout({
 }) {
   return (
     <div className="storage">
-      <div className="storage__user">
-        <h1 className="_glass">{children}</h1>
-      </div>
-      <div className="storage__resources">
-        <div className="storage__resources-block">
-          {goldItem}
-          {silverItem}
-          {tokensItem}
-          {redTokensItem}
-          {tanksItem}
-          {premiumAkkItem}
-          {drawingsItem}
-          {regularCasesItem}
-          {specialCasesItem}
-          {rareCasesItem}
-          {mythicalCasesItem}
-          {legendaryCasesItem}
+      <div className="_glass storage__user">
+        <div className="storage__user-block">
+          <img className="storage__user-vignette" src="img/background/vignette.png" alt="VIGNETTE_IMG" />
+          <div className="storage__user-nickname">
+            <h1 className="_glass">Відкривачкін</h1>
+          </div>
         </div>
-        <div className="storage__resources-block">
-          {userTanksItem}
+      </div>
+      <div className="storage__container _container">
+        <div className="storage__resources">
+          <div className="storage__resources-block">
+            <h2>Ресурси:</h2>
+            <div>
+              {goldItem}
+              {silverItem}
+              {tokensItem}
+              {redTokensItem}
+              {tanksItem}
+              {premiumAkkItem}
+              {drawingsItem}
+            </div>
+          </div>
+          <div className="storage__resources-block">
+            <h2>Кейси:</h2>
+            <div>
+              {regularCasesItem}
+              {specialCasesItem}
+              {rareCasesItem}
+              {mythicalCasesItem}
+              {legendaryCasesItem}
+            </div>
+          </div>
+          <div className="storage__resources-block">
+            <h2>Танки:</h2>
+            <div>
+              {userTanksItem}
+            </div>
+          </div>
         </div>
       </div>
     </div>

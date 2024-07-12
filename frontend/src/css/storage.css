@@ -1,9 +1,16 @@
 .storage {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  backdrop-filter: blur(20px);
 }
-.storage__user {
+/*.storage__user {
   margin-top: 5px;
   height: 450px;
   background: url("../../public/img/background/vignette.png") 50% / auto 100%
@@ -12,57 +19,69 @@
   display: flex;
   justify-content: center;
   align-items: end;
+}*/
+.storage__user {
+  position: sticky;
+  top: 0;
+  right: 0;
+  min-width: 300px;
+  height: 99.8%;
+  border-top: none;
+  border-bottom: none;
 }
-.storage__user h1 {
-  margin-bottom: 65px;
-  font-size: min(50px, 8vw);
-  position: relative;
-  z-index: 2;
-  color: var(--color1);
-  padding: 25px 30px;
-  filter: drop-shadow(0px 0px 15px var(--color1));
-
-  /*filter: drop-shadow(0px 0px 5px var(--color1));
-   color: var(--color1);
-   -webkit-text-stroke: px #1a2130;*/
-}
-.storage__resources {
+.storage__user-block{
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 300px;
+  padding: 80px 15px 0px 15px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+.storage__user-vignette{
+  pointer-events: none;
+}
+.storage__user-nickname{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0px 15px;
+}
+.storage__user-block h1{
+  width: auto;
+  padding: 15px 15px;
+  line-height: 100%;
+  border: 3px solid var(--bg);
+  color: var(--bg);
+  font-weight: 600;
+  backdrop-filter: blur(6.8px);
+  background-color: #fdffe25b;
+  /*-webkit-text-stroke: 2px var(--bg);*/
+}
+.storage__resources {
+  padding: 80px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   position: relative;
   z-index: 2;
 }
 .storage__resources-block {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.storage__resources-block h2{
+  text-align: left;
+}
+.storage__resources-block div{
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
-}
-@media (max-width: 940px) {
-  .storage__resources-block {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .storage__user h1 {
-    margin-bottom: 90px;
-  }
-  .storage__user {
-    height: 400px;
-    background: url("../../public/img/background/vignette.png") 50% 25% / auto
-      80% no-repeat;
-  }
-}
-@media (max-width: 550px) {
-  .storage__resources-block {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .storage__user h1 {
-    margin-bottom: 20px;
-  }
-  .storage__user {
-    height: 600px;
-    background: url("../../public/img/background/vignette.png") 50% 100% / auto
-      45% no-repeat;
-  }
 }
 
 .item__block {
@@ -89,6 +108,15 @@
 }
 .item__block:hover img {
   transform: scale(1.1);
+}
+.item__block p{
+  padding: 3px 8px;
+}
+.tank-block p{
+  background-color: transparent;
+  border: none;
+  color: var(--color1);
+  padding: 0px;
 }
 
 /*---TANKS-BLOCK---*/

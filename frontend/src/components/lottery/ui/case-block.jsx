@@ -6,14 +6,10 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }){
     <div className="caseblock">
       <div className="caseblock__main">
         {caseData.isManu && (
-          <div className="_glass caseblock__main-amount">x{playerData && (+playerData[amount])}</div>
+          <div className="caseblock__main-amount">x{playerData && (+playerData[amount])}</div>
         )}
-        <button className="btn _glass caseblock__main-moreinfo">
-          <img src="img/background/info.png" alt="INFO_IMG" />
-          <div className="line line-top"></div>
-          <div className="line line-right"></div>
-          <div className="line line-bottom"></div>
-          <div className="line line-left"></div>
+        <button className="caseblock__main-moreinfo">
+          <img src="img/background/info_v2.png" alt="INFO_IMG" />
         </button>
         <img className="case-img" src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" />
       </div>
