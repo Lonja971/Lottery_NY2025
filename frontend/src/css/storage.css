@@ -1,5 +1,4 @@
 .storage {
-  border: 1px solid red;
   position: absolute;
   top: 0;
   left: 0;
@@ -8,18 +7,7 @@
 
   display: grid;
   grid-template-columns: auto 1fr;
-  backdrop-filter: blur(20px);
 }
-/*.storage__user {
-  margin-top: 5px;
-  height: 450px;
-  background: url("../../public/img/background/vignette.png") 50% / auto 100%
-    no-repeat;
-
-  display: flex;
-  justify-content: center;
-  align-items: end;
-}*/
 .storage__user {
   position: sticky;
   top: 0;
@@ -28,21 +16,30 @@
   height: 99.8%;
   border-top: none;
   border-bottom: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.storage__user-block{
+.storage__user-top{
+  padding: 80px 15px 0px 15px;
+}
+.storage__user-bottom{
+  padding: 0px 15px 20px 15px;
+}
+.storage__user-block {
   position: sticky;
   top: 0;
   left: 0;
   width: 300px;
-  padding: 80px 15px 0px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.storage__user-vignette{
+.storage__user-vignette {
   pointer-events: none;
 }
-.storage__user-nickname{
+.storage__user-nickname {
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -51,7 +48,7 @@
   justify-content: center;
   padding: 0px 15px;
 }
-.storage__user-block h1{
+.storage__user-block h1 {
   width: auto;
   padding: 15px 15px;
   line-height: 100%;
@@ -60,41 +57,49 @@
   font-weight: 600;
   backdrop-filter: blur(6.8px);
   background-color: #fdffe25b;
-  /*-webkit-text-stroke: 2px var(--bg);*/
 }
 .storage__resources {
   padding: 80px 0px 0px 0px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 80px;
   position: relative;
   z-index: 2;
 }
 .storage__resources-block {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
-.storage__resources-block h2{
+.storage__resources-block h2 {
   text-align: left;
 }
-.storage__resources-block div{
+.storage__resources-block div {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  line-height: 130%;
 }
 
 .item__block {
+  position: relative;
   width: 130px;
-  height: 130px;
+  height: 160px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
   border: none;
   box-sizing: border-box;
+}
+.item__block-text {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item__block-text div p{
+  margin: 0 auto;
+  padding: 3px 5px;
 }
 .item__block:hover {
   background: var(--glass-color);
@@ -103,116 +108,167 @@
   -webkit-backdrop-filter: blur(6.8px);
 }
 .item__block img {
-  height: 80px;
+  margin: 10px auto 0px auto;
+  height: 75px;
   transition: all 0.2s ease 0s;
 }
 .item__block:hover img {
   transform: scale(1.1);
 }
-.item__block p{
-  padding: 3px 8px;
-}
-.tank-block p{
+.tank-block p {
   background-color: transparent;
   border: none;
   color: var(--color1);
   padding: 0px;
 }
+.cases-block .item__block img{
+  height: 70px;
+}
 
 /*---TANKS-BLOCK---*/
 
-.tank-block {
-  position: relative;
-  display: flex;
-  justify-content: end;
-  transition: all 0.2s ease 0s;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background-image: linear-gradient(180deg, #000000c7 5%, #424142 100%);
+.tanks-block{
+  gap: 20px;
 }
-.tank-block p {
-  position: relative;
-  margin-bottom: 5px;
-}
-.tank__img-block {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 
+.tankblock {
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  width: 130px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease 0s;
+  background-color: #424142;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.tankblock:hover {
+  border: 2px solid var(--green);
+}
+.tankblock__container {
+  position: relative;
+}
+.tankblock__img {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.tank__img-block .tank-icon {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: auto;
-  z-index: 1;
-}
-.tank-block img {
-  margin-bottom: 15%;
+.tankblock__img img {
   width: 75%;
+  margin-top: 50px;
+  transition: all 0.2s ease 0s;
+  transform: translateY(-50%);
+}
+.tankblock:hover .tankblock__img img {
+  transform: translateY(-50%) scale(1.1);
+}
+.tankblock__container > .tankblock__img {
+  width: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.obj__tank-flag {
+  width: 100%;
+}
+.tankblock-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.tankblock-info img{
+  height: 25px;
+}
+.tankblock__text{
+  position: absolute;
+  padding: 0px 10px;
+  bottom: 10px;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tankblock__text p{
+  width: 100%;
+  text-align: center;
   height: auto;
 }
-.tank-block:hover img {
-  transform: scale(1.1);
-}
-.tank-block:hover .tank-icon {
-  transform: scale(1);
-}
-.tank-block:hover {
-  border: 2px solid var(--green);
-  background-image: linear-gradient(180deg, #000000c7 5%, #424142 100%);
+.camo-text{
+  font-size: 12px;
 }
 
-.tank__img-block.ua {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/ua.png");
+.tankblock__img.ua {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/ua.png");
 }
-.tank__img-block.usa {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/usa.png");
+.tankblock__img.usa {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/usa.png");
 }
-.tank__img-block.ussr {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/ussr.png");
+.tankblock__img.ussr {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/ussr.png");
 }
-.tank__img-block.ge {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/ge.png");
+.tankblock__img.ge {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/ge.png");
 }
-.tank__img-block.br {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/br.png");
+.tankblock__img.br {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/br.png");
 }
-.tank__img-block.fr {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/fr.png");
+.tankblock__img.fr {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/fr.png");
 }
-.tank__img-block.sw {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/sw.png");
+.tankblock__img.sw {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/sw.png");
 }
-.tank__img-block.ch {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/ch.png");
+.tankblock__img.ch {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/ch.png");
 }
-.tank__img-block.jp {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/jp.png");
+.tankblock__img.jp {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/jp.png");
 }
-.tank__img-block.it {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/it.png");
+.tankblock__img.it {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/it.png");
 }
-.tank__img-block.inter {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/inter.png");
+.tankblock__img.inter {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/inter.png");
 }
-.tank__img-block.default {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 80%),
-    url("../../public/img/flags/default.png");
+.tankblock__img.default {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/default.png");
+}
+
+@media (max-width: 900px) {
+  .storage {
+    grid-template-columns: 100%;
+  }
+  .storage__user {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .storage__user-top{
+    margin: 0 auto;
+  }
+  .storage__user-bottom{
+    margin: 0 auto;
+  }
+  .storage__user-block {
+    padding: 20px 0px;
+  }
+  .storage__user-nickname {
+    bottom: 20px;
+  }
+  .storage__resources-block h2 {
+    text-align: center;
+  }
+  .storage__resources {
+    padding-top: 40px;
+  }
+  .srb-block{
+    justify-content: center;
+  }
 }

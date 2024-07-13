@@ -1,10 +1,21 @@
 import { ItemBlock } from "../../uikit/item-block";
 import "../../../css/storage.css";
 import { ModalStorageTanks } from "./modal-storage-tanks";
+import { useNavigate } from "react-router-dom";
 
 export function ModalStorage({ setActive, playerData }) {
 
+  const navigate = useNavigate();
   const userTanks = playerData.userTanks;
+
+  function deleteCookie(name) {
+    document.cookie = `${name}=; expires=${new Date(0).toUTCString()}; path=/`;
+  }
+
+  function logout(){
+    deleteCookie('t');
+    navigate('/login');
+  }
 
   return (
     <>
@@ -15,41 +26,42 @@ export function ModalStorage({ setActive, playerData }) {
       </div>
       {playerData && (
         <ModalStorageLayout
+          logout={logout}
           goldItem={
-            <ItemBlock resource="gold" value={playerData.gold} />
+            <ItemBlock type="resource" resource="gold" value={playerData.gold} />
           }
           silverItem={
-            <ItemBlock resource="silver" value={playerData.silver} />
+            <ItemBlock type="resource" resource="silver" value={playerData.silver} />
           }
           tokensItem={
-            <ItemBlock resource="tokens" value={playerData.tokens} />
+            <ItemBlock type="resource" resource="tokens" value={playerData.tokens} />
           }
           redTokensItem={
-            <ItemBlock resource="red_tokens" value={playerData.red_tokens} />
+            <ItemBlock type="resource" resource="red_tokens" value={playerData.red_tokens} />
           }
           tanksItem={
-            <ItemBlock resource="tanks" value={playerData.tanks} />
+            <ItemBlock type="resource" resource="tanks" value={playerData.tanks} />
           }
           premiumAkkItem={
-            <ItemBlock resource="premium_akk" value={playerData.premium_akk} />
+            <ItemBlock type="resource" resource="premium_akk" value={playerData.premium_akk} />
           }
           drawingsItem={
-            <ItemBlock resource="drawings" value={playerData.drawings} />
+            <ItemBlock type="resource" resource="drawings" value={playerData.drawings} />
           }
           regularCasesItem={
-            <ItemBlock resource="regular_cases" value={playerData.regular_cases} />
+            <ItemBlock type="case" resource="regular_cases" value={playerData.regular_cases} />
           }
           specialCasesItem={
-            <ItemBlock resource="special_cases" value={playerData.special_cases} />
+            <ItemBlock type="case" resource="special_cases" value={playerData.special_cases} />
           }
           rareCasesItem={
-            <ItemBlock resource="rare_cases" value={playerData.rare_cases} />
+            <ItemBlock type="case" resource="rare_cases" value={playerData.rare_cases} />
           }
           mythicalCasesItem={
-            <ItemBlock resource="mythical_cases" value={playerData.mythical_cases} />
+            <ItemBlock type="case" resource="mythical_cases" value={playerData.mythical_cases} />
           }
           legendaryCasesItem={
-            <ItemBlock resource="legendary_cases" value={playerData.legendary_cases} />
+            <ItemBlock type="case" resource="legendary_cases" value={playerData.legendary_cases} />
           }
           userTanksItem={<ModalStorageTanks userTanks={userTanks} />}
         >
@@ -61,6 +73,7 @@ export function ModalStorage({ setActive, playerData }) {
 }
 
 function ModalStorageLayout({
+  logout,
   children,
   goldItem,
   silverItem,
@@ -79,18 +92,23 @@ function ModalStorageLayout({
   return (
     <div className="storage">
       <div className="_glass storage__user">
-        <div className="storage__user-block">
-          <img className="storage__user-vignette" src="img/background/vignette.png" alt="VIGNETTE_IMG" />
-          <div className="storage__user-nickname">
-            <h1 className="_glass">{children}</h1>
+        <div className="storage__user-top">
+          <div className="storage__user-block">
+            <img className="storage__user-vignette" src="img/background/vignette.png" alt="VIGNETTE_IMG" />
+            <div className="storage__user-nickname">
+              <h1 className="_glass">{children}</h1>
+            </div>
           </div>
+        </div>
+        <div className="storage__user-bottom">
+          <button className="btn _glass" onClick={logout}>Вийти з аккаунту</button>
         </div>
       </div>
       <div className="storage__container _container">
         <div className="storage__resources">
           <div className="storage__resources-block">
-            <h2>Ресурси:</h2>
-            <div>
+            <h2>Ресурси</h2>
+            <div className="srb-block">
               {goldItem}
               {silverItem}
               {tokensItem}
@@ -101,8 +119,8 @@ function ModalStorageLayout({
             </div>
           </div>
           <div className="storage__resources-block">
-            <h2>Кейси:</h2>
-            <div>
+            <h2>Кейси</h2>
+            <div className="srb-block cases-block">
               {regularCasesItem}
               {specialCasesItem}
               {rareCasesItem}
@@ -111,8 +129,8 @@ function ModalStorageLayout({
             </div>
           </div>
           <div className="storage__resources-block">
-            <h2>Танки:</h2>
-            <div>
+            <h2>Танки</h2>
+            <div className="srb-block tanks-block">
               {userTanksItem}
             </div>
           </div>

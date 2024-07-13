@@ -21,21 +21,22 @@ export function NavBar({
   }
   return (
     <>
-      {playerData && (
-        <NavBarLayout
-          isMenu={isMenu}
-          storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} />}
-          exchangeBlock={
-            <NavBarExchange setActiveExchange={setActiveExchange} />
-          }
-          nameBlock={<NavBarName name={playerData.name} />}
-          goldBlock={<NavBarGold gold={playerData.gold} />}
-          tokensBlock={
-            <NavBarTokens tokens={playerData.tokens} addComment={addComment} />
-          }
-          redTokensBlock={<NavBarRedTokens redTokens={playerData.red_tokens} />}
-        />
-      )}
+      <nav className={`nav _glass ${isMenu ? "active" : ""}`}>
+        {playerData && (
+          <NavBarLayout
+            storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} />}
+            exchangeBlock={
+              <NavBarExchange setActiveExchange={setActiveExchange} />
+            }
+            nameBlock={<NavBarName name={playerData.name} />}
+            goldBlock={<NavBarGold gold={playerData.gold} />}
+            tokensBlock={
+              <NavBarTokens tokens={playerData.tokens} addComment={addComment} />
+            }
+            redTokensBlock={<NavBarRedTokens redTokens={playerData.red_tokens} />}
+          />
+        )}
+      </nav>
     </>
   );
 }

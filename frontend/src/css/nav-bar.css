@@ -51,6 +51,7 @@ nav.active {
   height: 100%;
   display: flex;
   align-items: center;
+  color: var(--color1);
 }
 /*.nav__menu-item, .nav__menu-item a{
   font-weight: 900;
@@ -59,6 +60,7 @@ nav.active {
 
 .nav__menu-item a:hover {
   color: var(--green);
+  text-decoration: none;
 }
 .nav__menu-item:hover {
   background: #f1faff27;

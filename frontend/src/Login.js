@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -29,16 +29,10 @@ export function Login() {
         userInfo: formData,
       })
       .then((response) => {
-        console.log("Response:", response.data);
-
         if (response.data.status === "success") {
-          console.log("Login successful");
-
-          // Збереження токену у куці у браузері клієнта
           const token = response.data.token;
           document.cookie = `t=${token}; expires=${new Date(Date.now() + 30 * 24 * 3600 * 1000).toUTCString()}; path=/`;
 
-          // Перенаправлення на головну сторінку
           navigate("/");
         } else {
           console.log("Login error:", response.data.message);
@@ -50,6 +44,16 @@ export function Login() {
         setIsMistake(true);
       });
   };
+
+  useEffect(() => {
+    if (isMistake) {
+      const timer = setTimeout(() => {
+        setIsMistake(false);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isMistake]);
 
   return (
     <>
@@ -91,6 +95,7 @@ export function Login() {
                 <div className="line line-left"></div>
               </button>
             </div>
+            <p className="comment-block center">Ще немає аккаунту? Створіть його <a href="http://localhost:3000/register">тут</a> !</p>
           </form>
         </div>
       </div>

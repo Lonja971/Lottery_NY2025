@@ -348,7 +348,7 @@ export const SPECIAL_CASE = [
 
 export const RARE_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
-  { type: "premium_akk", probability: 35, amounts: 1 },
+  { type: "premium_akk", probability: 35, amounts: [1] },
   { type: "gold", probability: 35, amounts: [ 500, 700 ] },
   { type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
   { type: "drawings", probability: 10, amounts: [1] },
@@ -365,7 +365,7 @@ export const MYTHICAL_CASE = [
 export const LEGENDARY_CASE = [
   { type: "drawings", probability: 25, amounts: [2], default: true, dafaultAmount: 2, },
   { type: "gold", probability: 25, amounts: [2000] },
-  { type: "tank", id: "21", probability: 25, amounts: [1] },
+  { type: "tank", id: "5", probability: 25, amounts: [1] },
   { type: "tank", id: "2", probability: 25, amounts: [1] },
   { type: "red_tokens", probability: 25, amounts: [2, 6] },
 ];

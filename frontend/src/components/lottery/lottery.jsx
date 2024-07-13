@@ -15,6 +15,33 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
       isManu: false,
       transcription: "main_cases",
       type: MAIN_CASE,
+      extra_resources: [
+        {
+          amounts: 1,
+          case_name: "regular_cases",
+          probability: 40,
+        },
+        {
+          amounts: 1,
+          case_name: "special_cases",
+          probability: 32,
+        },
+        {
+          amounts: 1,
+          case_name: "rare_cases",
+          probability: 18,
+        },
+        {
+          amounts: 1,
+          case_name: "mythical_cases",
+          probability: 7,
+        },
+        {
+          amounts: 1,
+          case_name: "legendary_cases",
+          probability: 3,
+        },
+      ],
       buttons: [
         {
           openResource: "gold",

@@ -3,7 +3,8 @@ include '../db/connect.php';
 
 // Ensure token is passed in the request
 if (!isset($_GET['token'])) {
-    echo json_encode(array()); // Handle error gracefully
+    http_response_code(400);
+    echo json_encode(array('error' => 'Token is required'));
     exit;
 }
 
@@ -62,10 +63,13 @@ if ($result->num_rows > 0) {
         $user['userTanks'] = $userTanks;
         echo json_encode($user);
     } else {
-        echo json_encode(array());
+        http_response_code(404);
+        echo json_encode(array('error' => 'User not found'));
     }
 } else {
-    echo json_encode(array());
+    // Token not found
+    http_response_code(401);
+    echo json_encode(array('error' => 'Invalid token'));
 }
 
 $conn->close();

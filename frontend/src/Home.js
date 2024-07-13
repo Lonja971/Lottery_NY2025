@@ -39,7 +39,15 @@ export function Home() {
           const response = await axios.get(`http://NY2025/backend/api/getData.php?token=${token}`);
           setPlayerData(response.data);
         } catch (error) {
-          console.error("There was an error!", error);
+          if (error.response) {
+            if (error.response.status === 400 || error.response.status === 401) {
+              navigate('/login');
+            } else if (error.response.status === 404) {
+              console.error("User not found!");
+            }
+          } else {
+            console.error("There was an error!", error);
+          }
         }
       };
   

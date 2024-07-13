@@ -78,3 +78,6 @@
 .comment-button img {
   cursor: pointer;
 }
+.tanksimg-height{
+  height: 20px !important;
+}

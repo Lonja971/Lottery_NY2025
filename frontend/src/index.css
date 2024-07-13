@@ -155,11 +155,12 @@ body.lock {
   height: calc(100% + 2px);
 }
 a {
-  color: var(--color1);
+  color: var(--green);
   transition: all 0.3s ease 0s;
 }
 a:hover {
   color: var(--green);
+  text-decoration: underline;
 }
 .red {
   color: var(--danger);

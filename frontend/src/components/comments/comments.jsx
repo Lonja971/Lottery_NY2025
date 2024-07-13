@@ -40,10 +40,12 @@ export function Comments({ isComments, setIsComments, messages }) {
                       <>
                         Додано танк
                         <img
+                          className="tanksimg-height"
                           src={"img/flags/" + TANKS[message.resource].land + "_big.png"}
                           alt="RES_IMG"
                         />
                         <img
+                          className="tanksimg-height"
                           src={"img/icons/" + TANKS[message.resource].type + ".png"}
                           alt="RES_IMG"
                         />
@@ -75,18 +77,21 @@ export function Comments({ isComments, setIsComments, messages }) {
           }
           return (
             <div key={message.id || index}>
-              Конвертовано {message.value?.toLocaleString()} {RESOURCES[message.resource]}{" "}
+              Отримано {//{message.value?.toLocaleString()} {RESOURCES[message.resource]}{" "}
+              }
               <img src={"img/resources/" + message.resource + ".png"} alt="RES_IMG" />
-              {" за "}
+              {" за  повторку"}
               {message.convertedType === "tank" ? (
                 <React.Fragment>
                   {TANKS[message.convertedItem].type !== "camo" ? (
                     <>
                       <img
+                        className="tanksimg-height"
                         src={"img/flags/" + TANKS[message.convertedItem].land + "_big.png"}
                         alt="RES_IMG"
                       />
                       <img
+                        className="tanksimg-height"
                         src={"img/icons/" + TANKS[message.convertedItem].type + ".png"}
                         alt="RES_IMG"
                       />
