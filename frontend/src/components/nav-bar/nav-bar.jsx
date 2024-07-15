@@ -15,18 +15,21 @@ export function NavBar({
   setActiveExchange,
   addComment,
   isMenu,
+  modalStorageActive,
+  modalExchangeActive,
 })  {
   if (playerData !== null && playerData.userData !== undefined) {
     console.log(playerData.userData[0].id);
   }
+
   return (
     <>
       <nav className={`nav _glass ${isMenu ? "active" : ""}`}>
         {playerData && (
           <NavBarLayout
-            storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} />}
+            storageBlock={<NavBarStorage setActiveStorage={setActiveStorage} modalStorageActive={modalStorageActive} />}
             exchangeBlock={
-              <NavBarExchange setActiveExchange={setActiveExchange} />
+              <NavBarExchange setActiveExchange={setActiveExchange} modalExchangeActive={modalExchangeActive} />
             }
             nameBlock={<NavBarName name={playerData.name} />}
             goldBlock={<NavBarGold gold={playerData.gold} />}

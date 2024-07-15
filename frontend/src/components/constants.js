@@ -296,6 +296,35 @@ export const TANKS = {
   },
 };
 
+//---EXCHANGE---
+
+export const EXCHANGE = {
+  gold: {
+    silver: {
+      exchange: "silver",
+      exchangeValue: "1500",
+      getValue: "100",
+    },
+    tanks: {
+      exchange: "tanks",
+      exchangeValue: "10",
+      getValue: "100",
+    },
+  },
+  red_tokens: {
+    tokens: {
+      exchange: "tokens",
+      exchangeValue: "2",
+      getValue: "1",
+    },
+    gold: {
+      exchange: "gold",
+      exchangeValue: "400",
+      getValue: "1",
+    },
+  }
+};
+
 //---CASES---
 
 export const CASES = {

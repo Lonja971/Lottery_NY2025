@@ -19,11 +19,13 @@ export function ModalStorage({ setActive, playerData }) {
 
   return (
     <>
-      <div className="modal__close" onClick={() => setActive(false)}>
+      {
+      /*<div className="modal__close" onClick={() => setActive(false)}>
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </div>*/
+      }
       {playerData && (
         <ModalStorageLayout
           logout={logout}
@@ -91,20 +93,38 @@ function ModalStorageLayout({
 }) {
   return (
     <div className="storage">
-      <div className="_glass storage__user">
-        <div className="storage__user-top">
+      <div className="storage__container _container">
+        <div className="storage__user">
           <div className="storage__user-block">
             <img className="storage__user-vignette" src="img/background/vignette.png" alt="VIGNETTE_IMG" />
             <div className="storage__user-nickname">
               <h1 className="_glass">{children}</h1>
             </div>
           </div>
+          <div className="storage__user-settings">
+            <button className="btn _glass" onClick={logout}>
+              Вийти з аккаунту
+              <div className="line line-top"></div>
+              <div className="line line-right"></div>
+              <div className="line line-bottom"></div>
+              <div className="line line-left"></div>
+            </button>
+            <button className="btn _glass">
+              Text
+              <div className="line line-top"></div>
+              <div className="line line-right"></div>
+              <div className="line line-bottom"></div>
+              <div className="line line-left"></div>
+            </button>
+            <button className="btn _glass">
+              Text
+              <div className="line line-top"></div>
+              <div className="line line-right"></div>
+              <div className="line line-bottom"></div>
+              <div className="line line-left"></div>
+            </button>
+          </div>
         </div>
-        <div className="storage__user-bottom">
-          <button className="btn _glass" onClick={logout}>Вийти з аккаунту</button>
-        </div>
-      </div>
-      <div className="storage__container _container">
         <div className="storage__resources">
           <div className="storage__resources-block">
             <h2>Ресурси</h2>

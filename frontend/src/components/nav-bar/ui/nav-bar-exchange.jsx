@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function NavBarExchange({ setActiveExchange }) {
+export function NavBarExchange({ setActiveExchange, modalExchangeActive }) {
   const [exchangeRotateNum, setExchangeRotateNum] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -22,8 +22,8 @@ export function NavBarExchange({ setActiveExchange }) {
   return (
     <li
       onMouseEnter={exchangeRotateAnima}
-      className="nav__menu-item item-squard exchange-anima"
-      onClick={() => setActiveExchange(true)}
+      className={`nav__menu-item item-squard exchange-anima ${modalExchangeActive ? "active" : ""}`}
+      onClick={() => setActiveExchange(!modalExchangeActive)}
     >
       <img
         style={{ transform: `rotateZ(${exchangeRotateNum}deg)` }}

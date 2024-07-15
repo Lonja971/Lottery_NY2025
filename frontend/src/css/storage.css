@@ -1,65 +1,79 @@
 .storage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px 50px 0px;
+}
+
+.storage__user{
 
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
-.storage__user {
-  position: sticky;
-  top: 0;
-  right: 0;
-  min-width: 300px;
-  height: 99.8%;
-  border-top: none;
-  border-bottom: none;
-
+.storage__user-block{
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.storage__user-top{
-  padding: 80px 15px 0px 15px;
-}
-.storage__user-bottom{
-  padding: 0px 15px 20px 15px;
-}
-.storage__user-block {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
 }
-.storage__user-vignette {
-  pointer-events: none;
-}
-.storage__user-nickname {
+.storage__user-block img{
   width: 100%;
+}
+.storage__user-nickname{
   position: absolute;
-  bottom: 0;
-  right: 0;
+  left: 0;
+  bottom: 14.5%;
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0px 15px;
 }
-.storage__user-block h1 {
-  width: auto;
-  padding: 15px 15px;
-  line-height: 100%;
-  border: 3px solid var(--bg);
-  color: var(--bg);
-  font-weight: 600;
-  backdrop-filter: blur(6.8px);
-  background-color: #fdffe25b;
+.storage__user-nickname h1,
+.storage__user-nickname h2,
+.storage__user-nickname h3 {
+  padding: 20px 35px;
 }
+.storage__user-settings{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width:1100px) {
+  .storage__user-nickname h1,
+  .storage__user-nickname h2,
+  .storage__user-nickname h3 {
+    padding: 15px 20px;
+    font-size: 30px;
+  }
+}
+@media (max-width:860px) {
+  .storage__user{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .storage__user-block{
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .storage__user-settings{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .storage__user-settings button{
+    flex: 0 1 33%
+  }
+}
+@media (max-width:700px) {
+  .storage {
+    margin: 70px 0px 50px 0px;
+  }
+}
+
+
 .storage__resources {
-  padding: 80px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
   display: flex;
   flex-direction: column;
   gap: 80px;
@@ -79,23 +93,6 @@
   flex-wrap: wrap;
   text-align: center;
   line-height: 130%;
-}
-
-.item__block {
-  position: relative;
-  width: 130px;
-  height: 160px;
-
-  border: none;
-  box-sizing: border-box;
-}
-.item__block-text {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 .item__block-text div p{
   margin: 0 auto;
@@ -238,37 +235,4 @@
 }
 .tankblock__img.default {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/default.png");
-}
-
-@media (max-width: 900px) {
-  .storage {
-    grid-template-columns: 100%;
-  }
-  .storage__user {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border: none;
-  }
-  .storage__user-top{
-    margin: 0 auto;
-  }
-  .storage__user-bottom{
-    margin: 0 auto;
-  }
-  .storage__user-block {
-    padding: 20px 0px;
-  }
-  .storage__user-nickname {
-    bottom: 20px;
-  }
-  .storage__resources-block h2 {
-    text-align: center;
-  }
-  .storage__resources {
-    padding-top: 40px;
-  }
-  .srb-block{
-    justify-content: center;
-  }
 }

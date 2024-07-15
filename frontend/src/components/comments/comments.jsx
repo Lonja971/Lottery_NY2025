@@ -77,8 +77,7 @@ export function Comments({ isComments, setIsComments, messages }) {
           }
           return (
             <div key={message.id || index}>
-              Отримано {//{message.value?.toLocaleString()} {RESOURCES[message.resource]}{" "}
-              }
+              Отримано {message.value?.toLocaleString()}{" "}
               <img src={"img/resources/" + message.resource + ".png"} alt="RES_IMG" />
               {" за  повторку"}
               {message.convertedType === "tank" ? (

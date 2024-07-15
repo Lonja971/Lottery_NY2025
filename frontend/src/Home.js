@@ -134,6 +134,7 @@ export function Home() {
   if (
     modalStorageActive === true ||
     modalExchangeActive === true ||
+    modalOpenCaseAnimation.isOpen === true ||
     isMenu === true
   ) {
     document.body.classList.add("lock");
@@ -147,7 +148,9 @@ export function Home() {
         <NavBar
           playerData={playerData}
           isMenu={isMenu}
+          modalStorageActive={modalStorageActive}
           setActiveStorage={setModalStorageActive}
+          modalExchangeActive={modalExchangeActive}
           setActiveExchange={setModalExchangeActive}
         />
       }
@@ -160,7 +163,7 @@ export function Home() {
       )}
       {modalExchangeActive && (
         <Modal active={modalExchangeActive}>
-          <ModalExchange setActive={setModalExchangeActive} />
+          <ModalExchange playerData={playerData} setActive={setModalExchangeActive} />
         </Modal>
       )}
       {modalOpenCaseAnimation.isOpen && (

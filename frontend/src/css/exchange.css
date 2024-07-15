@@ -1,0 +1,109 @@
+.exchange{
+   margin: 50px 0px;
+}
+.exchange__container{
+   display: flex;
+   flex-direction: column;
+   max-width: 800px;
+   gap: 20px;
+}
+
+.exchange__exchange,
+.exchange__resources{
+   display: flex;
+   flex-wrap: wrap;
+   text-align: center;
+   line-height: 130%;
+}
+.exchange__exchange div div,
+.exchange__resources div div{
+   margin: 0 auto;
+}
+.exchange__resources{
+   opacity: 0;
+   pointer-events: none;
+   transition: all 0.2s ease 0s;
+   position: absolute;
+
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   height: 100%;
+}
+.add-block{
+   width: 130px;
+   height: 160px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   font-size: 80px;
+}
+.not-active{
+   opacity: 0.5;
+   pointer-events: none;
+}
+.exchange-btn{
+   background-color: transparent;
+   color: var(--color1);
+   font-size: 18px;
+   font-weight: 500;
+   display: flex;
+   gap: 10px;
+}
+
+/*---EXCHANGE---*/
+
+.exchange__exchange{
+   display: grid;
+   grid-template-columns: auto 1fr auto;
+   align-items: center;
+   gap: 20px;
+
+   padding: 15px 15px;
+}
+.null-block{
+   margin: 0 auto;
+}
+.exchange-exchblock{
+   position: relative;
+}
+.exch-exchblock-allitems{
+   bottom: -100%;
+   left: 0;
+}
+.exchange-exchblock:hover .exch-exchblock-allitems{
+   opacity: 1;
+   pointer-events: all;
+}
+
+
+.exchange-line{
+}
+.exchange-line__comment{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+}
+.exchange-line__comment img{
+   height: 40px;
+}
+.exchanger-range{
+   width: 100%;
+   outline: 2px solid red;
+}
+
+
+.exchange-getblock{
+   position: relative;
+}
+.exch-getblock-allitems{
+   bottom: -100%;
+   right: 0;
+}
+.exchange-getblock:hover .exch-getblock-allitems{
+   opacity: 1;
+   pointer-events: all;
+}
+
+/*---RESOURCES---*/
