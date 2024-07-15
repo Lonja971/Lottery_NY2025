@@ -3,12 +3,12 @@ import "../../../css/exchange.css";
 import { ItemBlock } from "../../uikit/item-block";
 import { EXCHANGE } from "../../constants";
 
-export function ModalExchange({ setActive, playerData }) {
+export function ModalExchange({ setActive, playerData, addMessage }) {
   const [exchangeResources, setExchangeResources] = useState({
     exchangeRes: null,
     getRes: null,
   });
-  const [rangeValue, setRangeValue] = useState(301); // Початкове значення rangeValue
+  const [rangeValue, setRangeValue] = useState(0);
 
   const handleChange = (event) => {
     setRangeValue(event.target.value);
@@ -19,8 +19,11 @@ export function ModalExchange({ setActive, playerData }) {
       ...prevState,
       exchangeRes: resource,
     }));
-    // Після кліка також потрібно оновити rangeValue на нове значення exchangeValue
-    if (exchangeResources.getRes && EXCHANGE[exchangeResources.getRes] && EXCHANGE[exchangeResources.getRes][resource]) {
+    if (
+      exchangeResources.getRes &&
+      EXCHANGE[exchangeResources.getRes] &&
+      EXCHANGE[exchangeResources.getRes][resource]
+    ) {
       setRangeValue(EXCHANGE[exchangeResources.getRes][resource].exchangeValue);
     }
   };
@@ -31,20 +34,37 @@ export function ModalExchange({ setActive, playerData }) {
       getRes: resource,
       exchangeRes: null,
     }));
-    // Після кліка також потрібно оновити rangeValue на нове значення exchangeValue
-    if (resource && exchangeResources.getRes && EXCHANGE[resource][exchangeResources.getRes]) {
-      setRangeValue(EXCHANGE[resource][exchangeResources.getRes].exchangeValue);
+    if (resource && exchangeResources.exchangeRes && EXCHANGE[resource][exchangeResources.exchangeRes]) {
+      setRangeValue(EXCHANGE[resource][exchangeResources.exchangeRes].exchangeValue);
     }
   };
 
   useEffect(() => {
-    // Перевірка на початкові значення exchangeRes і getRes
-    if (exchangeResources.exchangeRes && exchangeResources.getRes && EXCHANGE[exchangeResources.getRes] && EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes]) {
-      setRangeValue(EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].exchangeValue);
-    } else {
-      setRangeValue(301); // Значення за замовчуванням
+    if (
+      exchangeResources.exchangeRes &&
+      exchangeResources.getRes &&
+      EXCHANGE[exchangeResources.getRes] &&
+      EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes]
+    ) {
+      const minExchangeValue = EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].exchangeValue;
+      const userResource = playerData[exchangeResources.exchangeRes];
+      if (userResource < minExchangeValue) {
+        setRangeValue(0); // Встановлюємо на 0, якщо ресурсів менше ніж потрібно
+      } else {
+        setRangeValue(minExchangeValue);
+      }
     }
-  }, [exchangeResources.exchangeRes, exchangeResources.getRes]); // Викликається при зміні exchangeRes або getRes
+  }, [exchangeResources.exchangeRes, exchangeResources.getRes, playerData]);
+
+  function getData() {
+    console.log(exchangeResources.exchangeRes);
+    console.log(exchangeResources.getRes);
+    console.log(rangeValue);
+
+    if(rangeValue === 0){
+      addMessage("not_enough_v2");
+    }
+  }
 
   return (
     <div className="exchange">
@@ -113,9 +133,15 @@ export function ModalExchange({ setActive, playerData }) {
               </div>
               <div className="exchange-line">
                 <div className="exchange-line__comment">
-                  Обміняти {rangeValue}{" "}
-                  <img src={"img/resources/" + exchangeResources.exchangeRes + ".png"} alt="EXCH_RES" /> на 1,000{" "}
-                  <img src={"img/resources/" + exchangeResources.getRes + ".png"} alt="EXCH_RES" />
+                  <p>
+                    {Number(rangeValue).toLocaleString()}{" "}
+                    <img src={"img/resources/" + exchangeResources.exchangeRes + ".png"} alt="EXCH_RES" />
+                  </p>
+                  <img className="exchange-arrow" src={"img/background/exchange-arrow.png"} alt="EXCH_RES" />
+                  <p>
+                    { (rangeValue / EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].exchangeValue) * EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].getValue }{" "}
+                    <img src={"img/resources/" + exchangeResources.getRes + ".png"} alt="EXCH_RES" />
+                  </p>
                 </div>
                 <input
                   className="exchanger-range"
@@ -138,6 +164,7 @@ export function ModalExchange({ setActive, playerData }) {
                   </button>
                 </div>
               </div>
+              <button className="btn _glass" onClick={getData}>Обміняти</button>
             </>
           )}
         </div>

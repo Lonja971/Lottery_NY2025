@@ -32,20 +32,18 @@ export function CheckCases({ playerId, active, addMessage, setIsUpdated, setActi
         setActive(false);
       });
     }
-  }, [active, addMessage, hasChecked]);
+  }, [ addMessage, hasChecked]);
 
   return (
     <>
       {isPaymentSuccessful && (
-        <Modal active={true}>
-          <ModalOpenCaseAnimation
-            playerId={playerId}
-            addMessage={addMessage}
-            setIsUpdated={setIsUpdated}
-            active={active}
-            setActive={setActive}
-          />
-        </Modal>
+        <ModalOpenCaseAnimation
+          playerId={playerId}
+          addMessage={addMessage}
+          setIsUpdated={setIsUpdated}
+          active={active}
+          setActive={setActive}
+        />
       )}
     </>
   );

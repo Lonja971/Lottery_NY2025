@@ -28,6 +28,9 @@
   .fake-nav{
     display: none;
   }
+  .modal__container {
+    grid-template-columns: 1fr;
+  }
 }
 .modal.active {
   /*animation-name: newToken;

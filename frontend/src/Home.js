@@ -146,8 +146,9 @@ export function Home() {
     <HomeLayout
       navBar={
         <NavBar
-          playerData={playerData}
           isMenu={isMenu}
+          setIsMenu={setIsMenu}
+          playerData={playerData}
           modalStorageActive={modalStorageActive}
           setActiveStorage={setModalStorageActive}
           modalExchangeActive={modalExchangeActive}
@@ -163,7 +164,7 @@ export function Home() {
       )}
       {modalExchangeActive && (
         <Modal active={modalExchangeActive}>
-          <ModalExchange playerData={playerData} setActive={setModalExchangeActive} />
+          <ModalExchange playerData={playerData} setActive={setModalExchangeActive} addMessage={addMessage} />
         </Modal>
       )}
       {modalOpenCaseAnimation.isOpen && (

@@ -1,10 +1,10 @@
-export function NavBarStorage({ setActiveStorage, modalStorageActive }) {
+export function NavBarStorage({ modalStorageActive, handleModalOpen }) {
   
   return (
     <>
       <li
         className={`nav__menu-item item-squard ${modalStorageActive ? "active" : ""}`}
-        onClick={() => setActiveStorage(!modalStorageActive)}
+        onClick={() => handleModalOpen("storageModal")}
       >
         <img src="img/servise/storage.png" alt="Storage" />
         <p>Склад</p>

@@ -1,3 +1,12 @@
+.opening-cases-block{
+  height: 100%;
+  width: 100%;
+  z-index: 12;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
 .fz12 {
   font-size: 12px;
 }

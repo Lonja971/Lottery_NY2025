@@ -1,10 +1,11 @@
 .exchange{
-   margin: 50px 0px;
+   display: flex;
+   align-items: center;
 }
 .exchange__container{
    display: flex;
    flex-direction: column;
-   max-width: 800px;
+   width: 800px;
    gap: 20px;
 }
 
@@ -24,6 +25,7 @@
    pointer-events: none;
    transition: all 0.2s ease 0s;
    position: absolute;
+   z-index: 1;
 
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
@@ -83,7 +85,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 10px;
+   gap: 15px;
 }
 .exchange-line__comment img{
    height: 40px;
@@ -91,6 +93,11 @@
 .exchanger-range{
    width: 100%;
    outline: 2px solid red;
+}
+.exchange-line__comment p{
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 
 
@@ -106,4 +113,15 @@
    pointer-events: all;
 }
 
-/*---RESOURCES---*/
+
+@media (max-width:510px) {
+   .exchange__exchange{
+      grid-template-columns: 1fr;
+   }
+   .exchange__exchange div{
+      margin: 0 auto;
+   }
+   .null-block{
+      transform: rotateZ(90deg);
+   }
+}

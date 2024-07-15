@@ -41,7 +41,7 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
   }, []);
 
   return (
-    <>
+    <div className="opening-cases-block">
       <button
         className="btn _glass anima-btn"
         onClick={handleClick}
@@ -132,6 +132,6 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
