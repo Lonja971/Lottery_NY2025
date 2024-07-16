@@ -310,6 +310,11 @@ export const EXCHANGE = {
       exchangeValue: "10",
       getValue: "100",
     },
+    premium_akk: {
+      exchange: "premium_akk",
+      exchangeValue: "10",
+      getValue: "200",
+    },
   },
   red_tokens: {
     tokens: {

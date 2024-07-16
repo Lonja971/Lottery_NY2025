@@ -164,7 +164,7 @@ export function Home() {
       )}
       {modalExchangeActive && (
         <Modal active={modalExchangeActive}>
-          <ModalExchange playerData={playerData} setActive={setModalExchangeActive} addMessage={addMessage} />
+          <ModalExchange setIsUpdated={setIsUpdated} playerData={playerData} setActive={setModalExchangeActive} addMessage={addMessage} />
         </Modal>
       )}
       {modalOpenCaseAnimation.isOpen && (

@@ -1,3 +1,5 @@
+/*---EXCHANGE---*/
+
 .exchange{
    display: flex;
    align-items: center;
@@ -5,123 +7,234 @@
 .exchange__container{
    display: flex;
    flex-direction: column;
-   width: 800px;
+   width: 450px;
+   padding: 20px 20px;
    gap: 20px;
 }
 
-.exchange__exchange,
-.exchange__resources{
-   display: flex;
-   flex-wrap: wrap;
-   text-align: center;
-   line-height: 130%;
-}
-.exchange__exchange div div,
-.exchange__resources div div{
+.exch-item .item__block{
    margin: 0 auto;
+   text-align: center;
 }
-.exchange__resources{
-   opacity: 0;
-   pointer-events: none;
-   transition: all 0.2s ease 0s;
-   position: absolute;
-   z-index: 1;
-
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   height: 100%;
-}
-.add-block{
-   width: 130px;
-   height: 160px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-   font-size: 80px;
-}
-.not-active{
-   opacity: 0.5;
-   pointer-events: none;
-}
-.exchange-btn{
+.exchange__resources button{
    background-color: transparent;
    color: var(--color1);
-   font-size: 18px;
-   font-weight: 500;
-   display: flex;
-   gap: 10px;
+}
+.exchange__resources button:hover{
+   color: var(--color1);
+   background: var(--glass-color);
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(6.8px);
+   -webkit-backdrop-filter: blur(6.8px);
 }
 
-/*---EXCHANGE---*/
+/*---EXCHANGE-RESOURCES-BLOCK---*/
 
-.exchange__exchange{
-   display: grid;
-   grid-template-columns: auto 1fr auto;
-   align-items: center;
-   gap: 20px;
-
-   padding: 15px 15px;
-}
-.null-block{
-   margin: 0 auto;
-}
-.exchange-exchblock{
-   position: relative;
-}
-.exch-exchblock-allitems{
-   bottom: -100%;
-   left: 0;
-}
-.exchange-exchblock:hover .exch-exchblock-allitems{
-   opacity: 1;
-   pointer-events: all;
-}
-
-
-.exchange-line{
-}
-.exchange-line__comment{
+.exchange__resources{
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 15px;
+   gap: 20px;
 }
-.exchange-line__comment img{
-   height: 40px;
+.exchange-item{
+   width: 130px;
+   height: 160px;
+   font-size: 80px;
 }
-.exchanger-range{
-   width: 100%;
-   outline: 2px solid red;
+.not-active .exchange-item{
+   opacity: 0.2;
+   pointer-events: none;
 }
-.exchange-line__comment p{
-   display: flex;
-   align-items: center;
-   gap: 10px;
-}
-
-
-.exchange-getblock{
+.exch-item{
    position: relative;
 }
-.exch-getblock-allitems{
+.exch-item .item__block .item__block-text div {
+   margin: 0 auto 10px auto;
+}
+.exch-item .item__block .item__block-text {
+   font-size: 15px;
+}
+.exchange__resources-exchangeRes{
+}
+.exchange__resources-getRes{}
+
+.exch-menu{
+   position: absolute;
+   z-index: 1;
    bottom: -100%;
+   height: 100%;
+
+   display: flex;
+   opacity: 0;
+   pointer-events: none;
+}
+.exch-menu .item__block{
+   background-color: var(--gray);
+}
+.exch-exchangeblock-allitems{
+   left: 0;
+}
+.exch-getblock-allitems{
    right: 0;
 }
-.exchange-getblock:hover .exch-getblock-allitems{
+.exch-item:hover .exch-menu{
    opacity: 1;
    pointer-events: all;
 }
 
+/*---EXCHANGE-RANGE-BLOCK---*/
 
-@media (max-width:510px) {
-   .exchange__exchange{
-      grid-template-columns: 1fr;
-   }
-   .exchange__exchange div{
-      margin: 0 auto;
+.exchange__range{
+}
+.exchange__range-comment{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.exchange__range-comment div:first-child{
+   margin: 0 auto;
+}
+.exchange__range-comment div:last-child{
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+.exchange__range-comment p{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.exchange__range-comment img{
+   height: 30px;
+}
+.exchange__range-input{
+   display: flex;
+   width: 100%;
+   flex-direction: column;
+   justify-content: center;
+}
+.exchanger-range{
+   width: 364px;
+   margin: 0 auto;
+}
+
+.exchanger-range {
+   transition: all 0.3s ease 0s;
+   -webkit-appearance: none;
+   width: 100%;
+   height: 15px;
+   border-radius: 25px;  
+   background: #fdffe275;
+   outline: none;
+   opacity: 0.7;
+   -webkit-transition: .2s;
+   transition: opacity .2s;
+}
+.exchanger-range:focus{
+   outline: none;
+   border: 1px solid none;
+   box-shadow: none;
+}
+
+.exchanger-range::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   border: 3px solid var(--gray);
+   background-color: var(--bg);
+   cursor: pointer;
+}
+
+.exchanger-range::-moz-range-thumb {
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   border: 3px solid var(--gray);
+   background-color: var(--bg);
+   cursor: pointer;
+}
+
+
+
+.usersnum{
+   padding: 20px 0px 50px 0px;
+   display: grid;
+   align-items: center;
+   width: 100%;
+   margin: 0 auto;
+   gap: 0px;
+   grid-template-columns: auto 66px;
+}
+.usersnum-input{
+   outline: none;
+   border: 2px solid var(--color1);
+   border-right: none;
+}
+.usersnum-input:focus{
+   outline: none;
+   border: 2px solid var(--green);
+   border-right: none;
+}
+.usernum-buttonblock{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: start;
+}
+.usersnum-button{
+   padding: 10px;
+}
+.exchange-submit{
+   margin: 0 auto;
+}
+
+@media (max-width:500px) {
+   .exchange__container{
+      width: 350px;
+      padding: 20px 10px;
+      gap: 20px;
    }
    .null-block{
-      transform: rotateZ(90deg);
+      width: 40px;
+   }
+   .exchange__resources{
+      gap: 0px;
+   }
+   .usersnum-input{
+      min-width: 200px;
+   }
+   .exch-menu{
+      flex-direction: column;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+   }
+   .exch-menu .item__block{
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+   }
+}
+@media (max-width:400px) {
+   .settings{
+      flex-direction: column;
+   }
+}
+@media (max-width:390px) {
+   .exchange__container{
+      max-width: 310px;
+      width: auto;
+      padding: 20px 10px;
+      gap: 20px;
+   }
+   .usersnum-input{
+      min-width: 200px;
+   }
+   .exchanger-range{
+      min-width: 200px;
+   }
+   .exchange__container ._container{
+      padding: 20px 0px;
    }
 }
