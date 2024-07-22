@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RESOURCES, TANKS } from "../../constants";
+import { CASES, RESOURCES, TANKS } from "../../constants";
 
 export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
   const [isBack, setIsBack] = useState(false);
@@ -17,8 +17,8 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
             {caseData.isManu && (
               <div className="caseblock__main-amount absolute-left">x{playerData && (+playerData[amount])}</div>
             )}
-            <button className="caseblock__main-moreinfo absolute-right" onClick={() => setIsBack(true)}>
-              <img src="img/background/info_v2.png" alt="INFO_IMG" />
+            <button className="caseblock__main-moreinfo absolute absolute-right" onClick={() => setIsBack(true)}>
+              <img src="img/background/info.png" alt="INFO_IMG" />
             </button>
             <img className="case-img" src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" />
           </div>
@@ -57,13 +57,17 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
           </div>
         </div>
         <div className="_glass caseblock-side caseblock-back">
-          <h3 className="caseblock__main-amount absolute-left"> <img src={"img/cases/" + caseData.transcription + ".png"} alt="CASE_IMG" /> Шанси:</h3>
-          <button className="caseblock__main-moreinfo absolute-right" onClick={() => setIsBack(false)}>
-            <img src="img/background/info_v2.png" alt="INFO_IMG" />
-          </button>
+          <div className="caseblock__back-infoblock">
+            <h3 className="caseblock__main-amount absolute-left">
+              <img src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" /> Шанси:
+            </h3>
+            <button className="caseblock__main-moreinfo absolute absolute-right" onClick={() => setIsBack(false)}>
+              <img src="img/background/info.png" alt="INFO_IMG" />
+            </button>
+          </div>
           {caseData.extra_resources !== undefined ? caseData.extra_resources.map((item, index) => (
             <div className="info-block" key={item.case_name + index}>
-              <div className="back-info">
+              <div className="back-info" title={ CASES[item.case_name].name}>
                 <p>{ item.amounts }</p>
                 <p>
                   <img src={"img/cases/" + item.case_name + ".png"} alt="CASE" />
@@ -78,7 +82,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
           {caseData.type.map((item, index) => (
             item.type !== 'tank' ? (
               <div className="info-block" key={item.type + index}>
-                <div className="back-info">
+                <div className="back-info" title={ RESOURCES[item.type] }>
                   {Array.isArray(item.amounts) && (
                     <div>
                       <p>
@@ -100,7 +104,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
                 </div>
               </div>
             ) : (
-              <div className="info-block info-block-tank" key={item.type + index}>
+              <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className="info-block info-block-tank" key={item.type + index}>
                 <div className={"back-info " + ( TANKS[item.id].land ? TANKS[item.id].land : "default" )}>
                   {TANKS[item.id].type !== "camo" ? (
                     <div>
@@ -111,7 +115,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
                       <span className="camo">камуфляж</span>
                     </div>
                   )}
-                  <p>{TANKS[item.id].name + " "}</p>
+                  <p>{TANKS[item.id].smallName !==undefined ? TANKS[item.id].smallName : TANKS[item.id].name }</p>
                 </div>
                 <div className="back-procents">
                   {item.probability + "%"}
@@ -120,7 +124,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
                 <div className="line line-right"></div>
                 <div className="line line-bottom"></div>
                 <div className="line line-left"></div>
-              </div>
+              </a>
             )
           ))}
         </div>

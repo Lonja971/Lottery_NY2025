@@ -1,6 +1,7 @@
 /*---EXCHANGE---*/
 
 .exchange{
+   margin-top: -10%;
    display: flex;
    align-items: center;
 }
@@ -49,7 +50,7 @@
    position: relative;
 }
 .exch-item .item__block .item__block-text div {
-   margin: 0 auto 10px auto;
+   margin: 0 auto;
 }
 .exch-item .item__block .item__block-text {
    font-size: 15px;
@@ -57,19 +58,25 @@
 .exchange__resources-exchangeRes{
 }
 .exchange__resources-getRes{}
-
 .exch-menu{
    position: absolute;
    z-index: 1;
-   bottom: -100%;
-   height: 100%;
+   bottom: -200%;
+   height: 200%;
+   overflow-y: auto;
+   background-color: #424142;
 
-   display: flex;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
    opacity: 0;
    pointer-events: none;
+   scroll-snap-type: y mandatory;
 }
-.exch-menu .item__block{
-   background-color: var(--gray);
+.exch-menu .itemsblock{
+   scroll-snap-align: start;
+   scroll-snap-stop: always;
+
+   background-color: #424142;
 }
 .exch-exchangeblock-allitems{
    left: 0;
@@ -77,9 +84,12 @@
 .exch-getblock-allitems{
    right: 0;
 }
-.exch-item:hover .exch-menu{
+.exch-menu.open{
    opacity: 1;
    pointer-events: all;
+}
+.null-block{
+   width: 60px;
 }
 
 /*---EXCHANGE-RANGE-BLOCK---*/
@@ -190,6 +200,15 @@
 .exchange-submit{
    margin: 0 auto;
 }
+.exchange-submit button{
+   display: flex;
+   gap: 5px;
+   align-items: center;
+}
+.exchange-submit img{
+   transition: all 0.3s ease 0s;
+   height: 30px;
+}
 
 @media (max-width:500px) {
    .exchange__container{
@@ -201,17 +220,17 @@
       width: 40px;
    }
    .exchange__resources{
-      gap: 0px;
+      gap: 5px;
    }
    .usersnum-input{
       min-width: 200px;
    }
    .exch-menu{
-      flex-direction: column;
+      grid-template-columns: 1fr 1fr;
       overflow-y: auto;
       scroll-snap-type: y mandatory;
    }
-   .exch-menu .item__block{
+   .exch-menu .itemsblock{
       scroll-snap-align: start;
       scroll-snap-stop: always;
    }
@@ -219,6 +238,9 @@
 @media (max-width:400px) {
    .settings{
       flex-direction: column;
+   }
+   .exch-menu{
+      grid-template-columns: 1fr;
    }
 }
 @media (max-width:390px) {

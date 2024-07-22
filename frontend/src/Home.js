@@ -12,7 +12,7 @@ import { BurgerMenuBtn } from "./components/uikit/burger-menu-btn";
 import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
 import { CheckCases } from "./components/cases/check-cases";
-
+import { Shop } from "./components/shop/shop";
 export function Home() {
 
   //---Отримання-даних-гравця-з-бази-даних---
@@ -188,6 +188,7 @@ export function Home() {
         addMessage={addMessage}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
       />
+      <Shop />
       <Footer />
     </HomeLayout>
   );

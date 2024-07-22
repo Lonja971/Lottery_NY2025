@@ -2,11 +2,24 @@ import { ItemBlock } from "../../uikit/item-block";
 import "../../../css/storage.css";
 import { ModalStorageTanks } from "./modal-storage-tanks";
 import { useNavigate } from "react-router-dom";
+import { TANKS } from "../../constants";
 
 export function ModalStorage({ setActive, playerData }) {
 
   const navigate = useNavigate();
-  const userTanks = playerData.userTanks;
+  
+  let playerTanks = [];
+  let playerCamos = [];
+
+  if (Array.isArray(playerData.userTanks)) {
+    playerData.userTanks.forEach(item => {
+      if (TANKS[item].type === "camo") {
+        playerCamos.push(item);
+      } else {
+        playerTanks.push(item);
+      }
+    });
+  }
 
   function deleteCookie(name) {
     document.cookie = `${name}=; expires=${new Date(0).toUTCString()}; path=/`;
@@ -28,6 +41,8 @@ export function ModalStorage({ setActive, playerData }) {
       }
       {playerData && (
         <ModalStorageLayout
+          playerTanks={playerTanks}
+          playerCamos={playerCamos}
           logout={logout}
           goldItem={
             <ItemBlock type="resource" resource="gold" value={playerData.gold} />
@@ -65,7 +80,8 @@ export function ModalStorage({ setActive, playerData }) {
           legendaryCasesItem={
             <ItemBlock type="case" resource="legendary_cases" value={playerData.legendary_cases} />
           }
-          userTanksItem={<ModalStorageTanks userTanks={userTanks} />}
+          userTanksItem={<ModalStorageTanks userTanks={playerTanks} />}
+          userCamosItem={<ModalStorageTanks userTanks={playerCamos} />}
         >
           {playerData.name}
         </ModalStorageLayout>
@@ -75,6 +91,8 @@ export function ModalStorage({ setActive, playerData }) {
 }
 
 function ModalStorageLayout({
+  playerTanks,
+  playerCamos,
   logout,
   children,
   goldItem,
@@ -90,6 +108,7 @@ function ModalStorageLayout({
   mythicalCasesItem,
   legendaryCasesItem,
   userTanksItem,
+  userCamosItem,
 }) {
   return (
     <div className="storage">
@@ -148,12 +167,22 @@ function ModalStorageLayout({
               {legendaryCasesItem}
             </div>
           </div>
-          <div className="storage__resources-block">
-            <h2>Танки</h2>
-            <div className="srb-block tanks-block">
-              {userTanksItem}
+          { playerTanks.length !== 0 ? (
+            <div className="storage__resources-block">
+              <h2>Танки</h2>
+              <div className="srb-block tanks-block">
+                {userTanksItem}
+              </div>
             </div>
-          </div>
+          ) : ""}
+          { playerCamos.length !== 0 ? (
+            <div className="storage__resources-block">
+              <h2>Камуфляжі</h2>
+              <div className="srb-block tanks-block">
+                {userCamosItem}
+              </div>
+            </div>
+          ) : ""}
         </div>
       </div>
     </div>

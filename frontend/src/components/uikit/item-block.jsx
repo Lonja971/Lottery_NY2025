@@ -2,7 +2,7 @@ import { CASES, RESOURCES } from "../constants";
 
 export function ItemBlock({ type, resource, value }) {
   return (
-    <div className="item__block">
+    <div className="item__block itemsblock">
       <img src={"img/resources/" + resource + ".png"} alt="RES" />
       <div className="item__block-text">
         <div>

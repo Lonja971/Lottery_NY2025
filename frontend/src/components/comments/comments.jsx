@@ -12,7 +12,7 @@ export function Comments({ isComments, setIsComments, messages }) {
         if (message.type === "not_enough_v2") {
 
           return (
-            <div key={message.id || index}>
+            <div className="error" key={message.id || index}>
               У вас недостатньо ресурсів!
             </div>
           );
@@ -79,7 +79,7 @@ export function Comments({ isComments, setIsComments, messages }) {
             <div key={message.id || index}>
               Отримано {message.value?.toLocaleString()}{" "}
               <img src={"img/resources/" + message.resource + ".png"} alt="RES_IMG" />
-              {" за  повторку"}
+              {" за  повторку "}
               {message.convertedType === "tank" ? (
                 <React.Fragment>
                   {TANKS[message.convertedItem].type !== "camo" ? (

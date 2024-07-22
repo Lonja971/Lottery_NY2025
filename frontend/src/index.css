@@ -73,6 +73,9 @@ body {
 body.lock {
   overflow-y: hidden;
 }
+.center{
+  margin: 0 auto;
+}
 
 .wrapper {
   display: grid;
