@@ -3,18 +3,42 @@
   flex-direction: column;
   margin: 10px 0px 50px 0px;
 }
+.storage__container{
+  position: relative;
+}
+
+/*---PROMO-CODES---*/
+
+.storage__codes{
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+}
+.storage__codes-content{
+  padding: 80px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/*---STORAGE-USER---*/
 
 .storage__user{
-
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
+  margin-bottom: 50px;
 }
 .storage__user-block{
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
 }
 .storage__user-block img{
   width: 100%;
@@ -34,8 +58,11 @@
 }
 .storage__user-settings{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
+}
+.storage__user-settings button{
+  flex: 0 1 33%
 }
 
 @media (max-width:1100px) {
@@ -44,25 +71,6 @@
   .storage__user-nickname h3 {
     padding: 15px 20px;
     font-size: 30px;
-  }
-}
-@media (max-width:860px) {
-  .storage__user{
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .storage__user-block{
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  .storage__user-settings{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
-  .storage__user-settings button{
-    flex: 0 1 33%
   }
 }
 @media (max-width:700px) {
@@ -132,6 +140,7 @@
 }
 
 .tankblock {
+  cursor: pointer;
   position: relative;
   font-weight: 400;
   font-size: 14px;

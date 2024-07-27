@@ -3,6 +3,7 @@ import "../../../css/storage.css";
 import { ModalStorageTanks } from "./modal-storage-tanks";
 import { useNavigate } from "react-router-dom";
 import { TANKS } from "../../constants";
+import { useState } from "react";
 
 export function ModalStorage({ setActive, playerData }) {
 
@@ -27,23 +28,22 @@ export function ModalStorage({ setActive, playerData }) {
 
   function logout(){
     deleteCookie('t');
+    localStorage.removeItem('welcomeWomT');
     navigate('/login');
+  }
+  function changePlayerName() {
+    const playerId = playerData.id;
+    navigate('/change-name', { state: {playerId} });
   }
 
   return (
     <>
-      {
-      /*<div className="modal__close" onClick={() => setActive(false)}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>*/
-      }
       {playerData && (
         <ModalStorageLayout
           playerTanks={playerTanks}
           playerCamos={playerCamos}
           logout={logout}
+          changePlayerName={changePlayerName}
           goldItem={
             <ItemBlock type="resource" resource="gold" value={playerData.gold} />
           }
@@ -94,6 +94,7 @@ function ModalStorageLayout({
   playerTanks,
   playerCamos,
   logout,
+  changePlayerName,
   children,
   goldItem,
   silverItem,
@@ -121,22 +122,22 @@ function ModalStorageLayout({
             </div>
           </div>
           <div className="storage__user-settings">
+            <button className="btn _glass" onClick={changePlayerName}>
+              Змінити нік
+              <div className="line line-top"></div>
+              <div className="line line-right"></div>
+              <div className="line line-bottom"></div>
+              <div className="line line-left"></div>
+            </button>
+            <button className="btn _glass">
+              Промо код
+              <div className="line line-top"></div>
+              <div className="line line-right"></div>
+              <div className="line line-bottom"></div>
+              <div className="line line-left"></div>
+            </button>
             <button className="btn _glass" onClick={logout}>
               Вийти з аккаунту
-              <div className="line line-top"></div>
-              <div className="line line-right"></div>
-              <div className="line line-bottom"></div>
-              <div className="line line-left"></div>
-            </button>
-            <button className="btn _glass">
-              Text
-              <div className="line line-top"></div>
-              <div className="line line-right"></div>
-              <div className="line line-bottom"></div>
-              <div className="line line-left"></div>
-            </button>
-            <button className="btn _glass">
-              Text
               <div className="line line-top"></div>
               <div className="line line-right"></div>
               <div className="line line-bottom"></div>

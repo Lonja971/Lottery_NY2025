@@ -43,8 +43,8 @@ input {
   color: var(--color1);
 }
 input:focus {
-  outline: 2px solid rgb(10, 180, 10);
-  box-shadow: 0px 0px 26px 12px rgba(8, 143, 8, 0.47);
+  outline: 2px solid var(--green);
+  box-shadow: 0px 0px 26px 12px var(--green-shadow);
 }
 label {
   display: flex;

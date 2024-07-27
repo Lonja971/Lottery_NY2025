@@ -13,6 +13,9 @@ import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
 import { CheckCases } from "./components/cases/check-cases";
 import { Shop } from "./components/shop/shop";
+
+
+
 export function Home() {
 
   //---Отримання-даних-гравця-з-бази-даних---
@@ -27,6 +30,9 @@ export function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    //---Отримати-дані-гравця---
+
     if (isUpdated) {
       const fetchData = async () => {
         try {
@@ -55,9 +61,9 @@ export function Home() {
       setIsUpdated(false);
     }
   }, [isUpdated, navigate]);
-  
-  //---Бургер-меню---
 
+  //---Бургер-меню---
+  
   const [isMenu, setIsMenu] = useState(false);
 
   //---Відстежувати-дозвіл-на-коментарі---

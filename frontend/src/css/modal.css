@@ -12,7 +12,8 @@
   display: flex;
 
   background-color: var(--bg);
-  background-image: url("../../public/img/background/bg.png");
+  background-image: url("../../public/img/background/bg_v2.png");
+  background-size: 20%;
 }
 .modal__container {
   width: 100%;
@@ -97,6 +98,7 @@
 /*---RESOURCES-ITEM-BLOCK---*/
 
 .item__block {
+  cursor: pointer;
   position: relative;
   width: 130px;
   height: 160px;

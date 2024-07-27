@@ -11,6 +11,7 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
 
   const [openExchangePannel, setOpenExchangePannel] = useState(false);
   const [openGetPannel, setOpenGetPannel] = useState(false);
+  const [openConfimModal, setOpenConfimModal] = useState(false);
 
   const [exchangeRotateNum, setExchangeRotateNum] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -153,6 +154,10 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
     setOpenGetPannel(!openGetPannel);
     setOpenExchangePannel(false);
   };
+  function confim() {
+    handleSendExchange();
+    setOpenConfimModal(false);
+  }
 
   //---ARRANGE-ALL-ELEMENTS-AT-OUTPUT----
 
@@ -196,6 +201,46 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
   return (
     <div className="exchange">
       <div className="_glass exchange__container _container">
+          { openConfimModal ? (
+            <div className="exchange__confim">
+              <div className="exchange__confim-container _glass">
+                <div className="exchange__confim-content">
+                  <div className="exchange__confim-text">
+                    <h3>Ви впевнені що хочете обміняти</h3>
+                    <div className="exchange-tank">
+                      <div>
+                        { TANKS[exchangeResources.exchangeRes].type !== "camo" ? (
+                          <img src={"img/icons/" + TANKS[exchangeResources.exchangeRes].type + ".png"} alt="TYPE" />
+                        ) : (
+                          <span className="camo-text">Камуфляж</span>
+                        )}
+                        { TANKS[exchangeResources.exchangeRes].land !== null ? (
+                          <img src={"img/flags/" + TANKS[exchangeResources.exchangeRes].land + "_big.png"} alt="LAND" />
+                        ) : ""}
+                      </div>
+                      <div>
+                        { TANKS[exchangeResources.exchangeRes].name }
+                      </div>
+                    </div>
+                  </div>
+                  <div className="center">
+                    <button className="btn _glass" onClick={confim}>
+                      Обміняти
+                      <div className="line line-top"></div>
+                      <div className="line line-right"></div>
+                      <div className="line line-bottom"></div>
+                      <div className="line line-left"></div>
+                    </button>
+                  </div>
+                </div>
+                <div className="modal__close" onClick={() => setOpenConfimModal(false)}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          ) : ""}
         <div className={`exchange__resources ${exchangeResources.exchangeRes === null || exchangeResources.getRes === null ? "settings" : ""}`}>
           <div
             className={`exchange__resources-exchangeRes exch-item ${exchangeResources.getRes === null ? "not-active" : ""
@@ -330,18 +375,23 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
                 <div>
                   Обміняти:
                 </div>
-                <div>
-                  <p>
-                    { TANKS[exchangeResources.exchangeRes].type !== "camo" ? (
-                      <img src={"img/icons/" + TANKS[exchangeResources.exchangeRes].type + ".png"} alt="TYPE" />
-                    ) : (
-                      <span className="camo-text">Камуфляж</span>
-                    )}
-                    { TANKS[exchangeResources.exchangeRes].land !== null ? (
-                      <img src={"img/flags/" + TANKS[exchangeResources.exchangeRes].land + "_big.png"} alt="LAND" />
-                    ) : ""}
-                    { TANKS[exchangeResources.exchangeRes].name }
-                  </p>
+                <div className="exchange-tank-block">
+                  <div className="exchange-tank">
+                    <div>
+                      { TANKS[exchangeResources.exchangeRes].type !== "camo" ? (
+                        <img src={"img/icons/" + TANKS[exchangeResources.exchangeRes].type + ".png"} alt="TYPE" />
+                      ) : (
+                        <span className="camo-text">Камуфляж</span>
+                      )}
+                      { TANKS[exchangeResources.exchangeRes].land !== null ? (
+                        <img src={"img/flags/" + TANKS[exchangeResources.exchangeRes].land + "_big.png"} alt="LAND" />
+                      ) : ""}
+                    </div>
+                    <div>
+                      { TANKS[exchangeResources.exchangeRes].name }
+                    </div>
+                    
+                  </div>
                   <img className="exchange-arrow" src={"img/background/arrow.png"} alt="ARROW" />
                   <p>
                     { TANKS[exchangeResources.exchangeRes].exchange }
@@ -351,7 +401,7 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
               </div>
               <div className="exchange__range-input">
                 <div className="exchange-submit">
-                  <button className="btn _glass" onClick={handleSendExchange} onMouseEnter={exchangeRotateAnima}>
+                  <button className="btn _glass" onClick={() => setOpenConfimModal(true)} onMouseEnter={exchangeRotateAnima}>
                     Обміняти <img src="img/servise/exchange.png" alt="exchange" style={{ transform: `rotateZ(${exchangeRotateNum}deg)` }} />
                     <div className="line line-top"></div>
                     <div className="line line-right"></div>

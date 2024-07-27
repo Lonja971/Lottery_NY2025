@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./css/welcome-animation.css";
 
 export function Login() {
   const location = useLocation();
@@ -11,6 +12,7 @@ export function Login() {
     password: "",
   });
   const [isMistake, setIsMistake] = useState(false);
+  const [isFirstVisit, setIsFirstVisit] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -55,8 +57,47 @@ export function Login() {
     }
   }, [isMistake]);
 
+  useEffect(() => {
+    const welcomeWomT = localStorage.getItem('welcomeWomT');
+    if (!welcomeWomT) {
+      setIsFirstVisit(true);
+      localStorage.setItem('welcomeWomT', 'true');
+    }
+  }, []);
+
   return (
     <>
+      {isFirstVisit ? (
+        <div className="welcome">
+          <div className="welcome__item-container">
+            <div className="welcome__item welcome-alert">
+                <img
+                  src="img/background/alert.png"
+                  alt="ALERT-IMG"
+                />
+                <h3 className="welcome-text">! Увага !<br></br>В проекті присутній звук</h3>
+            </div>
+          </div>
+          <div className="welcome__item-container">
+            <div className="welcome__item welcome-logo">
+                <img
+                  src="logo-big.png"
+                  alt="LOGO-IMG"
+                />
+                <h3 className="welcome-text">Представляє</h3>
+            </div>
+          </div>
+          <div className="welcome__item-container">
+            <div className="welcome__item welcome-lottery">
+                <img
+                  src="logo-ng"
+                  alt="LOTTERY-IMG"
+                />
+                <h3 className="welcome-text">Новорічна Лотерея 2025</h3>
+            </div>
+          </div>
+        </div>
+      ) : ""}
       <div className="register">
         <div className={`register__container _glass ${isMistake ? "mistake" : ""}`}>
           <form onSubmit={handleSubmit}>
