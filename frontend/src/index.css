@@ -103,7 +103,7 @@ body.lock {
 ._container {
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0px 30px;
+  padding: 0px 15px;
   /*border: 1px solid rgb(231, 68, 117);*/
 }
 ._glass {

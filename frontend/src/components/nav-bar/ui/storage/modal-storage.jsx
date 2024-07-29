@@ -350,7 +350,7 @@ function ModalStorageLayout({
         <div className="storage__resources">
           <div className="storage__resources-block">
             <h2>Ресурси</h2>
-            <div className="srb-block">
+            <div className="srb-block resources-block">
               {goldItem}
               {silverItem}
               {tokensItem}
@@ -362,7 +362,7 @@ function ModalStorageLayout({
           </div>
           <div className="storage__resources-block">
             <h2>Кейси</h2>
-            <div className="srb-block cases-block">
+            <div className="srb-block resources-block">
               {regularCasesItem}
               {specialCasesItem}
               {rareCasesItem}
