@@ -14,25 +14,25 @@ export function CheckCases({ playerId, active, addMessage, setIsUpdated, setActi
         case_name: active.caseName,
         case_open_resource: active.openResource,
       })
-      .then(response => {
-        if (response.data.status === 'success') {
-          //console.log('Data assigned successfully');
-          setIsPaymentSuccessful(true);
-        } else {
-          console.log(response.data.message);
-          addMessage("not_enough_v2");
+        .then(response => {
+          if (response.data.status === 'success') {
+            //console.log('Data assigned successfully');
+            setIsPaymentSuccessful(true);
+          } else {
+            console.log(response.data.message);
+            addMessage("not_enough");
+            setActive(false);
+          }
+          setHasChecked(true);
+        })
+        .catch(error => {
+          console.error('There was an error!', error);
+          addMessage("error", "There was an error while processing your request.");
+          setHasChecked(true);
           setActive(false);
-        }
-        setHasChecked(true);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-        addMessage("error", "There was an error while processing your request.");
-        setHasChecked(true);
-        setActive(false);
-      });
+        });
     }
-  }, [ addMessage, hasChecked]);
+  }, [addMessage, hasChecked]);
 
   return (
     <>

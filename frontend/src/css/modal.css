@@ -8,12 +8,13 @@
   transition: all 0.3s ease 0s;
   border: none;
   overflow: auto;
+  overflow-x: hidden;
 
   display: flex;
 
   background-color: var(--bg);
-  background-image: url("../../public/img/background/bg_v2.png");
-  background-size: 20%;
+  background-image: url("../../public/img/background/bg_v20-1.png");
+  background-size: 500px;
 }
 .modal__container {
   width: 100%;

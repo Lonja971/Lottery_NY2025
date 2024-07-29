@@ -9,21 +9,31 @@ export function Comments({ isComments, setIsComments, messages }) {
     <div className="comments">
       <div id="commentsBlock" className="comments__block">
       {messages.map((message, index) => {
-        if (message.type === "not_enough_v2") {
-
+        if (message.type === "not_enough") {
           return (
             <div className="error" key={message.id || index}>
               У вас недостатньо ресурсів!
             </div>
           );
-        }else if (message.type === "not_enough") {
-        
+        } else if (message.type === "name_changet_successfully") {
           return (
             <div key={message.id || index}>
-              У вас немає {message.value} {RESOURCES[message.resource]} <img src={"img/resources/" + message.resource + ".png"} alt="RES_IMG" />
+              Ваш нік успішно змінено!
             </div>
           );
-        }else if (message.type === "added") {
+        } else if (message.type === "promo_already_activated") {
+          return (
+            <div key={message.id || index}>
+              Промо-код вже активований!
+            </div>
+          );
+        } else if (message.type === "not_found_promo") {
+          return (
+            <div className="error" key={message.id || index}>
+              Такий промо-код не існує!
+            </div>
+          );
+        } else if (message.type === "added") {
           let tankName = null;
         
           if (message.valueType === "tank" && TANKS[message.resource]) {

@@ -52,10 +52,11 @@ img {
   --green: rgb(10, 180, 10);
   --green-shadow: rgba(10, 180, 10, 0.466);
   --gray: #1a2130;
-  --bg: #d2dbf1 /*495d8a*/;
+  --bg: #495d8a;
   --dark-bg: #365b9b;
 
   --color1: #fdffe2;
+  --transparent-color1: #fdffe270;
   --glass-color: #fdffe228;
 }
 /*
@@ -81,11 +82,12 @@ body {
   position: relative;
 
   background-color: var(--bg);
-  background-image: url("../public/img/background/bg_v2.png");
-
+  background-image: url("../public/img/background/bg_v20-1.png");
   background-size: 500px;
   color: var(--color1);
   line-height: 110%;
+
+  overflow-x: hidden;
 }
 body.lock {
   overflow-y: hidden;

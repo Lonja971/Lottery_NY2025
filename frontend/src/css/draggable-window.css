@@ -1,0 +1,30 @@
+.dragwind {
+  overflow: hidden;
+  max-width: 340px;
+
+  position: fixed;
+  top: 100px;
+  z-index: 20;
+}
+ 
+.dragwind__handle {
+   padding: 15px 15px;
+   cursor: move;
+
+   border: none;
+   border-bottom: 2px solid var(--color1);
+}
+.dragwind__handle-text{
+   text-align: left;
+}
+.dragwind__handle-close{
+   top: 6px;
+   right: 10px;
+}
+.dragwind__content {
+   padding: 35px 15px;
+}
+.dragwind input::placeholder{
+   font-size: 18px;
+   color: var(--transparent-color1);
+}

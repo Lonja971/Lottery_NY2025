@@ -9,8 +9,8 @@ import { Footer } from "./components/footer/footer";
 import { NavBar } from "./components/nav-bar/nav-bar";
 import { Modal } from "./components/uikit/modal";
 import { BurgerMenuBtn } from "./components/uikit/burger-menu-btn";
-import { ModalStorage } from "./components/nav-bar/ui/modal-storage";
-import { ModalExchange } from "./components/nav-bar/ui/modal-exchange";
+import { ModalStorage } from "./components/nav-bar/ui/storage/modal-storage";
+import { ModalExchange } from "./components/nav-bar/ui/exchange/modal-exchange";
 import { CheckCases } from "./components/cases/check-cases";
 import { Shop } from "./components/shop/shop";
 
@@ -165,7 +165,7 @@ export function Home() {
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
         <Modal active={modalStorageActive}>
-          <ModalStorage playerData={playerData} setActive={setModalStorageActive} />
+          <ModalStorage setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} />
         </Modal>
       )}
       {modalExchangeActive && (
