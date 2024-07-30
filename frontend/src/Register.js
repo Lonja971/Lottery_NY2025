@@ -34,28 +34,29 @@ export function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://NY2025/backend/api/register.php', {
+    axios.post('http://localhost/ny2025/backend/api/register.php', {
       userInfo: JSON.stringify(formData),
     })
-    .then(response => {
-      if (response.data.status === 'success') {
-        navigate('/login', { state: { message: "Тепер ви можете увійти в свій аккаунт тут." } });
-      } else {
-        setErrorMessage(response.data.message);
+      .then(response => {
+        if (response.data.status === 'success') {
+          navigate('/login', { state: { message: "Тепер ви можете увійти в свій аккаунт тут." } });
+        } else {
+          setErrorMessage(response.data.message);
+          console.log(response.data.message);
+          setIsMistake(true);
+        }
+      })
+      .catch(error => {
+        setErrorMessage('There was an error!');
         setIsMistake(true);
-      }
-    })
-    .catch(error => {
-      setErrorMessage('There was an error!');
-      setIsMistake(true);
-      console.error('There was an error!', error);
-    });
+        console.error('There was an error!', error);
+      });
   };
 
   return (
     <>
       <div className="register">
-        <div className={`register__container _glass ${ isMistake ? "mistake" : "" }`}>
+        <div className={`register__container _glass ${isMistake ? "mistake" : ""}`}>
           <form onSubmit={handleSubmit}>
             <div>
               <label>
@@ -111,7 +112,7 @@ export function Register() {
       </div>
       <div className="comments">
         <div className="comments__block">
-          { isMistake ? <div className="error">{errorMessage}</div> : "" }
+          {isMistake ? <div className="error">{errorMessage}</div> : ""}
         </div>
         <div className="comments__panel">
         </div>

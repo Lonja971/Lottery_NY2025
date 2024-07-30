@@ -1,7 +1,7 @@
 import axios from "axios";
 import { RESOURCES, TANKS } from "../constants";
 
-export function OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks) {
+export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks) {
 
   const handleSetIsUpdated = () => {
     setIsUpdated(true);
@@ -98,32 +98,32 @@ export function OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesI
       }
     }
 
-    axios.post('http://NY2025/backend/api/assignData.php', {
+    axios.post('http://localhost/ny2025/backend/api/assignData.php', {
       playerId: playerId,
       droppedItems: droppedItems,
     })
-    .then(response => {
-      if (response.data.status === 'success') {
-        //console.log('Data assigned successfully');
-    
-        // Check for new_dropped_tanks
-        if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
-          setNewDroppedTanks(response.data.new_dropped_tanks);
+      .then(response => {
+        if (response.data.status === 'success') {
+          //console.log('Data assigned successfully');
+
+          // Check for new_dropped_tanks
+          if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
+            setNewDroppedTanks(response.data.new_dropped_tanks);
+          }
+
+          // Check for converted_items
+          if (response.data.converted_items && response.data.converted_items.length > 0) {
+            setCompensatedItems(response.data.converted_items);
+          }
+        } else {
+          console.log(response.data.message);
         }
-    
-        // Check for converted_items
-        if (response.data.converted_items && response.data.converted_items.length > 0) {
-          setCompensatedItems(response.data.converted_items);
-        }
-      } else {
-        console.log(response.data.message);
-      }
-      handleSetIsUpdated();
-    })
-    .catch(error => {
-      console.error('There was an error!', error);
-    });
-     
+        handleSetIsUpdated();
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+
 
     return droppedItems;
   }

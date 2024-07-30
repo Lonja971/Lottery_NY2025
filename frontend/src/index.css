@@ -41,7 +41,7 @@ img {
 
 ::selection {
   background-color: var(--color1);
-  color: var(--dark-bg);
+  color: var(--bg);
 }
 
 /*----------ROOT----------*/
@@ -51,9 +51,8 @@ img {
   --white: #fff;
   --green: rgb(10, 180, 10);
   --green-shadow: rgba(10, 180, 10, 0.466);
-  --gray: #1a2130;
-  --bg: #495d8a;
-  --dark-bg: #365b9b;
+  --dark-bg: #1a2130;
+  --bg: #426BBD;
 
   --color1: #fdffe2;
   --transparent-color1: #fdffe270;

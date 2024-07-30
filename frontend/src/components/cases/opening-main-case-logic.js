@@ -1,12 +1,12 @@
 import axios from "axios";
 import { CASES, MAIN_CASE, RESOURCES } from "../constants";
 
-export function OpeningMainCaseLogic( playerId, setIsUpdated, setDroppedItems ) {
-  
+export function OpeningMainCaseLogic(playerId, setIsUpdated, setDroppedItems) {
+
   const handleSetIsUpdated = () => {
     setIsUpdated(true);
   }
-  
+
   function openCase(MAIN_CASE) {
     let droppedItems = [];
     let droppedCaseInfo;
@@ -53,21 +53,21 @@ export function OpeningMainCaseLogic( playerId, setIsUpdated, setDroppedItems ) 
       }
     });
 
-    axios.post('http://NY2025/backend/api/assignData.php', {
+    axios.post('http://localhost/ny2025/backend/api/assignData.php', {
       playerId: playerId,
       droppedItems: droppedItems,
     })
-    .then(response => {
-      if (response.data.status === 'success') {
-        //console.log('Data assigned successfully');
-      } else {
-        //console.log(response.data.message);
-      }
-      handleSetIsUpdated();
-    })
-    .catch(error => {
-      console.error('There was an error!', error);
-    });
+      .then(response => {
+        if (response.data.status === 'success') {
+          //console.log('Data assigned successfully');
+        } else {
+          //console.log(response.data.message);
+        }
+        handleSetIsUpdated();
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
 
     return droppedItems;
   }

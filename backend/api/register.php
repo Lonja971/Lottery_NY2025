@@ -24,13 +24,13 @@ $sql = "SELECT * FROM users WHERE username = '$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo json_encode(["status" => "error", "message" => "Username already exists."]);
+    echo json_encode(["status" => "error", "message" => "Це ім'я вже зайняте!"]);
     exit();
 }
 
 // Check if passwords match
 if ($password !== $confirmPassword) {
-    echo json_encode(["status" => "error", "message" => "Passwords do not match."]);
+    echo json_encode(["status" => "error", "message" => "Паролі не сходяться!"]);
     exit();
 }
 

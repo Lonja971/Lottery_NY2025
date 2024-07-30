@@ -27,7 +27,7 @@ export function Login() {
     e.preventDefault();
 
     axios
-      .post("http://NY2025/backend/api/login.php", {
+      .post("http://localhost/ny2025/backend/api/login.php", {
         userInfo: formData,
       })
       .then((response) => {
@@ -71,29 +71,29 @@ export function Login() {
         <div className="welcome">
           <div className="welcome__item-container">
             <div className="welcome__item welcome-alert">
-                <img
-                  src="img/background/alert.png"
-                  alt="ALERT-IMG"
-                />
-                <h3 className="welcome-text">! Увага !<br></br>В проекті присутній звук</h3>
+              <img
+                src="img/background/alert.png"
+                alt="ALERT-IMG"
+              />
+              <h3 className="welcome-text">! Увага !<br></br>В проекті присутній звук</h3>
             </div>
           </div>
           <div className="welcome__item-container">
             <div className="welcome__item welcome-logo">
-                <img
-                  src="logo-big.png"
-                  alt="LOGO-IMG"
-                />
-                <h3 className="welcome-text">Представляє</h3>
+              <img
+                src="logo-big.png"
+                alt="LOGO-IMG"
+              />
+              <h3 className="welcome-text">Представляє</h3>
             </div>
           </div>
           <div className="welcome__item-container">
             <div className="welcome__item welcome-lottery">
-                <img
-                  src="logo-ng"
-                  alt="LOTTERY-IMG"
-                />
-                <h3 className="welcome-text">Новорічна Лотерея 2025</h3>
+              <img
+                src="logo-ng"
+                alt="LOTTERY-IMG"
+              />
+              <h3 className="welcome-text">Новорічна Лотерея 2025</h3>
             </div>
           </div>
         </div>

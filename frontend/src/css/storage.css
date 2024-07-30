@@ -6,6 +6,7 @@
 .storage__container{
   position: relative;
   max-width: 940px !important;
+  padding: 0px 30px;
 }
 
 /*---PROMO-CODES---*/
@@ -38,11 +39,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 }
 .storage__user-block img{
-  width: 100%;
+  width: 50%;
+  margin: 0 auto;
 }
 .storage__user-nickname{
   position: absolute;
@@ -56,6 +58,7 @@
 .storage__user-nickname h2,
 .storage__user-nickname h3 {
   padding: 20px 35px;
+  line-height: 100%;
 }
 .storage__user-settings{
   display: flex;
@@ -77,6 +80,22 @@
 @media (max-width:700px) {
   .storage {
     margin: 70px 0px 50px 0px;
+  }
+  .storage__user-block img{
+    width: 75%;
+  }
+}
+@media (max-width:490px) {
+  .storage__user-settings{
+    flex-direction: column;
+  }
+  .storage__user-settings button{
+    flex: 0 1 100%
+  }
+  .storage__user-nickname h1,
+  .storage__user-nickname h2,
+  .storage__user-nickname h3 {
+    font-size: 25px;
   }
 }
 
@@ -285,6 +304,7 @@
   width: 100%;
   text-align: center;
   height: auto;
+  line-height: 140%;
 }
 .camo-text{
   font-size: 12px;
@@ -325,4 +345,19 @@
 }
 .tankblock__img.default {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px), url("../../public/img/flags/default.png");
+}
+
+/*---TOOLTIP---*/
+
+.storage-tooltip{
+  z-index: 20;
+  padding: 10px 10px;
+  max-width: 300px;
+  font-size: 18px;
+  text-align: left;
+}
+.storage-tooltip img{
+  height: 22px;
+  width: auto;
+  margin: 0px 5px;
 }

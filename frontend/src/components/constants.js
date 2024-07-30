@@ -1,15 +1,3 @@
-export const PLAYER = {
-  id: 1,
-  name: "Bogach",
-  gold: 10000,
-  silver: 22888,
-  tokens: 200,
-  red_tokens: 300,
-  tanks: 15,
-  premium_akk: 8,
-  drawings: 3,
-};
-
 export const RESOURCES = {
   gold: "Золота",
   silver: "Срібла",
@@ -295,7 +283,7 @@ export const TANKS = {
     id: 33,
     name: "Дробар",
     transcription: "crusher",
-    type: "td",
+    type: "ht",
     land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/krushitel.html",
     exchange: 6800,
@@ -416,7 +404,7 @@ export const TANKS = {
     type: "camo",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/t54.html",
-    exchange: 1500,
+    exchange: 500,
   },
   47: {
     id: 47,
@@ -425,7 +413,7 @@ export const TANKS = {
     type: "camo",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/t54.html",
-    exchange: 1500,
+    exchange: 500,
   },
   48: {
     id: 48,
@@ -474,7 +462,7 @@ export const TANKS = {
   },
   53: {
     id: 53,
-    name: "Tiger P GT",
+    name: "Tiger (P) GT",
     transcription: "tiger_p_gt",
     type: "camo",
     land: "ge",

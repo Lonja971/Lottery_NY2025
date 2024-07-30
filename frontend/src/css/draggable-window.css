@@ -8,18 +8,37 @@
 }
  
 .dragwind__handle {
-   padding: 15px 15px;
+   padding: 10px 15px;
    cursor: move;
 
    border: none;
    border-bottom: 2px solid var(--color1);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 .dragwind__handle-text{
    text-align: left;
 }
 .dragwind__handle-close{
-   top: 6px;
-   right: 10px;
+   position: relative;
+   top: 0;
+   left: 0;
+
+   width: 20px; /* Зменшено з 30px */
+   height: 12px; /* Зменшено з 18px */
+   padding: 15px; /* Зменшено з 20px */
+}
+.dragwind__handle-close span {
+   top: calc(50% - 0.75px); /* Відповідно зменшено */
+   height: 1px; /* Зменшено з 1.5px */
+}
+.dragwind__handle-close span:first-child {
+  top: calc(50% - 0.75px); /* Відповідно зменшено */
+}
+
+.dragwind__handle-close span:last-child {
+  bottom: calc(50% - 0.75px); /* Відповідно зменшено */
 }
 .dragwind__content {
    padding: 35px 15px;

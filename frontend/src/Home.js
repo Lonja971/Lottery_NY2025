@@ -36,13 +36,13 @@ export function Home() {
     if (isUpdated) {
       const fetchData = async () => {
         try {
-          const token = getCookie('t'); 
+          const token = getCookie('t');
           if (!token) {
             navigate('/login');
             return;
           }
-  
-          const response = await axios.get(`http://NY2025/backend/api/getData.php?token=${token}`);
+
+          const response = await axios.get(`http://localhost/ny2025/backend/api/getData.php?token=${token}`);
           setPlayerData(response.data);
         } catch (error) {
           if (error.response) {
@@ -56,14 +56,14 @@ export function Home() {
           }
         }
       };
-  
+
       fetchData();
       setIsUpdated(false);
     }
   }, [isUpdated, navigate]);
 
   //---Бургер-меню---
-  
+
   const [isMenu, setIsMenu] = useState(false);
 
   //---Відстежувати-дозвіл-на-коментарі---
@@ -78,10 +78,6 @@ export function Home() {
   useEffect(() => {
     localStorage.setItem("isComments", JSON.stringify(isComments));
   }, [isComments]);
-
-  const handleToggleComments = () => {
-    setIsComments(!isComments);
-  };
 
   //---Додавання-повідомлень---
 
@@ -113,7 +109,7 @@ export function Home() {
       convertedItem: convertedItem,
       seconds: 10,
     };
-  
+
     setMessages(prevMessages => [...prevMessages, messageObject]);
   };
 
@@ -126,7 +122,7 @@ export function Home() {
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
 
   //---Відстежувати-відкриття-модального-вікна-анімації-випадіння---
-  
+
   const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState({
     isOpen: false,
     type: null,
@@ -134,7 +130,7 @@ export function Home() {
     //openValue: null,
     openResource: null,
   });
-  
+
   //---Забороняємо-скролл-якщо-відкрите-модальне-вікно---
 
   if (
@@ -165,7 +161,7 @@ export function Home() {
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
         <Modal active={modalStorageActive}>
-          <ModalStorage setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} />
+          <ModalStorage setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} isComments={isComments} />
         </Modal>
       )}
       {modalExchangeActive && (
@@ -180,12 +176,12 @@ export function Home() {
           setIsUpdated={setIsUpdated}
           active={modalOpenCaseAnimation}
           setActive={setModalOpenCaseAnimation}
-          />
+        />
       )}
 
       <Comments
         isComments={isComments}
-        setIsComments={handleToggleComments}
+        setIsComments={setIsComments}
         messages={messages}
       />
       <Header />
