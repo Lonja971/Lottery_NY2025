@@ -9,7 +9,7 @@ import { DraggableWindow } from "../../../uikit/draggable-window";
 import { useState } from "react";
 import axios from "axios";
 
-export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments }) {
+export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments, tokenTimeLeft }) {
 
   let playerTanks = [];
   let playerCamos = [];

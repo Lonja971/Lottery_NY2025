@@ -53,10 +53,6 @@ nav.active {
   align-items: center;
   color: var(--color1);
 }
-/*.nav__menu-item, .nav__menu-item a{
-  font-weight: 900;
-  -webkit-text-stroke: 1px #1a2130;
-}*/
 
 .nav__menu-item a:hover {
   color: var(--green);
@@ -87,6 +83,8 @@ nav.active {
 
 /*---END-ACTIVE---*/
 
+.nav__menu-item {
+}
 .nav__menu-item img {
   height: 60px;
   transition: all 0.3s ease 0s;
@@ -134,6 +132,46 @@ nav.active {
 }
 .nav__logo-big:hover img {
   transform: scale(1.1);
+}
+
+/*---TOKENS-BUTTON---*/
+
+.token-button{
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+}
+.token-button button{
+  animation-duration: 3s;
+  animation-name: takeToken;
+  animation-iteration-count: infinite;
+}
+.token-button__text{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.token-button img{
+  height: 30px;
+}
+.nav__menu-item:hover .token-button img{
+  transform: scale(1);
+}
+
+@keyframes takeToken {
+  0% {
+    border: 2px solid var(--color1);
+    background: var(--glass-color);
+  }
+  50%{
+    border: 2px solid var(--danger);
+    background: rgba(255, 0, 0, 0.315);
+  }
+  100% {
+    border: 2px solid var(--color1);
+    background: var(--glass-color);
+  }
 }
 
 /*---HAMBURGER-MENU---*/

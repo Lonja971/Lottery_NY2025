@@ -11,6 +11,8 @@ import { NavBarRedTokens } from "./ui/nav-bar-red-tokens";
 
 export function NavBar({
   playerData,
+  newToken,
+  setNewToken,
   setActiveStorage,
   setActiveExchange,
   addComment,
@@ -18,6 +20,8 @@ export function NavBar({
   setIsMenu,
   modalStorageActive,
   modalExchangeActive,
+  addMessage,
+  setIsUpdated,
 })  {
   if (playerData !== null && playerData.userData !== undefined) {
     console.log(playerData.userData[0].id);
@@ -57,7 +61,7 @@ export function NavBar({
             nameBlock={<NavBarName name={playerData.name} />}
             goldBlock={<NavBarGold gold={playerData.gold} />}
             tokensBlock={
-              <NavBarTokens tokens={playerData.tokens} addComment={addComment} />
+              <NavBarTokens setIsUpdated={setIsUpdated} playerData={playerData} tokens={playerData.tokens} newToken={newToken} setNewToken={setNewToken} addMessage={addMessage} />
             }
             redTokensBlock={<NavBarRedTokens redTokens={playerData.red_tokens} />}
           />

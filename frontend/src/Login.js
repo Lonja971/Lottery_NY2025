@@ -5,15 +5,17 @@ import "./css/welcome-animation.css";
 
 export function Login() {
   const location = useLocation();
-  const message = location.state?.message || "";
+  const initialMessage = location.state?.message || "";
 
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-  const [isMistake, setIsMistake] = useState(false);
+  const [messages, setMessages] = useState([]);
   const [isFirstVisit, setIsFirstVisit] = useState(false);
   const navigate = useNavigate();
+
+  const hasErrors = messages.some((msg) => msg.error_message);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,24 +40,30 @@ export function Login() {
           navigate("/");
         } else {
           console.log("Login error:", response.data.message);
-          setIsMistake(true);
+          addMessage("Помилка входу! Перевірте своє ім'я або пароль!", true);
         }
       })
       .catch((error) => {
         console.error("There was an error!", error);
-        setIsMistake(true);
+        addMessage("Сталася помилка! Спробуйте ще раз пізніше.", true);
       });
   };
 
-  useEffect(() => {
-    if (isMistake) {
-      const timer = setTimeout(() => {
-        setIsMistake(false);
-      }, 10000);
+  const addMessage = (message, isError = false) => {
+    const id = Date.now();
+    setMessages((prevMessages) => [...prevMessages, { id, message, error_message: isError }]);
+    setTimeout(() => {
+      setMessages((prevMessages) =>
+        prevMessages.filter((msg) => msg.id !== id)
+      );
+    }, 10000);
+  };
 
-      return () => clearTimeout(timer);
+  useEffect(() => {
+    if (initialMessage) {
+      addMessage(initialMessage, false);
     }
-  }, [isMistake]);
+  }, [initialMessage]);
 
   useEffect(() => {
     const welcomeWomT = localStorage.getItem('welcomeWomT');
@@ -99,7 +107,7 @@ export function Login() {
         </div>
       ) : ""}
       <div className="register">
-        <div className={`register__container _glass ${isMistake ? "mistake" : ""}`}>
+        <div className="register__container _glass">
           <form onSubmit={handleSubmit}>
             <div>
               <label>
@@ -136,20 +144,17 @@ export function Login() {
                 <div className="line line-left"></div>
               </button>
             </div>
-            <p className="comment-block center">Ще немає аккаунту? Створіть його <a href="http://localhost:3000/register">тут</a> !</p>
+            <p className="comment-block center">Ще немає аккаунту? Створіть його <a href="http://localhost:3000/register">тут</a>!</p>
           </form>
         </div>
       </div>
       <div className="comments">
         <div className="comments__block">
-          {isMistake ? (
-            <div className="error">
-              Помилка входу! Перевірте своє ім'я або пароль!
+          {messages.map((msg) => (
+            <div key={msg.id} className={msg.error_message ? "error" : ""}>
+              {msg.message}
             </div>
-          ) : (
-            ""
-          )}
-          {message ? <div>{message}</div> : ""}
+          ))}
         </div>
         <div className="comments__panel"></div>
       </div>

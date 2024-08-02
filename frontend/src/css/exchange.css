@@ -155,7 +155,7 @@
    width: 25px;
    height: 25px;
    border-radius: 50%;
-   border: 3px solid var(--gray);
+   border: 3px solid var(--dark-bg);
    background-color: var(--bg);
    cursor: pointer;
 }
@@ -164,7 +164,7 @@
    width: 25px;
    height: 25px;
    border-radius: 50%;
-   border: 3px solid var(--gray);
+   border: 3px solid var(--dark-bg);
    background-color: var(--bg);
    cursor: pointer;
 }

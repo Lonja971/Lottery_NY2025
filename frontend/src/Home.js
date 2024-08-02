@@ -62,6 +62,37 @@ export function Home() {
     }
   }, [isUpdated, navigate]);
 
+  //---Обробка-TokensTimer---
+
+  const [newToken, setNewToken] = useState(false);
+  const [tokenTimeLeft, setTokenTimeLeft] = useState(null);
+
+  useEffect(() => {
+    if (playerData !== null) {
+      const checkTime = () => {
+        const currentTime = Math.floor(Date.now() / 1000);
+        const tokensTimer = playerData.tokens_timer;
+        const timeDifference = playerData.tokens_timer - currentTime;
+
+        if (currentTime >= tokensTimer || tokensTimer == null) {
+          console.log('Так');
+          setNewToken(true);
+          setTokenTimeLeft("Заберіть!");
+        } else {
+          console.log('Ні');
+          const hours = Math.floor(timeDifference / 3600);
+          const minutes = Math.floor((timeDifference % 3600) / 60);
+          const seconds = timeDifference % 60;
+          setTokenTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+        }
+      };
+
+      const intervalId = setInterval(checkTime, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [playerData]);
+
   //---Бургер-меню---
 
   const [isMenu, setIsMenu] = useState(false);
@@ -151,17 +182,21 @@ export function Home() {
           isMenu={isMenu}
           setIsMenu={setIsMenu}
           playerData={playerData}
+          setNewToken={setNewToken}
+          newToken={newToken}
           modalStorageActive={modalStorageActive}
           setActiveStorage={setModalStorageActive}
           modalExchangeActive={modalExchangeActive}
           setActiveExchange={setModalExchangeActive}
+          addMessage={addMessage}
+          setIsUpdated={setIsUpdated}
         />
       }
     >
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
         <Modal active={modalStorageActive}>
-          <ModalStorage setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} isComments={isComments} />
+          <ModalStorage setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} isComments={isComments} tokenTimeLeft={tokenTimeLeft} />
         </Modal>
       )}
       {modalExchangeActive && (
@@ -180,6 +215,13 @@ export function Home() {
       )}
 
       <Comments
+        setIsUpdated={setIsUpdated}
+        newToken={newToken}
+        setNewToken={setNewToken}
+        addMessage={addMessage}
+        playerData={playerData}
+
+        tokenTimeLeft={tokenTimeLeft}
         isComments={isComments}
         setIsComments={setIsComments}
         messages={messages}

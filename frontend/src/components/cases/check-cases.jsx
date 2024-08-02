@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ModalOpenCaseAnimation } from "./ui/modal-open-case-animation";
-import { Modal } from "../uikit/modal";
+import { ModalOpenCaseAnimation } from "./ui/modal-open-case-animation";;
 
 export function CheckCases({ playerId, active, addMessage, setIsUpdated, setActive }) {
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);

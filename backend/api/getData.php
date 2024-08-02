@@ -45,6 +45,7 @@ if ($result->num_rows > 0) {
                     'rare_cases' => $row_user['rare_cases'],
                     'mythical_cases' => $row_user['mythical_cases'],
                     'legendary_cases' => $row_user['legendary_cases'],
+                    'tokens_timer' => $row_user['tokens_timer'],
                 );
             }
             if (!is_null($row_user['tank_id'])) {
