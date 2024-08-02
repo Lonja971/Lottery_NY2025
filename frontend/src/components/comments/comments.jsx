@@ -57,6 +57,12 @@ export function Comments({ setIsUpdated, newToken, setNewToken, addMessage, play
                   Промо-код вже активований!
                 </div>
               );
+            case "the_same_name":
+              return (
+                <div key={message.id || index}>
+                  У вас вже такий нік!
+                </div>
+              );
             case "not_found_promo":
               return (
                 <div className="error" key={message.id || index}>
@@ -156,7 +162,7 @@ export function Comments({ setIsUpdated, newToken, setNewToken, addMessage, play
         })}
         {newToken ? (
           <button className="btn _glass commentsblock-newtoken" onClick={handleNewToken}>
-            <span className="token-button__text">+1  Токен<img src="img/resources/tokens.png" alt="TOKENS" /> </span>
+            <span className="token-button__text">Отримати 1 Токен<img src="img/resources/tokens.png" alt="TOKENS" /> </span>
             <span className="line line-top"></span>
             <span className="line line-right"></span>
             <span className="line line-bottom"></span>

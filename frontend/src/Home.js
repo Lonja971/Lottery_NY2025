@@ -75,11 +75,9 @@ export function Home() {
         const timeDifference = playerData.tokens_timer - currentTime;
 
         if (currentTime >= tokensTimer || tokensTimer == null) {
-          console.log('Так');
           setNewToken(true);
           setTokenTimeLeft("Заберіть!");
         } else {
-          console.log('Ні');
           const hours = Math.floor(timeDifference / 3600);
           const minutes = Math.floor((timeDifference % 3600) / 60);
           const seconds = timeDifference % 60;

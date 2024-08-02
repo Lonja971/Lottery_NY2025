@@ -58,7 +58,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="resource"
               resource="tokens"
               value={playerData.tokens}
-              text='Токени <img src="img/resources/tokens.png" alt="RES" /> - можно забирати раз на годину. За Токени можно покупати кейси під час події "Новорічна Лотерея 2025".'
+              text='Токени <img src="img/resources/tokens.png" alt="RES" /> - можно забрати раз на годину. За Токени можно покупати кейси під час події "Новорічна Лотерея 2025".'
             />
           }
           redTokensItem={
@@ -209,6 +209,8 @@ function ModalStorageLayout({
             ...prevData,
             username: "",
           }));
+        } else if (response.data.status === "the_same") {
+          addMessage("the_same_name");
         } else {
           console.log("Login error:", response.data.message);
           addMessage("error");

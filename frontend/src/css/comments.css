@@ -37,7 +37,7 @@
 }
 .comments__block img {
   width: auto;
-  height: 25px;
+  height: 20px;
   margin: 0px 5px;
 }
 .comments__block div {
@@ -49,8 +49,29 @@
 .comments__block .commentsblock-newtoken{
   width: 100%;
   padding: 10px 20px;
+  animation-duration: 3s;
+  animation-name: takeToken;
+  animation-iteration-count: infinite;
+}
+.comments__block .commentsblock-newtoken:hover{
+  border: 2px solid var(--color1) !important;
+  background: var(--glass-color) !important;
 }
 
+@keyframes takeToken {
+  25% {
+    border: 2px solid var(--color1);
+    background: var(--glass-color);
+  }
+  50%{
+    border: 2px solid var(--danger);
+    background: rgba(255, 0, 0, 0.315);
+  }
+  85% {
+    border: 2px solid var(--color1);
+    background: var(--glass-color);
+  }
+}
 @keyframes NewResourse {
   0% {
     transform: translateX(150%);

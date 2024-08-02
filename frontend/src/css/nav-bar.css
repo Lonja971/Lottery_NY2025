@@ -142,11 +142,6 @@ nav.active {
   right: 25px;
   transform: translateY(-50%);
 }
-.token-button button{
-  animation-duration: 3s;
-  animation-name: takeToken;
-  animation-iteration-count: infinite;
-}
 .token-button__text{
   display: flex;
   align-items: center;
@@ -157,21 +152,6 @@ nav.active {
 }
 .nav__menu-item:hover .token-button img{
   transform: scale(1);
-}
-
-@keyframes takeToken {
-  0% {
-    border: 2px solid var(--color1);
-    background: var(--glass-color);
-  }
-  50%{
-    border: 2px solid var(--danger);
-    background: rgba(255, 0, 0, 0.315);
-  }
-  100% {
-    border: 2px solid var(--color1);
-    background: var(--glass-color);
-  }
 }
 
 /*---HAMBURGER-MENU---*/
