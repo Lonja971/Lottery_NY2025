@@ -1,4 +1,4 @@
-/*---EXCHANGE---*/
+/*---EXCHANGE---over*/
 
 .exchange{
    margin-top: -10%;
@@ -72,6 +72,18 @@
    opacity: 0;
    pointer-events: none;
    scroll-snap-type: y mandatory;
+}
+.exch-menu::-webkit-scrollbar{
+  width: 10px;
+}
+.exch-menu::-webkit-scrollbar-thumb {
+   box-shadow: 1px -1px 50px 50px var(--color1);
+}
+.exch-menu::-webkit-scrollbar-track {
+   background: var(--glass-color);
+   backdrop-filter: blur(6.8px);
+   -webkit-backdrop-filter: blur(6.8px);
+   border-left: 2px solid var(--color1);
 }
 .exch-menu .itemsblock{
    scroll-snap-align: start;
