@@ -1,6 +1,6 @@
 import React from "react";
 import "../../css/lottery.css";
-import { LEGENDARY_CASE, MYTHICAL_CASE, RARE_CASE, REGULAR_CASE, SPECIAL_CASE, MAIN_CASE } from "../constants";
+import { LEGENDARY_CASE, MYTHICAL_CASE, RARE_CASE, REGULAR_CASE, SPECIAL_CASE, MAIN_CASE, WAFF_CASE } from "../constants";
 import { CaseBlock } from "./ui/case-block";
 
 export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
@@ -15,33 +15,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
       isManu: false,
       transcription: "main_cases",
       type: MAIN_CASE,
-      extra_resources: [
-        {
-          amounts: 1,
-          case_name: "regular_cases",
-          probability: 40,
-        },
-        {
-          amounts: 1,
-          case_name: "special_cases",
-          probability: 32,
-        },
-        {
-          amounts: 1,
-          case_name: "rare_cases",
-          probability: 18,
-        },
-        {
-          amounts: 1,
-          case_name: "mythical_cases",
-          probability: 7,
-        },
-        {
-          amounts: 1,
-          case_name: "legendary_cases",
-          probability: 3,
-        },
-      ],
       buttons: [
         {
           openResource: "gold",
@@ -105,6 +78,17 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         {
           openResource: "legendary_cases",
           price: 1,
+        },
+      ],
+    },{
+      name: "Кейс Ваффентрагер",
+      isManu: false,
+      transcription: "waff_cases",
+      type: WAFF_CASE,
+      buttons: [
+        {
+          openResource: "red_tokens",
+          price: 2,
         },
       ],
     },

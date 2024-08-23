@@ -514,6 +514,24 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/italy/minotauro.html",
     exchange: 1500,
   },
+  59: {
+    id: 59,
+    name: `Waf. Auf E 100`,
+    transcription: "waff_auf_e_100",
+    type: "td",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/waf_auf_e100.html",
+    exchange: 7500,
+  },
+  60: {
+    id: 60,
+    name: "Останній Ваффентрагер",
+    transcription: "waff_auf_e_100_the_last",
+    type: "camo",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/waf_auf_e100.html",
+    exchange: 2500,
+  },
 };
 
 //---EXCHANGE---
@@ -572,32 +590,53 @@ export const CASES = {
   main_cases: {
     name: "Main Кейс",
     transcription: "main_case",
+    animation: "default",
   },
   regular_cases: {
     name: "Звичайний Кейс",
-    transcription: "regular_case"
+    transcription: "regular_case",
+    animation: "regular_cases",
   },
   special_cases: {
     name: "Особливий Кейс",
-    transcription: "special_case"
+    transcription: "special_case",
+    animation: "special_cases",
   },
   rare_cases: {
     name: "Рідкісний Кейс",
-    transcription: "rare_case"
+    transcription: "rare_case",
+    animation: "rare_cases",
   },
   mythical_cases: {
     name: "Міфічний Кейс",
-    transcription: "mythical_case"
+    transcription: "mythical_case",
+    animation: "mythical_cases",
   },
   legendary_cases: {
     name: "Легендарний Кейс",
-    transcription: "legendary_case"
-  }
+    transcription: "legendary_case",
+    animation: "legendary_cases",
+  },
+  waff_cases: {
+    name: "Ваффентрагер",
+    transcription: "waff_case",
+    animation: "default",
+  },
 };
 
 //---CASES-RESOURCES-INFO---
 
 export const MAIN_CASE = [
+  { 
+    probability: 100,
+    items: [
+      { type: "case", name: "regular_cases", probability: 40, amounts: [1] },
+      { type: "case", name: "special_cases", probability: 32, amounts: [1] },
+      { type: "case", name: "rare_cases", probability: 18, amounts: [1] },
+      { type: "case", name: "mythical_cases", probability: 7, amounts: [1] },
+      { type: "case", name: "legendary_cases", probability: 3, amounts: [1] },
+    ]
+  },
   { type: "gold", probability: 15, amounts: [ 200, 300, 500 ] },
   { type: "red_tokens", probability: 15, amounts: [ 1, 2 ] },
 ];
@@ -638,4 +677,10 @@ export const LEGENDARY_CASE = [
   { type: "red_tokens", probability: 25, amounts: [2, 6] },
   { type: "tank", id: "42", probability: 20, amounts: [1] },
   { type: "tank", id: "2", probability: 20, amounts: [1] },
+];
+
+export const WAFF_CASE = [
+  { type: "gold", probability: 10, amounts: [2000, 3000], default: true },
+  { type: "tank", id: "59", probability: 10, amounts: [1] },
+  { type: "tank", id: "60", probability: 70, amounts: [1] },
 ];

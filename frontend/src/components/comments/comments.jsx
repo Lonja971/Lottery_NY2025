@@ -60,7 +60,7 @@ export function Comments({ setIsUpdated, newToken, setNewToken, addMessage, play
             case "the_same_name":
               return (
                 <div key={message.id || index}>
-                  У вас вже такий нік!
+                  Нік вже зайнятий!
                 </div>
               );
             case "not_found_promo":

@@ -1,8 +1,8 @@
 import "../../../css/open-animation.css";
 import "../../../css/dropping-animation.css";
-import { OpeningMainCaseLogic } from "../opening-main-case-logic";
 import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
+import { CASES } from "../../constants";
 
 export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
@@ -16,7 +16,6 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
 
   const handleClick = () => {
     if (compensatedItems && compensatedItems.length > 0) {
-      console.log(compensatedItems);
       compensatedItems.forEach(item => {
         addMessage("converted", "resource", item.conversion_value, "gold", "tank", null, item.id);
       });
@@ -33,12 +32,8 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
   const limit = 4;
 
   useEffect(() => {
-    if(active.caseName === 'main_cases'){
-      OpeningMainCaseLogic( playerId, setIsUpdated, setDroppedItems);
-    }else{
-      OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks);
-    }
-  }, []);
+    OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks);
+  }, [caseResourcesInfo, playerId, setIsUpdated]);
 
   return (
     <div className="opening-cases-block">
@@ -57,7 +52,9 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
           muted
           id="video"
           className="video opening__video"
-          src={"video/"+ active.caseName +".mp4"}
+          src={CASES[active.caseName].animation === undefined || CASES[active.caseName].animation === "default" ? 
+            "video/default.mp4" : 
+            "video/" + CASES[active.caseName].animation + ".mp4"}
           autoPlay
           onLoadedData={handleVideoLoaded}
         ></video>

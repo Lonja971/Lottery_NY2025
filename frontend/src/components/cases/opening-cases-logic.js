@@ -1,5 +1,5 @@
 import axios from "axios";
-import { RESOURCES, TANKS } from "../constants";
+import { CASES, RESOURCES, TANKS } from "../constants";
 
 export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks) {
 
@@ -8,40 +8,85 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
   }
 
   function openCase(caseResourcesInfo) {
-    //console.log("");
     let droppedItems = [];
 
     caseResourcesInfo.forEach((item) => {
-      var randomValue = Math.floor(Math.random() * 100) + 1;
-      //console.log(
-      //  "( " + randomValue + "% для item " + (item.name || item.type) + " )",
-      //);
+      const scaledProbability = item.probability * 100;
+      var randomValue = Math.floor(Math.random() * 10000) + 1;
 
-      if (randomValue <= item.probability) {
+      if (randomValue <= scaledProbability) {
         let amount;
 
-        if (item.amounts && item.amounts.length > 0) {
-          const randomIndex = Math.floor(Math.random() * item.amounts.length);
-          amount = item.amounts[randomIndex];
+        // Перевірка, чи є item підмасивом
+        if (item.items && Array.isArray(item.items)) {
+          // Логіка для вибору елемента з підмасиву
+          const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
+          const randomSubValue = Math.random() * totalProbability;
+
+          let minValue = 0;
+          let maxValue = 0;
+          let selectedSubItem = null;
+
+          // Перебираємо елементи підмасиву
+          for (let subItem of item.items) {
+            minValue = maxValue;
+            maxValue += subItem.probability;
+
+            if (randomSubValue >= minValue && randomSubValue < maxValue) {
+              selectedSubItem = subItem;
+              break;
+            }
+          }
+
+          if (selectedSubItem) {
+            if (selectedSubItem.amounts && selectedSubItem.amounts.length > 0) {
+              const randomIndex = Math.floor(Math.random() * selectedSubItem.amounts.length);
+              amount = selectedSubItem.amounts[randomIndex];
+            } else {
+              amount = 1;
+            }
+
+            if (selectedSubItem.type === "case"){
+              let caseInfo = { case: true, type: selectedSubItem.name, name: CASES[selectedSubItem.name].name, amount: 1 };
+              droppedItems.push(caseInfo);
+            }else{
+              const { amounts, ...itemWithoutAmounts } = selectedSubItem;
+              let name = selectedSubItem.name || (selectedSubItem.type ? RESOURCES[selectedSubItem.type] : "");
+              let tankInfo = null;
+              let id = selectedSubItem.id || (selectedSubItem.type === "tank" ? RESOURCES.tanks : "");
+  
+              if (selectedSubItem.type === "tank") {
+                tankInfo = TANKS[id.toLowerCase()];
+              }
+  
+              droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
+            }
+          }
         } else {
-          amount = 1;
+          // Звичайна логіка для елементів не з підмасиву
+          if (item.amounts && item.amounts.length > 0) {
+            const randomIndex = Math.floor(Math.random() * item.amounts.length);
+            amount = item.amounts[randomIndex];
+          } else {
+            amount = 1;
+          }
+
+          const { amounts, ...itemWithoutAmounts } = item;
+          let name = item.name || (item.type ? RESOURCES[item.type] : "");
+          let tankInfo = null;
+          let id = item.id || (item.type === "tank" ? RESOURCES.tanks : "");
+
+          if (item.type === "tank") {
+            tankInfo = TANKS[id.toLowerCase()];
+          }
+
+          droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
         }
-
-        const { amounts, ...itemWithoutAmounts } = item;
-        let name = item.name || (item.type ? RESOURCES[item.type] : "");
-        let tankInfo = null;
-        let id = item.id || (item.type === "tank" ? RESOURCES.tanks : "");
-
-        if (item.type === "tank") {
-          tankInfo = TANKS[id.toLowerCase()];
-        }
-
-        droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
       }
     });
 
+    //-ЗА-ДЕФОЛТОМ--
     if (droppedItems.length === 0) {
-      //console.log("--за дефолтом");
       const defaultItem = caseResourcesInfo.find(
         (item) => item.default === true,
       );
@@ -91,27 +136,21 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
         droppedItems.push({ ...itemWithoutAmounts, name, amount: 1, tankInfo });
       }
     } else if (droppedItems.length > limit) {
-      //console.log("--обмеження до " + limit + " елементів");
       while (droppedItems.length > limit) {
         let resourceNum = Math.floor(Math.random() * droppedItems.length);
         droppedItems.splice(resourceNum, 1);
       }
     }
-
     axios.post('http://localhost/ny2025/backend/api/assignData.php', {
       playerId: playerId,
       droppedItems: droppedItems,
     })
       .then(response => {
         if (response.data.status === 'success') {
-          //console.log('Data assigned successfully');
-
-          // Check for new_dropped_tanks
           if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
             setNewDroppedTanks(response.data.new_dropped_tanks);
           }
 
-          // Check for converted_items
           if (response.data.converted_items && response.data.converted_items.length > 0) {
             setCompensatedItems(response.data.converted_items);
           }
@@ -124,11 +163,9 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
         console.error('There was an error!', error);
       });
 
-
     return droppedItems;
   }
 
   const result = openCase(caseResourcesInfo);
-  //console.log("Випали ресурси:", result);
   setDroppedItems(result);
 }

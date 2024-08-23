@@ -18,7 +18,7 @@ export function NavBarLayout({
           {redTokensBlock}
         </ul>
       </div>
-      <a href="#" className="nav__logo-big">
+      <a href="https://lonja971.github.io/WomT_wiki/WomT.html" className="nav__logo-big">
         <img src="logo-big.png" alt="LOGO" />
       </a>
     </div>
