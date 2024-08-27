@@ -29,7 +29,7 @@ export function Login() {
     e.preventDefault();
 
     axios
-      .post("http://localhost/ny2025/backend/api/login.php", {
+      .post("http://NY2025/backend/api/login.php", {
         userInfo: formData,
       })
       .then((response) => {

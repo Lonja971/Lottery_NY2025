@@ -42,7 +42,7 @@ export function Home() {
             return;
           }
 
-          const response = await axios.get(`http://localhost/ny2025/backend/api/getData.php?token=${token}`);
+          const response = await axios.get(`http://NY2025/backend/api/getData.php?token=${token}`);
           setPlayerData(response.data);
         } catch (error) {
           if (error.response) {

@@ -34,7 +34,7 @@ export function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost/ny2025/backend/api/register.php', {
+    axios.post('http://NY2025/backend/api/register.php', {
       userInfo: JSON.stringify(formData),
     })
       .then(response => {

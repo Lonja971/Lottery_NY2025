@@ -525,12 +525,13 @@ export const TANKS = {
   },
   60: {
     id: 60,
-    name: "Останній Ваффентрагер",
+    name: "Останній Ваффентраген",
     transcription: "waff_auf_e_100_the_last",
     type: "camo",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/waf_auf_e100.html",
     exchange: 2500,
+    bg: "waff_auf_e_100_the_last-bg",
   },
 };
 
@@ -618,9 +619,9 @@ export const CASES = {
     animation: "legendary_cases",
   },
   waff_cases: {
-    name: "Ваффентрагер",
+    name: "Останній Ваффентрагер",
     transcription: "waff_case",
-    animation: "default",
+    animation: "waff_case",
   },
 };
 
@@ -681,6 +682,6 @@ export const LEGENDARY_CASE = [
 
 export const WAFF_CASE = [
   { type: "gold", probability: 10, amounts: [2000, 3000], default: true },
-  { type: "tank", id: "59", probability: 10, amounts: [1] },
-  { type: "tank", id: "60", probability: 70, amounts: [1] },
+  { type: "tank", id: "59", probability: 100, amounts: [1] },
+  { type: "tank", id: "60", probability: 100, amounts: [1] },
 ];

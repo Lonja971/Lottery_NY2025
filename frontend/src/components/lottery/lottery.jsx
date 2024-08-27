@@ -11,7 +11,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
 
   const casesData = [
     {
-      name: "Main Кейс",
       isManu: false,
       transcription: "main_cases",
       type: MAIN_CASE,
@@ -26,7 +25,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         },
       ],
     },{
-      name: "Звичайний Кейс",
       isManu: true,
       transcription: "regular_cases",
       type: REGULAR_CASE,
@@ -37,7 +35,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         },
       ],
     },{
-      name: "Особливий Кейс",
       isManu: true,
       transcription: "special_cases",
       type: SPECIAL_CASE,
@@ -48,7 +45,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         },
       ],
     },{
-      name: "Рідкісний Кейс",
       isManu: true,
       transcription: "rare_cases",
       type: RARE_CASE,
@@ -59,7 +55,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         },
       ],
     },{
-      name: "Міфічний Кейс",
       isManu: true,
       transcription: "mythical_cases",
       type: MYTHICAL_CASE,
@@ -70,7 +65,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         },
       ],
     },{
-      name: "Легендарний Кейс",
       isManu: true,
       transcription: "legendary_cases",
       type: LEGENDARY_CASE,
@@ -81,7 +75,6 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
         },
       ],
     },{
-      name: "Кейс Ваффентрагер",
       isManu: false,
       transcription: "waff_cases",
       type: WAFF_CASE,

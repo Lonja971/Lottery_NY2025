@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Час створення: Сер 02 2024 р., 14:21
--- Версія сервера: 10.4.28-MariaDB
--- Версія PHP: 8.2.4
+-- Хост: 127.0.0.1:3307
+-- Час створення: Сер 27 2024 р., 13:29
+-- Версія сервера: 5.7.39
+-- Версія PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База даних: `ny_2025`
+-- База даних: `NY_2025`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `cases` (
   `red_tokens` int(11) DEFAULT NULL,
   `unique_currency` varchar(255) DEFAULT NULL,
   `unique_price` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `cases`
@@ -47,7 +47,8 @@ INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `unique_curre
 (3, 'special_cases', NULL, NULL, NULL, 'special_cases', 1),
 (4, 'rare_cases', NULL, NULL, NULL, 'rare_cases', 1),
 (5, 'mythical_cases', NULL, NULL, NULL, 'mythical_cases', 1),
-(6, 'legendary_cases', NULL, NULL, NULL, 'legendary_cases', 1);
+(6, 'legendary_cases', NULL, NULL, NULL, 'legendary_cases', 1),
+(7, 'waff_cases', NULL, NULL, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,7 @@ CREATE TABLE `codes` (
   `get_type` varchar(255) NOT NULL,
   `get_name` varchar(255) NOT NULL,
   `get_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `codes`
@@ -83,7 +84,7 @@ CREATE TABLE `exchange_gold` (
   `exchange_resource` varchar(255) NOT NULL,
   `exchange_value` int(11) NOT NULL,
   `get_value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `exchange_gold`
@@ -108,7 +109,7 @@ CREATE TABLE `exchange_red_tokens` (
   `exchange_resource` varchar(255) NOT NULL,
   `exchange_value` int(11) NOT NULL,
   `get_value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `exchange_red_tokens`
@@ -131,7 +132,7 @@ CREATE TABLE `tanks` (
   `type` varchar(255) NOT NULL,
   `land` varchar(255) NOT NULL,
   `conversion_value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `tanks`
@@ -193,7 +194,9 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (55, 'Grill 15 Новорічний Рейдер', 'grill_15_newyear_raider', 'camo', 'ge', 2500),
 (56, 'Віндікатор \"Темні янголи\"', 'vindicator_dark_angels', 'camo', 'inter', 1500),
 (57, 'Віндікатор \"Імперський кулак\"', 'vindicator_imperial_fist', 'camo', 'inter', 1500),
-(58, 'Minotauro Новорічний', 'minotauro_newyear', 'camo', 'it', 1500);
+(58, 'Minotauro Новорічний', 'minotauro_newyear', 'camo', 'it', 1500),
+(59, 'Waf. Auf E 100', 'waff_auf_e_100', 'td', 'ge', 7500),
+(60, 'Останній Ваффентраген', 'waff_auf_e_100_the_last', 'camo', 'ge', 2500);
 
 -- --------------------------------------------------------
 
@@ -207,14 +210,15 @@ CREATE TABLE `tokens` (
   `user_id` int(11) DEFAULT NULL,
   `device` varchar(255) DEFAULT NULL,
   `created_at` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `tokens`
 --
 
 INSERT INTO `tokens` (`id`, `identifier`, `user_id`, `device`, `created_at`) VALUES
-(10, '63401e6326fd3efbb43be70446d03c49', 2, '::1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0', 1722345727);
+(10, '63401e6326fd3efbb43be70446d03c49', 2, '::1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0', 1722345727),
+(11, '2f1daffc463239e81e5878a76eaef3e4', 2, '127.0.0.1_Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 Edg/128.0.0.0', 1724751718);
 
 -- --------------------------------------------------------
 
@@ -239,14 +243,14 @@ CREATE TABLE `users` (
   `mythical_cases` int(11) NOT NULL,
   `legendary_cases` int(11) NOT NULL,
   `tokens_timer` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `red_tokens`, `tanks`, `premium_akk`, `drawings`, `regular_cases`, `special_cases`, `rare_cases`, `mythical_cases`, `legendary_cases`, `tokens_timer`) VALUES
-(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 79800, 3500, 4, 67, 7, 4, 13, 22, 21, 12, 0, 0, 1722604381),
+(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 199500, 3500, 5, 29, 7, 4, 13, 24, 21, 13, 0, 0, 1724755327),
 (3, 'Залізний Панцир', '$2y$10$AqtdnlDsmPiTOeatpYe/VOyPgzeCQgUdtzNDYbOcJAGe7TeMKZfx2', 3000, 26500, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
 (4, 'Вогнений тапок', '$2y$10$fqZ02AHrHhASSa32SekpKuaXTR4hUQp/cz3JwSW9LVMJcjwBBrJey', 0, 2500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (5, 'Killua', '$2y$10$9RcfARbasxfCPBFxnr3voew1uxvaKkf6cmx8.xLk0g/XF5PQKqGZ.', 8500, 4000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
@@ -264,7 +268,7 @@ CREATE TABLE `user_codes` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `code_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `user_codes`
@@ -285,7 +289,7 @@ CREATE TABLE `user_tanks` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `tank_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп даних таблиці `user_tanks`
@@ -362,7 +366,9 @@ INSERT INTO `user_tanks` (`id`, `user_id`, `tank_id`) VALUES
 (68, 6, 30),
 (69, 6, 40),
 (70, 6, 41),
-(71, 6, 47);
+(71, 6, 47),
+(72, 2, 60),
+(73, 2, 59);
 
 --
 -- Індекси збережених таблиць
@@ -435,7 +441,7 @@ ALTER TABLE `user_tanks`
 -- AUTO_INCREMENT для таблиці `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблиці `codes`
@@ -459,19 +465,19 @@ ALTER TABLE `exchange_red_tokens`
 -- AUTO_INCREMENT для таблиці `tanks`
 --
 ALTER TABLE `tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT для таблиці `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблиці `user_codes`
@@ -483,7 +489,7 @@ ALTER TABLE `user_codes`
 -- AUTO_INCREMENT для таблиці `user_tanks`
 --
 ALTER TABLE `user_tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць

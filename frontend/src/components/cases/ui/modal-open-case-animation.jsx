@@ -2,7 +2,7 @@ import "../../../css/open-animation.css";
 import "../../../css/dropping-animation.css";
 import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
-import { CASES } from "../../constants";
+import { CASES, TANKS } from "../../constants";
 
 export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
@@ -84,6 +84,15 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
                         : ""
                     }`}
                   >
+                    {item.type === "tank" && TANKS[item.tankInfo?.id]?.bg && (
+                      <div
+                        className="tank-bg"
+                        style={{
+                          background: "url('img/tanks/" + TANKS[item.tankInfo.id].bg + ".png') 0 0/100% auto no-repeat",
+                        }}
+                      ></div>
+                    )}
+
                     {item.type === "tank" ? (
                       <>
                         <img

@@ -8,7 +8,7 @@ export function CheckCases({ playerId, active, addMessage, setIsUpdated, setActi
 
   useEffect(() => {
     if (!hasChecked) {
-      axios.post('http://localhost/ny2025/backend/api/subtractData.php', {
+      axios.post('http://NY2025/backend/api/subtractData.php', {
         playerId: playerId,
         case_name: active.caseName,
         case_open_resource: active.openResource,

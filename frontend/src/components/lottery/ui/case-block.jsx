@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { InfoBlock } from "./info-block";
+import { CASES } from "../../constants";
 
 export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
   const [isBack, setIsBack] = useState(false);
@@ -20,7 +21,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
           </div>
           <div className="caseblock__info">
             <div className="caseblock__text">
-              <h3>{caseData.name}</h3>
+              <h3>{CASES[caseData.transcription].name}</h3>
               {
               //<p>Удачі вибити щось цінне командире!</p>
               }

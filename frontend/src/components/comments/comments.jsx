@@ -7,24 +7,24 @@ export function Comments({ setIsUpdated, newToken, setNewToken, addMessage, play
   const imgUrl = isComments ? "on" : "off";
 
   function handleNewToken() {
-    if (newToken === true){
+    if (newToken === true) {
       axios
-      .post("http://localhost/ny2025/backend/api/getToken.php", {
-        userId: playerData.id,
-      })
-      .then((response) => {
-        if (response.data.status === "success") {
-          addMessage("added", "resource", 1, "tokens");
-          setNewToken(false);
-          setIsUpdated(true)
-        } else {
-          console.log("Error:", response.data.message);
-          addMessage("new_token_not_available");
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
+        .post("http://NY2025/backend/api/getToken.php", {
+          userId: playerData.id,
+        })
+        .then((response) => {
+          if (response.data.status === "success") {
+            addMessage("added", "resource", 1, "tokens");
+            setNewToken(false);
+            setIsUpdated(true)
+          } else {
+            console.log("Error:", response.data.message);
+            addMessage("new_token_not_available");
+          }
+        })
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
     }
   }
 

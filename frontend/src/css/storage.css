@@ -259,12 +259,15 @@
   position: relative;
 }
 .tankblock__img {
+  position: relative;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .tankblock__img img {
+  position: relative;
+  z-index: 2;
   width: 75%;
   margin-top: 50px;
   transition: all 0.2s ease 0s;

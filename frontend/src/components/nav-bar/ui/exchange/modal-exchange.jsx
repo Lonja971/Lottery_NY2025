@@ -51,7 +51,7 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
 
   function handleSendExchange() {
     if (rangeValue > 0 || exchangeResources.exchangeType === "tank") {
-      axios.post('http://localhost/ny2025/backend/api/exchangeResources.php', {
+      axios.post('http://NY2025/backend/api/exchangeResources.php', {
         playerId: playerData.id,
         exchange_type: exchangeResources.exchangeType,
         exchange_res: exchangeResources.exchangeRes,

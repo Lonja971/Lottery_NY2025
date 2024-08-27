@@ -46,19 +46,19 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
               amount = 1;
             }
 
-            if (selectedSubItem.type === "case"){
+            if (selectedSubItem.type === "case") {
               let caseInfo = { case: true, type: selectedSubItem.name, name: CASES[selectedSubItem.name].name, amount: 1 };
               droppedItems.push(caseInfo);
-            }else{
+            } else {
               const { amounts, ...itemWithoutAmounts } = selectedSubItem;
               let name = selectedSubItem.name || (selectedSubItem.type ? RESOURCES[selectedSubItem.type] : "");
               let tankInfo = null;
               let id = selectedSubItem.id || (selectedSubItem.type === "tank" ? RESOURCES.tanks : "");
-  
+
               if (selectedSubItem.type === "tank") {
                 tankInfo = TANKS[id.toLowerCase()];
               }
-  
+
               droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
             }
           }
@@ -141,7 +141,7 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
         droppedItems.splice(resourceNum, 1);
       }
     }
-    axios.post('http://localhost/ny2025/backend/api/assignData.php', {
+    axios.post('http://NY2025/backend/api/assignData.php', {
       playerId: playerId,
       droppedItems: droppedItems,
     })
