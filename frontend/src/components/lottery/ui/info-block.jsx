@@ -1,6 +1,6 @@
 import { RESOURCES, TANKS } from "../../constants";
 
-export function InfoBlock({ item, index }){
+export function InfoBlock({ item, index, userTanks }){
 
    const formatNumber = (number) => {
       return number >= 1000 ? (number / 1000) + 'k' : number;
@@ -35,7 +35,7 @@ export function InfoBlock({ item, index }){
           </div>
         </div>
       ) : (
-        <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className="info-block info-block-tank" key={item.type + index}>
+        <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className={`info-block info-block-tank ${userTanks?.includes(item.id) ? "received" : ""}`} key={item.type + index}>
           <div className={"back-info " + ( TANKS[item.id].land ? TANKS[item.id].land : "default" )}>
             {TANKS[item.id].type !== "camo" ? (
               <div>

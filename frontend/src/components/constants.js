@@ -525,7 +525,7 @@ export const TANKS = {
   },
   60: {
     id: 60,
-    name: "Останній Ваффентраген",
+    name: "Останній Ваффентрагер",
     transcription: "waff_auf_e_100_the_last",
     type: "camo",
     land: "ge",
@@ -587,36 +587,48 @@ export const EXCHANGE = {
 
 //---CASES---
 
+const COLLECTIONS = {
+  main_collection: "Головна Колекція",
+};
+
+//---CASES---
+
 export const CASES = {
   main_cases: {
     name: "Main Кейс",
     transcription: "main_case",
     animation: "default",
+    collection: COLLECTIONS.main_collection,
   },
   regular_cases: {
     name: "Звичайний Кейс",
     transcription: "regular_case",
     animation: "regular_cases",
+    collection: COLLECTIONS.main_collection,
   },
   special_cases: {
     name: "Особливий Кейс",
     transcription: "special_case",
     animation: "special_cases",
+    collection: COLLECTIONS.main_collection,
   },
   rare_cases: {
     name: "Рідкісний Кейс",
     transcription: "rare_case",
     animation: "rare_cases",
+    collection: COLLECTIONS.main_collection,
   },
   mythical_cases: {
     name: "Міфічний Кейс",
     transcription: "mythical_case",
     animation: "mythical_cases",
+    collection: COLLECTIONS.main_collection,
   },
   legendary_cases: {
     name: "Легендарний Кейс",
     transcription: "legendary_case",
     animation: "legendary_cases",
+    collection: COLLECTIONS.main_collection,
   },
   waff_cases: {
     name: "Останній Ваффентрагер",
@@ -627,9 +639,14 @@ export const CASES = {
 
 //---CASES-RESOURCES-INFO---
 
+//---ДЛЯ-МАСИВІВ-В-МАСИВІ-TYPE-БУДЕ:
+//-single-ЯКЩО-МОЖЕ-ВИПАСТИ-ОДИН-ЕЛЕМЕНТ
+//-plural-ЯКЩО-МОЖЕ-ВИПАСТИ-БАГАТО-ЕЛЕМЕНТІВ
+
 export const MAIN_CASE = [
   { 
     probability: 100,
+    type: "single",
     items: [
       { type: "case", name: "regular_cases", probability: 40, amounts: [1] },
       { type: "case", name: "special_cases", probability: 32, amounts: [1] },
@@ -681,7 +698,14 @@ export const LEGENDARY_CASE = [
 ];
 
 export const WAFF_CASE = [
-  { type: "gold", probability: 10, amounts: [2000, 3000], default: true },
-  { type: "tank", id: "59", probability: 100, amounts: [1] },
-  { type: "tank", id: "60", probability: 100, amounts: [1] },
+  { type: "gold", probability: 100, amounts: [2000, 3000], default: true },
+  { type: "tank", id: "34", probability: 100, amounts: [1] },
+  { 
+    probability: 0,
+    type: "plural",
+    items: [
+      { type: "tank", id: "59", probability: 100, amounts: [1] },
+      { type: "tank", id: "60", probability: 0, amounts: [1] },
+    ]
+  },
 ];

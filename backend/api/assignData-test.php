@@ -13,8 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$response = ['status' => 'error', 'message' => 'Unknown error'];
-
 if ($data !== null) {
     $userId = $data['playerId'];
     $caseName = $data['caseName'];
@@ -28,11 +26,6 @@ if ($data !== null) {
     // Перевірка на наявність гаранта
     $caseQuery = "SELECT id FROM cases WHERE name = ?";
     $stmtCase = $conn->prepare($caseQuery);
-    if (!$stmtCase) {
-        $response['message'] = 'Failed to prepare case query: ' . $conn->error;
-        echo json_encode($response);
-        exit();
-    }
     $stmtCase->bind_param('s', $caseName);
     $stmtCase->execute();
     $resultCase = $stmtCase->get_result();
@@ -41,11 +34,6 @@ if ($data !== null) {
         
         $guarantorQuery = "SELECT * FROM user_guarantors WHERE user_id = ? AND case_id = ?";
         $stmtGuarantor = $conn->prepare($guarantorQuery);
-        if (!$stmtGuarantor) {
-            $response['message'] = 'Failed to prepare guarantor query: ' . $conn->error;
-            echo json_encode($response);
-            exit();
-        }
         $stmtGuarantor->bind_param('ii', $userId, $caseId);
         $stmtGuarantor->execute();
         $resultGuarantor = $stmtGuarantor->get_result();
@@ -55,11 +43,6 @@ if ($data !== null) {
             
             $guarantorQuery = "SELECT * FROM guarantors WHERE case_id = ?";
             $stmtGuarantor = $conn->prepare($guarantorQuery);
-            if (!$stmtGuarantor) {
-                $response['message'] = 'Failed to prepare guarantor details query: ' . $conn->error;
-                echo json_encode($response);
-                exit();
-            }
             $stmtGuarantor->bind_param('i', $caseId);
             $stmtGuarantor->execute();
             $resultGuarantor = $stmtGuarantor->get_result();
@@ -68,27 +51,19 @@ if ($data !== null) {
                 if ($discoveriesNumber >= $guarantorRow['discoveries_number']) {
                     if ($guarantorRow['guarantor_type'] === 'tank') {
                         $data['droppedItems'][] = [
-                            'id' => $guarantorRow['tank_id'],
                             'type' => 'tank',
-                            'tankInfo' => [
-                                'id' => $guarantorRow['tank_id'],
-                            ],
-                            'amount' => 1
+                            'id' => $guarantorRow['tank_id'],
+                            'amounts' => [1],
                         ];
                     } else {
                         $data['droppedItems'][] = [
                             'type' => $guarantorRow['guarantor_type'],
-                            'amount' => $guarantorRow['amount']
+                            'amounts' => [$guarantorRow['amount']],
                         ];
                     }
                     
                     $deleteGuarantorQuery = "DELETE FROM user_guarantors WHERE user_id = ? AND case_id = ?";
                     $stmtDelete = $conn->prepare($deleteGuarantorQuery);
-                    if (!$stmtDelete) {
-                        $response['message'] = 'Failed to prepare delete guarantor query: ' . $conn->error;
-                        echo json_encode($response);
-                        exit();
-                    }
                     $stmtDelete->bind_param('ii', $userId, $caseId);
                     $stmtDelete->execute();
                     $stmtDelete->close();
@@ -102,53 +77,28 @@ if ($data !== null) {
                 exit();
             }
         }
-    } else {
-        $response = [
-            'status' => 'error',
-            'message' => 'Case not found',
-        ];
-        echo json_encode($response);
-        exit();
     }
 
     // Обробка droppedItems
-    $types = '';
-    $params = [];
     foreach ($data['droppedItems'] as $item) {
         if ($item['type'] !== 'tank') {
             $type = $item['type'];
-            $amount = $item['amount'];
-            if ($amount > 0) {
-                $updateFields[] = "$type = $type + ?";
-                $params[] = $amount;
-                $types .= 'i';
-            }
+            $amount = $item['amounts'][0];
+            $updateFields[] = "$type = $type + $amount";
         } else {
-            $tankId = $item['tankInfo']['id'];
-            $tankName = $item['tankInfo']['name'] ?? 'Unknown';
-            $tankTranscription = $item['tankInfo']['transcription'] ?? 'Unknown';
+            $tankId = $item['id'];
 
             $checkQuery = "SELECT id FROM user_tanks WHERE user_id = ? AND tank_id = ?";
             $stmtCheck = $conn->prepare($checkQuery);
-            if (!$stmtCheck) {
-                $response['message'] = 'Failed to prepare check tank query: ' . $conn->error;
-                echo json_encode($response);
-                exit();
-            }
             $stmtCheck->bind_param('ii', $userId, $tankId);
             $stmtCheck->execute();
             $resultCheck = $stmtCheck->get_result();
             if ($resultCheck->num_rows > 0) {
-                $existingTanks[] = $tankName . ' (' . $tankTranscription . ')';
+                $existingTanks[] = $item['id'];
 
                 // Отримання conversion_value з таблиці tanks
                 $conversionQuery = "SELECT conversion_value FROM tanks WHERE id = ?";
                 $stmtConversion = $conn->prepare($conversionQuery);
-                if (!$stmtConversion) {
-                    $response['message'] = 'Failed to prepare conversion query: ' . $conn->error;
-                    echo json_encode($response);
-                    exit();
-                }
                 $stmtConversion->bind_param('i', $tankId);
                 $stmtConversion->execute();
                 $resultConversion = $stmtConversion->get_result();
@@ -170,29 +120,21 @@ if ($data !== null) {
         }
     }
 
+    // Оновлення користувача
     if (!empty($updateFields) || $goldToAdd > 0) {
         if ($goldToAdd > 0) {
-            $updateFields[] = "gold = gold + ?";
-            $params[] = $goldToAdd;
-            $types .= 'i';
+            $updateFields[] = "gold = gold + $goldToAdd";
         }
+        $updateQuery = "UPDATE users SET " . implode(', ', $updateFields) . " WHERE id = ?";
         
-        if (!empty($updateFields)) {
-            $updateQuery = "UPDATE users SET " . implode(', ', $updateFields) . " WHERE id = ?";
-            $stmt = $conn->prepare($updateQuery);
-            if (!$stmt) {
-                $response['message'] = 'Failed to prepare update query: ' . $conn->error;
-                echo json_encode($response);
-                exit();
-            }
-            $params[] = $userId;
-            $types .= 'i';
-            $stmt->bind_param($types, ...$params);
+        $stmt = $conn->prepare($updateQuery);
+        if ($stmt) {
+            $stmt->bind_param('i', $userId);
             if ($stmt->execute()) {
                 $response = [
                     'status' => 'success',
                     'message' => 'Data updated successfully',
-                    'updated_dropped_items' => $data['droppedItems'],
+                    'updated_dropped_items' => $data['droppedItems'], // Повернення оновленого масиву droppedItems
                 ];
                 if (!empty($convertedItems)) {
                     $response['converted_items'] = $convertedItems;
@@ -210,11 +152,17 @@ if ($data !== null) {
         } else {
             $response = [
                 'status' => 'error',
-                'message' => 'No valid user data to update',
+                'message' => 'Failed to prepare user update query: ' . $conn->error,
             ];
         }
+    } else {
+        $response = [
+            'status' => 'error',
+            'message' => 'No valid user data to update',
+        ];
     }
 
+    // Додавання нових танків
     if (!empty($insertUserTanks)) {
         $insertQuery = "INSERT INTO user_tanks (user_id, tank_id) VALUES " . implode(', ', $insertUserTanks);
         
@@ -229,6 +177,7 @@ if ($data !== null) {
         }
     }
 
+    // Повідомлення про вже наявні танки
     if (!empty($existingTanks)) {
         $response['status'] = $response['status'] === 'success' ? 'success' : 'warning';
         $response['message'] .= ', Tanks already assigned: ' . implode(', ', $existingTanks);
@@ -242,3 +191,33 @@ if ($data !== null) {
 echo json_encode($response);
 
 ?>
+
+
+
+
+
+Спочтаку нам треба перевірити, чи є у цього кейсу гарант. Для цього ідемо в таблицю cases, де шукаємо строку в якій name = $caseName , та зберігаємо id.
+    Після цього ми ідемо в таблицю user_guarantors, де шукаємо рядкок, у якого user_id = $userId та case_id = id кейсу який ми взяли з таблиці cases.
+
+    Якщо ми знайшли такий рядок:
+        То зберігаємо з нього значення discoveries_number.
+        Ідемо в таблицю guarantors, де шукаємо строку в якій case_id = id кейсу який ми взяли з таблиці cases.
+        Якщо знайшли строку:
+            Перевіряємо , чи discoveries_number(З таблиці user_guarantors) >= discoveries_number(з таблиці guarantors)
+            Якщо це правда:
+                В масив $data['droppedItems'] нам треба додати гарантований елемент, а саме:
+                Якщо guarantor_type(з строки в таблиці guarantors) == tank тоді :
+                    Додаємо до $data['droppedItems'] : { type: "tank", id: tank_id(з строки в таблиці guarantors), amounts: [1] },
+
+                Else:
+                    Додаємо до $data['droppedItems'] : { type: guarantor_type(з строки в таблиці guarantors), amounts: [ amount(з строки в таблиці guarantors) ] },
+
+                Якщо ми оновили $data['droppedItems'] , то треба піти в таблицю user_guarantors, де шукаємо рядкок, у якого user_id = $userId та case_id = id кейсу який ми взяли з таблиці cases
+
+            Якщо це не правда:
+                Закінчуємо цикл з перевіркою гарантів.
+
+        Якщо не знайшли строку, то пишемо про помилку та закінчуємо цикл з перевіркою гарантів.
+        
+
+    Якщо рядок не знайдений, то нічого не робимо.

@@ -17,7 +17,7 @@ if ($data !== null && isset($data['playerId'], $data['case_name'], $data['case_o
     $caseName = $data['case_name'];
     $caseOpenResource = $data['case_open_resource'];
 
-    // Знайти кейс у таблиці cases
+    // Знайти кейс у таблиці cases за його назвою
     $caseQuery = "SELECT * FROM cases WHERE name = ?";
     $stmt = $conn->prepare($caseQuery);
     $stmt->bind_param('s', $caseName);
@@ -26,6 +26,7 @@ if ($data !== null && isset($data['playerId'], $data['case_name'], $data['case_o
 
     if ($result->num_rows > 0) {
         $case = $result->fetch_assoc();
+        $caseId = $case['id']; // Беремо правильний ID кейсу
         $casePrice = 0;
         $resourceColumn = '';
 
@@ -58,6 +59,38 @@ if ($data !== null && isset($data['playerId'], $data['case_name'], $data['case_o
                 $stmt = $conn->prepare($updateQuery);
                 $stmt->bind_param('ii', $casePrice, $userId);
                 if ($stmt->execute()) {
+                    // Перевірка наявності кейсу у таблиці guarantors
+                    $guarantorQuery = "SELECT * FROM guarantors WHERE case_id = ?";
+                    $stmt = $conn->prepare($guarantorQuery);
+                    $stmt->bind_param('i', $caseId); // Використовуємо правильний case_id
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    if ($result->num_rows > 0) {
+                        $guarantor = $result->fetch_assoc();
+                        $guarantorId = $guarantor['id']; // Зберігаємо id з таблиці guarantors
+
+                        // Перевірка наявності запису у таблиці user_guarantors
+                        $userGuarantorQuery = "SELECT * FROM user_guarantors WHERE user_id = ? AND case_id = ?";
+                        $stmt = $conn->prepare($userGuarantorQuery);
+                        $stmt->bind_param('ii', $userId, $caseId); // Використовуємо правильний case_id
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        if ($result->num_rows > 0) {
+                            // Оновлення discoveries_number
+                            $updateUserGuarantorQuery = "UPDATE user_guarantors SET discoveries_number = discoveries_number + 1 WHERE user_id = ? AND case_id = ?";
+                            $stmt = $conn->prepare($updateUserGuarantorQuery);
+                            $stmt->bind_param('ii', $userId, $caseId); // Використовуємо правильний case_id
+                            $stmt->execute();
+                        } else {
+                            // Створення нового запису у таблиці user_guarantors
+                            $insertUserGuarantorQuery = "INSERT INTO user_guarantors (user_id, case_id, discoveries_number) VALUES (?, ?, 1)";
+                            $stmt = $conn->prepare($insertUserGuarantorQuery);
+                            $stmt->bind_param('ii', $userId, $caseId); // Використовуємо правильний case_id
+                            $stmt->execute();
+                        }
+                    }
                     echo json_encode(['status' => 'success', 'message' => 'Case opened successfully']);
                 } else {
                     echo json_encode(['status' => 'error', 'message' => 'Failed to update user resources']);

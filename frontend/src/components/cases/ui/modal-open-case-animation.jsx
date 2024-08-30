@@ -32,8 +32,8 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
   const limit = 4;
 
   useEffect(() => {
-    OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks);
-  }, [caseResourcesInfo, playerId, setIsUpdated]);
+    OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active);
+  }, [caseResourcesInfo, playerId, setIsUpdated, active]);
 
   return (
     <div className="opening-cases-block">
@@ -78,8 +78,8 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
                   <div
                     className={`obj__img ${
                       item.type === "tank" 
-                        ? item.tankInfo.land !== undefined 
-                          ? item.tankInfo.land 
+                        ?TANKS[item.id].land !== undefined 
+                          ? TANKS[item.id].land 
                           : "default" 
                         : ""
                     }`}
@@ -97,7 +97,7 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
                       <>
                         <img
                           src={
-                            "img/tanks/" + item.tankInfo.transcription + ".png"
+                            "img/tanks/" + TANKS[item.id].transcription + ".png"
                           }
                           alt={item.name + "_photo"}
                         />
@@ -111,16 +111,16 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
                   </div>
                   <div className="obj__text">
                     <div className="obj__text-price">
-                      {item.type === "tank" && item.tankInfo.type === "camo" ? (
+                      {item.type === "tank" && TANKS[item.id].type === "camo" ? (
                         <span className="fz12">Камуфляж</span>
                       ) : item.type === "tank" ? (
                         <>
                           <img
-                            src={`img/flags/${item.tankInfo.land}_big.png`}
+                            src={`img/flags/${TANKS[item.id].land}_big.png`}
                             alt="tank-img"
                           />
                           <img
-                            src={`img/icons/${item.tankInfo.type}.png`}
+                            src={`img/icons/${TANKS[item.id].type}.png`}
                             alt="tank-type"
                           />
                         </>
@@ -129,7 +129,7 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
                       )}
                     </div>
                     <p className="obj__text-name">
-                      {item.type === "tank" ? item.tankInfo.name : item.name}
+                      {item.type === "tank" ? TANKS[item.id].name : item.name}
                     </p>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CASES, RESOURCES, TANKS } from "../constants";
 
-export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks) {
+export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active) {
 
   const handleSetIsUpdated = () => {
     setIsUpdated(true);
@@ -11,56 +11,66 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
     let droppedItems = [];
 
     caseResourcesInfo.forEach((item) => {
+      // Вираховуємо шанси випадіння
       const scaledProbability = item.probability * 100;
       var randomValue = Math.floor(Math.random() * 10000) + 1;
 
       if (randomValue <= scaledProbability) {
+        // Виконується код нижче якщо елемент випав
         let amount;
 
-        // Перевірка, чи є item підмасивом
         if (item.items && Array.isArray(item.items)) {
-          // Логіка для вибору елемента з підмасиву
-          const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
-          const randomSubValue = Math.random() * totalProbability;
+          // Логіка обробки підмасиву
+          if (item.type === "plural") {
+            // Якщо з підмасиву може випасти багато елементів
+            let selectedItem = openCase(item.items);
+            droppedItems.push(...selectedItem);
+          } else if (item.type === "single") {
+            // Якщо з підмасиву може випасти тільки один елемент
+            const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
+            const randomSubValue = Math.random() * totalProbability;
 
-          let minValue = 0;
-          let maxValue = 0;
-          let selectedSubItem = null;
+            let minValue = 0;
+            let maxValue = 0;
+            let selectedSubItem = null;
 
-          // Перебираємо елементи підмасиву
-          for (let subItem of item.items) {
-            minValue = maxValue;
-            maxValue += subItem.probability;
+            // Перебираємо елементи підмасиву
+            for (let subItem of item.items) {
+              minValue = maxValue;
+              maxValue += subItem.probability;
 
-            if (randomSubValue >= minValue && randomSubValue < maxValue) {
-              selectedSubItem = subItem;
-              break;
-            }
-          }
-
-          if (selectedSubItem) {
-            if (selectedSubItem.amounts && selectedSubItem.amounts.length > 0) {
-              const randomIndex = Math.floor(Math.random() * selectedSubItem.amounts.length);
-              amount = selectedSubItem.amounts[randomIndex];
-            } else {
-              amount = 1;
+              if (randomSubValue >= minValue && randomSubValue < maxValue) {
+                selectedSubItem = subItem;
+                break;
+              }
             }
 
-            if (selectedSubItem.type === "case") {
-              let caseInfo = { case: true, type: selectedSubItem.name, name: CASES[selectedSubItem.name].name, amount: 1 };
-              droppedItems.push(caseInfo);
-            } else {
-              const { amounts, ...itemWithoutAmounts } = selectedSubItem;
-              let name = selectedSubItem.name || (selectedSubItem.type ? RESOURCES[selectedSubItem.type] : "");
-              let tankInfo = null;
-              let id = selectedSubItem.id || (selectedSubItem.type === "tank" ? RESOURCES.tanks : "");
-
-              if (selectedSubItem.type === "tank") {
-                tankInfo = TANKS[id.toLowerCase()];
+            if (selectedSubItem) {
+              if (selectedSubItem.amounts && selectedSubItem.amounts.length > 0) {
+                const randomIndex = Math.floor(Math.random() * selectedSubItem.amounts.length);
+                amount = selectedSubItem.amounts[randomIndex];
+              } else {
+                amount = 1;
               }
 
-              droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
+              if (selectedSubItem.type === "case") {
+                let caseInfo = { case: true, type: selectedSubItem.name, name: CASES[selectedSubItem.name].name, amount: 1 };
+                droppedItems.push(caseInfo);
+              } else {
+                const { amounts, ...itemWithoutAmounts } = selectedSubItem;
+                let name = selectedSubItem.name || (selectedSubItem.type ? RESOURCES[selectedSubItem.type] : "");
+                let tankInfo = null;
+                let id = selectedSubItem.id || (selectedSubItem.type === "tank" ? RESOURCES.tanks : "");
+
+                if (selectedSubItem.type === "tank") {
+                  tankInfo = TANKS[id.toLowerCase()];
+                }
+
+                droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
+              }
             }
+          } else {
+            console.log("--Error selecting subarray settings. Select 'single' or 'plural'");
           }
         } else {
           // Звичайна логіка для елементів не з підмасиву
@@ -85,7 +95,7 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
       }
     });
 
-    //-ЗА-ДЕФОЛТОМ--
+    // За замовчуванням
     if (droppedItems.length === 0) {
       const defaultItem = caseResourcesInfo.find(
         (item) => item.default === true,
@@ -141,12 +151,21 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
         droppedItems.splice(resourceNum, 1);
       }
     }
+
+    return droppedItems;
+  }
+
+  function processCase() {
+    const droppedItems = openCase(caseResourcesInfo);
+
     axios.post('http://NY2025/backend/api/assignData.php', {
       playerId: playerId,
       droppedItems: droppedItems,
+      caseName: active.caseName,
     })
       .then(response => {
         if (response.data.status === 'success') {
+
           if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
             setNewDroppedTanks(response.data.new_dropped_tanks);
           }
@@ -154,6 +173,8 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
           if (response.data.converted_items && response.data.converted_items.length > 0) {
             setCompensatedItems(response.data.converted_items);
           }
+
+          setDroppedItems(response.data.updated_dropped_items); // Змініть тут, щоб використовувати оновлені дані
         } else {
           console.log(response.data.message);
         }
@@ -162,10 +183,7 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
       .catch(error => {
         console.error('There was an error!', error);
       });
-
-    return droppedItems;
   }
 
-  const result = openCase(caseResourcesInfo);
-  setDroppedItems(result);
+  processCase();
 }

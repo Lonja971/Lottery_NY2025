@@ -2,7 +2,6 @@ import { CASES, TANKS } from "../constants";
 
 export function TankBlock({ tankInfo }) {
   const fullTankInfo = TANKS[tankInfo];
-  console.log(tankInfo);
 
   return (
     <a target="_blank" rel="noopener noreferrer" href={fullTankInfo.link} className="tankblock">

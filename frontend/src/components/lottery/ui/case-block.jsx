@@ -21,9 +21,12 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
           </div>
           <div className="caseblock__info">
             <div className="caseblock__text">
+              { CASES[caseData.transcription].collection !== undefined ? (
+                <p>Головна колекція</p>
+              ) : ""}
               <h3>{CASES[caseData.transcription].name}</h3>
               {
-              //<p>Удачі вибити щось цінне командире!</p>
+                //<p>Головна колекція</p>
               }
             </div>
             <div className="buttons-block">
@@ -63,28 +66,33 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation }) {
             </button>
           </div>
           {caseData.type.map((item, index) => {
-              if (item.items && Array.isArray(item.items)) {
+            if (item.items && Array.isArray(item.items)) {
+              const arrayProbability = item.probability;
+              const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
 
-                const arrayProbability = item.probability;
-                const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
-            
-                return item.items.map((subItem, subIndex) => {
-                  const modifiedSubItem = {
-                    ...subItem,
-                    probability: arrayProbability / totalProbability * subItem.probability
-                  };
-            
-                  return (
-                    <InfoBlock 
-                      item={modifiedSubItem} 
-                      index={`${index}-${subIndex}`} 
-                      key={`${index}-${subIndex}`} 
-                    />
-                  );
-                });
-              } else {
+              return item.items.map((subItem, subIndex) => {
+                const modifiedSubItem = {
+                  ...subItem,
+                  probability: arrayProbability / totalProbability * subItem.probability
+                };
+
+                return (
+                  <InfoBlock 
+                    item={modifiedSubItem} 
+                    index={`${index}-${subIndex}`} 
+                    key={`${index}-${subIndex}`} 
+                    userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
+                  />
+                );
+              });
+            } else {
               return (
-                <InfoBlock item={item} index={index} key={index} />
+                <InfoBlock 
+                  item={item} 
+                  index={index} 
+                  key={index} 
+                  userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
+                />
               );
             }
           })}

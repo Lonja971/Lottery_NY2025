@@ -31,7 +31,7 @@ export function CheckCases({ playerId, active, addMessage, setIsUpdated, setActi
           setActive(false);
         });
     }
-  }, [addMessage, hasChecked]);
+  }, [addMessage, hasChecked, active.caseName, active.openResource, playerId, setActive]);
 
   return (
     <>
