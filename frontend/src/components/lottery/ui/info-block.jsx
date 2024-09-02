@@ -35,7 +35,8 @@ export function InfoBlock({ item, index, userTanks }){
           </div>
         </div>
       ) : (
-        <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className={`info-block info-block-tank ${userTanks?.includes(item.id) ? "received" : ""}`} key={item.type + index}>
+        
+        <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className={`info-block info-block-tank ${userTanks?.includes(item.id.toString()) ? "received" : ""}`} key={item.type + index}>
           <div className={"back-info " + ( TANKS[item.id].land ? TANKS[item.id].land : "default" )}>
             {TANKS[item.id].type !== "camo" ? (
               <div>

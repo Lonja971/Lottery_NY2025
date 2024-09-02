@@ -53,35 +53,30 @@ if ($data !== null) {
         if ($userGuarantorRow = $resultGuarantor->fetch_assoc()) {
             $discoveriesNumber = $userGuarantorRow['discoveries_number'];
             
-            $guarantorQuery = "SELECT * FROM guarantors WHERE case_id = ?";
-            $stmtGuarantor = $conn->prepare($guarantorQuery);
-            if (!$stmtGuarantor) {
+            $guarantorDetailsQuery = "SELECT * FROM guarantors WHERE case_id = ?";
+            $stmtGuarantorDetails = $conn->prepare($guarantorDetailsQuery);
+            if (!$stmtGuarantorDetails) {
                 $response['message'] = 'Failed to prepare guarantor details query: ' . $conn->error;
                 echo json_encode($response);
                 exit();
             }
-            $stmtGuarantor->bind_param('i', $caseId);
-            $stmtGuarantor->execute();
-            $resultGuarantor = $stmtGuarantor->get_result();
+            $stmtGuarantorDetails->bind_param('i', $caseId);
+            $stmtGuarantorDetails->execute();
+            $resultGuarantorDetails = $stmtGuarantorDetails->get_result();
             
-            if ($guarantorRow = $resultGuarantor->fetch_assoc()) {
-                if ($discoveriesNumber >= $guarantorRow['discoveries_number']) {
-                    if ($guarantorRow['guarantor_type'] === 'tank') {
-                        $data['droppedItems'][] = [
-                            'id' => $guarantorRow['tank_id'],
-                            'type' => 'tank',
-                            'tankInfo' => [
-                                'id' => $guarantorRow['tank_id'],
-                            ],
-                            'amount' => 1
-                        ];
-                    } else {
-                        $data['droppedItems'][] = [
-                            'type' => $guarantorRow['guarantor_type'],
-                            'amount' => $guarantorRow['amount']
-                        ];
+            if ($guarantorRow = $resultGuarantorDetails->fetch_assoc()) {
+                // Перевірка, чи випав такий самий танк користувачеві вже
+                $tankAlreadyDropped = false;
+                foreach ($data['droppedItems'] as $droppedItem) {
+                    if ($droppedItem['type'] === 'tank' && (int)$droppedItem['id'] === (int)$guarantorRow['tank_id']) {
+                        $tankAlreadyDropped = true;
+                        break;
                     }
-                    
+                }
+
+                if ($tankAlreadyDropped) {
+                    // Збиття гаранту
+                    // UPDATE user_guarantors SET discoveries_number = 0 WHERE user_id = ? AND case_id = ?
                     $deleteGuarantorQuery = "DELETE FROM user_guarantors WHERE user_id = ? AND case_id = ?";
                     $stmtDelete = $conn->prepare($deleteGuarantorQuery);
                     if (!$stmtDelete) {
@@ -92,6 +87,35 @@ if ($data !== null) {
                     $stmtDelete->bind_param('ii', $userId, $caseId);
                     $stmtDelete->execute();
                     $stmtDelete->close();
+                } else {
+                    if ($discoveriesNumber >= $guarantorRow['discoveries_number']) {
+                        if ($guarantorRow['guarantor_type'] === 'tank') {
+                            $data['droppedItems'][] = [
+                                'id' => $guarantorRow['tank_id'],
+                                'type' => 'tank',
+                                'tankInfo' => [
+                                    'id' => $guarantorRow['tank_id'],
+                                ],
+                                'amount' => 1
+                            ];
+                        } else {
+                            $data['droppedItems'][] = [
+                                'type' => $guarantorRow['guarantor_type'],
+                                'amount' => $guarantorRow['amount']
+                            ];
+                        }
+                        
+                        $deleteGuarantorQuery = "DELETE FROM user_guarantors WHERE user_id = ? AND case_id = ?";
+                        $stmtDelete = $conn->prepare($deleteGuarantorQuery);
+                        if (!$stmtDelete) {
+                            $response['message'] = 'Failed to prepare delete guarantor query: ' . $conn->error;
+                            echo json_encode($response);
+                            exit();
+                        }
+                        $stmtDelete->bind_param('ii', $userId, $caseId);
+                        $stmtDelete->execute();
+                        $stmtDelete->close();
+                    }
                 }
             } else {
                 $response = [

@@ -27,6 +27,7 @@ export function Home() {
 
   const [isUpdated, setIsUpdated] = useState(true);
   const [playerData, setPlayerData] = useState(null);
+  const [playerGuarantors, setPlayerGuarantors] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,7 +44,8 @@ export function Home() {
           }
 
           const response = await axios.get(`http://NY2025/backend/api/getData.php?token=${token}`);
-          setPlayerData(response.data);
+          setPlayerData(response.data.user);
+          setPlayerGuarantors(response.data.playerGuarantors);
         } catch (error) {
           if (error.response) {
             if (error.response.status === 400 || error.response.status === 401) {
@@ -229,6 +231,7 @@ export function Home() {
         playerData={playerData}
         addMessage={addMessage}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+        playerGuarantors={playerGuarantors}
       />
       <Shop />
       <Footer />
