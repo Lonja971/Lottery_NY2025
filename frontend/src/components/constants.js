@@ -2,7 +2,7 @@ export const RESOURCES = {
   gold: "Золота",
   silver: "Срібла",
   tokens: "Токен",
-  tanks: "Танка",
+  counters: "Танковий жетон",
   red_tokens: "Червоний Токен",
   drawings: "Креслення",
   premium_akk: "Преміум аккаунт",
@@ -544,8 +544,8 @@ export const EXCHANGE = {
       exchangeValue: "2500",
       getValue: "100",
     },
-    tanks: {
-      exchange: "tanks",
+    counters: {
+      exchange: "counters",
       exchangeValue: "10",
       getValue: "100",
     },
@@ -569,7 +569,6 @@ export const EXCHANGE = {
       exchangeValue: "1",
       getValue: "200",
     },
-    tanks: {}
   },
   red_tokens: {
     tokens: {
@@ -585,7 +584,7 @@ export const EXCHANGE = {
   }
 };
 
-//---CASES---
+//---COLLECTIONS---
 
 const COLLECTIONS = {
   main_collection: "Новорічна Колекція",
@@ -656,19 +655,19 @@ export const MAIN_CASE = [
       { type: "case", name: "legendary_cases", probability: 3, amounts: [1] },
     ]
   },
-  { type: "gold", probability: 15, amounts: [ 200, 300, 500 ] },
-  { type: "red_tokens", probability: 15, amounts: [ 1, 2 ] },
+  { type: "gold", probability: 10, amounts: [ 200, 300, 500 ] },
+  { type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
 ];
 
 export const REGULAR_CASE = [
   { type: "silver", probability: 40, amounts: [1000, 1500], default: true },
-  { type: "tanks", probability: 40, amounts: [2, 3] },
+  { type: "counters", probability: 40, amounts: [2, 3] },
   { type: "gold", probability: 20, amounts: [100] },
 ];
 
 export const SPECIAL_CASE = [
   { type: "silver", probability: 30, amounts: [2000], default: true },
-  { type: "tanks", probability: 20, amounts: [5] },
+  { type: "counters", probability: 20, amounts: [5] },
   { type: "premium_akk", probability: 20, amounts: [1] },
   { type: "gold", probability: 20, amounts: [ 300, 500 ] },
   //{ type: "skin", probability: 10, amounts: 1 },
@@ -700,13 +699,6 @@ export const LEGENDARY_CASE = [
 
 export const WAFF_CASE = [
   { type: "gold", probability: 100, amounts: [2000, 3000], default: true },
-  { type: "tank", id: 34, probability: 100, amounts: [1] },
-  { 
-    probability: 100,
-    type: "plural",
-    items: [
-      { type: "tank", id: 59, probability: 100, amounts: [1] },
-      { type: "tank", id: 60, probability: 0, amounts: [1] },
-    ]
-  },
+  { type: "tank", id: 60, probability: 10, amounts: [1] },
+  { type: "tank", id: 59, probability: 0.5, amounts: [1] },
 ];

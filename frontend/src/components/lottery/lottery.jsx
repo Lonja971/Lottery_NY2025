@@ -88,7 +88,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
   ]
 
   return (
-    <div className="lottery">
+    <div className="lottery _scroll-snap__block">
       <div className="lottery__container _container">
         {casesData.map((caseData, index) => (
           <CaseBlock

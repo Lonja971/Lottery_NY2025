@@ -52,59 +52,63 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
                   );
                 })}
               </div>
-              {playerGuarantors && playerGuarantors.length > 0 && (
-                playerGuarantors
-                  .find(guarantor => guarantor.name === caseData.transcription)
-                  ? (
-                    <div className="buttons-block__guarantor">
-                      До гаранту: { CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}
-                    </div>
-                  )
-                  : null
-              )}
             </div>
           </div>
         </div>
         <div className="_glass caseblock-side caseblock-back">
-          <div className="caseblock__back-infoblock">
+          <div className="caseblock-back__container">
+            {playerGuarantors && playerGuarantors.length > 0 && (
+              playerGuarantors
+                .find(guarantor => guarantor.name === caseData.transcription)
+                ? (
+                  <div className="guarantor__container">
+                    <span className="buttons-block__guarantor">
+                      До гаранту: { CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}
+                    </span>
+                  </div>
+                )
+                : null
+            )}
+            <div className="caseblock__back-infoblock">
               <h3 className="caseblock__main-amount absolute-left">
                 <img src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" /> Шанси:
               </h3>
               <button className="caseblock__main-moreinfo absolute absolute-right" onClick={() => setIsBack(false)}>
                 <img src="img/background/info.png" alt="INFO_IMG" />
               </button>
-          </div>
-          {caseData.type.map((item, index) => {
-              if (item.items && Array.isArray(item.items)) {
-                const arrayProbability = item.probability;
-                const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
+            </div>
+            {caseData.type.map((item, index) => {
+                if (item.items && Array.isArray(item.items)) {
+                  const arrayProbability = item.probability;
+                  const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
 
-                return item.items.map((subItem, subIndex) => {
-                  const modifiedSubItem = {
-                    ...subItem,
-                    probability: arrayProbability / totalProbability * subItem.probability
-                  };
+                  return item.items.map((subItem, subIndex) => {
+                    const modifiedSubItem = {
+                      ...subItem,
+                      probability: arrayProbability / totalProbability * subItem.probability
+                    };
 
+                    return (
+                      <InfoBlock 
+                        item={modifiedSubItem} 
+                        index={`${index}-${subIndex}`} 
+                        key={`${index}-${subIndex}`} 
+                        userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
+                      />
+                    );
+                  });
+                } else {
                   return (
                     <InfoBlock 
-                      item={modifiedSubItem} 
-                      index={`${index}-${subIndex}`} 
-                      key={`${index}-${subIndex}`} 
+                      item={item} 
+                      index={index} 
+                      key={index} 
                       userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
                     />
                   );
-                });
-              } else {
-                return (
-                  <InfoBlock 
-                    item={item} 
-                    index={index} 
-                    key={index} 
-                    userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
-                  />
-                );
-              }
-          })}
+                }
+            })}
+          </div>
         </div>
       </div>
     </div>

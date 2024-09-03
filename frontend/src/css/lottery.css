@@ -55,6 +55,7 @@
 }
 
 .caseblock-back {
+  position: relative;
   transform: rotateY(180deg);
   padding-top: 75px;
 }
@@ -135,7 +136,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 
   position: absolute;
   bottom: 0;
@@ -174,9 +175,6 @@
 /*---BACK---*/
 
 .caseblock-back {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   overflow-y: auto;
 }
 .caseblock-back::-webkit-scrollbar{
@@ -189,6 +187,11 @@
   border-bottom: none;
 }
 .caseblock-back::-webkit-scrollbar-track {
+}
+.caseblock-back__container{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .caseblock-back .info-block {
   display: grid;
