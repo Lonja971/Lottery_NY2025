@@ -74,9 +74,9 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
             <ItemBlock
               isComments={isComments}
               type="resource"
-              resource="tanks"
-              value={playerData.tanks}
-              text='Танки <img src="img/resources/tanks.png" alt="RES" /> - випадають в івентах. Якщо ви не хочете витрачати срібло на покупку єдениць техніки, ви можете використовувати цей ресурс. Його можно обміняти на золото.'
+              resource="counters"
+              value={playerData.counters}
+              text='Танкові жетони <img src="img/resources/counters.png" alt="RES" /> - випадають в івентах. Якщо ви не хочете витрачати срібло на покупку єдениць техніки, ви можете використовувати цей ресурс. Його можно обміняти на золото.'
             />
           }
           premiumAkkItem={

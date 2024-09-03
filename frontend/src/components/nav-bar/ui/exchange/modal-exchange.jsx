@@ -161,9 +161,9 @@ export function ModalExchange({ setIsUpdated, setActive, playerData, addMessage 
 
   //---ARRANGE-ALL-ELEMENTS-AT-OUTPUT----
 
-  let orderedKeys = ["silver", "premium_akk", "drawings", "tokens", "red_tokens", "tanks"];
+  let orderedKeys = ["silver","counters", "premium_akk", "drawings", "tokens", "red_tokens"];
   if (exchangeResources.getRes === "gold") {
-    orderedKeys = ["silver", "premium_akk", "drawings", "tokens", "red_tokens", "tanks"];
+    orderedKeys = ["silver","counters", "premium_akk", "drawings", "tokens", "red_tokens"];
   } else if (exchangeResources.getRes === "red_tokens") {
     orderedKeys = ["tokens", "gold"];
   }

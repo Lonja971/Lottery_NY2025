@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
                     'silver' => $row_user['silver'],
                     'tokens' => $row_user['tokens'],
                     'red_tokens' => $row_user['red_tokens'],
-                    'tanks' => $row_user['tanks'],
+                    'counters' => $row_user['counters'],
                     'premium_akk' => $row_user['premium_akk'],
                     'drawings' => $row_user['drawings'],
                     'regular_cases' => $row_user['regular_cases'],

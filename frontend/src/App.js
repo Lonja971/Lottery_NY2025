@@ -6,6 +6,10 @@ import { Register } from "./Register";
 import { Login } from "./Login";
 import { Clock } from "./Clock";
 
+//---Ways-to-the-backend:
+//-OSPanel:   http://NY2025/backend/
+//-Plesk:     https://97108289.hetictlyceum.nl/NY_2025/backend/
+
 function App() {
   return (
     <Router>
