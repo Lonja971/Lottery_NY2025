@@ -68,29 +68,37 @@ export function Home() {
 
   const [newToken, setNewToken] = useState(false);
   const [tokenTimeLeft, setTokenTimeLeft] = useState(null);
+  const [initialTime, setInitialTime] = useState(null);
 
   useEffect(() => {
-    if (playerData !== null) {
-      const checkTime = async () => {
-        try {
-          // Отримуємо поточний час для Києва з API
-          const response = await axios.get('http://worldtimeapi.org/api/timezone/Europe/Kyiv');
-          const currentTime = response.data.unixtime;
+    const fetchTime = async () => {
+      try {
+        const response = await axios.get('http://worldtimeapi.org/api/timezone/Europe/Kyiv');
+        const currentTime = response.data.unixtime; // отримуємо поточний Unix час з API
+        setInitialTime(currentTime); // зберігаємо початковий час
+      } catch (error) {
+        console.error('Error fetching the time:', error);
+      }
+    };
 
-          const tokensTimer = playerData.tokens_timer;
-          const timeDifference = tokensTimer - currentTime;
+    fetchTime();
+  }, []); // виконати лише один раз при завантаженні компонента
 
-          if (currentTime >= tokensTimer || tokensTimer == null) {
-            setNewToken(true);
-            setTokenTimeLeft("Заберіть!");
-          } else {
-            const hours = Math.floor(timeDifference / 3600);
-            const minutes = Math.floor((timeDifference % 3600) / 60);
-            const seconds = timeDifference % 60;
-            setTokenTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
-          }
-        } catch (error) {
-          console.error('Error fetching the time:', error);
+  useEffect(() => {
+    if (playerData !== null && initialTime !== null) {
+      const checkTime = () => {
+        const currentTime = Math.floor(Date.now() / 1000) - (Date.now() - initialTime * 1000) / 1000;
+        const tokensTimer = playerData.tokens_timer;
+        const timeDifference = tokensTimer - currentTime;
+
+        if (currentTime >= tokensTimer || tokensTimer == null) {
+          setNewToken(true);
+          setTokenTimeLeft("Заберіть!");
+        } else {
+          const hours = Math.floor(timeDifference / 3600);
+          const minutes = Math.floor((timeDifference % 3600) / 60);
+          const seconds = timeDifference % 60;
+          setTokenTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
         }
       };
 
@@ -98,7 +106,7 @@ export function Home() {
 
       return () => clearInterval(intervalId);
     }
-  }, [playerData, setNewToken, setTokenTimeLeft]);
+  }, [playerData, initialTime, setNewToken, setTokenTimeLeft]);
 
   //---Бургер-меню---
 
