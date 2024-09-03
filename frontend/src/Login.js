@@ -98,7 +98,7 @@ export function Login() {
           <div className="welcome__item-container">
             <div className="welcome__item welcome-lottery">
               <img
-                src="logo-ng"
+                src="img/background/lottery_bg-v1.png"
                 alt="LOTTERY-IMG"
               />
               <h3 className="welcome-text">Новорічна Лотерея 2025</h3>

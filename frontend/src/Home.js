@@ -69,19 +69,26 @@ export function Home() {
 
   useEffect(() => {
     if (playerData !== null) {
-      const checkTime = () => {
-        const currentTime = Math.floor(Date.now() / 1000);
-        const tokensTimer = playerData.tokens_timer;
-        const timeDifference = playerData.tokens_timer - currentTime;
+      const checkTime = async () => {
+        try {
+          // Отримуємо поточний час для Києва з API
+          const response = await axios.get('http://worldtimeapi.org/api/timezone/Europe/Kyiv');
+          const currentTime = response.data.unixtime;
 
-        if (currentTime >= tokensTimer || tokensTimer == null) {
-          setNewToken(true);
-          setTokenTimeLeft("Заберіть!");
-        } else {
-          const hours = Math.floor(timeDifference / 3600);
-          const minutes = Math.floor((timeDifference % 3600) / 60);
-          const seconds = timeDifference % 60;
-          setTokenTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+          const tokensTimer = playerData.tokens_timer;
+          const timeDifference = tokensTimer - currentTime;
+
+          if (currentTime >= tokensTimer || tokensTimer == null) {
+            setNewToken(true);
+            setTokenTimeLeft("Заберіть!");
+          } else {
+            const hours = Math.floor(timeDifference / 3600);
+            const minutes = Math.floor((timeDifference % 3600) / 60);
+            const seconds = timeDifference % 60;
+            setTokenTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+          }
+        } catch (error) {
+          console.error('Error fetching the time:', error);
         }
       };
 
@@ -89,7 +96,7 @@ export function Home() {
 
       return () => clearInterval(intervalId);
     }
-  }, [playerData]);
+  }, [playerData, setNewToken, setTokenTimeLeft]);
 
   //---Бургер-меню---
 
