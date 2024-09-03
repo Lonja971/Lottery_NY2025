@@ -3,7 +3,7 @@ import "../../css/lottery.css";
 import { LEGENDARY_CASE, MYTHICAL_CASE, RARE_CASE, REGULAR_CASE, SPECIAL_CASE, MAIN_CASE, WAFF_CASE } from "../constants";
 import { CaseBlock } from "./ui/case-block";
 
-export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
+export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, playerGuarantors }) {
 
   const handleAddMessage = () => {
     addMessage(10000, "gold");
@@ -96,6 +96,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation }) {
             caseData={caseData}
             playerData={playerData}
             setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+            playerGuarantors={playerGuarantors}
           />
         ))}
       </div>

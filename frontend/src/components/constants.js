@@ -588,7 +588,7 @@ export const EXCHANGE = {
 //---CASES---
 
 const COLLECTIONS = {
-  main_collection: "Головна Колекція",
+  main_collection: "Новорічна Колекція",
 };
 
 //---CASES---
@@ -634,6 +634,7 @@ export const CASES = {
     name: "Останній Ваффентрагер",
     transcription: "waff_case",
     animation: "waff_case",
+    guarantor: 50,
   },
 };
 
@@ -686,26 +687,26 @@ export const MYTHICAL_CASE = [
   { type: "gold", probability: 30, amounts: [1000, 2000] },
   { type: "drawings", probability: 30, amounts: [1], default: true },
   { type: "red_tokens", probability: 10, amounts: [2] },
-  { type: "tank", id: "3", probability: 20, amounts: [1] }, // 20% на всі скіни
+  { type: "tank", id: 3, probability: 20, amounts: [1] }, // 20% на всі скіни
 ];
 
 export const LEGENDARY_CASE = [
   { type: "gold", probability: 30, amounts: [2000, 3000] },
   { type: "drawings", probability: 25, amounts: [2], default: true, dafaultAmount: 2, },
   { type: "red_tokens", probability: 25, amounts: [2, 6] },
-  { type: "tank", id: "42", probability: 20, amounts: [1] },
-  { type: "tank", id: "2", probability: 20, amounts: [1] },
+  { type: "tank", id: 42, probability: 20, amounts: [1] },
+  { type: "tank", id: 2, probability: 20, amounts: [1] },
 ];
 
 export const WAFF_CASE = [
   { type: "gold", probability: 100, amounts: [2000, 3000], default: true },
-  { type: "tank", id: "34", probability: 100, amounts: [1] },
+  { type: "tank", id: 34, probability: 100, amounts: [1] },
   { 
-    probability: 0,
+    probability: 100,
     type: "plural",
     items: [
-      { type: "tank", id: "59", probability: 100, amounts: [1] },
-      { type: "tank", id: "60", probability: 0, amounts: [1] },
+      { type: "tank", id: 59, probability: 100, amounts: [1] },
+      { type: "tank", id: 60, probability: 0, amounts: [1] },
     ]
   },
 ];

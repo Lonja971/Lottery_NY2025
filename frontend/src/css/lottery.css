@@ -134,12 +134,17 @@
 .buttons-block {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 5px;
 
   position: absolute;
   bottom: 0;
   left: 0;
+}
+.buttons-block__buttons{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
 .buttons-block button {
@@ -189,6 +194,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 10px;
+
   align-items: center;
 }
 .caseblock__back-infoblock{

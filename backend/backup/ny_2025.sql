@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Час створення: Сер 27 2024 р., 13:29
+-- Час створення: Вер 02 2024 р., 20:12
 -- Версія сервера: 5.7.39
 -- Версія PHP: 7.2.34
 
@@ -118,6 +118,28 @@ CREATE TABLE `exchange_red_tokens` (
 INSERT INTO `exchange_red_tokens` (`id`, `exchange_resource`, `exchange_value`, `get_value`) VALUES
 (1, 'tokens', 2, 1),
 (2, 'gold', 400, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `guarantors`
+--
+
+CREATE TABLE `guarantors` (
+  `id` int(11) NOT NULL,
+  `case_id` int(11) DEFAULT NULL,
+  `discoveries_number` int(11) DEFAULT NULL,
+  `guarantor_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tank_id` int(11) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `guarantors`
+--
+
+INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type`, `tank_id`, `amount`) VALUES
+(1, 7, 50, 'tank', 59, 1);
 
 -- --------------------------------------------------------
 
@@ -250,7 +272,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `red_tokens`, `tanks`, `premium_akk`, `drawings`, `regular_cases`, `special_cases`, `rare_cases`, `mythical_cases`, `legendary_cases`, `tokens_timer`) VALUES
-(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 199500, 3500, 5, 29, 7, 4, 13, 24, 21, 13, 0, 0, 1724755327),
+(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 188500, 6500, 11, 2189, 7, 4, 19, 26, 23, 13, 0, 47, 1725300710),
 (3, 'Залізний Панцир', '$2y$10$AqtdnlDsmPiTOeatpYe/VOyPgzeCQgUdtzNDYbOcJAGe7TeMKZfx2', 3000, 26500, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
 (4, 'Вогнений тапок', '$2y$10$fqZ02AHrHhASSa32SekpKuaXTR4hUQp/cz3JwSW9LVMJcjwBBrJey', 0, 2500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (5, 'Killua', '$2y$10$9RcfARbasxfCPBFxnr3voew1uxvaKkf6cmx8.xLk0g/XF5PQKqGZ.', 8500, 4000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
@@ -278,6 +300,19 @@ INSERT INTO `user_codes` (`id`, `user_id`, `code_id`) VALUES
 (1, 2, 1),
 (2, 2, 2),
 (3, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `user_guarantors`
+--
+
+CREATE TABLE `user_guarantors` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `case_id` int(11) DEFAULT NULL,
+  `discoveries_number` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -367,8 +402,8 @@ INSERT INTO `user_tanks` (`id`, `user_id`, `tank_id`) VALUES
 (69, 6, 40),
 (70, 6, 41),
 (71, 6, 47),
-(72, 2, 60),
-(73, 2, 59);
+(91, 2, 59),
+(92, 2, 42);
 
 --
 -- Індекси збережених таблиць
@@ -399,6 +434,14 @@ ALTER TABLE `exchange_red_tokens`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Індекси таблиці `guarantors`
+--
+ALTER TABLE `guarantors`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_case` (`case_id`),
+  ADD KEY `fk_tank` (`tank_id`);
+
+--
 -- Індекси таблиці `tanks`
 --
 ALTER TABLE `tanks`
@@ -424,6 +467,14 @@ ALTER TABLE `user_codes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `code_id` (`code_id`);
+
+--
+-- Індекси таблиці `user_guarantors`
+--
+ALTER TABLE `user_guarantors`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_guarantors_user` (`user_id`),
+  ADD KEY `fk_user_guarantors_case` (`case_id`);
 
 --
 -- Індекси таблиці `user_tanks`
@@ -462,6 +513,12 @@ ALTER TABLE `exchange_red_tokens`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблиці `guarantors`
+--
+ALTER TABLE `guarantors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблиці `tanks`
 --
 ALTER TABLE `tanks`
@@ -486,14 +543,27 @@ ALTER TABLE `user_codes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT для таблиці `user_guarantors`
+--
+ALTER TABLE `user_guarantors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблиці `user_tanks`
 --
 ALTER TABLE `user_tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
 --
+
+--
+-- Обмеження зовнішнього ключа таблиці `guarantors`
+--
+ALTER TABLE `guarantors`
+  ADD CONSTRAINT `fk_case` FOREIGN KEY (`case_id`) REFERENCES `cases` (`id`),
+  ADD CONSTRAINT `fk_tank` FOREIGN KEY (`tank_id`) REFERENCES `tanks` (`id`);
 
 --
 -- Обмеження зовнішнього ключа таблиці `tokens`
@@ -507,6 +577,13 @@ ALTER TABLE `tokens`
 ALTER TABLE `user_codes`
   ADD CONSTRAINT `user_codes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `user_codes_ibfk_2` FOREIGN KEY (`code_id`) REFERENCES `codes` (`id`);
+
+--
+-- Обмеження зовнішнього ключа таблиці `user_guarantors`
+--
+ALTER TABLE `user_guarantors`
+  ADD CONSTRAINT `fk_user_guarantors_case` FOREIGN KEY (`case_id`) REFERENCES `cases` (`id`),
+  ADD CONSTRAINT `fk_user_guarantors_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Обмеження зовнішнього ключа таблиці `user_tanks`

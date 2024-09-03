@@ -63,7 +63,7 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
                 let id = selectedSubItem.id || (selectedSubItem.type === "tank" ? RESOURCES.tanks : "");
 
                 if (selectedSubItem.type === "tank") {
-                  tankInfo = TANKS[id.toLowerCase()];
+                  tankInfo = TANKS[id];
                 }
 
                 droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
@@ -87,7 +87,7 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
           let id = item.id || (item.type === "tank" ? RESOURCES.tanks : "");
 
           if (item.type === "tank") {
-            tankInfo = TANKS[id.toLowerCase()];
+            tankInfo = TANKS[id];
           }
 
           droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
