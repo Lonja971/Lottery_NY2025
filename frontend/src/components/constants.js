@@ -22,6 +22,7 @@ export const TANKS = {
     id: 3,
     name: "Об'єкт 490 Білка",
     transcription: "obj_490_squirrel",
+    bg: "obj_490_squirrel-bg",
     type: "camo",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/obj_490.html",
@@ -533,6 +534,24 @@ export const TANKS = {
     exchange: 2500,
     bg: "waff_auf_e_100_the_last-bg",
   },
+  61: {
+    id: 61,
+    name: "E 100",
+    transcription: "e_100",
+    type: "ht",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/e100.html",
+    exchange: 7500,
+  },
+  62: {
+    id: 62,
+    name: "E 100 Втоплений Титан",
+    transcription: "e_100_sinked",
+    type: "camo",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/e100.html",
+    exchange: 1500,
+  },
 };
 
 //---EXCHANGE---
@@ -557,7 +576,7 @@ export const EXCHANGE = {
     drawings: {
       exchange: "drawings",
       exchangeValue: "1",
-      getValue: "600",
+      getValue: "400",
     },
     tokens: {
       exchange: "tokens",

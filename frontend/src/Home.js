@@ -68,28 +68,13 @@ export function Home() {
 
   const [newToken, setNewToken] = useState(false);
   const [tokenTimeLeft, setTokenTimeLeft] = useState(null);
-  const [initialTime, setInitialTime] = useState(null);
 
   useEffect(() => {
-    const fetchTime = async () => {
-      try {
-        const response = await axios.get('http://worldtimeapi.org/api/timezone/Europe/Kyiv');
-        const currentTime = response.data.unixtime; // отримуємо поточний Unix час з API
-        setInitialTime(currentTime); // зберігаємо початковий час
-      } catch (error) {
-        console.error('Error fetching the time:', error);
-      }
-    };
-
-    fetchTime();
-  }, []); // виконати лише один раз при завантаженні компонента
-
-  useEffect(() => {
-    if (playerData !== null && initialTime !== null) {
+    if (playerData !== null) {
       const checkTime = () => {
-        const currentTime = Math.floor(Date.now() / 1000) - (Date.now() - initialTime * 1000) / 1000;
+        const currentTime = Math.floor(Date.now() / 1000);
         const tokensTimer = playerData.tokens_timer;
-        const timeDifference = tokensTimer - currentTime;
+        const timeDifference = playerData.tokens_timer - currentTime;
 
         if (currentTime >= tokensTimer || tokensTimer == null) {
           setNewToken(true);
@@ -106,7 +91,7 @@ export function Home() {
 
       return () => clearInterval(intervalId);
     }
-  }, [playerData, initialTime, setNewToken, setTokenTimeLeft]);
+  }, [playerData]);
 
   //---Бургер-меню---
 
