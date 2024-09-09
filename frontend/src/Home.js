@@ -13,6 +13,7 @@ import { ModalStorage } from "./components/nav-bar/ui/storage/modal-storage";
 import { ModalExchange } from "./components/nav-bar/ui/exchange/modal-exchange";
 import { CheckCases } from "./components/cases/check-cases";
 import { Shop } from "./components/shop/shop";
+import { EventCases } from "./components/event-cases/event-cases";
 
 
 
@@ -233,7 +234,16 @@ export function Home() {
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <Shop />
+      <Shop
+        playerData={playerData}
+        setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+        playerGuarantors={playerGuarantors}
+      />
+      <EventCases
+        playerData={playerData}
+        setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+        playerGuarantors={playerGuarantors}
+      />
       <Footer />
     </HomeLayout>
   );

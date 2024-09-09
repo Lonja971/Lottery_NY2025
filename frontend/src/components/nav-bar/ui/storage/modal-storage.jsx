@@ -103,7 +103,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="regular_cases"
               value={playerData.regular_cases}
-              text={'Звичайний кейс <img src="img/resources/regular_cases.png" alt="RES" /> - може випасти з ' + CASES.main_cases.name}
+              text={'Звичайний кейс <img src="img/resources/regular_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           specialCasesItem={
@@ -112,7 +112,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="special_cases"
               value={playerData.special_cases}
-              text={'Особовий кейс <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з ' + CASES.main_cases.name}
+              text={'Особовий кейс <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           rareCasesItem={
@@ -121,7 +121,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="rare_cases"
               value={playerData.rare_cases}
-              text={'Рідкісний кейс <img src="img/resources/rare_cases.png" alt="RES" /> - може випасти з ' + CASES.main_cases.name}
+              text={'Рідкісний кейс <img src="img/resources/rare_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           mythicalCasesItem={
@@ -130,7 +130,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="mythical_cases"
               value={playerData.mythical_cases}
-              text={'Міфічний кейс <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з ' + CASES.main_cases.name}
+              text={'Міфічний кейс <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           legendaryCasesItem={
@@ -139,7 +139,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="legendary_cases"
               value={playerData.legendary_cases}
-              text={'Легендарний кейс <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з ' + CASES.main_cases.name}
+              text={'Легендарний кейс <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           userTanksItem={<ModalStorageTanks userTanks={playerTanks} />}

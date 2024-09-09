@@ -1,0 +1,44 @@
+import "../../css/event-cases.css";
+import { CaseBlock } from "../uikit/case-block";
+import { WAFF_CASE } from "../constants";
+
+export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarantors}) {
+
+   const casesData = [
+      {
+         isManu: false,
+         transcription: "waff_cases",
+         type: WAFF_CASE,
+         buttons: [
+            {
+               openResource: "red_tokens",
+               price: 2,
+            },
+         ],
+      },
+   ]
+
+   return (
+      <div className="eventcases">
+         <div className="eventcases__container _container">
+            <div className="eventcases__bg"></div>
+            <div className="eventcases__content">
+               <div className="eventcases__content-title">
+                  <h2 className="_glass">Івентні Кейси <img src="img/resources/red_tokens.png" alt="" /></h2>
+               </div>
+               <div className="_cases-container">
+               {casesData.map((caseData, index) => (
+                  <CaseBlock
+                     key={index}
+                     caseData={caseData}
+                     playerData={playerData}
+                     setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+                     playerGuarantors={playerGuarantors}
+                  />
+               ))}
+               </div>
+            </div>
+         </div>
+      </div>
+   )
+}

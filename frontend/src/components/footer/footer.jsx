@@ -2,7 +2,7 @@ import "../../css/footer.css";
 
 export function Footer(){
    return(
-      <footer className="_scroll-snap__block">
+      <footer>
          <div className="footer__container _container">
             <div className="footer-bg"></div>
             <div className="footer__content">

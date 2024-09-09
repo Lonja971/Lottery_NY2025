@@ -1,4 +1,5 @@
-import { RESOURCES, TANKS } from "../../constants";
+import { RESOURCES, TANKS } from "../constants";
+import "../../css/lottery.css";
 
 export function InfoBlock({ item, index, userTanks }){
 

@@ -1,12 +1,22 @@
 /*----------SHOP----------*/
 
-.shop{
+.eventcases{
    position: relative;
    padding: 50px 0px;
 }
-.shop__bg{
+h2{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   margin-bottom: 50px;
+}
+h2 img{
+   height: 75px;
+}
+.eventcases__bg{
    position: absolute;
-   background-image: url("../../public/img/background/bg_v6.png");
+   /*background-image: url("../../public/img/background/bg_v2.png");*/
    background-size: 500px;
    box-shadow: -1px 12px 25px 1px rgba(0, 0, 0, 0.808) inset;
    width: 100vw;
@@ -15,14 +25,14 @@
    right: 0;
    padding-right: 250px;
 }
-.shop__content{
+.eventcases__content{
    position: relative;
    z-index: 2;
 }
-.shop__content-title{
+.eventcases__content-title{
    display: flex;
    justify-content: center;
 }
-.shop__content-title h2{
+.eventcases__content-title h2{
    padding: 5px 35px;
 }

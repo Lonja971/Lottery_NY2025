@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InfoBlock } from "./info-block";
-import { CASES } from "../../constants";
+import { CASES } from "../constants";
 
 export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, playerGuarantors }) {
   const [isBack, setIsBack] = useState(false);
@@ -21,7 +21,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
           </div>
           <div className="caseblock__info">
             <div className="caseblock__text">
-              { CASES[caseData.transcription].collection !== undefined ? (
+              {CASES[caseData.transcription].collection !== undefined ? (
                 <p>{CASES[caseData.transcription].collection}</p>
               ) : ""}
               <h3>{CASES[caseData.transcription].name}</h3>
@@ -63,7 +63,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
                 ? (
                   <div className="guarantor__container">
                     <span className="buttons-block__guarantor">
-                      До гаранту: { CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}
+                      До гаранту: {CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}
                     </span>
                   </div>
                 )
@@ -78,35 +78,35 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
               </button>
             </div>
             {caseData.type.map((item, index) => {
-                if (item.items && Array.isArray(item.items)) {
-                  const arrayProbability = item.probability;
-                  const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
+              if (item.items && Array.isArray(item.items)) {
+                const arrayProbability = item.probability;
+                const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
 
-                  return item.items.map((subItem, subIndex) => {
-                    const modifiedSubItem = {
-                      ...subItem,
-                      probability: arrayProbability / totalProbability * subItem.probability
-                    };
+                return item.items.map((subItem, subIndex) => {
+                  const modifiedSubItem = {
+                    ...subItem,
+                    probability: arrayProbability / totalProbability * subItem.probability
+                  };
 
-                    return (
-                      <InfoBlock 
-                        item={modifiedSubItem} 
-                        index={`${index}-${subIndex}`} 
-                        key={`${index}-${subIndex}`} 
-                        userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
-                      />
-                    );
-                  });
-                } else {
                   return (
-                    <InfoBlock 
-                      item={item} 
-                      index={index} 
-                      key={index} 
-                      userTanks={playerData?.userTanks} // Додаємо перевірку на наявність playerData
+                    <InfoBlock
+                      item={modifiedSubItem}
+                      index={`${index}-${subIndex}`}
+                      key={`${index}-${subIndex}`}
+                      userTanks={playerData?.userTanks}
                     />
                   );
-                }
+                });
+              } else {
+                return (
+                  <InfoBlock
+                    item={item}
+                    index={index}
+                    key={index}
+                    userTanks={playerData?.userTanks}
+                  />
+                );
+              }
             })}
           </div>
         </div>

@@ -613,7 +613,7 @@ const COLLECTIONS = {
 
 export const CASES = {
   main_cases: {
-    name: "Main Кейс",
+    name: "Головний Кейс",
     transcription: "main_case",
     animation: "default",
     collection: COLLECTIONS.main_collection,
@@ -648,6 +648,20 @@ export const CASES = {
     animation: "legendary_cases",
     collection: COLLECTIONS.main_collection,
   },
+  //---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
+
+  new_years_tank1: {
+    name: "*Танк з головної колекції 1",
+    transcription: "new_years_tank1",
+    animation: "default",
+  },
+  new_years_tank2: {
+    name: "*Танк з головної колекції 2",
+    transcription: "new_years_tank2",
+    animation: "default",
+  },
+
+  //---ІВЕНТНІ-КЕЙСИ---
   waff_cases: {
     name: "Останній Ваффентрагер",
     transcription: "waff_case",
@@ -715,6 +729,18 @@ export const LEGENDARY_CASE = [
   { type: "tank", id: 42, probability: 20, amounts: [1] },
   { type: "tank", id: 2, probability: 20, amounts: [1] },
 ];
+
+//---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
+
+export const NEW_YEARS_TANK_1 = [
+  { type: "tank", id: 2, probability: 100, amounts: [1] },
+];
+export const NEW_YEARS_TANK_2 = [
+  { type: "tank", id: 42, probability: 100, amounts: [1] },
+];
+
+
+//---ІВЕНТОВІ-КЕЙСИ---
 
 export const WAFF_CASE = [
   { type: "gold", probability: 100, amounts: [2000, 3000], default: true },

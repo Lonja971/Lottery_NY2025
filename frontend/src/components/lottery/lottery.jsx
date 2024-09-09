@@ -1,7 +1,7 @@
 import React from "react";
 import "../../css/lottery.css";
-import { LEGENDARY_CASE, MYTHICAL_CASE, RARE_CASE, REGULAR_CASE, SPECIAL_CASE, MAIN_CASE, WAFF_CASE } from "../constants";
-import { CaseBlock } from "./ui/case-block";
+import { LEGENDARY_CASE, MYTHICAL_CASE, RARE_CASE, REGULAR_CASE, SPECIAL_CASE, MAIN_CASE } from "../constants";
+import { CaseBlock } from "../uikit/case-block";
 
 export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, playerGuarantors }) {
 
@@ -24,7 +24,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
           price: 2,
         },
       ],
-    },{
+    }, {
       isManu: true,
       transcription: "regular_cases",
       type: REGULAR_CASE,
@@ -34,7 +34,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
           price: 1,
         },
       ],
-    },{
+    }, {
       isManu: true,
       transcription: "special_cases",
       type: SPECIAL_CASE,
@@ -44,7 +44,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
           price: 1,
         },
       ],
-    },{
+    }, {
       isManu: true,
       transcription: "rare_cases",
       type: RARE_CASE,
@@ -54,7 +54,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
           price: 1,
         },
       ],
-    },{
+    }, {
       isManu: true,
       transcription: "mythical_cases",
       type: MYTHICAL_CASE,
@@ -64,7 +64,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
           price: 1,
         },
       ],
-    },{
+    }, {
       isManu: true,
       transcription: "legendary_cases",
       type: LEGENDARY_CASE,
@@ -74,22 +74,12 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
           price: 1,
         },
       ],
-    },{
-      isManu: false,
-      transcription: "waff_cases",
-      type: WAFF_CASE,
-      buttons: [
-        {
-          openResource: "red_tokens",
-          price: 2,
-        },
-      ],
-    },
+    }
   ]
 
   return (
-    <div className="lottery _scroll-snap__block">
-      <div className="lottery__container _container">
+    <div className="lottery">
+      <div className="_cases-container _container">
         {casesData.map((caseData, index) => (
           <CaseBlock
             key={index}
