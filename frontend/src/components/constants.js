@@ -902,7 +902,7 @@ export const WAFF_CASE = [
   //{ type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
 
   { type: "tank", id: 60, probability: 7, amounts: [1] },
-  { type: "tank", id: 59, probability: 3, amounts: [1] },
+  { type: "tank", id: 59, probability: 2, amounts: [1] },
 ];
 export const FRANCE_NATION_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
