@@ -9,7 +9,6 @@ h2{
    align-items: center;
    justify-content: center;
    gap: 10px;
-   margin-bottom: 50px;
 }
 h2 img{
    height: 75px;
@@ -18,7 +17,6 @@ h2 img{
    position: absolute;
    /*background-image: url("../../public/img/background/bg_v2.png");*/
    background-size: 500px;
-   box-shadow: -1px 12px 25px 1px rgba(0, 0, 0, 0.808) inset;
    width: 100vw;
    height: 100%;
    top: 0px;
@@ -32,6 +30,7 @@ h2 img{
 .eventcases__content-title{
    display: flex;
    justify-content: center;
+   margin-bottom: 50px;
 }
 .eventcases__content-title h2{
    padding: 5px 35px;

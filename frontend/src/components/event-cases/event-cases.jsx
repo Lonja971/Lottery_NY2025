@@ -1,6 +1,6 @@
 import "../../css/event-cases.css";
 import { CaseBlock } from "../uikit/case-block";
-import { WAFF_CASE } from "../constants";
+import { WAFF_CASE,FRANCE_NATION_CASE } from "../constants";
 
 export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarantors}) {
 
@@ -16,6 +16,17 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             },
          ],
       },
+      {
+         isManu: false,
+         transcription: "france_nation_cases",
+         type: FRANCE_NATION_CASE,
+         buttons: [
+            {
+               openResource: "red_tokens",
+               price: 2,
+            },
+         ],
+      },
    ]
 
    return (
@@ -24,7 +35,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             <div className="eventcases__bg"></div>
             <div className="eventcases__content">
                <div className="eventcases__content-title">
-                  <h2 className="_glass">Івентні Кейси <img src="img/resources/red_tokens.png" alt="" /></h2>
+                  <h2 className="_glass">Івентні Контейнери <img src="img/resources/red_tokens.png" alt="" /></h2>
                </div>
                <div className="_cases-container">
                {casesData.map((caseData, index) => (

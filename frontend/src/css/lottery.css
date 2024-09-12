@@ -130,7 +130,7 @@
 }
 .caseblock__text h3,
 .caseblock__text p {
-  line-height: 115%;
+  line-height: 145%;
 }
 .buttons-block {
   width: 100%;
@@ -217,7 +217,7 @@
 }
 .caseblock-back .info-block.info-block-tank.received {
   outline: 3px solid var(--green);
-  box-shadow: 0px 0px 26px 8px rgba(8, 143, 8, 0.47);
+  /*box-shadow: 0px 0px 26px 8px rgba(8, 143, 8, 0.47);*/
 }
 .caseblock-back .info-block.info-block-tank.received::before {
   content: "";

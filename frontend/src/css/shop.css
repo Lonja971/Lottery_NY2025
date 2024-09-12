@@ -23,6 +23,48 @@
    display: flex;
    justify-content: center;
 }
-.shop__content-title h2{
+.shop_title{
+   display: flex;
+   align-items: center;
    padding: 5px 35px;
+   gap: 10px;
+   margin-bottom: 50px;
+}
+.shop_title img{
+   height: 75px;
+}
+
+/*---CASES---*/
+.shop__case{
+   width: 260px;
+   height: 440px;
+   padding: 30px 20px 20px 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.shop__case-img{
+   width: 150px;
+   display: flex;
+   margin: 0 auto;
+}
+.shop__case-title{
+   margin-top: 10px;
+   line-height: 145%;
+}
+.shop__case-text{
+   line-height: 145%;
+   margin-top: 15px;
+   text-align: center;
+}
+.shop-button{
+   margin-top: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   gap: 5px;
+}
+.shop-button img{
+   height: 30px;
 }

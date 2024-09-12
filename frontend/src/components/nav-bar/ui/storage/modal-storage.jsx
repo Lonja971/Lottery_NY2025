@@ -9,7 +9,7 @@ import { DraggableWindow } from "../../../uikit/draggable-window";
 import { useState } from "react";
 import axios from "axios";
 
-export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments, tokenTimeLeft }) {
+export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage, isComments, tokenTimeLeft }) {
 
   let playerTanks = [];
   let playerCamos = [];
@@ -29,6 +29,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
     <>
       {playerData && (
         <ModalStorageLayout
+          backendPath={backendPath}
           setIsUpdated={setIsUpdated}
           playerId={playerId}
           addMessage={addMessage}
@@ -103,7 +104,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="regular_cases"
               value={playerData.regular_cases}
-              text={'Звичайний кейс <img src="img/resources/regular_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Звичайний Контейнер <img src="img/resources/regular_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           specialCasesItem={
@@ -112,7 +113,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="special_cases"
               value={playerData.special_cases}
-              text={'Особовий кейс <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Особовий Контейнер <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           rareCasesItem={
@@ -121,7 +122,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="rare_cases"
               value={playerData.rare_cases}
-              text={'Рідкісний кейс <img src="img/resources/rare_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Рідкісний Контейнер <img src="img/resources/rare_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           mythicalCasesItem={
@@ -130,7 +131,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="mythical_cases"
               value={playerData.mythical_cases}
-              text={'Міфічний кейс <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Міфічний Контейнер <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           legendaryCasesItem={
@@ -139,7 +140,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
               type="case"
               resource="legendary_cases"
               value={playerData.legendary_cases}
-              text={'Легендарний кейс <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Легендарний Контейнер <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
             />
           }
           userTanksItem={<ModalStorageTanks userTanks={playerTanks} />}
@@ -153,6 +154,7 @@ export function ModalStorage({ setIsUpdated, playerData, addMessage, isComments,
 }
 
 function ModalStorageLayout({
+  backendPath,
   setIsUpdated,
   playerId,
   addMessage,
@@ -197,7 +199,7 @@ function ModalStorageLayout({
     e.preventDefault();
 
     axios
-      .post("http://NY2025/backend/api/changePlayerName.php", {
+      .post(`${backendPath}api/changePlayerName.php`, {
         player_id: playerId,
         new_user_name: changeNameFormData.username,
       })
@@ -235,7 +237,7 @@ function ModalStorageLayout({
   const handleSubmitPromo = (e) => {
     e.preventDefault();
 
-    axios.post("http://NY2025/backend/api/promoCode.php", {
+    axios.post(`${backendPath}api/promoCode.php`, {
       player_id: playerId,
       promo: promoFormData.promo,
     })

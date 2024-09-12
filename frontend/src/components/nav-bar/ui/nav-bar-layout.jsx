@@ -5,6 +5,7 @@ export function NavBarLayout({
   goldBlock,
   tokensBlock,
   redTokensBlock,
+  drawingsBlock,
 }) {
   return (
     <div className="_container nav__container">
@@ -16,6 +17,7 @@ export function NavBarLayout({
           {goldBlock}
           {tokensBlock}
           {redTokensBlock}
+          {drawingsBlock}
         </ul>
       </div>
       <a href="https://lonja971.github.io/WomT_wiki/WomT.html" className="nav__logo-big">

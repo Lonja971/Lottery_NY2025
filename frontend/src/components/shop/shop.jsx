@@ -1,31 +1,24 @@
 import "../../css/shop.css";
-import { CaseBlock } from "../uikit/case-block";
-import { NEW_YEARS_TANK_1, NEW_YEARS_TANK_2 } from "../constants";
+import { NEW_YEARS_TANK_1, NEW_YEARS_TANK_2, CASES } from "../constants";
 
-export function Shop({playerData, setModalOpenCaseAnimation, playerGuarantors}) {
+export function Shop({playerData, setModalOpenCaseAnimation}) {
 
    const casesData = [
       {
          isManu: false,
          transcription: "new_years_tank1",
          type: NEW_YEARS_TANK_1,
-         buttons: [
-            {
-               openResource: "drawings",
-               price: 12,
-            },
-         ],
+         buttonOpenResource: "drawings",
+         buttonPrice: 12,
+         caseInfo: "Купіть танк Обьект 490 в цьому наборі!"
       },
       {
          isManu: false,
          transcription: "new_years_tank2",
          type: NEW_YEARS_TANK_2,
-         buttons: [
-            {
-               openResource: "drawings",
-               price: 12,
-            },
-         ],
+         buttonOpenResource: "drawings",
+         buttonPrice: 12,
+         caseInfo: "Купіть танк E 100 в цьому наборі!"
       },
    ]
 
@@ -35,18 +28,40 @@ export function Shop({playerData, setModalOpenCaseAnimation, playerGuarantors}) 
             <div className="shop__bg"></div>
             <div className="shop__content">
                <div className="shop__content-title">
-                  <h2 className="_glass">Магазин Креслень <img src="img/resources/drawings.png" alt="" /></h2>
+                  <div className="_glass shop_title">
+                     <h2>Магазин Креслень</h2>
+                     <img src="img/resources/drawings.png" alt="" />
+                  </div>
                </div>
                <div className="_cases-container">
-               {casesData.map((caseData, index) => (
-                  <CaseBlock
-                     key={index}
-                     caseData={caseData}
-                     playerData={playerData}
-                     setModalOpenCaseAnimation={setModalOpenCaseAnimation}
-                     playerGuarantors={playerGuarantors}
-                  />
-               ))}
+               {casesData.map((caseData, index) => {
+                  const isDisabled = playerData && playerData[caseData.buttonOpenResource] < caseData.buttonPrice;
+
+                  return(
+                     <div className="_glass shop__case" key={index}>
+                        <img className="shop__case-img" src="img/tokens_shop/obj_490.png" alt="TOKENS_CONTAINER" />
+                        <h3 className="shop__case-title">{CASES[caseData.transcription].name}</h3>
+                        <p className="shop__case-text">{caseData.caseInfo}</p>
+                        <button
+                           className={`btn _glass ${isDisabled ? "btn-closed" : ""} shop-button`}
+                           onClick={() =>
+                              setModalOpenCaseAnimation({
+                              isOpen: true,
+                              type: caseData.type,
+                              caseName: caseData.transcription,
+                              openResource: caseData.buttonOpenResource,
+                              })
+                           }
+                        >
+                           {caseData.buttonPrice} <img src={`img/resources/${caseData.buttonOpenResource}.png`} alt="CASE_IMG" />
+                           <div className="line line-top"></div>
+                           <div className="line line-right"></div>
+                           <div className="line line-bottom"></div>
+                           <div className="line line-left"></div>
+                        </button>
+                     </div>
+                  )
+               })}
                </div>
             </div>
          </div>

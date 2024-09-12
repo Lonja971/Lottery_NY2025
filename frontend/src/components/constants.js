@@ -20,7 +20,7 @@ export const TANKS = {
   },
   3: {
     id: 3,
-    name: "Об'єкт 490 Білка",
+    name: "Білка",
     transcription: "obj_490_squirrel",
     bg: "obj_490_squirrel-bg",
     type: "camo",
@@ -367,7 +367,7 @@ export const TANKS = {
     smallName: "Turbo Räump...",
     transcription: "turbo_raumpanzer",
     type: "ht",
-    land: "ge",
+    land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/turbo_raumpanzer.html",
     exchange: 6800,
   },
@@ -382,7 +382,7 @@ export const TANKS = {
   },
   44: {
     id: 44,
-    name: "ELS EVEN 90 Мандарин",
+    name: "Мандарин",
     transcription: "els_even_90_tangerine",
     type: "camo",
     land: "fr",
@@ -391,7 +391,7 @@ export const TANKS = {
   },
   45: {
     id: 45,
-    name: "Т-34 Харків Зимній снайпер",
+    name: "Зимній снайпер",
     transcription: "t_34_kharkiv_winter",
     type: "camo",
     land: "ua",
@@ -427,7 +427,7 @@ export const TANKS = {
   },
   49: {
     id: 49,
-    name: "Maus Легіонер",
+    name: "Легіонер",
     transcription: "maus_legionary",
     type: "camo",
     land: "ge",
@@ -436,7 +436,7 @@ export const TANKS = {
   },
   50: {
     id: 50,
-    name: "Maus Привид",
+    name: "Привид",
     transcription: "maus_ghost",
     type: "camo",
     land: "ge",
@@ -454,7 +454,7 @@ export const TANKS = {
   },
   52: {
     id: 52,
-    name: `Тигр "Чорний Ліс"`,
+    name: `Чорний Ліс`,
     transcription: "tiger_blackforest",
     type: "camo",
     land: "ge",
@@ -472,7 +472,7 @@ export const TANKS = {
   },
   54: {
     id: 54,
-    name: "T-95 Незламний",
+    name: "Незламний",
     transcription: "t_95_unbreakable",
     type: "camo",
     land: "usa",
@@ -481,7 +481,7 @@ export const TANKS = {
   },
   55: {
     id: 55,
-    name: "Grill 15 Новорічний Рейдер",
+    name: "Новорічний Рейдер",
     transcription: "grill_15_newyear_raider",
     type: "camo",
     land: "ge",
@@ -490,7 +490,7 @@ export const TANKS = {
   },
   56: {
     id: 56,
-    name: `Віндікатор "Темні янголи"`,
+    name: `Темні янголи`,
     transcription: "vindicator_dark_angels",
     type: "camo",
     land: "inter",
@@ -499,7 +499,7 @@ export const TANKS = {
   },
   57: {
     id: 57,
-    name: `Віндікатор "Імперський кулак"`,
+    name: `Імперський кулак`,
     transcription: "vindicator_imperial_fist",
     type: "camo",
     land: "inter",
@@ -517,7 +517,7 @@ export const TANKS = {
   },
   59: {
     id: 59,
-    name: `Waf. Auf E 100`,
+    name: `Waff. Auf E 100`,
     transcription: "waff_auf_e_100",
     type: "td",
     land: "ge",
@@ -531,7 +531,7 @@ export const TANKS = {
     type: "camo",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/waf_auf_e100.html",
-    exchange: 2500,
+    exchange: 1500,
     bg: "waff_auf_e_100_the_last-bg",
   },
   61: {
@@ -545,12 +545,149 @@ export const TANKS = {
   },
   62: {
     id: 62,
-    name: "E 100 Втоплений Титан",
+    name: "Втоплений Титан",
     transcription: "e_100_sinked",
     type: "camo",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/e100.html",
+    bg: "e_100_sinked-bg",
     exchange: 1500,
+  },
+  63: {
+    id: 63,
+    name: "Char Futur 4",
+    transcription: "char_futur_4",
+    type: "lt",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/char_futur_4.html",
+    exchange: 7500,
+  },
+  64: {
+    id: 64,
+    name: "Project Murat",
+    transcription: "project_murat",
+    type: "lt",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/project_murat.html",
+    exchange: 7500,
+  },
+  65: {
+    id: 65,
+    name: "FCM 50t",
+    transcription: "fcm_50t",
+    type: "lt",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/fcm_50t.html",
+    exchange: 5600,
+  },
+  66: {
+    id: 66,
+    name: "AMX CDC",
+    transcription: "amx_cdc",
+    type: "lt",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_cdc.html",
+    exchange: 5600,
+  },
+  67: {
+    id: 67,
+    name: "AMX 13 75",
+    transcription: "amx_13_75",
+    type: "lt",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_13_57.html",
+    exchange: 5600,
+  },
+  68: {
+    id: 68,
+    name: "Panhard EBR 105",
+    transcription: "panhard_ebr_105",
+    smallName: "Pan. EBR 105...",
+    type: "lt",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/panhard_ebr_105.html",
+    exchange: 7600,
+  },
+  69: {
+    id: 69,
+    name: "AMX 50b",
+    transcription: "amx_50b",
+    type: "ht",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_50b.html",
+    exchange: 7200,
+  },
+  70: {
+    id: 70,
+    name: "AMX 30b",
+    transcription: "amx_30b",
+    type: "ht",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_30b.html",
+    exchange: 6400,
+  },
+  71: {
+    id: 71,
+    name: "Lorraine 40t",
+    transcription: "lorraine_40t",
+    type: "ht",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/lorrain_40t.html",
+    exchange: 6000,
+  },
+  72: {
+    id: 72,
+    name: "FOSH 155",
+    transcription: "fosh_155",
+    type: "td",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/fosh_155.html",
+    exchange: 7200,
+  },
+  73: {
+    id: 73,
+    name: "Богач",
+    transcription: "amx_50b_bogach",
+    type: "camo",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_50b.html",
+    exchange: 1500,
+  },
+  74: {
+    id: 74,
+    name: "Сталевий Мисливець",
+    transcription: "amx_m4_54_steel_hunter",
+    type: "camo",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_m4_54.html",
+    exchange: 2000,
+  },
+  75: {
+    id: 75,
+    name: "Королівський",
+    transcription: "fosh_155_king",
+    type: "camo",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/fosh_155.html",
+    exchange: 1000,
+  },
+  76: {
+    id: 76,
+    name: "Піщаний",
+    transcription: "panhard_ebr_105_sand",
+    type: "camo",
+    land: "fr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/france/panhard_ebr_105.html",
+    exchange: 1000,
+  },
+  77: {
+    id: 77,
+    name: "E 25",
+    transcription: "e_25",
+    type: "td",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/e_25.html",
+    exchange: 2000,
   },
 };
 
@@ -607,43 +744,44 @@ export const EXCHANGE = {
 
 const COLLECTIONS = {
   main_collection: "Новорічна Колекція",
+  nationals_collection: "Колекція Країни",
 };
 
 //---CASES---
 
 export const CASES = {
   main_cases: {
-    name: "Головний Кейс",
+    name: "Головний Контейнер",
     transcription: "main_case",
     animation: "default",
     collection: COLLECTIONS.main_collection,
   },
   regular_cases: {
-    name: "Звичайний Кейс",
+    name: "Звичайний Контейнер",
     transcription: "regular_case",
     animation: "regular_cases",
     collection: COLLECTIONS.main_collection,
   },
   special_cases: {
-    name: "Особливий Кейс",
+    name: "Особливий Контейнер",
     transcription: "special_case",
     animation: "special_cases",
     collection: COLLECTIONS.main_collection,
   },
   rare_cases: {
-    name: "Рідкісний Кейс",
+    name: "Рідкісний Контейнер",
     transcription: "rare_case",
     animation: "rare_cases",
     collection: COLLECTIONS.main_collection,
   },
   mythical_cases: {
-    name: "Міфічний Кейс",
+    name: "Міфічний Контейнер",
     transcription: "mythical_case",
     animation: "mythical_cases",
     collection: COLLECTIONS.main_collection,
   },
   legendary_cases: {
-    name: "Легендарний Кейс",
+    name: "Легендарний Контейнер",
     transcription: "legendary_case",
     animation: "legendary_cases",
     collection: COLLECTIONS.main_collection,
@@ -662,11 +800,19 @@ export const CASES = {
   },
 
   //---ІВЕНТНІ-КЕЙСИ---
+
   waff_cases: {
     name: "Останній Ваффентрагер",
     transcription: "waff_case",
     animation: "waff_case",
     guarantor: 50,
+  },
+  france_nation_cases: {
+    name: "Французькі Пиріжки",
+    transcription: "france_nation_cases",
+    animation: "france_nation_cases",
+    guarantor: 50,
+    collection: COLLECTIONS.nationals_collection,
   },
 };
 
@@ -726,8 +872,14 @@ export const LEGENDARY_CASE = [
   { type: "gold", probability: 30, amounts: [2000, 3000] },
   { type: "drawings", probability: 25, amounts: [2], default: true, dafaultAmount: 2, },
   { type: "red_tokens", probability: 25, amounts: [2, 6] },
-  { type: "tank", id: 42, probability: 20, amounts: [1] },
-  { type: "tank", id: 2, probability: 20, amounts: [1] },
+  { 
+    probability: 50,
+    type: "single",
+    items: [
+      { type: "tank", id: 42, probability: 1, amounts: [1] },
+      { type: "tank", id: 2, probability: 1, amounts: [1] },
+    ]
+  },
 ];
 
 //---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
@@ -737,13 +889,58 @@ export const NEW_YEARS_TANK_1 = [
 ];
 export const NEW_YEARS_TANK_2 = [
   { type: "tank", id: 42, probability: 100, amounts: [1] },
+  { type: "tank", id: 62, probability: 100, amounts: [1] },
 ];
 
 
 //---ІВЕНТОВІ-КЕЙСИ---
 
 export const WAFF_CASE = [
-  { type: "gold", probability: 100, amounts: [2000, 3000], default: true },
-  { type: "tank", id: 60, probability: 10, amounts: [1] },
-  { type: "tank", id: 59, probability: 0.5, amounts: [1] },
+  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 35, amounts: [1] },
+  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  //{ type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
+
+  { type: "tank", id: 60, probability: 7, amounts: [1] },
+  { type: "tank", id: 59, probability: 3, amounts: [1] },
+];
+export const FRANCE_NATION_CASE = [
+  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 35, amounts: [1] },
+  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "tank", id: 63, probability: 2, amounts: [1] },
+  { 
+    probability: 3.5,
+    type: "single",
+    items: [
+      
+      { type: "tank", id: 65, probability: 1, amounts: [1] },
+      { type: "tank", id: 66, probability: 1, amounts: [1] },
+      { type: "tank", id: 37, probability: 1, amounts: [1] },
+      { type: "tank", id: 67, probability: 1, amounts: [1] },
+      { type: "tank", id: 68, probability: 1, amounts: [1] },
+      { type: "tank", id: 29, probability: 1, amounts: [1] },
+      { type: "tank", id: 9, probability: 1, amounts: [1] },
+      { type: "tank", id: 10, probability: 1, amounts: [1] },
+
+      { type: "tank", id: 69, probability: 1, amounts: [1] },
+      { type: "tank", id: 70, probability: 1, amounts: [1] },
+      { type: "tank", id: 15, probability: 1, amounts: [1] },
+      { type: "tank", id: 71, probability: 1, amounts: [1] },
+      
+      { type: "tank", id: 72, probability: 1, amounts: [1] },
+      { type: "tank", id: 35, probability: 1, amounts: [1] },
+    ]
+  },
+  { 
+    probability: 4,
+    type: "single",
+    items: [
+
+      { type: "tank", id: 73, probability: 1, amounts: [1] },
+      { type: "tank", id: 74, probability: 1, amounts: [1] },
+      { type: "tank", id: 75, probability: 1, amounts: [1] },
+      { type: "tank", id: 76, probability: 1, amounts: [1] },
+    ]
+  },
 ];

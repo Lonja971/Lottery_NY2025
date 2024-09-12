@@ -4,7 +4,7 @@ import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
 import { CASES, TANKS } from "../../constants";
 
-export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, active, setActive }) {
+export function ModalOpenCaseAnimation({ backendPath, playerId, addMessage, setIsUpdated, active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [compensatedItems, setCompensatedItems] = useState(null);
@@ -30,10 +30,17 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
 
   const caseResourcesInfo = active.type;
   const limit = 4;
-
+  
   useEffect(() => {
-    OpeningCasesLogic( playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active);
-  }, [caseResourcesInfo, playerId, setIsUpdated, active]);
+    OpeningCasesLogic( backendPath, playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active);
+  }, [backendPath, caseResourcesInfo, playerId, setIsUpdated, active]);
+  
+  //console.log("---");
+  //if (droppedItems.length !== 0){
+  //  console.log("");
+  //  console.log(droppedItems);
+  //  console.log(droppedItems.length);
+  //}
 
   return (
     <div className="opening-cases-block">
@@ -76,23 +83,18 @@ export function ModalOpenCaseAnimation({ playerId, addMessage, setIsUpdated, act
                   //className="obj__container _obj-tank"
                 >
                   <div
-                    className={`obj__img ${
-                      item.type === "tank" 
-                        ?TANKS[item.id].land !== undefined 
-                          ? TANKS[item.id].land 
-                          : "default" 
-                        : ""
-                    }`}
+                    className="obj__img"
+                    style={
+                      item.type === "tank"
+                        ? {
+                            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px)${TANKS[item.id]?.bg !== undefined ? `, url('img/tanks/${TANKS[item.id].bg}.png')` : ''}, url("img/flags/${TANKS[item.id].land !== undefined ? TANKS[item.id].land : "default"}.png")`,
+                            backgroundPosition: '0 0',
+                            backgroundSize: '100% auto',
+                            backgroundRepeat: 'no-repeat',
+                          }
+                        : {}
+                    }
                   >
-                    {item.type === "tank" && TANKS[item.tankInfo?.id]?.bg && (
-                      <div
-                        className="tank-bg"
-                        style={{
-                          background: "url('img/tanks/" + TANKS[item.tankInfo.id].bg + ".png') 0 0/100% auto no-repeat",
-                        }}
-                      ></div>
-                    )}
-
                     {item.type === "tank" ? (
                       <>
                         <img

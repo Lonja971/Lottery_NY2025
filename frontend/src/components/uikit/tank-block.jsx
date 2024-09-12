@@ -1,4 +1,4 @@
-import { CASES, TANKS } from "../constants";
+import { TANKS } from "../constants";
 
 export function TankBlock({ tankInfo }) {
   const fullTankInfo = TANKS[tankInfo];
@@ -6,15 +6,15 @@ export function TankBlock({ tankInfo }) {
   return (
     <a target="_blank" rel="noopener noreferrer" href={fullTankInfo.link} className="tankblock">
       <div className="tankblock__container">
-        <div className={"tankblock__img " + (fullTankInfo.land !== undefined ? fullTankInfo.land : "default")}>
-        { TANKS[tankInfo].bg !== undefined ? (
-          <div
-            className="tank-bg"
-            style={{
-              background: "url('img/tanks/" + TANKS[tankInfo].bg + ".png') 0 0/100% auto no-repeat"
-            }}
-          ></div>
-        ) : ""}
+        <div
+          className="tankblock__img"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0) 0%, #424142 70px)${TANKS[tankInfo]?.bg !== undefined ? `, url('img/tanks/${TANKS[tankInfo].bg}.png')` : ''}, url("img/flags/${fullTankInfo.land !== undefined ? fullTankInfo.land : "default"}.png")`,
+            backgroundPosition: '0 0',
+            backgroundSize: '100% auto',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <img src={"img/tanks/" + fullTankInfo.transcription + ".png"} alt="TANK_IMG" />
         </div>
       </div>

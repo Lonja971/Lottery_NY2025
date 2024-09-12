@@ -67,7 +67,7 @@
 
   color: #bababa;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.232);
+  background: #414141;
 
   position: absolute;
   bottom: 25%;
@@ -103,6 +103,7 @@
   gap: 5px;
   align-items: center;
   position: relative;
+  background-color: #414141;
 }
 .obj__img {
   height: 100%;

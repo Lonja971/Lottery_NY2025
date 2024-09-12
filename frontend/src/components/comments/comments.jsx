@@ -3,13 +3,13 @@ import "../../css/comments.css";
 import { RESOURCES, TANKS } from "../constants";
 import axios from "axios";
 
-export function Comments({ setIsUpdated, newToken, setNewToken, addMessage, playerData, tokenTimeLeft, isComments, setIsComments, messages }) {
+export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, addMessage, playerData, tokenTimeLeft, isComments, setIsComments, messages }) {
   const imgUrl = isComments ? "on" : "off";
 
   function handleNewToken() {
     if (newToken === true) {
       axios
-        .post("http://NY2025/backend/api/getToken.php", {
+        .post(`${backendPath}api/getToken.php`, {
           userId: playerData.id,
         })
         .then((response) => {

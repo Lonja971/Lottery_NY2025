@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./css/welcome-animation.css";
 
-export function Login() {
+export function Login({ backendPath }) {
   const location = useLocation();
   const initialMessage = location.state?.message || "";
 
@@ -14,8 +14,6 @@ export function Login() {
   const [messages, setMessages] = useState([]);
   const [isFirstVisit, setIsFirstVisit] = useState(false);
   const navigate = useNavigate();
-
-  const hasErrors = messages.some((msg) => msg.error_message);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +27,7 @@ export function Login() {
     e.preventDefault();
 
     axios
-      .post("http://NY2025/backend/api/login.php", {
+      .post( `${backendPath}api/login.php`, {
         userInfo: formData,
       })
       .then((response) => {

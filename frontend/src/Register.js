@@ -3,7 +3,7 @@ import "./css/register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export function Register() {
+export function Register({ backendPath }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -34,7 +34,7 @@ export function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://NY2025/backend/api/register.php', {
+    axios.post(`${backendPath}api/register.php`, {
       userInfo: JSON.stringify(formData),
     })
       .then(response => {

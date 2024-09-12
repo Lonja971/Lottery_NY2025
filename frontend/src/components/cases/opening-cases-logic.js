@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CASES, RESOURCES, TANKS } from "../constants";
 
-export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active) {
+export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active) {
 
   const handleSetIsUpdated = () => {
     setIsUpdated(true);
@@ -9,23 +9,22 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
 
   function openCase(caseResourcesInfo) {
     let droppedItems = [];
-
+    console.log("   ");
     caseResourcesInfo.forEach((item) => {
       // Вираховуємо шанси випадіння
       const scaledProbability = item.probability * 100;
       var randomValue = Math.floor(Math.random() * 10000) + 1;
+      console.log("--Перше випадіння: "+ item.type);
+      console.log("    --Шанси: "+ randomValue + " <= " + scaledProbability);
 
       if (randomValue <= scaledProbability) {
         // Виконується код нижче якщо елемент випав
+        console.log("    --Тож: ВИПАВ");
         let amount;
 
         if (item.items && Array.isArray(item.items)) {
-          // Логіка обробки підмасиву
-          if (item.type === "plural") {
-            // Якщо з підмасиву може випасти багато елементів
-            let selectedItem = openCase(item.items);
-            droppedItems.push(...selectedItem);
-          } else if (item.type === "single") {
+          if (item.type === "single") {
+            console.log("        --МАСИВ типу ОДИН");
             // Якщо з підмасиву може випасти тільки один елемент
             const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
             const randomSubValue = Math.random() * totalProbability;
@@ -70,7 +69,10 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
               }
             }
           } else {
-            console.log("--Error selecting subarray settings. Select 'single' or 'plural'");
+            // Якщо з підмасиву може випасти багато елементів
+              console.log("        --МАСИВ типу БАГАТО");
+              let selectedItem = openCase(item.items);
+              droppedItems.push(...selectedItem);
           }
         } else {
           // Звичайна логіка для елементів не з підмасиву
@@ -157,32 +159,44 @@ export function OpeningCasesLogic(playerId, setIsUpdated, limit, caseResourcesIn
 
   function processCase() {
     const droppedItems = openCase(caseResourcesInfo);
+    //console.log("");
+    //console.log(droppedItems);
+    //console.log(droppedItems.length);
 
-    axios.post('http://NY2025/backend/api/assignData.php', {
-      playerId: playerId,
-      droppedItems: droppedItems,
-      caseName: active.caseName,
+    axios.post(`${backendPath}api/assignData.php`, {
+        playerId: playerId,
+        droppedItems: droppedItems,
+        caseName: active.caseName,
     })
-      .then(response => {
+    .then(response => {
+        // Друкуємо всю відповідь для перевірки
+        //console.log('Full response:', response);
+        //console.log('Response data:', response.data);
+    
         if (response.data.status === 'success') {
-
-          if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
-            setNewDroppedTanks(response.data.new_dropped_tanks);
-          }
-
-          if (response.data.converted_items && response.data.converted_items.length > 0) {
-            setCompensatedItems(response.data.converted_items);
-          }
-
-          setDroppedItems(response.data.updated_dropped_items); // Змініть тут, щоб використовувати оновлені дані
+            if (response.data.new_dropped_tanks && response.data.new_dropped_tanks.length > 0) {
+                setNewDroppedTanks(response.data.new_dropped_tanks);
+            }
+    
+            if (response.data.converted_items && response.data.converted_items.length > 0) {
+                setCompensatedItems(response.data.converted_items);
+            }
+    
+            //console.log('Updated dropped items:', response.data.updated_dropped_items);
+            if (response.data.updated_dropped_items) {
+                //console.log('Updated dropped items length:', response.data.updated_dropped_items.length);
+                setDroppedItems(response.data.updated_dropped_items);
+            } else {
+                console.warn('No updated dropped items found');
+            }
         } else {
-          console.log(response.data.message);
+            console.error('Error message:', response.data.message);
         }
         handleSetIsUpdated();
-      })
-      .catch(error => {
+    })
+    .catch(error => {
         console.error('There was an error!', error);
-      });
+    });
   }
 
   processCase();

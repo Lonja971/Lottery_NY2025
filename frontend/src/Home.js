@@ -17,7 +17,7 @@ import { EventCases } from "./components/event-cases/event-cases";
 
 
 
-export function Home() {
+export function Home({ backendPath }) {
 
   //---Отримання-даних-гравця-з-бази-даних---
 
@@ -44,7 +44,7 @@ export function Home() {
             return;
           }
 
-          const response = await axios.get(`http://NY2025/backend/api/getData.php?token=${token}`);
+          const response = await axios.get(`${backendPath}api/getData.php?token=${token}`);
           setPlayerData(response.data.user);
           setPlayerGuarantors(response.data.playerGuarantors);
         } catch (error) {
@@ -63,7 +63,7 @@ export function Home() {
       fetchData();
       setIsUpdated(false);
     }
-  }, [isUpdated, navigate]);
+  }, [backendPath, isUpdated, navigate]);
 
   //---Обробка-TokensTimer---
 
@@ -197,16 +197,17 @@ export function Home() {
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
         <Modal active={modalStorageActive}>
-          <ModalStorage setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} isComments={isComments} tokenTimeLeft={tokenTimeLeft} />
+          <ModalStorage backendPath={backendPath} setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} isComments={isComments} tokenTimeLeft={tokenTimeLeft} />
         </Modal>
       )}
       {modalExchangeActive && (
         <Modal active={modalExchangeActive}>
-          <ModalExchange setIsUpdated={setIsUpdated} playerData={playerData} setActive={setModalExchangeActive} addMessage={addMessage} />
+          <ModalExchange backendPath={backendPath} setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} />
         </Modal>
       )}
       {modalOpenCaseAnimation.isOpen && (
         <CheckCases
+          backendPath={backendPath}
           playerId={playerData.id}
           addMessage={addMessage}
           setIsUpdated={setIsUpdated}
@@ -216,6 +217,7 @@ export function Home() {
       )}
 
       <Comments
+        backendPath={backendPath}
         setIsUpdated={setIsUpdated}
         newToken={newToken}
         setNewToken={setNewToken}
@@ -234,12 +236,12 @@ export function Home() {
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <Shop
+      <EventCases
         playerData={playerData}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <EventCases
+      <Shop
         playerData={playerData}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}

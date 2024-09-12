@@ -8,6 +8,7 @@ import { NavBarName } from "./ui/nav-bar-name";
 import { NavBarGold } from "./ui/nav-bar-gold";
 import { NavBarTokens } from "./ui/nav-bar-tokens";
 import { NavBarRedTokens } from "./ui/nav-bar-red-tokens";
+import { NavBarDrawings } from "./ui/nav-bar-drawings";
 
 export function NavBar({
   playerData,
@@ -64,6 +65,7 @@ export function NavBar({
               <NavBarTokens setIsUpdated={setIsUpdated} playerData={playerData} tokens={playerData.tokens} newToken={newToken} setNewToken={setNewToken} addMessage={addMessage} />
             }
             redTokensBlock={<NavBarRedTokens redTokens={playerData.red_tokens} />}
+            drawingsBlock={<NavBarDrawings drawings={playerData.drawings} />}
           />
         )}
       </nav>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Час створення: Вер 05 2024 р., 10:07
+-- Час створення: Вер 12 2024 р., 20:04
 -- Версія сервера: 5.7.39
 -- Версія PHP: 7.2.34
 
@@ -33,6 +33,7 @@ CREATE TABLE `cases` (
   `gold` int(11) DEFAULT NULL,
   `tokens` int(11) DEFAULT NULL,
   `red_tokens` int(11) DEFAULT NULL,
+  `drawings` int(11) DEFAULT NULL,
   `unique_currency` varchar(255) DEFAULT NULL,
   `unique_price` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,14 +42,17 @@ CREATE TABLE `cases` (
 -- Дамп даних таблиці `cases`
 --
 
-INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `unique_currency`, `unique_price`) VALUES
-(1, 'main_cases', 200, 2, NULL, NULL, NULL),
-(2, 'regular_cases', NULL, NULL, NULL, 'regular_cases', 1),
-(3, 'special_cases', NULL, NULL, NULL, 'special_cases', 1),
-(4, 'rare_cases', NULL, NULL, NULL, 'rare_cases', 1),
-(5, 'mythical_cases', NULL, NULL, NULL, 'mythical_cases', 1),
-(6, 'legendary_cases', NULL, NULL, NULL, 'legendary_cases', 1),
-(7, 'waff_cases', NULL, NULL, 2, NULL, NULL);
+INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `unique_currency`, `unique_price`) VALUES
+(1, 'main_cases', 200, 2, NULL, NULL, NULL, NULL),
+(2, 'regular_cases', NULL, NULL, NULL, NULL, 'regular_cases', 1),
+(3, 'special_cases', NULL, NULL, NULL, NULL, 'special_cases', 1),
+(4, 'rare_cases', NULL, NULL, NULL, NULL, 'rare_cases', 1),
+(5, 'mythical_cases', NULL, NULL, NULL, NULL, 'mythical_cases', 1),
+(6, 'legendary_cases', NULL, NULL, NULL, NULL, 'legendary_cases', 1),
+(7, 'waff_cases', NULL, NULL, 2, NULL, NULL, NULL),
+(8, 'new_years_tank1', NULL, NULL, NULL, 12, NULL, NULL),
+(9, 'new_years_tank2', NULL, NULL, NULL, 12, NULL, NULL),
+(10, 'france_nation_cases', NULL, NULL, 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,8 +74,9 @@ CREATE TABLE `codes` (
 
 INSERT INTO `codes` (`id`, `code_name`, `get_type`, `get_name`, `get_value`) VALUES
 (1, '5oo', 'resource', 'gold', '500'),
-(2, '2000', 'resource', 'silver', '2000'),
-(3, 'tankk', 'tank', '2', '1');
+(3, 'tankk', 'tank', '2', '1'),
+(4, 'na_vse_dobre)', 'resource', 'gold', '1000'),
+(5, 'z_novim_rokom', 'tank', '77', '1');
 
 -- --------------------------------------------------------
 
@@ -94,7 +99,7 @@ INSERT INTO `exchange_gold` (`id`, `exchange_resource`, `exchange_value`, `get_v
 (1, 'silver', 2500, 100),
 (2, 'counters', 10, 100),
 (3, 'premium_akk', 5, 500),
-(4, 'drawings', 1, 600),
+(4, 'drawings', 1, 400),
 (5, 'tokens', 1, 100),
 (6, 'red_tokens', 1, 200);
 
@@ -139,7 +144,8 @@ CREATE TABLE `guarantors` (
 --
 
 INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type`, `tank_id`, `amount`) VALUES
-(1, 7, 50, 'tank', 59, 1);
+(1, 7, 50, 'tank', 59, 1),
+(2, 10, 50, 'tank', 63, 1);
 
 -- --------------------------------------------------------
 
@@ -200,7 +206,7 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (39, 'WZ 111', 'wz_111', 'ht', 'ch', 6400),
 (40, 'СУ-130 ПМ', 'sy_130_pm', 'td', 'ussr', 6800),
 (41, 'Strv 103b', 'strv_103b', 'td', 'sw', 7600),
-(42, 'Turbo Räumpanzer', 'turbo_raumpanzer', 'ht', 'ge', 6800),
+(42, 'Turbo Räumpanzer', 'turbo_raumpanzer', 'ht', 'inter', 6800),
 (43, 'Шерідан Ракетний', 'sheridan_rocket', 'camo', 'usa', 1500),
 (44, 'ELS EVEN 90 Мандарин', 'els_even_90_tangerine', 'camo', 'fr', 1500),
 (45, 'Т-34 Харків Зимній снайпер', 't_34_kharkiv_winter', 'camo', 'ua', 2000),
@@ -218,7 +224,24 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (57, 'Віндікатор \"Імперський кулак\"', 'vindicator_imperial_fist', 'camo', 'inter', 1500),
 (58, 'Minotauro Новорічний', 'minotauro_newyear', 'camo', 'it', 1500),
 (59, 'Waf. Auf E 100', 'waff_auf_e_100', 'td', 'ge', 7500),
-(60, 'Останній Ваффентраген', 'waff_auf_e_100_the_last', 'camo', 'ge', 2500);
+(60, 'Останній Ваффентраген', 'waff_auf_e_100_the_last', 'camo', 'ge', 1500),
+(61, 'E 100', 'e_100', 'ht', 'ge', 7500),
+(62, 'E 100 Втоплений Титан', 'e_100_sinked', 'camo', 'ge', 1500),
+(63, 'Char Futur 4', 'char_futur_4', 'lt', 'fr', 7500),
+(64, 'Project Murat', 'project_murat', 'lt', 'fr', 7500),
+(65, 'FCM 50t', 'fcm_50t', 'lt', 'fr', 5600),
+(66, 'AMX CDC', 'amx_cdc', 'lt', 'fr', 5600),
+(67, 'AMX 13 75', 'amx_13_75', 'lt', 'fr', 5600),
+(68, 'Panhard EBR 105', 'panhard_ebr_105', 'lt', 'fr', 7600),
+(69, 'AMX 50b', 'amx_50b', 'ht', 'fr', 7200),
+(70, 'AMX 30b', 'amx_30b', 'ht', 'fr', 6400),
+(71, 'Lorrain 40t', 'lorrain_40t', 'ht', 'fr', 6000),
+(72, 'FOSH 155', 'fosh_155', 'td', 'fr', 7200),
+(73, 'Богач', 'amx_50b_bogach', 'camo', 'fr', 1500),
+(74, 'Сталевий Мисливець', 'amx_m4_54_steel_hunter', 'camo', 'fr', 2000),
+(75, 'Королівський', 'fosh_155_king', 'camo', 'fr', 1000),
+(76, 'Піщаний', 'panhard_ebr_105_sand', 'camo', 'fr', 1000),
+(77, 'E 25', 'e_25', 'td', 'ge', 2000);
 
 -- --------------------------------------------------------
 
@@ -239,10 +262,12 @@ CREATE TABLE `tokens` (
 --
 
 INSERT INTO `tokens` (`id`, `identifier`, `user_id`, `device`, `created_at`) VALUES
-(10, '63401e6326fd3efbb43be70446d03c49', 2, '::1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0', 1722345727),
-(11, '2f1daffc463239e81e5878a76eaef3e4', 2, '127.0.0.1_Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 Edg/128.0.0.0', 1724751718),
-(12, 'fc43650c4896700a5c20f3d342a1fde6', 2, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1725298689),
-(13, '5c1f1b127f45e9d85d9f2373d9e195b7', 7, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1725362990);
+(31, '03ca96a592b63883c956088b50a5f247', 3, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726060623),
+(32, 'ec7e65ecd9f2116f41eedef7862fbbd8', 6, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726060833),
+(33, 'd065834e4c1a62cd82acb1c6b8e9010a', 5, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726060925),
+(34, '46296062a5b1ab00c3ade6848899a125', 4, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726061032),
+(36, '0c8b1558ca377dd6ffd679c11748b990', 7, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726064595),
+(37, '69dfa7fb43dd4e50e55c5fbf27f0a32e', 2, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726159726);
 
 -- --------------------------------------------------------
 
@@ -274,12 +299,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `red_tokens`, `counters`, `premium_akk`, `drawings`, `regular_cases`, `special_cases`, `rare_cases`, `mythical_cases`, `legendary_cases`, `tokens_timer`) VALUES
-(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 210100, 6500, 13, 2183, 9, 4, 19, 25, 23, 13, 0, 47, 1725366527),
+(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 921100, 227500, 6, 9, 12, 43, 418, 29, 26, 15, 0, 20, 1726163331),
 (3, 'Залізний Панцир', '$2y$10$AqtdnlDsmPiTOeatpYe/VOyPgzeCQgUdtzNDYbOcJAGe7TeMKZfx2', 3000, 26500, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
-(4, 'Вогнений тапок', '$2y$10$fqZ02AHrHhASSa32SekpKuaXTR4hUQp/cz3JwSW9LVMJcjwBBrJey', 0, 2500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+(4, 'Тимофейчик', '$2y$10$fqZ02AHrHhASSa32SekpKuaXTR4hUQp/cz3JwSW9LVMJcjwBBrJey', 0, 2500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (5, 'Killua', '$2y$10$9RcfARbasxfCPBFxnr3voew1uxvaKkf6cmx8.xLk0g/XF5PQKqGZ.', 8500, 4000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
 (6, 'Davidk104', '$2y$10$ZrDIgq5LrRt9ilVOcRC5Se6xprv415k.2I6u53Jw36Kk3k1Y4bu9i', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
-(7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 5000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+(7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 259500, 671500, 10, 828, 2, 99, 10963, 5, 3, 0, 37, 24, 1726162951),
 (8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
@@ -300,8 +325,10 @@ CREATE TABLE `user_codes` (
 
 INSERT INTO `user_codes` (`id`, `user_id`, `code_id`) VALUES
 (1, 2, 1),
-(2, 2, 2),
-(3, 2, 3);
+(3, 2, 3),
+(4, 7, 1),
+(5, 7, 4),
+(6, 7, 5);
 
 -- --------------------------------------------------------
 
@@ -321,8 +348,11 @@ CREATE TABLE `user_guarantors` (
 --
 
 INSERT INTO `user_guarantors` (`id`, `user_id`, `case_id`, `discoveries_number`) VALUES
-(2, 2, 7, 2),
-(3, 7, 7, 1);
+(58, 7, 7, 8),
+(62, 2, 7, 6),
+(63, 7, 10, 1),
+(64, 7, 10, 1),
+(65, 2, 10, 4);
 
 -- --------------------------------------------------------
 
@@ -412,10 +442,19 @@ INSERT INTO `user_tanks` (`id`, `user_id`, `tank_id`) VALUES
 (69, 6, 40),
 (70, 6, 41),
 (71, 6, 47),
-(91, 2, 59),
-(92, 2, 42),
-(93, 2, 34),
-(100, 7, 3);
+(130, 2, 60),
+(131, 2, 59),
+(142, 2, 2),
+(152, 7, 61),
+(153, 7, 62),
+(154, 2, 62),
+(171, 7, 77),
+(172, 7, 2),
+(173, 7, 42),
+(174, 7, 76),
+(175, 7, 66),
+(176, 7, 37),
+(177, 7, 63);
 
 --
 -- Індекси збережених таблиць
@@ -504,13 +543,13 @@ ALTER TABLE `user_tanks`
 -- AUTO_INCREMENT для таблиці `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблиці `codes`
 --
 ALTER TABLE `codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблиці `exchange_gold`
@@ -528,19 +567,19 @@ ALTER TABLE `exchange_red_tokens`
 -- AUTO_INCREMENT для таблиці `guarantors`
 --
 ALTER TABLE `guarantors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблиці `tanks`
 --
 ALTER TABLE `tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT для таблиці `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
@@ -552,19 +591,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `user_codes`
 --
 ALTER TABLE `user_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблиці `user_guarantors`
 --
 ALTER TABLE `user_guarantors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT для таблиці `user_tanks`
 --
 ALTER TABLE `user_tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
