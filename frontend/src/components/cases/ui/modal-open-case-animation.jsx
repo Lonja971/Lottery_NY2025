@@ -4,11 +4,12 @@ import { OpeningCasesLogic } from "../opening-cases-logic";
 import { useState, useEffect } from "react";
 import { CASES, TANKS } from "../../constants";
 
-export function ModalOpenCaseAnimation({ backendPath, playerId, addMessage, setIsUpdated, active, setActive }) {
+export function ModalOpenCaseAnimation({backendPath, playerId, addMessage, setIsUpdated, active, setActive }) {
   const [droppedItems, setDroppedItems] = useState([]);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [compensatedItems, setCompensatedItems] = useState(null);
   const [newDroppedTanks, setNewDroppedTanks] = useState(null);
+
 
   const handleVideoLoaded = () => {
     setVideoLoaded(true);

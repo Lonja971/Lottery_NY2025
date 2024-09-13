@@ -1,9 +1,25 @@
 import "../../css/shop.css";
-import { NEW_YEARS_TANK_1, NEW_YEARS_TANK_2, CASES } from "../constants";
+import { NEW_YEARS_TANK_1, NEW_YEARS_TANK_2,NEW_YEARS_CAMO_1, NEW_YEARS_CAMO_2, CASES } from "../constants";
 
 export function Shop({playerData, setModalOpenCaseAnimation}) {
 
    const casesData = [
+      {
+         isManu: false,
+         transcription: "new_years_camo1",
+         type: NEW_YEARS_CAMO_1,
+         buttonOpenResource: "drawings",
+         buttonPrice: 6,
+         caseInfo: "Купіть скін Обьект 490 Білка в цьому наборі!"
+      },
+      {
+         isManu: false,
+         transcription: "new_years_camo2",
+         type: NEW_YEARS_CAMO_2,
+         buttonOpenResource: "drawings",
+         buttonPrice: 6,
+         caseInfo: "Купіть скін E 100 Втоплений Титан!"
+      },
       {
          isManu: false,
          transcription: "new_years_tank1",
@@ -42,23 +58,25 @@ export function Shop({playerData, setModalOpenCaseAnimation}) {
                         <img className="shop__case-img" src="img/tokens_shop/obj_490.png" alt="TOKENS_CONTAINER" />
                         <h3 className="shop__case-title">{CASES[caseData.transcription].name}</h3>
                         <p className="shop__case-text">{caseData.caseInfo}</p>
-                        <button
-                           className={`btn _glass ${isDisabled ? "btn-closed" : ""} shop-button`}
-                           onClick={() =>
-                              setModalOpenCaseAnimation({
-                              isOpen: true,
-                              type: caseData.type,
-                              caseName: caseData.transcription,
-                              openResource: caseData.buttonOpenResource,
-                              })
-                           }
-                        >
-                           {caseData.buttonPrice} <img src={`img/resources/${caseData.buttonOpenResource}.png`} alt="CASE_IMG" />
-                           <div className="line line-top"></div>
-                           <div className="line line-right"></div>
-                           <div className="line line-bottom"></div>
-                           <div className="line line-left"></div>
-                        </button>
+                        <div className="buttons-block buttons-block_shop">
+                           <button
+                              className={`btn _glass ${isDisabled ? "btn-closed" : ""} shop-button`}
+                              onClick={() =>
+                                 setModalOpenCaseAnimation({
+                                 isOpen: true,
+                                 type: caseData.type,
+                                 caseName: caseData.transcription,
+                                 openResource: caseData.buttonOpenResource,
+                                 })
+                              }
+                           >
+                              {caseData.buttonPrice} <img src={`img/resources/${caseData.buttonOpenResource}.png`} alt="CASE_IMG" />
+                              <div className="line line-top"></div>
+                              <div className="line line-right"></div>
+                              <div className="line line-bottom"></div>
+                              <div className="line line-left"></div>
+                           </button>
+                        </div>
                      </div>
                   )
                })}

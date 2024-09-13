@@ -55,20 +55,24 @@
 }
 .comments__block .commentsblock-newtoken:hover{
   border: 2px solid var(--color1) !important;
+  border-right: none;
   background: var(--glass-color) !important;
 }
 
 @keyframes takeToken {
   25% {
     border: 2px solid var(--color1);
+    border-right: none;
     background: var(--glass-color);
   }
   50%{
     border: 2px solid var(--danger);
+    border-right: none;
     background: rgba(255, 0, 0, 0.315);
   }
   85% {
     border: 2px solid var(--color1);
+    border-right: none;
     background: var(--glass-color);
   }
 }

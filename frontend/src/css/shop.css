@@ -57,6 +57,9 @@
    margin-top: 15px;
    text-align: center;
 }
+.buttons-block_shop{
+   position: relative;
+}
 .shop-button{
    margin-top: 30px;
    display: flex;

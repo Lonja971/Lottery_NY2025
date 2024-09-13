@@ -57,7 +57,7 @@
 	}
 }
 
-@media (max-width:1100px) {
+@media (max-width:1300px) {
 	.header-bg{
 		background: url("../../public/img/background/header_bg.jpg") 50% 55%/auto 100% no-repeat;
 	 }

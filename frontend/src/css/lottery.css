@@ -18,8 +18,8 @@
 
 .caseblock {
   position: relative;
-  width: 260px;
-  height: 440px;
+  width: 280px;
+  height: 460px;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,6 @@
 .caseblock-back {
   position: relative;
   transform: rotateY(180deg);
-  padding-top: 75px;
 }
 
 /*---FRONT---*/
@@ -71,7 +70,11 @@
 .caseblock .case-img {
   width: 90%;
 }
-.caseblock__main-amount {
+.absolute{
+  position: absolute;
+  top: 20px;
+}
+.caseblock-front .caseblock__main-amount{
   position: absolute;
   top: 20px;
   min-height: 35px;
@@ -79,13 +82,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.caseblock__main-amount img {
-  height: 30px;
-}
-.absolute{
-  position: absolute;
-  top: 20px;
 }
 .caseblock__main-moreinfo {
   width: 35px;
@@ -176,6 +172,7 @@
 
 .caseblock-back {
   overflow-y: auto;
+  padding: 0px;
 }
 .caseblock-back::-webkit-scrollbar{
   width: 10px;
@@ -189,6 +186,66 @@
 .caseblock-back::-webkit-scrollbar-track {
 }
 .caseblock-back__container{
+}
+.guarantor__container{
+}
+.guarantor__container h4{
+  margin-bottom: 10px;
+}
+.guarantor__container-award{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--color1);
+}
+.guarantor__container-award:hover{
+  text-decoration: none;
+  color: var(--color1);
+}
+.guarantor__container-award div{
+  display: flex;
+  gap: 5px;
+}
+.guarantor__container-line{
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  margin: 10px 0px;
+}
+
+.caseblock-back__info{
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.caseblock-back__row1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.caseblock__main-amount {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.caseblock__main-amount img {
+  height: 30px;
+}
+
+
+.caseblock-back__items{
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;

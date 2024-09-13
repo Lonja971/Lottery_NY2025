@@ -788,13 +788,23 @@ export const CASES = {
   },
   //---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
 
+  new_years_camo1: {
+    name: 'Обʼєкт 490 "Білка"',
+    transcription: "new_years_camo1",
+    animation: "default",
+  },
+  new_years_camo2: {
+    name: 'E 100 "Втоплений Титан"',
+    transcription: "new_years_camo2",
+    animation: "default",
+  },
   new_years_tank1: {
-    name: "*Танк з головної колекції 1",
+    name: "Обʼєкт 490",
     transcription: "new_years_tank1",
     animation: "default",
   },
   new_years_tank2: {
-    name: "*Танк з головної колекції 2",
+    name: "E 100",
     transcription: "new_years_tank2",
     animation: "default",
   },
@@ -806,6 +816,7 @@ export const CASES = {
     transcription: "waff_case",
     animation: "waff_case",
     guarantor: 50,
+    guarantorAward: 59,
   },
   france_nation_cases: {
     name: "Французькі Пиріжки",
@@ -813,6 +824,7 @@ export const CASES = {
     animation: "france_nation_cases",
     guarantor: 50,
     collection: COLLECTIONS.nationals_collection,
+    guarantorAward: 63,
   },
 };
 
@@ -829,8 +841,8 @@ export const MAIN_CASE = [
     items: [
       { type: "case", name: "regular_cases", probability: 40, amounts: [1] },
       { type: "case", name: "special_cases", probability: 32, amounts: [1] },
-      { type: "case", name: "rare_cases", probability: 18, amounts: [1] },
-      { type: "case", name: "mythical_cases", probability: 7, amounts: [1] },
+      { type: "case", name: "rare_cases", probability: 20, amounts: [1] },
+      { type: "case", name: "mythical_cases", probability: 5, amounts: [1] },
       { type: "case", name: "legendary_cases", probability: 3, amounts: [1] },
     ]
   },
@@ -865,7 +877,8 @@ export const MYTHICAL_CASE = [
   { type: "gold", probability: 30, amounts: [1000, 2000] },
   { type: "drawings", probability: 30, amounts: [1], default: true },
   { type: "red_tokens", probability: 10, amounts: [2] },
-  { type: "tank", id: 3, probability: 20, amounts: [1] }, // 20% на всі скіни
+  { type: "tank", id: 3, probability: 10, amounts: [1] }, // 20% на всі скіни
+  { type: "tank", id: 62, probability: 10, amounts: [1] },
 ];
 
 export const LEGENDARY_CASE = [
@@ -876,20 +889,25 @@ export const LEGENDARY_CASE = [
     probability: 50,
     type: "single",
     items: [
-      { type: "tank", id: 42, probability: 1, amounts: [1] },
       { type: "tank", id: 2, probability: 1, amounts: [1] },
+      { type: "tank", id: 61, probability: 1, amounts: [1] },
     ]
   },
 ];
 
 //---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
 
+export const NEW_YEARS_CAMO_1 = [
+  { type: "tank", id: 3, probability: 100, amounts: [1] },
+];
+export const NEW_YEARS_CAMO_2 = [
+  { type: "tank", id: 62, probability: 100, amounts: [1] },
+];
 export const NEW_YEARS_TANK_1 = [
   { type: "tank", id: 2, probability: 100, amounts: [1] },
 ];
 export const NEW_YEARS_TANK_2 = [
-  { type: "tank", id: 42, probability: 100, amounts: [1] },
-  { type: "tank", id: 62, probability: 100, amounts: [1] },
+  { type: "tank", id: 61, probability: 100, amounts: [1] },
 ];
 
 

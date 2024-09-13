@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InfoBlock } from "./info-block";
-import { CASES } from "../constants";
+import { CASES, TANKS } from "../constants";
 
 export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, playerGuarantors }) {
   const [isBack, setIsBack] = useState(false);
@@ -57,57 +57,74 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
         </div>
         <div className="_glass caseblock-side caseblock-back">
           <div className="caseblock-back__container">
-            {playerGuarantors && playerGuarantors.length > 0 && (
-              playerGuarantors
-                .find(guarantor => guarantor.name === caseData.transcription)
-                ? (
-                  <div className="guarantor__container">
-                    <span className="buttons-block__guarantor">
-                      До гаранту: {CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}
-                    </span>
-                  </div>
-                )
-                : null
-            )}
-            <div className="caseblock__back-infoblock">
-              <h3 className="caseblock__main-amount absolute-left">
-                <img src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" /> Шанси:
-              </h3>
-              <button className="caseblock__main-moreinfo absolute absolute-right" onClick={() => setIsBack(false)}>
-                <img src="img/background/info.png" alt="INFO_IMG" />
-              </button>
+            <div className="_glass caseblock-back__info">
+              <div className="caseblock-back__row1">
+                <h3 className="caseblock__main-amount">
+                  <img src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" /> Шанси:
+                </h3>
+                <button className="caseblock__main-moreinfo" onClick={() => setIsBack(false)}>
+                  <img src="img/background/info.png" alt="INFO_IMG" />
+                </button>
+              </div>
             </div>
-            {caseData.type.map((item, index) => {
-              if (item.items && Array.isArray(item.items)) {
-                const arrayProbability = item.probability;
-                const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
-
-                return item.items.map((subItem, subIndex) => {
-                  const modifiedSubItem = {
-                    ...subItem,
-                    probability: arrayProbability / totalProbability * subItem.probability
-                  };
+            <div className="caseblock-back__items">
+            {playerGuarantors && playerGuarantors.length > 0 && (
+              playerGuarantors.find(guarantor => guarantor.name === caseData.transcription) ? (
+                (() => {
+                  const guarantorAward = CASES[caseData.transcription].guarantorAward;
 
                   return (
+                    <div className="guarantor__container">
+                      <span className="buttons-block__guarantor">
+                        <h4>До Гаранту ({CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}) :</h4>
+                        <div className="guarantor__container">
+                          <a href={TANKS[guarantorAward].link} className="guarantor__container-award">
+                              { TANKS[guarantorAward].type !== undefined ? (
+                                <img className="tank-img" src={"img/icons/" + TANKS[guarantorAward].type + ".png"} alt="TYPE" />
+                              ) : "камуфляж"}
+                              <img className="tank-img" src={'img/flags/' + TANKS[guarantorAward].land + '_big.png'} alt="LAND" />
+                            {TANKS[guarantorAward].name}
+                          </a>
+                        </div>
+                      </span>
+                      <div className="guarantor__container-line"></div>
+                    </div>
+                  );
+                })()
+              ) : null
+            )}
+              {caseData.type.map((item, index) => {
+                if (item.items && Array.isArray(item.items)) {
+                  const arrayProbability = item.probability;
+                  const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
+
+                  return item.items.map((subItem, subIndex) => {
+                    const modifiedSubItem = {
+                      ...subItem,
+                      probability: arrayProbability / totalProbability * subItem.probability
+                    };
+
+                    return (
+                      <InfoBlock
+                        item={modifiedSubItem}
+                        index={`${index}-${subIndex}`}
+                        key={`${index}-${subIndex}`}
+                        userTanks={playerData?.userTanks}
+                      />
+                    );
+                  });
+                } else {
+                  return (
                     <InfoBlock
-                      item={modifiedSubItem}
-                      index={`${index}-${subIndex}`}
-                      key={`${index}-${subIndex}`}
+                      item={item}
+                      index={index}
+                      key={index}
                       userTanks={playerData?.userTanks}
                     />
                   );
-                });
-              } else {
-                return (
-                  <InfoBlock
-                    item={item}
-                    index={index}
-                    key={index}
-                    userTanks={playerData?.userTanks}
-                  />
-                );
-              }
-            })}
+                }
+              })}
+            </div>
           </div>
         </div>
       </div>

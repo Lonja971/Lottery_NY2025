@@ -3,6 +3,8 @@ import "../../css/lottery.css";
 
 export function InfoBlock({ item, index, userTanks }){
 
+  //<p>x{CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}</p>
+
    const formatNumber = (number) => {
       return number >= 1000 ? (number / 1000) + 'k' : number;
     };

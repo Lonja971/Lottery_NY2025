@@ -9,22 +9,22 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
 
   function openCase(caseResourcesInfo) {
     let droppedItems = [];
-    console.log("   ");
+    //console.log("   ");
     caseResourcesInfo.forEach((item) => {
       // Вираховуємо шанси випадіння
       const scaledProbability = item.probability * 100;
       var randomValue = Math.floor(Math.random() * 10000) + 1;
-      console.log("--Перше випадіння: "+ item.type);
-      console.log("    --Шанси: "+ randomValue + " <= " + scaledProbability);
+      //console.log("--Перше випадіння: "+ item.type);
+      //console.log("    --Шанси: "+ randomValue + " <= " + scaledProbability);
 
       if (randomValue <= scaledProbability) {
         // Виконується код нижче якщо елемент випав
-        console.log("    --Тож: ВИПАВ");
+        //console.log("    --Тож: ВИПАВ");
         let amount;
 
         if (item.items && Array.isArray(item.items)) {
           if (item.type === "single") {
-            console.log("        --МАСИВ типу ОДИН");
+            //console.log("        --МАСИВ типу ОДИН");
             // Якщо з підмасиву може випасти тільки один елемент
             const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
             const randomSubValue = Math.random() * totalProbability;
@@ -70,7 +70,7 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
             }
           } else {
             // Якщо з підмасиву може випасти багато елементів
-              console.log("        --МАСИВ типу БАГАТО");
+              //console.log("        --МАСИВ типу БАГАТО");
               let selectedItem = openCase(item.items);
               droppedItems.push(...selectedItem);
           }

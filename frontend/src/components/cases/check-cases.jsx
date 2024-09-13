@@ -7,6 +7,20 @@ export function CheckCases({ backendPath, playerId, active, addMessage, setIsUpd
   const [hasChecked, setHasChecked] = useState(false);
 
   useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        console.log("Enter заблоковано!");
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+
+  useEffect(() => {
     if (!hasChecked) {
       axios.post(`${backendPath}api/subtractData.php`, {
         playerId: playerId,

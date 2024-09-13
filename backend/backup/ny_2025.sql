@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3307
--- Час створення: Вер 12 2024 р., 20:04
--- Версія сервера: 5.7.39
--- Версія PHP: 7.2.34
+-- Host: localhost:8889
+-- Generation Time: Sep 13, 2024 at 01:20 PM
+-- Server version: 8.0.35
+-- PHP Version: 8.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,28 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База даних: `NY_2025`
+-- Database: `NY_2025`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `cases`
+-- Table structure for table `cases`
 --
 
 CREATE TABLE `cases` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
-  `gold` int(11) DEFAULT NULL,
-  `tokens` int(11) DEFAULT NULL,
-  `red_tokens` int(11) DEFAULT NULL,
-  `drawings` int(11) DEFAULT NULL,
+  `gold` int DEFAULT NULL,
+  `tokens` int DEFAULT NULL,
+  `red_tokens` int DEFAULT NULL,
+  `drawings` int DEFAULT NULL,
   `unique_currency` varchar(255) DEFAULT NULL,
-  `unique_price` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `unique_price` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `cases`
+-- Dumping data for table `cases`
 --
 
 INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `unique_currency`, `unique_price`) VALUES
@@ -52,24 +52,26 @@ INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `
 (7, 'waff_cases', NULL, NULL, 2, NULL, NULL, NULL),
 (8, 'new_years_tank1', NULL, NULL, NULL, 12, NULL, NULL),
 (9, 'new_years_tank2', NULL, NULL, NULL, 12, NULL, NULL),
-(10, 'france_nation_cases', NULL, NULL, 2, NULL, NULL, NULL);
+(10, 'france_nation_cases', NULL, NULL, 2, NULL, NULL, NULL),
+(11, 'new_years_camo1', NULL, NULL, NULL, 6, NULL, NULL),
+(12, 'new_years_camo2', NULL, NULL, NULL, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `codes`
+-- Table structure for table `codes`
 --
 
 CREATE TABLE `codes` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `code_name` varchar(255) NOT NULL,
   `get_type` varchar(255) NOT NULL,
   `get_name` varchar(255) NOT NULL,
   `get_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `codes`
+-- Dumping data for table `codes`
 --
 
 INSERT INTO `codes` (`id`, `code_name`, `get_type`, `get_name`, `get_value`) VALUES
@@ -81,18 +83,18 @@ INSERT INTO `codes` (`id`, `code_name`, `get_type`, `get_name`, `get_value`) VAL
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `exchange_gold`
+-- Table structure for table `exchange_gold`
 --
 
 CREATE TABLE `exchange_gold` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `exchange_resource` varchar(255) NOT NULL,
-  `exchange_value` int(11) NOT NULL,
-  `get_value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `exchange_value` int NOT NULL,
+  `get_value` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `exchange_gold`
+-- Dumping data for table `exchange_gold`
 --
 
 INSERT INTO `exchange_gold` (`id`, `exchange_resource`, `exchange_value`, `get_value`) VALUES
@@ -106,18 +108,18 @@ INSERT INTO `exchange_gold` (`id`, `exchange_resource`, `exchange_value`, `get_v
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `exchange_red_tokens`
+-- Table structure for table `exchange_red_tokens`
 --
 
 CREATE TABLE `exchange_red_tokens` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `exchange_resource` varchar(255) NOT NULL,
-  `exchange_value` int(11) NOT NULL,
-  `get_value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `exchange_value` int NOT NULL,
+  `get_value` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `exchange_red_tokens`
+-- Dumping data for table `exchange_red_tokens`
 --
 
 INSERT INTO `exchange_red_tokens` (`id`, `exchange_resource`, `exchange_value`, `get_value`) VALUES
@@ -127,43 +129,43 @@ INSERT INTO `exchange_red_tokens` (`id`, `exchange_resource`, `exchange_value`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `guarantors`
+-- Table structure for table `guarantors`
 --
 
 CREATE TABLE `guarantors` (
-  `id` int(11) NOT NULL,
-  `case_id` int(11) DEFAULT NULL,
-  `discoveries_number` int(11) DEFAULT NULL,
-  `guarantor_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tank_id` int(11) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL
+  `id` int NOT NULL,
+  `case_id` int DEFAULT NULL,
+  `discoveries_number` int DEFAULT NULL,
+  `guarantor_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tank_id` int DEFAULT NULL,
+  `amount` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп даних таблиці `guarantors`
+-- Dumping data for table `guarantors`
 --
 
 INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type`, `tank_id`, `amount`) VALUES
-(1, 7, 50, 'tank', 59, 1),
-(2, 10, 50, 'tank', 63, 1);
+(3, 7, 50, 'tank', 59, 1),
+(4, 10, 50, 'tank', 63, 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `tanks`
+-- Table structure for table `tanks`
 --
 
 CREATE TABLE `tanks` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `transcription` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `land` varchar(255) NOT NULL,
-  `conversion_value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `conversion_value` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `tanks`
+-- Dumping data for table `tanks`
 --
 
 INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_value`) VALUES
@@ -246,19 +248,19 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `tokens`
+-- Table structure for table `tokens`
 --
 
 CREATE TABLE `tokens` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `identifier` varchar(255) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
   `device` varchar(255) DEFAULT NULL,
-  `created_at` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `tokens`
+-- Dumping data for table `tokens`
 --
 
 INSERT INTO `tokens` (`id`, `identifier`, `user_id`, `device`, `created_at`) VALUES
@@ -267,60 +269,62 @@ INSERT INTO `tokens` (`id`, `identifier`, `user_id`, `device`, `created_at`) VAL
 (33, 'd065834e4c1a62cd82acb1c6b8e9010a', 5, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726060925),
 (34, '46296062a5b1ab00c3ade6848899a125', 4, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726061032),
 (36, '0c8b1558ca377dd6ffd679c11748b990', 7, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726064595),
-(37, '69dfa7fb43dd4e50e55c5fbf27f0a32e', 2, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726159726);
+(37, '69dfa7fb43dd4e50e55c5fbf27f0a32e', 2, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726159726),
+(38, '69b98f2a5ef12403d946df1bad13df7a', 2, '::1_Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', 1726209445),
+(39, '0c9ec80aa9ce0367c342a870d75a0e89', 7, '::1_Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 1726210523);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `gold` int(11) NOT NULL,
-  `silver` int(11) NOT NULL,
-  `tokens` int(11) NOT NULL,
-  `red_tokens` int(11) NOT NULL,
-  `counters` int(11) NOT NULL,
-  `premium_akk` int(11) NOT NULL,
-  `drawings` int(11) NOT NULL,
-  `regular_cases` int(11) NOT NULL,
-  `special_cases` int(11) NOT NULL,
-  `rare_cases` int(11) NOT NULL,
-  `mythical_cases` int(11) NOT NULL,
-  `legendary_cases` int(11) NOT NULL,
-  `tokens_timer` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `gold` int NOT NULL,
+  `silver` int NOT NULL,
+  `tokens` int NOT NULL,
+  `red_tokens` int NOT NULL,
+  `counters` int NOT NULL,
+  `premium_akk` int NOT NULL,
+  `drawings` int NOT NULL,
+  `regular_cases` int NOT NULL,
+  `special_cases` int NOT NULL,
+  `rare_cases` int NOT NULL,
+  `mythical_cases` int NOT NULL,
+  `legendary_cases` int NOT NULL,
+  `tokens_timer` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `red_tokens`, `counters`, `premium_akk`, `drawings`, `regular_cases`, `special_cases`, `rare_cases`, `mythical_cases`, `legendary_cases`, `tokens_timer`) VALUES
-(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 921100, 227500, 6, 9, 12, 43, 418, 29, 26, 15, 0, 20, 1726163331),
+(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 470700, 233500, 7, 1151, 12, 45, 394, 29, 26, 15, 0, 20, 1726213052),
 (3, 'Залізний Панцир', '$2y$10$AqtdnlDsmPiTOeatpYe/VOyPgzeCQgUdtzNDYbOcJAGe7TeMKZfx2', 3000, 26500, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
 (4, 'Тимофейчик', '$2y$10$fqZ02AHrHhASSa32SekpKuaXTR4hUQp/cz3JwSW9LVMJcjwBBrJey', 0, 2500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (5, 'Killua', '$2y$10$9RcfARbasxfCPBFxnr3voew1uxvaKkf6cmx8.xLk0g/XF5PQKqGZ.', 8500, 4000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
 (6, 'Davidk104', '$2y$10$ZrDIgq5LrRt9ilVOcRC5Se6xprv415k.2I6u53Jw36Kk3k1Y4bu9i', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
-(7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 259500, 671500, 10, 828, 2, 99, 10963, 5, 3, 0, 37, 24, 1726162951),
+(7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 17700, 1500, 1, 7, 8, 9, 56, 32, 25, 10, 0, 0, 1726236234),
 (8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `user_codes`
+-- Table structure for table `user_codes`
 --
 
 CREATE TABLE `user_codes` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `code_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `code_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `user_codes`
+-- Dumping data for table `user_codes`
 --
 
 INSERT INTO `user_codes` (`id`, `user_id`, `code_id`) VALUES
@@ -328,46 +332,46 @@ INSERT INTO `user_codes` (`id`, `user_id`, `code_id`) VALUES
 (3, 2, 3),
 (4, 7, 1),
 (5, 7, 4),
-(6, 7, 5);
+(6, 7, 5),
+(7, 2, 5);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `user_guarantors`
+-- Table structure for table `user_guarantors`
 --
 
 CREATE TABLE `user_guarantors` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `case_id` int(11) DEFAULT NULL,
-  `discoveries_number` int(11) DEFAULT NULL
+  `id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `case_id` int DEFAULT NULL,
+  `discoveries_number` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп даних таблиці `user_guarantors`
+-- Dumping data for table `user_guarantors`
 --
 
 INSERT INTO `user_guarantors` (`id`, `user_id`, `case_id`, `discoveries_number`) VALUES
-(58, 7, 7, 8),
-(62, 2, 7, 6),
-(63, 7, 10, 1),
-(64, 7, 10, 1),
-(65, 2, 10, 4);
+(65, 2, 10, 8),
+(73, 7, 7, 10),
+(74, 7, 7, 10),
+(75, 7, 10, 12);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `user_tanks`
+-- Table structure for table `user_tanks`
 --
 
 CREATE TABLE `user_tanks` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `tank_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `tank_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Дамп даних таблиці `user_tanks`
+-- Dumping data for table `user_tanks`
 --
 
 INSERT INTO `user_tanks` (`id`, `user_id`, `tank_id`) VALUES
@@ -445,47 +449,46 @@ INSERT INTO `user_tanks` (`id`, `user_id`, `tank_id`) VALUES
 (130, 2, 60),
 (131, 2, 59),
 (142, 2, 2),
-(152, 7, 61),
-(153, 7, 62),
 (154, 2, 62),
-(171, 7, 77),
-(172, 7, 2),
-(173, 7, 42),
-(174, 7, 76),
-(175, 7, 66),
-(176, 7, 37),
-(177, 7, 63);
+(178, 2, 42),
+(179, 2, 77),
+(192, 7, 62),
+(193, 7, 63),
+(194, 7, 61),
+(197, 7, 59),
+(198, 7, 2),
+(199, 7, 3);
 
 --
--- Індекси збережених таблиць
+-- Indexes for dumped tables
 --
 
 --
--- Індекси таблиці `cases`
+-- Indexes for table `cases`
 --
 ALTER TABLE `cases`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `codes`
+-- Indexes for table `codes`
 --
 ALTER TABLE `codes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `exchange_gold`
+-- Indexes for table `exchange_gold`
 --
 ALTER TABLE `exchange_gold`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `exchange_red_tokens`
+-- Indexes for table `exchange_red_tokens`
 --
 ALTER TABLE `exchange_red_tokens`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `guarantors`
+-- Indexes for table `guarantors`
 --
 ALTER TABLE `guarantors`
   ADD PRIMARY KEY (`id`),
@@ -493,26 +496,26 @@ ALTER TABLE `guarantors`
   ADD KEY `fk_tank` (`tank_id`);
 
 --
--- Індекси таблиці `tanks`
+-- Indexes for table `tanks`
 --
 ALTER TABLE `tanks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `tokens`
+-- Indexes for table `tokens`
 --
 ALTER TABLE `tokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Індекси таблиці `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `user_codes`
+-- Indexes for table `user_codes`
 --
 ALTER TABLE `user_codes`
   ADD PRIMARY KEY (`id`),
@@ -520,7 +523,7 @@ ALTER TABLE `user_codes`
   ADD KEY `code_id` (`code_id`);
 
 --
--- Індекси таблиці `user_guarantors`
+-- Indexes for table `user_guarantors`
 --
 ALTER TABLE `user_guarantors`
   ADD PRIMARY KEY (`id`),
@@ -528,7 +531,7 @@ ALTER TABLE `user_guarantors`
   ADD KEY `fk_user_guarantors_case` (`case_id`);
 
 --
--- Індекси таблиці `user_tanks`
+-- Indexes for table `user_tanks`
 --
 ALTER TABLE `user_tanks`
   ADD PRIMARY KEY (`id`),
@@ -536,108 +539,108 @@ ALTER TABLE `user_tanks`
   ADD KEY `tank_id` (`tank_id`);
 
 --
--- AUTO_INCREMENT для збережених таблиць
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблиці `cases`
+-- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT для таблиці `codes`
+-- AUTO_INCREMENT for table `codes`
 --
 ALTER TABLE `codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT для таблиці `exchange_gold`
+-- AUTO_INCREMENT for table `exchange_gold`
 --
 ALTER TABLE `exchange_gold`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT для таблиці `exchange_red_tokens`
+-- AUTO_INCREMENT for table `exchange_red_tokens`
 --
 ALTER TABLE `exchange_red_tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблиці `guarantors`
+-- AUTO_INCREMENT for table `guarantors`
 --
 ALTER TABLE `guarantors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT для таблиці `tanks`
+-- AUTO_INCREMENT for table `tanks`
 --
 ALTER TABLE `tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- AUTO_INCREMENT для таблиці `tokens`
+-- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT для таблиці `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT для таблиці `user_codes`
+-- AUTO_INCREMENT for table `user_codes`
 --
 ALTER TABLE `user_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT для таблиці `user_guarantors`
+-- AUTO_INCREMENT for table `user_guarantors`
 --
 ALTER TABLE `user_guarantors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT для таблиці `user_tanks`
+-- AUTO_INCREMENT for table `user_tanks`
 --
 ALTER TABLE `user_tanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
--- Обмеження зовнішнього ключа збережених таблиць
+-- Constraints for dumped tables
 --
 
 --
--- Обмеження зовнішнього ключа таблиці `guarantors`
+-- Constraints for table `guarantors`
 --
 ALTER TABLE `guarantors`
   ADD CONSTRAINT `fk_case` FOREIGN KEY (`case_id`) REFERENCES `cases` (`id`),
   ADD CONSTRAINT `fk_tank` FOREIGN KEY (`tank_id`) REFERENCES `tanks` (`id`);
 
 --
--- Обмеження зовнішнього ключа таблиці `tokens`
+-- Constraints for table `tokens`
 --
 ALTER TABLE `tokens`
   ADD CONSTRAINT `tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Обмеження зовнішнього ключа таблиці `user_codes`
+-- Constraints for table `user_codes`
 --
 ALTER TABLE `user_codes`
   ADD CONSTRAINT `user_codes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `user_codes_ibfk_2` FOREIGN KEY (`code_id`) REFERENCES `codes` (`id`);
 
 --
--- Обмеження зовнішнього ключа таблиці `user_guarantors`
+-- Constraints for table `user_guarantors`
 --
 ALTER TABLE `user_guarantors`
   ADD CONSTRAINT `fk_user_guarantors_case` FOREIGN KEY (`case_id`) REFERENCES `cases` (`id`),
   ADD CONSTRAINT `fk_user_guarantors_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Обмеження зовнішнього ключа таблиці `user_tanks`
+-- Constraints for table `user_tanks`
 --
 ALTER TABLE `user_tanks`
   ADD CONSTRAINT `user_tanks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
