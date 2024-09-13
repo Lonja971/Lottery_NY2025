@@ -27,7 +27,7 @@ export function Login({ backendPath }) {
     e.preventDefault();
 
     axios
-      .post( `${backendPath}api/login.php`, {
+      .post( `${backendPath}/api/login.php`, {
         userInfo: formData,
       })
       .then((response) => {

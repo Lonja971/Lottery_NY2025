@@ -51,7 +51,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
 
   function handleSendExchange() {
     if (rangeValue > 0 || exchangeResources.exchangeType === "tank") {
-      axios.post(`${backendPath}api/exchangeResources.php`, {
+      axios.post(`${backendPath}/api/exchangeResources.php`, {
         playerId: playerData.id,
         exchange_type: exchangeResources.exchangeType,
         exchange_res: exchangeResources.exchangeRes,

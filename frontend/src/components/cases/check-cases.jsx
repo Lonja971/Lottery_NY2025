@@ -22,7 +22,7 @@ export function CheckCases({ backendPath, playerId, active, addMessage, setIsUpd
 
   useEffect(() => {
     if (!hasChecked) {
-      axios.post(`${backendPath}api/subtractData.php`, {
+      axios.post(`${backendPath}/api/subtractData.php`, {
         playerId: playerId,
         case_name: active.caseName,
         case_open_resource: active.openResource,

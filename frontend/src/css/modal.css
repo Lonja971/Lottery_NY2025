@@ -9,6 +9,7 @@
   border: none;
   overflow: auto;
   overflow-x: hidden;
+  touch-action: none; 
 
   display: flex;
 
@@ -39,6 +40,7 @@
 }
 
 .modal__close {
+  background-color: transparent;
   width: 30px;
   height: 18px;
   z-index: 6;
@@ -47,6 +49,8 @@
   top: 25px;
   right: 25px;
   padding: 20px;
+  touch-action: none; 
+  pointer-events: all;
 }
 .modal__close span {
   position: absolute;

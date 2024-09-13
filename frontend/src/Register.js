@@ -34,7 +34,7 @@ export function Register({ backendPath }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post(`${backendPath}api/register.php`, {
+    axios.post(`${backendPath}/api/register.php`, {
       userInfo: JSON.stringify(formData),
     })
       .then(response => {

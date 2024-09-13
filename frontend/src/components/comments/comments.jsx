@@ -9,7 +9,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
   function handleNewToken() {
     if (newToken === true) {
       axios
-        .post(`${backendPath}api/getToken.php`, {
+        .post(`${backendPath}/api/getToken.php`, {
           userId: playerData.id,
         })
         .then((response) => {

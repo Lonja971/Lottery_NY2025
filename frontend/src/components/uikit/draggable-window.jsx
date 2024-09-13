@@ -24,11 +24,11 @@ export function DraggableWindow({ id, title, setCloseConst, isActive, onFocus, o
       >
         <div className="dragwind__handle _glass">
           <h3 className="dragwind__handle-text">{title}</h3>
-          <div className="modal__close dragwind__handle-close" onClick={() => setCloseConst(false)}>
+          <button className="modal__close dragwind__handle-close" onClick={() => setCloseConst(false)} onTouchStart={() => setCloseConst(false)}>
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
         <div className="dragwind__content">
           {children}

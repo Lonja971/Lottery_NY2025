@@ -6,13 +6,13 @@ import { Register } from "./Register";
 import { Login } from "./Login";
 
 //---Ways-to-the-backend:
-//-MAMP:      http://localhost:8888/LOTTERY_NY2025/backend/
-//-OSPanel:   http://NY2025/backend/
-//-Plesk:     https://97108289.hetictlyceum.nl/NY_2025/backend/
+//-MAMP:      http://localhost:8888/LOTTERY_NY2025/backend
+//-OSPanel:   http://NY2025/backend
+//-Plesk:     https://97108289.hetictlyceum.nl/NY_2025/backend
 
 function App() {
 
-  const backendPath = "http://localhost:8888/LOTTERY_NY2025/backend/"
+  const backendPath = "http://localhost:8888/LOTTERY_NY2025/backend"
 
   return (
     <Router>

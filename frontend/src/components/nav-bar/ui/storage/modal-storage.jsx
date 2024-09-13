@@ -199,7 +199,7 @@ function ModalStorageLayout({
     e.preventDefault();
 
     axios
-      .post(`${backendPath}api/changePlayerName.php`, {
+      .post(`${backendPath}/api/changePlayerName.php`, {
         player_id: playerId,
         new_user_name: changeNameFormData.username,
       })
@@ -237,7 +237,7 @@ function ModalStorageLayout({
   const handleSubmitPromo = (e) => {
     e.preventDefault();
 
-    axios.post(`${backendPath}api/promoCode.php`, {
+    axios.post(`${backendPath}/api/promoCode.php`, {
       player_id: playerId,
       promo: promoFormData.promo,
     })

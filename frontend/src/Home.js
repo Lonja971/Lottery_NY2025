@@ -44,7 +44,7 @@ export function Home({ backendPath }) {
             return;
           }
 
-          const response = await axios.get(`${backendPath}api/getData.php?token=${token}`);
+          const response = await axios.get(`${backendPath}/api/getData.php?token=${token}`);
           setPlayerData(response.data.user);
           setPlayerGuarantors(response.data.playerGuarantors);
         } catch (error) {
@@ -69,13 +69,26 @@ export function Home({ backendPath }) {
 
   const [newToken, setNewToken] = useState(false);
   const [tokenTimeLeft, setTokenTimeLeft] = useState(null);
+  const [serverTime, setServerTime] = useState(null);
+  
 
   useEffect(() => {
     if (playerData !== null) {
+      const fetchServerTime = async () => {
+        try {
+          const response = await axios.get(`${backendPath}/api/getServerTime.php`);
+          setServerTime(Math.floor(response.data.server_time));
+        } catch (error) {
+          console.error("Error fetching server time", error);
+        }
+      };
+
       const checkTime = () => {
-        const currentTime = Math.floor(Date.now() / 1000);
+        if (!serverTime) return;
+
+        const currentTime = serverTime + Math.floor((Date.now() - fetchTime) / 1000);  // поточний серверний час + різниця часу від запиту
         const tokensTimer = playerData.tokens_timer;
-        const timeDifference = playerData.tokens_timer - currentTime;
+        const timeDifference = tokensTimer - currentTime;
 
         if (currentTime >= tokensTimer || tokensTimer == null) {
           setNewToken(true);
@@ -84,15 +97,19 @@ export function Home({ backendPath }) {
           const hours = Math.floor(timeDifference / 3600);
           const minutes = Math.floor((timeDifference % 3600) / 60);
           const seconds = timeDifference % 60;
-          setTokenTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+          setTokenTimeLeft(
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+          );
         }
       };
 
+      let fetchTime = Date.now(); // час, коли серверний час був отриманий
+      fetchServerTime();
       const intervalId = setInterval(checkTime, 1000);
 
       return () => clearInterval(intervalId);
     }
-  }, [playerData]);
+  }, [playerData, serverTime]);
 
   //---Бургер-меню---
 
@@ -236,12 +253,12 @@ export function Home({ backendPath }) {
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <EventCases
+      <Shop
         playerData={playerData}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <Shop
+      <EventCases
         playerData={playerData}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}

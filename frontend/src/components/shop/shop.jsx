@@ -55,9 +55,11 @@ export function Shop({playerData, setModalOpenCaseAnimation}) {
 
                   return(
                      <div className="_glass shop__case" key={index}>
-                        <img className="shop__case-img" src="img/tokens_shop/obj_490.png" alt="TOKENS_CONTAINER" />
-                        <h3 className="shop__case-title">{CASES[caseData.transcription].name}</h3>
-                        <p className="shop__case-text">{caseData.caseInfo}</p>
+                        <div>
+                           <img className="shop__case-img" src="img/tokens_shop/obj_490.png" alt="TOKENS_CONTAINER" />
+                           <h3 className="shop__case-title">{CASES[caseData.transcription].name}</h3>
+                           <p className="shop__case-text">{caseData.caseInfo}</p>
+                        </div>
                         <div className="buttons-block buttons-block_shop">
                            <button
                               className={`btn _glass ${isDisabled ? "btn-closed" : ""} shop-button`}

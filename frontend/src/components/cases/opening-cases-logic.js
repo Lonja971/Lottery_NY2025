@@ -163,7 +163,7 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
     //console.log(droppedItems);
     //console.log(droppedItems.length);
 
-    axios.post(`${backendPath}api/assignData.php`, {
+    axios.post(`${backendPath}/api/assignData.php`, {
         playerId: playerId,
         droppedItems: droppedItems,
         caseName: active.caseName,
