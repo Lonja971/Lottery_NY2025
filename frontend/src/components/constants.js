@@ -692,6 +692,15 @@ export const TANKS = {
   78: {
     id: 78,
     name: "ТІТТ Розанова",
+    transcription: "titt_rozanov",
+    type: "lt",
+    land: "ussr",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/titt_rozanov.html",
+    exchange: 6800,
+  },
+  78: {
+    id: 78,
+    name: "ТІТТ Розанова",
     transcription: "titt_rozanova",
     type: "lt",
     land: "ussr",
