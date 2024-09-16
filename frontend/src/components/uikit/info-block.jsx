@@ -39,27 +39,29 @@ export function InfoBlock({ item, index, userTanks }){
         </div>
       ) : (
         
-        <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className={`info-block info-block-tank ${userTanks?.includes(item.id.toString()) ? "received" : ""}`} key={item.type + index}>
-          <div className={"back-info " + ( TANKS[item.id].land ? TANKS[item.id].land : "default" )}>
-            {TANKS[item.id].type !== "camo" ? (
-              <div>
-                <img className="tank-img" src={"img/icons/" + TANKS[item.id].type + ".png"} alt="TYPE" />
-              </div>
-            ) : (
-              <div>
-                <span className="camo">камуфляж</span>
-              </div>
-            )}
-            <p>{TANKS[item.id].smallName !==undefined ? TANKS[item.id].smallName : TANKS[item.id].name }</p>
-          </div>
-          <div className="back-procents">
-            {item.probability + "%"}
-          </div>
-          <div className="line line-top"></div>
-          <div className="line line-right"></div>
-          <div className="line line-bottom"></div>
-          <div className="line line-left"></div>
-        </a>
+          <a title={TANKS[item.id].name + " "} target="_blank" rel="noopener noreferrer" href={TANKS[item.id].link} className={`info-block info-block-tank ${userTanks?.includes(item.id.toString()) ? "received" : ""}`} key={item.type + index}>
+            <div className={"back-info " + ( TANKS[item.id].land ? TANKS[item.id].land : "default" )}>
+              {TANKS[item.id].type !== "camo" ? (
+                <div>
+                  <img className="tank-img" src={"img/icons/" + TANKS[item.id].type + ".png"} alt="TYPE" />
+                </div>
+              ) : (
+                <div>
+                  <span className="camo">камуфляж</span>
+                </div>
+              )}
+              <p>{TANKS[item.id].smallName !== undefined ? TANKS[item.id].smallName : TANKS[item.id].name }</p>
+            </div>
+            <div className="back-procents">
+              {Number.isInteger(item.probability)
+                ? item.probability + "%"
+                : item.probability.toFixed(3).replace(/\.?0+$/, "") + "%"}
+            </div>
+            <div className="line line-top"></div>
+            <div className="line line-right"></div>
+            <div className="line line-bottom"></div>
+            <div className="line line-left"></div>
+          </a>
       )
    )
 }

@@ -698,6 +698,51 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/titt_rozanov.html",
     exchange: 6800,
   },
+  79: {
+    id: 79,
+    name: "Hori Type 3",
+    transcription: "hori_type_3",
+    type: "td",
+    land: "jp",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/japan/hori_type_3.html",
+    exchange: 7200,
+  },
+  80: {
+    id: 80,
+    name: "Type 59 Gold",
+    transcription: "type_59_gold",
+    type: "lt",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/type_59_gold.html",
+    exchange: 6800,
+  },
+  81: {
+    id: 81,
+    name: "WZ 113",
+    transcription: "wz_113",
+    type: "ht",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz-113.html",
+    exchange: 7200,
+  },
+  82: {
+    id: 82,
+    name: "WZ Пилаючий",
+    transcription: "wz_pilauchii",
+    type: "td",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz_pilauchiy.html",
+    exchange: 5600,
+  },
+  83: {
+    id: 83,
+    name: "Type KV-2",
+    transcription: "type_kv-2",
+    type: "lt",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz_pilauchiy.html",
+    exchange: 6800,
+  },
 };
 
 //---EXCHANGE---
@@ -886,7 +931,14 @@ export const MYTHICAL_CASE = [
   { type: "gold", probability: 30, amounts: [1000, 2000] },
   { type: "drawings", probability: 30, amounts: [1, 2], default: true },
   { type: "red_tokens", probability: 10, amounts: [2, 4] },
-  { type: "tank", id: 78, probability: 5, amounts: [1] },
+  { 
+    probability: 10,
+    type: "single",
+    items: [
+      { type: "tank", id: 78, probability: 1, amounts: [1] },
+      { type: "tank", id: 64, probability: 1, amounts: [1] },
+    ]
+  },
   { 
     probability: 20,
     type: "single",
@@ -935,39 +987,37 @@ export const WAFF_CASE = [
   { type: "gold", probability: 30, amounts: [ 500, 700 ] },
   //{ type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
 
-  { type: "tank", id: 60, probability: 7, amounts: [1] },
-  { type: "tank", id: 59, probability: 2, amounts: [1] },
+  { type: "tank", id: 59, probability: 3, amounts: [1] },
+  { type: "tank", id: 60, probability: 5, amounts: [1] },
 ];
+
 export const FRANCE_NATION_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
   { type: "premium_akk", probability: 35, amounts: [1] },
   { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "tank", id: 63, probability: 2, amounts: [1] },
   { 
-    probability: 3.5,
+    probability: 2,
     type: "single",
     items: [
-      { type: "tank", id: 63, probability: 14, amounts: [1] },
-
       { type: "tank", id: 65, probability: 1, amounts: [1] },
       { type: "tank", id: 66, probability: 1, amounts: [1] },
       { type: "tank", id: 37, probability: 1, amounts: [1] },
       { type: "tank", id: 67, probability: 1, amounts: [1] },
       { type: "tank", id: 68, probability: 1, amounts: [1] },
       { type: "tank", id: 29, probability: 1, amounts: [1] },
-      { type: "tank", id: 9, probability: 1, amounts: [1] },
+      { type: "tank",  id: 9, probability: 1, amounts: [1] },
       { type: "tank", id: 10, probability: 1, amounts: [1] },
-
       { type: "tank", id: 69, probability: 1, amounts: [1] },
       { type: "tank", id: 70, probability: 1, amounts: [1] },
       { type: "tank", id: 15, probability: 1, amounts: [1] },
       { type: "tank", id: 71, probability: 1, amounts: [1] },
-      
       { type: "tank", id: 72, probability: 1, amounts: [1] },
       { type: "tank", id: 35, probability: 1, amounts: [1] },
     ]
   },
   { 
-    probability: 4,
+    probability: 5,
     type: "single",
     items: [
 
