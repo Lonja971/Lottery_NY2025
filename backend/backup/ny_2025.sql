@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 13, 2024 at 01:20 PM
+-- Generation Time: Sep 16, 2024 at 01:52 PM
 -- Server version: 8.0.35
 -- PHP Version: 8.2.20
 
@@ -36,14 +36,14 @@ CREATE TABLE `cases` (
   `drawings` int DEFAULT NULL,
   `unique_currency` varchar(255) DEFAULT NULL,
   `unique_price` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `cases`
 --
 
 INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `unique_currency`, `unique_price`) VALUES
-(1, 'main_cases', 200, 2, NULL, NULL, NULL, NULL),
+(1, 'main_cases', 250, 1, NULL, NULL, NULL, NULL),
 (2, 'regular_cases', NULL, NULL, NULL, NULL, 'regular_cases', 1),
 (3, 'special_cases', NULL, NULL, NULL, NULL, 'special_cases', 1),
 (4, 'rare_cases', NULL, NULL, NULL, NULL, 'rare_cases', 1),
@@ -68,7 +68,7 @@ CREATE TABLE `codes` (
   `get_type` varchar(255) NOT NULL,
   `get_name` varchar(255) NOT NULL,
   `get_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `codes`
@@ -91,15 +91,15 @@ CREATE TABLE `exchange_gold` (
   `exchange_resource` varchar(255) NOT NULL,
   `exchange_value` int NOT NULL,
   `get_value` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `exchange_gold`
 --
 
 INSERT INTO `exchange_gold` (`id`, `exchange_resource`, `exchange_value`, `get_value`) VALUES
-(1, 'silver', 2500, 100),
-(2, 'counters', 10, 100),
+(1, 'silver', 3500, 100),
+(2, 'counters', 10, 200),
 (3, 'premium_akk', 5, 500),
 (4, 'drawings', 1, 400),
 (5, 'tokens', 1, 100),
@@ -116,7 +116,7 @@ CREATE TABLE `exchange_red_tokens` (
   `exchange_resource` varchar(255) NOT NULL,
   `exchange_value` int NOT NULL,
   `get_value` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `exchange_red_tokens`
@@ -162,7 +162,7 @@ CREATE TABLE `tanks` (
   `type` varchar(255) NOT NULL,
   `land` varchar(255) NOT NULL,
   `conversion_value` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tanks`
@@ -243,7 +243,12 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (74, 'Сталевий Мисливець', 'amx_m4_54_steel_hunter', 'camo', 'fr', 2000),
 (75, 'Королівський', 'fosh_155_king', 'camo', 'fr', 1000),
 (76, 'Піщаний', 'panhard_ebr_105_sand', 'camo', 'fr', 1000),
-(77, 'E 25', 'e_25', 'td', 'ge', 2000);
+(77, 'E 25', 'e_25', 'td', 'ge', 2000),
+(78, 'ТІТТ Розанова', 'titt_rozanova', 'lt', 'ussr', 6800),
+(79, 'Hori Type 3', 'hori_type_3', 'td', 'jp', 7200),
+(80, 'Type 59 Gold', 'type_59_gold', 'lt', 'ch', 6800),
+(81, 'WZ 113', 'wz_113', 'ht', 'ch', 7200),
+(82, 'WZ Пилаючий', 'wz_pilauchii', 'td', 'ch', 5600);
 
 -- --------------------------------------------------------
 
@@ -257,7 +262,7 @@ CREATE TABLE `tokens` (
   `user_id` int DEFAULT NULL,
   `device` varchar(255) DEFAULT NULL,
   `created_at` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tokens`
@@ -271,7 +276,10 @@ INSERT INTO `tokens` (`id`, `identifier`, `user_id`, `device`, `created_at`) VAL
 (36, '0c8b1558ca377dd6ffd679c11748b990', 7, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726064595),
 (37, '69dfa7fb43dd4e50e55c5fbf27f0a32e', 2, '127.0.0.1_Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0', 1726159726),
 (38, '69b98f2a5ef12403d946df1bad13df7a', 2, '::1_Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', 1726209445),
-(39, '0c9ec80aa9ce0367c342a870d75a0e89', 7, '::1_Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 1726210523);
+(40, '2698424bf86fd1039f05bdd91c424a1d', 8, '::1_Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 1726236363),
+(42, '228f98bdbf0f2dce73f785caed915ff2', 3, '::1_Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 1726471081),
+(43, '9af667f1ee238c109a69c5e5622ab62f', 2, '::1_Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 1726471381),
+(44, '2535448e75db09d15aa4a063f34178ca', 7, '::1_Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 1726475117);
 
 -- --------------------------------------------------------
 
@@ -283,32 +291,32 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `gold` int NOT NULL,
-  `silver` int NOT NULL,
-  `tokens` int NOT NULL,
-  `red_tokens` int NOT NULL,
-  `counters` int NOT NULL,
-  `premium_akk` int NOT NULL,
-  `drawings` int NOT NULL,
-  `regular_cases` int NOT NULL,
-  `special_cases` int NOT NULL,
-  `rare_cases` int NOT NULL,
-  `mythical_cases` int NOT NULL,
-  `legendary_cases` int NOT NULL,
+  `gold` int UNSIGNED NOT NULL,
+  `silver` int UNSIGNED NOT NULL,
+  `tokens` int UNSIGNED NOT NULL,
+  `red_tokens` int UNSIGNED NOT NULL,
+  `counters` int UNSIGNED NOT NULL,
+  `premium_akk` int UNSIGNED NOT NULL,
+  `drawings` int UNSIGNED NOT NULL,
+  `regular_cases` int UNSIGNED NOT NULL,
+  `special_cases` int UNSIGNED NOT NULL,
+  `rare_cases` int UNSIGNED NOT NULL,
+  `mythical_cases` int UNSIGNED NOT NULL,
+  `legendary_cases` int UNSIGNED NOT NULL,
   `tokens_timer` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `red_tokens`, `counters`, `premium_akk`, `drawings`, `regular_cases`, `special_cases`, `rare_cases`, `mythical_cases`, `legendary_cases`, `tokens_timer`) VALUES
-(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 470700, 233500, 7, 1151, 12, 45, 394, 29, 26, 15, 0, 20, 1726213052),
+(2, '--Bogach', '$2y$10$TDM4ItQD9kiMYICbyK5XceAAsBX2cE7zygdc6z4E8AOfan8pszKlC', 541000, 366500, 7, 1035, 12, 63, 406, 30, 26, 15, 0, 10, 1726478591),
 (3, 'Залізний Панцир', '$2y$10$AqtdnlDsmPiTOeatpYe/VOyPgzeCQgUdtzNDYbOcJAGe7TeMKZfx2', 3000, 26500, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
 (4, 'Тимофейчик', '$2y$10$fqZ02AHrHhASSa32SekpKuaXTR4hUQp/cz3JwSW9LVMJcjwBBrJey', 0, 2500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (5, 'Killua', '$2y$10$9RcfARbasxfCPBFxnr3voew1uxvaKkf6cmx8.xLk0g/XF5PQKqGZ.', 8500, 4000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
 (6, 'Davidk104', '$2y$10$ZrDIgq5LrRt9ilVOcRC5Se6xprv415k.2I6u53Jw36Kk3k1Y4bu9i', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
-(7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 17700, 1500, 1, 7, 8, 9, 56, 32, 25, 10, 0, 0, 1726236234),
+(7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 108450, 1220500, 1, 173, 7, 199, 17, 23, 17, 5, 22, 0, 1726495293),
 (8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
@@ -321,7 +329,7 @@ CREATE TABLE `user_codes` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `code_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user_codes`
@@ -353,10 +361,7 @@ CREATE TABLE `user_guarantors` (
 --
 
 INSERT INTO `user_guarantors` (`id`, `user_id`, `case_id`, `discoveries_number`) VALUES
-(65, 2, 10, 8),
-(73, 7, 7, 10),
-(74, 7, 7, 10),
-(75, 7, 10, 12);
+(90, 7, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -368,7 +373,7 @@ CREATE TABLE `user_tanks` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `tank_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user_tanks`
@@ -452,12 +457,29 @@ INSERT INTO `user_tanks` (`id`, `user_id`, `tank_id`) VALUES
 (154, 2, 62),
 (178, 2, 42),
 (179, 2, 77),
-(192, 7, 62),
-(193, 7, 63),
-(194, 7, 61),
-(197, 7, 59),
-(198, 7, 2),
-(199, 7, 3);
+(206, 2, 63),
+(207, 2, 61),
+(216, 7, 61),
+(217, 7, 2),
+(218, 7, 62),
+(219, 7, 3),
+(220, 7, 60),
+(224, 7, 59),
+(227, 7, 73),
+(228, 7, 74),
+(229, 7, 9),
+(230, 7, 75),
+(231, 7, 63),
+(232, 7, 76),
+(233, 7, 72),
+(234, 7, 64),
+(235, 7, 78),
+(236, 7, 70),
+(237, 7, 71),
+(238, 7, 10),
+(239, 7, 69),
+(240, 7, 15),
+(241, 7, 35);
 
 --
 -- Indexes for dumped tables
@@ -576,13 +598,13 @@ ALTER TABLE `guarantors`
 -- AUTO_INCREMENT for table `tanks`
 --
 ALTER TABLE `tanks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -600,13 +622,13 @@ ALTER TABLE `user_codes`
 -- AUTO_INCREMENT for table `user_guarantors`
 --
 ALTER TABLE `user_guarantors`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `user_tanks`
 --
 ALTER TABLE `user_tanks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
 
 --
 -- Constraints for dumped tables
