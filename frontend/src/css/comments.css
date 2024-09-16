@@ -52,10 +52,10 @@
   animation-duration: 3s;
   animation-name: takeToken;
   animation-iteration-count: infinite;
+  border-right: none;
 }
 .comments__block .commentsblock-newtoken:hover{
   border: 2px solid var(--color1) !important;
-  border-right: none;
   background: var(--glass-color) !important;
 }
 

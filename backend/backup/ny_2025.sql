@@ -36,7 +36,7 @@ CREATE TABLE `cases` (
   `drawings` int DEFAULT NULL,
   `unique_currency` varchar(255) DEFAULT NULL,
   `unique_price` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cases`
@@ -68,7 +68,7 @@ CREATE TABLE `codes` (
   `get_type` varchar(255) NOT NULL,
   `get_name` varchar(255) NOT NULL,
   `get_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `codes`
@@ -91,7 +91,7 @@ CREATE TABLE `exchange_gold` (
   `exchange_resource` varchar(255) NOT NULL,
   `exchange_value` int NOT NULL,
   `get_value` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `exchange_gold`
@@ -116,7 +116,7 @@ CREATE TABLE `exchange_red_tokens` (
   `exchange_resource` varchar(255) NOT NULL,
   `exchange_value` int NOT NULL,
   `get_value` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `exchange_red_tokens`
@@ -162,7 +162,7 @@ CREATE TABLE `tanks` (
   `type` varchar(255) NOT NULL,
   `land` varchar(255) NOT NULL,
   `conversion_value` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tanks`
@@ -257,7 +257,7 @@ CREATE TABLE `tokens` (
   `user_id` int DEFAULT NULL,
   `device` varchar(255) DEFAULT NULL,
   `created_at` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tokens`
@@ -296,7 +296,7 @@ CREATE TABLE `users` (
   `mythical_cases` int NOT NULL,
   `legendary_cases` int NOT NULL,
   `tokens_timer` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -321,7 +321,7 @@ CREATE TABLE `user_codes` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `code_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_codes`
@@ -368,7 +368,7 @@ CREATE TABLE `user_tanks` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `tank_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_tanks`
