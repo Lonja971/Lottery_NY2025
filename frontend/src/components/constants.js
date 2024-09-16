@@ -736,12 +736,50 @@ export const TANKS = {
   },
   83: {
     id: 83,
-    name: "Type KV-2",
+    name: "Type KV-2 光",
     transcription: "type_kv-2",
     type: "lt",
     land: "ch",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz_pilauchiy.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/type_kv2_light.html",
     exchange: 6800,
+  },
+  84: {
+    id: 84,
+    name: "Золотий Дракон",
+    transcription: "type_5_heavy_golder_dragon",
+    type: "camo",
+    land: "jp",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/japan/type_5_heavy.html",
+    exchange: 1500,
+    bg: "type_5_heavy_golder_dragon-bg",
+  },
+  85: {
+    id: 85,
+    name: "Самурай",
+    transcription: "hori_type_3_samurai",
+    type: "camo",
+    land: "jp",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/japan/hori_type_3.html",
+    exchange: 1500,
+    bg: "hori_type_3_samurai-bg",
+  },
+  86: {
+    id: 86,
+    name: "Дракон",
+    transcription: "wz_111_dragon",
+    type: "camo",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz_111.html",
+    exchange: 1500,
+  },
+  87: {
+    id: 87,
+    name: "Мідний Воїн",
+    transcription: "wz_113_copper_warrior",
+    type: "camo",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/wz-113.html",
+    exchange: 1500,
   },
 };
 
@@ -799,6 +837,7 @@ export const EXCHANGE = {
 const COLLECTIONS = {
   main_collection: "Новорічна Колекція",
   nationals_collection: "Колекція Країни",
+  china_new_year: "Китайський Новий Рік",
 };
 
 //---CASES---
@@ -879,6 +918,14 @@ export const CASES = {
     guarantor: 50,
     collection: COLLECTIONS.nationals_collection,
     guarantorAward: 63,
+  },
+  china_new_year_cases: {
+    name: "Рік чогось там",
+    transcription: "china_new_year_cases",
+    animation: "default",
+    guarantor: 50,
+    collection: COLLECTIONS.china_new_year,
+    guarantorAward: 83,
   },
 };
 
@@ -1025,6 +1072,24 @@ export const FRANCE_NATION_CASE = [
       { type: "tank", id: 74, probability: 1, amounts: [1] },
       { type: "tank", id: 75, probability: 1, amounts: [1] },
       { type: "tank", id: 76, probability: 1, amounts: [1] },
+    ]
+  },
+];
+export const CHINA_NEW_YEAR = [
+  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 35, amounts: [1] },
+  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { 
+    probability: 2,
+    type: "single",
+    items: [
+      { type: "tank", id: 21, probability: 1, amounts: [1] },
+      { type: "tank", id: 79, probability: 1, amounts: [1] },
+      { type: "tank", id: 80, probability: 1, amounts: [1] },
+      { type: "tank", id: 83, probability: 1, amounts: [1] },
+      { type: "tank", id: 39, probability: 1, amounts: [1] },
+      { type: "tank", id: 81, probability: 1, amounts: [1] },
+      { type: "tank", id: 82, probability: 1, amounts: [1] },
     ]
   },
 ];

@@ -12,7 +12,7 @@ import { Login } from "./Login";
 
 function App() {
 
-  const backendPath = "http://localhost:8888/LOTTERY_NY2025/backend"
+  const backendPath = "http://NY2025/backend"
 
   return (
     <Router>
