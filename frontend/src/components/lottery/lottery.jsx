@@ -17,11 +17,11 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
       buttons: [
         {
           openResource: "gold",
-          price: 200,
+          price: 250,
         },
         {
           openResource: "tokens",
-          price: 2,
+          price: 1,
         },
       ],
     }, {

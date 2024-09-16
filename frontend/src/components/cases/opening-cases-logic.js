@@ -9,17 +9,17 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
 
   function openCase(caseResourcesInfo) {
     let droppedItems = [];
-    //console.log("   ");
+    console.log("   ");
     caseResourcesInfo.forEach((item) => {
       // Вираховуємо шанси випадіння
       const scaledProbability = item.probability * 100;
       var randomValue = Math.floor(Math.random() * 10000) + 1;
-      //console.log("--Перше випадіння: "+ item.type);
-      //console.log("    --Шанси: "+ randomValue + " <= " + scaledProbability);
+      console.log("--Перше випадіння: "+ item.type);
+      console.log("    --Шанси: "+ randomValue + " <= " + scaledProbability);
 
       if (randomValue <= scaledProbability) {
         // Виконується код нижче якщо елемент випав
-        //console.log("    --Тож: ВИПАВ");
+        console.log("    --Тож: ВИПАВ");
         let amount;
 
         if (item.items && Array.isArray(item.items)) {

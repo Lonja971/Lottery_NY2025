@@ -698,15 +698,6 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/titt_rozanov.html",
     exchange: 6800,
   },
-  78: {
-    id: 78,
-    name: "ТІТТ Розанова",
-    transcription: "titt_rozanova",
-    type: "lt",
-    land: "ussr",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/titt_rozanova.html",
-    exchange: 6800,
-  },
 };
 
 //---EXCHANGE---
@@ -715,13 +706,13 @@ export const EXCHANGE = {
   gold: {
     silver: {
       exchange: "silver",
-      exchangeValue: "2500",
+      exchangeValue: "3500",
       getValue: "100",
     },
     counters: {
       exchange: "counters",
       exchangeValue: "10",
-      getValue: "100",
+      getValue: "200",
     },
     premium_akk: {
       exchange: "premium_akk",
@@ -857,14 +848,14 @@ export const MAIN_CASE = [
     probability: 100,
     type: "single",
     items: [
-      { type: "case", name: "regular_cases", probability: 40, amounts: [1] },
+      { type: "case", name: "regular_cases", probability: 44, amounts: [1] },
       { type: "case", name: "special_cases", probability: 32, amounts: [1] },
-      { type: "case", name: "rare_cases", probability: 20, amounts: [1] },
+      { type: "case", name: "rare_cases", probability: 18, amounts: [1] },
       { type: "case", name: "mythical_cases", probability: 5, amounts: [1] },
-      { type: "case", name: "legendary_cases", probability: 3, amounts: [1] },
+      { type: "case", name: "legendary_cases", probability: 1, amounts: [1] },
     ]
   },
-  { type: "gold", probability: 10, amounts: [ 200, 300, 500 ] },
+  { type: "gold", probability: 10, amounts: [ 100, 300, 400 ] },
   { type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
 ];
 
@@ -876,33 +867,40 @@ export const REGULAR_CASE = [
 
 export const SPECIAL_CASE = [
   { type: "silver", probability: 30, amounts: [2000], default: true },
-  { type: "counters", probability: 20, amounts: [5] },
-  { type: "premium_akk", probability: 20, amounts: [1] },
-  { type: "gold", probability: 20, amounts: [ 300, 500 ] },
+  { type: "counters", probability: 30, amounts: [5] },
+  { type: "premium_akk", probability: 15, amounts: [1] },
+  { type: "gold", probability: 15, amounts: [ 300, 500 ] },
   //{ type: "skin", probability: 10, amounts: 1 },
 ];
 
 export const RARE_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
   { type: "premium_akk", probability: 35, amounts: [1] },
-  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
-  { type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
+  { type: "gold", probability: 30, amounts: [ 400, 600 ] },
+  { type: "red_tokens", probability: 10, amounts: [ 2 ] },
   { type: "drawings", probability: 10, amounts: [1] },
 ];
 
 export const MYTHICAL_CASE = [
   { type: "premium_akk", probability: 35, amounts: [2] },
   { type: "gold", probability: 30, amounts: [1000, 2000] },
-  { type: "drawings", probability: 30, amounts: [1], default: true },
-  { type: "red_tokens", probability: 10, amounts: [2] },
-  { type: "tank", id: 3, probability: 10, amounts: [1] }, // 20% на всі скіни
-  { type: "tank", id: 62, probability: 10, amounts: [1] },
+  { type: "drawings", probability: 30, amounts: [1, 2], default: true },
+  { type: "red_tokens", probability: 10, amounts: [2, 4] },
+  { type: "tank", id: 78, probability: 5, amounts: [1] },
+  { 
+    probability: 20,
+    type: "single",
+    items: [
+      { type: "tank", id: 3, probability: 1, amounts: [1] },
+      { type: "tank", id: 62, probability: 1, amounts: [1] },
+    ]
+  },
 ];
 
 export const LEGENDARY_CASE = [
   { type: "gold", probability: 30, amounts: [2000, 3000] },
-  { type: "drawings", probability: 25, amounts: [2], default: true, dafaultAmount: 2, },
-  { type: "red_tokens", probability: 25, amounts: [2, 6] },
+  { type: "drawings", probability: 25, amounts: [2, 3], default: true, dafaultAmount: 2, },
+  { type: "red_tokens", probability: 25, amounts: [2, 4, 6] },
   { 
     probability: 50,
     type: "single",
@@ -944,12 +942,12 @@ export const FRANCE_NATION_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
   { type: "premium_akk", probability: 35, amounts: [1] },
   { type: "gold", probability: 30, amounts: [ 500, 700 ] },
-  { type: "tank", id: 63, probability: 2, amounts: [1] },
   { 
     probability: 3.5,
     type: "single",
     items: [
-      
+      { type: "tank", id: 63, probability: 14, amounts: [1] },
+
       { type: "tank", id: 65, probability: 1, amounts: [1] },
       { type: "tank", id: 66, probability: 1, amounts: [1] },
       { type: "tank", id: 37, probability: 1, amounts: [1] },
