@@ -728,6 +728,7 @@ export const TANKS = {
   82: {
     id: 82,
     name: "WZ Пилаючий",
+    smallName: "WZ Пилаюч...",
     transcription: "wz_pilauchii",
     type: "td",
     land: "ch",
@@ -962,7 +963,15 @@ export const SPECIAL_CASE = [
   { type: "counters", probability: 30, amounts: [5] },
   { type: "premium_akk", probability: 15, amounts: [1] },
   { type: "gold", probability: 15, amounts: [ 300, 500 ] },
-  //{ type: "skin", probability: 10, amounts: 1 },
+  { 
+    probability: 5,
+    type: "single",
+    items: [
+      { type: "tank", id: 3, probability: 1, amounts: [1] },
+      { type: "tank", id: 62, probability: 1, amounts: [1] },
+    ]
+  },
+  { type: "case", name: "mythical_cases", probability: 100, amounts: [1] },
 ];
 
 export const RARE_CASE = [
@@ -971,6 +980,7 @@ export const RARE_CASE = [
   { type: "gold", probability: 30, amounts: [ 400, 600 ] },
   { type: "red_tokens", probability: 10, amounts: [ 2 ] },
   { type: "drawings", probability: 10, amounts: [1] },
+  { type: "case", name: "legendary_cases", probability: 1, amounts: [1] },
 ];
 
 export const MYTHICAL_CASE = [
@@ -979,19 +989,11 @@ export const MYTHICAL_CASE = [
   { type: "drawings", probability: 30, amounts: [1, 2], default: true },
   { type: "red_tokens", probability: 10, amounts: [2, 4] },
   { 
-    probability: 10,
+    probability: 20,
     type: "single",
     items: [
       { type: "tank", id: 78, probability: 1, amounts: [1] },
       { type: "tank", id: 64, probability: 1, amounts: [1] },
-    ]
-  },
-  { 
-    probability: 20,
-    type: "single",
-    items: [
-      { type: "tank", id: 3, probability: 1, amounts: [1] },
-      { type: "tank", id: 62, probability: 1, amounts: [1] },
     ]
   },
 ];
@@ -1071,7 +1073,7 @@ export const FRANCE_NATION_CASE = [
       { type: "tank", id: 73, probability: 1, amounts: [1] },
       { type: "tank", id: 74, probability: 1, amounts: [1] },
       { type: "tank", id: 75, probability: 1, amounts: [1] },
-      { type: "tank", id: 76, probability: 1, amounts: [1] },
+      { type: "tank", id: 76, probability: 1, amounts: [1] }
     ]
   },
 ];
@@ -1080,16 +1082,16 @@ export const CHINA_NEW_YEAR = [
   { type: "premium_akk", probability: 35, amounts: [1] },
   { type: "gold", probability: 30, amounts: [ 500, 700 ] },
   { 
-    probability: 2,
+    probability: 3,
     type: "single",
     items: [
-      { type: "tank", id: 21, probability: 1, amounts: [1] },
-      { type: "tank", id: 79, probability: 1, amounts: [1] },
       { type: "tank", id: 80, probability: 1, amounts: [1] },
       { type: "tank", id: 83, probability: 1, amounts: [1] },
       { type: "tank", id: 39, probability: 1, amounts: [1] },
       { type: "tank", id: 81, probability: 1, amounts: [1] },
+      { type: "tank", id: 21, probability: 1, amounts: [1] },
       { type: "tank", id: 82, probability: 1, amounts: [1] },
+      { type: "tank", id: 79, probability: 1, amounts: [1] },
     ]
   },
 ];

@@ -24,7 +24,6 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
 
         if (item.items && Array.isArray(item.items)) {
           if (item.type === "single") {
-            //console.log("        --МАСИВ типу ОДИН");
             // Якщо з підмасиву може випасти тільки один елемент
             const totalProbability = item.items.reduce((acc, subItem) => acc + subItem.probability, 0);
             const randomSubValue = Math.random() * totalProbability;
@@ -70,7 +69,6 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
             }
           } else {
             // Якщо з підмасиву може випасти багато елементів
-              //console.log("        --МАСИВ типу БАГАТО");
               let selectedItem = openCase(item.items);
               droppedItems.push(...selectedItem);
           }
@@ -83,16 +81,21 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
             amount = 1;
           }
 
-          const { amounts, ...itemWithoutAmounts } = item;
-          let name = item.name || (item.type ? RESOURCES[item.type] : "");
-          let tankInfo = null;
-          let id = item.id || (item.type === "tank" ? RESOURCES.tanks : "");
-
-          if (item.type === "tank") {
-            tankInfo = TANKS[id];
+          if (item.type === "case") {
+            let caseInfo = { case: true, type: item.name, name: CASES[item.name].name, amount: 1 };
+            droppedItems.push(caseInfo);
+          }else{
+            const { amounts, ...itemWithoutAmounts } = item;
+            let name = item.name || (item.type ? RESOURCES[item.type] : "");
+            let tankInfo = null;
+            let id = item.id || (item.type === "tank" ? RESOURCES.tanks : "");
+  
+            if (item.type === "tank") {
+              tankInfo = TANKS[id];
+            }
+  
+            droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
           }
-
-          droppedItems.push({ ...itemWithoutAmounts, name, amount, tankInfo });
         }
       }
     });
@@ -169,7 +172,6 @@ export function OpeningCasesLogic(backendPath, playerId, setIsUpdated, limit, ca
         caseName: active.caseName,
     })
     .then(response => {
-        // Друкуємо всю відповідь для перевірки
         //console.log('Full response:', response);
         //console.log('Response data:', response.data);
     

@@ -78,7 +78,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
                       <span className="buttons-block__guarantor">
                         <h4>До Гаранту ({CASES[caseData.transcription].guarantor - playerGuarantors.find(guarantor => guarantor.name === caseData.transcription).discoveries_number}) :</h4>
                         <div className="guarantor__container">
-                          <a href={TANKS[guarantorAward].link} className="guarantor__container-award">
+                          <a target="_blank" rel="noopener noreferrer" href={TANKS[guarantorAward].link} className="guarantor__container-award">
                               { TANKS[guarantorAward].type !== undefined ? (
                                 <img className="tank-img" src={"img/icons/" + TANKS[guarantorAward].type + ".png"} alt="TYPE" />
                               ) : "камуфляж"}
