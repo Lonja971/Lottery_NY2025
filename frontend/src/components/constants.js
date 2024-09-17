@@ -922,7 +922,7 @@ export const CASES = {
   china_new_year_cases: {
     name: "Рік чогось там",
     transcription: "china_new_year_cases",
-    animation: "default",
+    animation: "china_new_year_cases",
     guarantor: 50,
     collection: COLLECTIONS.china_new_year,
     guarantorAward: 83,
