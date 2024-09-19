@@ -939,12 +939,12 @@ export const CASES = {
     guarantorAward: 63,
   },
   china_new_year_cases: {
-    name: "Рік чогось там",
+    name: "Рік Дерев'яної Змії",
     transcription: "china_new_year_cases",
     animation: "china_new_year_cases",
     guarantor: 50,
     collection: COLLECTIONS.china_new_year,
-    guarantorAward: 83,
+    guarantorAward: 88,
   },
 };
 
@@ -989,7 +989,6 @@ export const SPECIAL_CASE = [
       { type: "tank", id: 62, probability: 1, amounts: [1] },
     ]
   },
-  { type: "case", name: "mythical_cases", probability: 100, amounts: [1] },
 ];
 
 export const RARE_CASE = [
@@ -998,7 +997,6 @@ export const RARE_CASE = [
   { type: "gold", probability: 30, amounts: [ 400, 600 ] },
   { type: "red_tokens", probability: 10, amounts: [ 2 ] },
   { type: "drawings", probability: 10, amounts: [1] },
-  { type: "case", name: "legendary_cases", probability: 1, amounts: [1] },
 ];
 
 export const MYTHICAL_CASE = [

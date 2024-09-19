@@ -149,7 +149,7 @@ CREATE TABLE `guarantors` (
 INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type`, `tank_id`, `amount`) VALUES
 (3, 7, 50, 'tank', 59, 1),
 (4, 10, 50, 'tank', 63, 1),
-(5, 13, 50, 'tank', 83, 1);
+(5, 13, 50, 'tank', 88, 1);
 
 -- --------------------------------------------------------
 
@@ -255,9 +255,9 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (84, 'Type 5 Heavy Золотий Дракон', 'type_5_heavy_golder_dragon', 'camo', 'jp', 1500),
 (85, 'Hori Type 3 Самурай', 'hori_type_3_samurai', 'camo', 'jp', 1500),
 (86, 'Дракон', 'wz_111_dragon', 'camo', 'ch', 1500),
-(87, 'Мідний Воїн', 'wz_113_copper_warrior', 'camo', 'ch', 1500);
-(86, 'BZ-176', 'bz_176', 'ht', 'ch', 7200),
-(87, '114 SP2', '114_sp2', 'td', 'ch', 7200);
+(87, 'Мідний Воїн', 'wz_113_copper_warrior', 'camo', 'ch', 1500),
+(88, 'BZ-176', 'bz_176', 'ht', 'ch', 7200),
+(89, '114 SP2', '114_sp2', 'td', 'ch', 7200);
 
 -- --------------------------------------------------------
 
