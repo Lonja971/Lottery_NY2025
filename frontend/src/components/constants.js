@@ -800,6 +800,15 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/114_sp2.html",
     exchange: 7200,
   },
+  90: {
+    id: 90,
+    name: "AE Phase 1",
+    transcription: "ae_phase_1",
+    type: "ht",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/usa/ae_phase_1.html",
+    exchange: 7200,
+  },
 };
 
 //---EXCHANGE---

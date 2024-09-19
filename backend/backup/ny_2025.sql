@@ -257,7 +257,8 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (86, 'Дракон', 'wz_111_dragon', 'camo', 'ch', 1500),
 (87, 'Мідний Воїн', 'wz_113_copper_warrior', 'camo', 'ch', 1500),
 (88, 'BZ-176', 'bz_176', 'ht', 'ch', 7200),
-(89, '114 SP2', '114_sp2', 'td', 'ch', 7200);
+(89, '114 SP2', '114_sp2', 'td', 'ch', 7200),
+(90, 'AE Phase 1', 'ae_phase_1', 'ht', 'usa', 7600);
 
 -- --------------------------------------------------------
 
