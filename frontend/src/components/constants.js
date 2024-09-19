@@ -782,6 +782,24 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/wz-113.html",
     exchange: 1500,
   },
+  88: {
+    id: 88,
+    name: "BZ-176",
+    transcription: "bz_176",
+    type: "ht",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/bz-176.html",
+    exchange: 7200,
+  },
+  89: {
+    id: 89,
+    name: "114 SP2",
+    transcription: "114_sp2",
+    type: "td",
+    land: "ch",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/114_sp2.html",
+    exchange: 7200,
+  },
 };
 
 //---EXCHANGE---

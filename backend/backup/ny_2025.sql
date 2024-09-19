@@ -256,6 +256,8 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (85, 'Hori Type 3 Самурай', 'hori_type_3_samurai', 'camo', 'jp', 1500),
 (86, 'Дракон', 'wz_111_dragon', 'camo', 'ch', 1500),
 (87, 'Мідний Воїн', 'wz_113_copper_warrior', 'camo', 'ch', 1500);
+(86, 'BZ-176', 'bz_176', 'ht', 'ch', 7200),
+(87, '114 SP2', '114_sp2', 'td', 'ch', 7200);
 
 -- --------------------------------------------------------
 
