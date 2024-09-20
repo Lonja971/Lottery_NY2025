@@ -27,11 +27,3 @@ h2 img{
    position: relative;
    z-index: 2;
 }
-.eventcases__content-title{
-   display: flex;
-   justify-content: center;
-   margin-bottom: 50px;
-}
-.eventcases__content-title h2{
-   padding: 5px 35px;
-}

@@ -242,3 +242,11 @@ h2 img{
   gap: 35px;
   justify-content: center;
 }
+.cases__content-title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.cases__content-title h2{
+  padding: 5px 35px;
+}

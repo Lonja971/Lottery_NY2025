@@ -79,16 +79,21 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
 
   return (
     <div className="lottery">
-      <div className="_cases-container _container">
-        {casesData.map((caseData, index) => (
-          <CaseBlock
-            key={index}
-            caseData={caseData}
-            playerData={playerData}
-            setModalOpenCaseAnimation={setModalOpenCaseAnimation}
-            playerGuarantors={playerGuarantors}
-          />
-        ))}
+      <div className="_container">
+        <div className="cases__content-title">
+          <h2 className="_glass">Новорічні Контейнери <img src="img/resources/tokens.png" alt="" /></h2>
+        </div>
+        <div className="_cases-container">
+          {casesData.map((caseData, index) => (
+            <CaseBlock
+              key={index}
+              caseData={caseData}
+              playerData={playerData}
+              setModalOpenCaseAnimation={setModalOpenCaseAnimation}
+              playerGuarantors={playerGuarantors}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

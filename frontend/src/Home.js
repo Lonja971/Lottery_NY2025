@@ -253,12 +253,12 @@ export function Home({ backendPath }) {
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <Shop
+      <EventCases
         playerData={playerData}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <EventCases
+      <Shop
         playerData={playerData}
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}

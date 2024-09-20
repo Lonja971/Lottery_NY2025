@@ -6,7 +6,7 @@
 }
 .shop__bg{
    position: absolute;
-   background-image: url("../../public/img/background/bg_v6.png");
+   background-image: url("../../public/img/background/bg_v6-original.png");
    background-size: 500px;
    box-shadow: -1px 12px 25px 1px rgba(0, 0, 0, 0.808) inset;
    width: 100vw;

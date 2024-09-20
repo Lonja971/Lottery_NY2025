@@ -20,7 +20,7 @@ export function NavBarLayout({
           {drawingsBlock}
         </ul>
       </div>
-      <a href="https://lonja971.github.io/WomT_wiki/WomT.html" className="nav__logo-big">
+      <a target="_blank" rel="noopener noreferrer" href="https://lonja971.github.io/WomT_wiki/WomT.html" className="nav__logo-big">
         <img src="logo-big.png" alt="LOGO" />
       </a>
     </div>

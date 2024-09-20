@@ -882,7 +882,7 @@ export const EXCHANGE = {
 
 const COLLECTIONS = {
   main_collection: "Новорічна Колекція",
-  nationals_collection: "Колекція Країни",
+  nationals_collection: "Колекції Країн",
   china_new_year: "Китайський Новий Рік",
 };
 
@@ -927,25 +927,47 @@ export const CASES = {
   },
   //---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
 
+  new_year_mythical_tank1: {
+    name: 'ТІТТ Розанова',
+    transcription: "new_year_mythical_tank1",
+    animation: "default",
+    caseInfo: 'Гарантований танк',
+    award: 78,
+  },
+  new_year_mythical_tank2: {
+    name: 'Project Murat',
+    transcription: "new_year_mythical_tank2",
+    animation: "default",
+    caseInfo: 'Гарантований танк',
+    award: 64,
+  },
   new_years_camo1: {
-    name: 'Обʼєкт 490 "Білка"',
+    name: 'AE Phase 1 Новорічний',
     transcription: "new_years_camo1",
     animation: "default",
+    caseInfo: 'Гарантований камуфляж',
+    award: 91,
   },
   new_years_camo2: {
-    name: 'E 100 "Втоплений Титан"',
+    name: '🌊Втоплений Титан E 100',
     transcription: "new_years_camo2",
     animation: "default",
+    caseInfo: "Гарантований камуфляж",
+    award: 62,
   },
   new_years_tank1: {
-    name: "Обʼєкт 490",
+    name: "AE Phase 1",
     transcription: "new_years_tank1",
     animation: "default",
+    caseInfo: "Гарантований танк",
+    award: 90,
   },
   new_years_tank2: {
     name: "E 100",
     transcription: "new_years_tank2",
     animation: "default",
+    caseInfo: "Гарантований танк",
+    award: 61,
   },
 
   //---ІВЕНТНІ-КЕЙСИ---
@@ -972,6 +994,13 @@ export const CASES = {
     guarantor: 50,
     collection: COLLECTIONS.china_new_year,
     guarantorAward: 88,
+  },
+  obj_490_cases: {
+    name: "Білка №490",
+    transcription: "obj_490_cases",
+    animation: "default",
+    guarantor: 50,
+    guarantorAward: 2,
   },
 };
 
@@ -1012,7 +1041,7 @@ export const SPECIAL_CASE = [
     probability: 5,
     type: "single",
     items: [
-      { type: "tank", id: 3, probability: 1, amounts: [1] },
+      { type: "tank", id: 91, probability: 1, amounts: [1] },
       { type: "tank", id: 62, probability: 1, amounts: [1] },
     ]
   },
@@ -1049,7 +1078,7 @@ export const LEGENDARY_CASE = [
     probability: 50,
     type: "single",
     items: [
-      { type: "tank", id: 2, probability: 1, amounts: [1] },
+      { type: "tank", id: 90, probability: 1, amounts: [1] },
       { type: "tank", id: 61, probability: 1, amounts: [1] },
     ]
   },
@@ -1057,14 +1086,20 @@ export const LEGENDARY_CASE = [
 
 //---КЕЙСИ-МАГАЗИНУ-КРЕСЛЕНЬ---
 
+export const NEW_YEARS_MYTHICAL_TANK1 = [
+  { type: "tank", id: 78, probability: 100, amounts: [1] },
+];
+export const NEW_YEARS_MYTHICAL_TANK2 = [
+  { type: "tank", id: 64, probability: 100, amounts: [1] },
+];
 export const NEW_YEARS_CAMO_1 = [
-  { type: "tank", id: 3, probability: 100, amounts: [1] },
+  { type: "tank", id: 91, probability: 100, amounts: [1] },
 ];
 export const NEW_YEARS_CAMO_2 = [
   { type: "tank", id: 62, probability: 100, amounts: [1] },
 ];
 export const NEW_YEARS_TANK_1 = [
-  { type: "tank", id: 2, probability: 100, amounts: [1] },
+  { type: "tank", id: 90, probability: 100, amounts: [1] },
 ];
 export const NEW_YEARS_TANK_2 = [
   { type: "tank", id: 61, probability: 100, amounts: [1] },
@@ -1120,7 +1155,7 @@ export const FRANCE_NATION_CASE = [
     ]
   },
 ];
-export const CHINA_NEW_YEAR = [
+export const CHINA_NEW_YEAR_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
   { type: "premium_akk", probability: 35, amounts: [1] },
   { type: "gold", probability: 30, amounts: [ 500, 700 ] },
@@ -1133,4 +1168,13 @@ export const CHINA_NEW_YEAR = [
       { type: "tank", id: 89, probability: 1, amounts: [1] },
     ]
   },
+];
+
+export const OBJ_490_CASE = [
+  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 35, amounts: [1] },
+  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+
+  { type: "tank", id: 2, probability: 3, amounts: [1] },
+  { type: "tank", id: 3, probability: 5, amounts: [1] },
 ];

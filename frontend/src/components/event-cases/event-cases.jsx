@@ -1,6 +1,6 @@
 import "../../css/event-cases.css";
 import { CaseBlock } from "../uikit/case-block";
-import { WAFF_CASE,FRANCE_NATION_CASE, CHINA_NEW_YEAR } from "../constants";
+import { WAFF_CASE, FRANCE_NATION_CASE, CHINA_NEW_YEAR_CASE, OBJ_490_CASE } from "../constants";
 
 export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarantors}) {
 
@@ -30,7 +30,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
       {
          isManu: false,
          transcription: "china_new_year_cases",
-         type: CHINA_NEW_YEAR,
+         type: CHINA_NEW_YEAR_CASE,
          buttons: [
             {
                openResource: "gold",
@@ -42,6 +42,17 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             },
          ],
       },
+      {
+         isManu: false,
+         transcription: "obj_490_cases",
+         type: OBJ_490_CASE,
+         buttons: [
+            {
+               openResource: "red_tokens",
+               price: 2,
+            },
+         ],
+      },
    ]
 
    return (
@@ -49,7 +60,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
          <div className="eventcases__container _container">
             <div className="eventcases__bg"></div>
             <div className="eventcases__content">
-               <div className="eventcases__content-title">
+               <div className="cases__content-title">
                   <h2 className="_glass">Івентні Контейнери <img src="img/resources/red_tokens.png" alt="" /></h2>
                </div>
                <div className="_cases-container">
