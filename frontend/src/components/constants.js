@@ -809,6 +809,15 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/usa/ae_phase_1.html",
     exchange: 7200,
   },
+  91: {
+    id: 91,
+    name: "AE Phase 1 Новорічний",
+    transcription: "ae_phase_1_new_year",
+    type: "camo",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/usa/ae_phase_1.html",
+    exchange: 1500,
+  },
 };
 
 //---EXCHANGE---
@@ -1110,13 +1119,9 @@ export const CHINA_NEW_YEAR = [
     probability: 3,
     type: "single",
     items: [
-      { type: "tank", id: 80, probability: 1, amounts: [1] },
       { type: "tank", id: 83, probability: 1, amounts: [1] },
-      { type: "tank", id: 39, probability: 1, amounts: [1] },
-      { type: "tank", id: 81, probability: 1, amounts: [1] },
-      { type: "tank", id: 21, probability: 1, amounts: [1] },
-      { type: "tank", id: 82, probability: 1, amounts: [1] },
-      { type: "tank", id: 79, probability: 1, amounts: [1] },
+      { type: "tank", id: 88, probability: 1, amounts: [1] },
+      { type: "tank", id: 89, probability: 1, amounts: [1] },
     ]
   },
 ];
