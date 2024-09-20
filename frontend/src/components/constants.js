@@ -42,7 +42,7 @@ export const TANKS = {
     name: "Т-20-22",
     transcription: "t_20_22",
     type: "lt",
-    land: "ussr",
+    land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/t-20-22.html",
     exchange: 6800,
   },
@@ -232,7 +232,7 @@ export const TANKS = {
     transcription: "vindicator",
     type: "td",
     land: "inter",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/vindicator.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/inter/vindicator.html",
     exchange: 6800,
   },
   28: {
@@ -286,7 +286,7 @@ export const TANKS = {
     transcription: "crusher",
     type: "ht",
     land: "inter",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/krushitel.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/inter/krushitel.html",
     exchange: 6800,
   },
   34: {
@@ -368,7 +368,7 @@ export const TANKS = {
     transcription: "turbo_raumpanzer",
     type: "ht",
     land: "inter",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/turbo_raumpanzer.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/inter/turbo_raumpanzer.html",
     exchange: 6800,
   },
   43: {
@@ -494,7 +494,7 @@ export const TANKS = {
     transcription: "vindicator_dark_angels",
     type: "camo",
     land: "inter",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/vindicator.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/inter/vindicator.html",
     exchange: 1500,
   },
   57: {
@@ -503,7 +503,7 @@ export const TANKS = {
     transcription: "vindicator_imperial_fist",
     type: "camo",
     land: "inter",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/vindicator.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/inter/vindicator.html",
     exchange: 1500,
   },
   58: {
@@ -760,7 +760,7 @@ export const TANKS = {
     transcription: "hori_type_3_samurai",
     type: "camo",
     land: "jp",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/japan/hori_type_3.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/japan/hori_type_3.html",
     exchange: 1500,
     bg: "hori_type_3_samurai-bg",
   },
@@ -779,7 +779,7 @@ export const TANKS = {
     transcription: "wz_113_copper_warrior",
     type: "camo",
     land: "ch",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/wz-113.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz-113.html",
     exchange: 1500,
   },
   88: {
@@ -788,7 +788,7 @@ export const TANKS = {
     transcription: "bz_176",
     type: "ht",
     land: "ch",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/bz-176.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/bz-176.html",
     exchange: 7200,
   },
   89: {
@@ -797,7 +797,7 @@ export const TANKS = {
     transcription: "114_sp2",
     type: "td",
     land: "ch",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/china/114_sp2.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/china/114_sp2.html",
     exchange: 7200,
   },
   90: {
@@ -806,7 +806,7 @@ export const TANKS = {
     transcription: "ae_phase_1",
     type: "ht",
     land: "usa",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/usa/ae_phase_1.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/ae_phase_1.html",
     exchange: 7200,
   },
   91: {
@@ -815,7 +815,16 @@ export const TANKS = {
     transcription: "ae_phase_1_new_year",
     type: "camo",
     land: "usa",
-    link: "https://lonja971.github.io/WomT_wiki/tanks/tanks/tanks/usa/ae_phase_1.html",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/ae_phase_1.html",
+    exchange: 1500,
+  },
+  92: {
+    id: 92,
+    name: "Т-20-22 Новорічний",
+    transcription: "t_20_22_new_year",
+    type: "camo",
+    land: "inter",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/inter/t-20-22.html",
     exchange: 1500,
   },
 };
