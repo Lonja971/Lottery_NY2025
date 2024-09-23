@@ -9,6 +9,9 @@ export function ModalOpenCaseAnimation({backendPath, playerId, addMessage, setIs
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [compensatedItems, setCompensatedItems] = useState(null);
   const [newDroppedTanks, setNewDroppedTanks] = useState(null);
+  const [isButtonOpen, setIsButtonOpen] = useState(false);
+
+  const buttonTimer = 1000;
 
 
   const handleVideoLoaded = () => {
@@ -36,6 +39,15 @@ export function ModalOpenCaseAnimation({backendPath, playerId, addMessage, setIs
     OpeningCasesLogic( backendPath, playerId, setIsUpdated, limit, caseResourcesInfo, setDroppedItems, setCompensatedItems, setNewDroppedTanks, active);
   }, [backendPath, caseResourcesInfo, playerId, setIsUpdated, active]);
   
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsButtonOpen(true)
+    }, buttonTimer);
+
+    return () => clearTimeout(timer);
+  }, [buttonTimer])
+
   //console.log("---");
   //if (droppedItems.length !== 0){
   //  console.log("");
@@ -46,7 +58,7 @@ export function ModalOpenCaseAnimation({backendPath, playerId, addMessage, setIs
   return (
     <div className="opening-cases-block">
       <button
-        className="btn _glass anima-btn"
+        className={`btn _glass anima-btn${ !isButtonOpen ? " btn-closed" : ""}`}
         onClick={handleClick}
       >
         Забрати
