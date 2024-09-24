@@ -827,6 +827,61 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/inter/t-20-22.html",
     exchange: 1500,
   },
+  93: {
+    id: 93,
+    name: "Sherman Sanders",
+    smallName: "Sherman San...",
+    transcription: "sherman_sanders",
+    type: "lt",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/sherman_sanders.html",
+    exchange: 4500,
+  },
+  94: {
+    id: 94,
+    name: "T-49",
+    transcription: "t_49",
+    type: "lt",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/t-49.html",
+    exchange: 5100,
+  },
+  95: {
+    id: 95,
+    name: "M6A2E1",
+    transcription: "m6a2e1",
+    type: "ht",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/m6a2e1.html",
+    exchange: 5100,
+  },
+  96: {
+    id: 96,
+    name: "T-28 Defender",
+    transcription: "t_28_defender",
+    type: "td",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/t28_defender.html",
+    exchange: 4500,
+  },
+  97: {
+    id: 97,
+    name: "Гордий",
+    transcription: "m5_yoh_proud",
+    type: "camo",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/m5_yoh.html",
+    exchange: 1500,
+  },
+  98: {
+    id: 98,
+    name: "Клоун",
+    transcription: "m5_yoh_clown",
+    type: "camo",
+    land: "usa",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/usa/m5_yoh.html",
+    exchange: 1500,
+  },
 };
 
 //---EXCHANGE---
@@ -998,9 +1053,17 @@ export const CASES = {
   obj_490_cases: {
     name: "Білка №490",
     transcription: "obj_490_cases",
-    animation: "default",
+    animation: "obj_490_cases",
     guarantor: 50,
     guarantorAward: 2,
+  },
+  usa_nation_cases: {
+    name: "Американські спартанці",
+    transcription: "usa_nation_cases",
+    animation: "usa_nation_cases",
+    guarantor: 50,
+    collection: COLLECTIONS.nationals_collection,
+    guarantorAward: 95,
   },
 };
 
@@ -1155,6 +1218,7 @@ export const FRANCE_NATION_CASE = [
     ]
   },
 ];
+
 export const CHINA_NEW_YEAR_CASE = [
   { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
   { type: "premium_akk", probability: 35, amounts: [1] },
@@ -1177,4 +1241,33 @@ export const OBJ_490_CASE = [
 
   { type: "tank", id: 2, probability: 3, amounts: [1] },
   { type: "tank", id: 3, probability: 5, amounts: [1] },
+];
+
+export const USA_NATION_CASE = [
+  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 35, amounts: [1] },
+  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { 
+    probability: 2,
+    type: "single",
+    items: [
+      { type: "tank", id: 93, probability: 1, amounts: [1] },
+      { type: "tank", id: 7, probability: 1, amounts: [1] },
+      { type: "tank", id: 94, probability: 1, amounts: [1] },
+      { type: "tank", id: 95, probability: 1, amounts: [1] },
+      { type: "tank", id: 30, probability: 1, amounts: [1] },
+      { type: "tank", id: 19, probability: 1, amounts: [1] },
+      { type: "tank", id: 96, probability: 1, amounts: [1] },
+      { type: "tank", id: 25, probability: 1, amounts: [1] },
+    ]
+  },
+  { 
+    probability: 5,
+    type: "single",
+    items: [
+      { type: "tank", id: 54, probability: 1, amounts: [1] },
+      { type: "tank", id: 97, probability: 1, amounts: [1] },
+      { type: "tank", id: 98, probability: 1, amounts: [1] },
+    ]
+  },
 ];

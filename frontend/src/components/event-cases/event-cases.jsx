@@ -1,6 +1,6 @@
 import "../../css/event-cases.css";
 import { CaseBlock } from "../uikit/case-block";
-import { WAFF_CASE, FRANCE_NATION_CASE, CHINA_NEW_YEAR_CASE, OBJ_490_CASE } from "../constants";
+import { WAFF_CASE, FRANCE_NATION_CASE, CHINA_NEW_YEAR_CASE, OBJ_490_CASE, USA_NATION_CASE } from "../constants";
 
 export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarantors}) {
 
@@ -46,6 +46,17 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
          isManu: false,
          transcription: "obj_490_cases",
          type: OBJ_490_CASE,
+         buttons: [
+            {
+               openResource: "red_tokens",
+               price: 2,
+            },
+         ],
+      },
+      {
+         isManu: false,
+         transcription: "usa_nation_cases",
+         type: USA_NATION_CASE,
          buttons: [
             {
                openResource: "red_tokens",

@@ -58,7 +58,8 @@ INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `
 (13, 'china_new_year_cases', 200, 1, NULL, NULL, NULL, NULL),
 (14, 'new_year_mythical_tank1', NULL, NULL, NULL, 10, NULL, NULL),
 (15, 'new_year_mythical_tank2', NULL, NULL, NULL, 10, NULL, NULL),
-(16, 'obj_490_cases', NULL, NULL, 2, NULL, NULL, NULL);
+(16, 'obj_490_cases', NULL, NULL, 2, NULL, NULL, NULL),
+(17, 'usa_nation_cases', NULL, NULL, 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -153,7 +154,8 @@ INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type
 (3, 7, 50, 'tank', 59, 1),
 (4, 10, 50, 'tank', 63, 1),
 (5, 13, 50, 'tank', 88, 1),
-(6, 16, 50, 'tank', 2, 1);
+(6, 16, 50, 'tank', 2, 1),
+(6, 17, 50, 'tank', 95, 1);
 
 -- --------------------------------------------------------
 
@@ -265,12 +267,13 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (90, 'AE Phase 1', 'ae_phase_1', 'ht', 'usa', 5700),
 (91, 'AE Phase 1 Новорічний', 'ae_phase_1_new_year', 'camo', 'usa', 1500),
 (92, 'Т-20-22 Новорічний', 't_20_22_new_year', 'camo', 'inter', 1500),
+
 (93, 'Sherman Sanders', 'sherman_sanders', 'lt', 'usa', 4500),
 (94, 'T-49', 't_49', 'lt', 'usa', 5100),
 (95, 'M6A2E1', 'm6a2e1', 'ht', 'usa', 5100),
 (96, 'T-28 Defender', 't_28_defender', 'td', 'usa', 4500),
 (97, 'Гордий', 'm5_yoh_proud', 'camo', 'usa', 1500),
-(98, 'Клоун', 'm5_yoh_clown', 'camo', 'usa', 1500),
+(98, 'Клоун', 'm5_yoh_clown', 'camo', 'usa', 1500);
 
 -- --------------------------------------------------------
 
