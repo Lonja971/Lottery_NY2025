@@ -177,6 +177,10 @@ body.lock {
 .btn:hover .line-left {
   height: calc(100% + 2px);
 }
+.btn-closed{
+  opacity: 0;
+  pointer-events: none;
+}
 a {
   color: var(--green);
   transition: all 0.3s ease 0s;
