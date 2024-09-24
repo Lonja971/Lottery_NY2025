@@ -178,7 +178,7 @@ body.lock {
   height: calc(100% + 2px);
 }
 .btn-closed{
-  opacity: 0;
+  opacity: 0.15;
   pointer-events: none;
 }
 a {

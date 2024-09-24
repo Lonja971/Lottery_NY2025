@@ -16,7 +16,7 @@ export const TANKS = {
     type: "ht",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/obj_490.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   3: {
     id: 3,
@@ -35,7 +35,7 @@ export const TANKS = {
     type: "lt",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/pz_5-4.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   6: {
     id: 6,
@@ -44,7 +44,7 @@ export const TANKS = {
     type: "lt",
     land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/t-20-22.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   7: {
     id: 7,
@@ -53,7 +53,7 @@ export const TANKS = {
     type: "lt",
     land: "usa",
     link: "https://lonja971.github.io/WomT_wiki/tanks/usa/sheridan.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   8: {
     id: 8,
@@ -71,7 +71,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_els_bis.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   10: {
     id: 10,
@@ -80,7 +80,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/els_even_90.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   11: {
     id: 11,
@@ -89,7 +89,7 @@ export const TANKS = {
     type: "lt",
     land: "it",
     link: "https://lonja971.github.io/WomT_wiki/tanks/italy/progetto_46.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   12: {
     id: 12,
@@ -98,7 +98,7 @@ export const TANKS = {
     type: "lt",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/t34_kharkiv.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   13: {
     id: 13,
@@ -107,7 +107,7 @@ export const TANKS = {
     type: "lt",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/t54.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   14: {
     id: 14,
@@ -116,7 +116,7 @@ export const TANKS = {
     type: "ht",
     land: "sw",
     link: "https://lonja971.github.io/WomT_wiki/tanks/sweden/kranwagn.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   15: {
     id: 15,
@@ -125,7 +125,7 @@ export const TANKS = {
     type: "ht",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_m4_54.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   16: {
     id: 16,
@@ -134,7 +134,7 @@ export const TANKS = {
     type: "ht",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/maus.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   17: {
     id: 17,
@@ -143,7 +143,7 @@ export const TANKS = {
     type: "ht",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/tiger_p.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   18: {
     id: 18,
@@ -152,7 +152,7 @@ export const TANKS = {
     type: "ht",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/tiger_titan.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   19: {
     id: 19,
@@ -161,7 +161,7 @@ export const TANKS = {
     type: "ht",
     land: "usa",
     link: "https://lonja971.github.io/WomT_wiki/tanks/usa/m5_yoh.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   20: {
     id: 20,
@@ -170,7 +170,7 @@ export const TANKS = {
     type: "ht",
     land: "it",
     link: "https://lonja971.github.io/WomT_wiki/tanks/italy/bisonte_c45.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   21: {
     id: 21,
@@ -179,7 +179,7 @@ export const TANKS = {
     type: "ht",
     land: "jp",
     link: "https://lonja971.github.io/WomT_wiki/tanks/japan/type_5_heavy.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   22: {
     id: 22,
@@ -188,7 +188,7 @@ export const TANKS = {
     type: "ht",
     land: "ua",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ukraine/t640plot.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   23: {
     id: 23,
@@ -197,7 +197,7 @@ export const TANKS = {
     type: "ht",
     land: "ussr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/kv-2.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   24: {
     id: 24,
@@ -206,7 +206,7 @@ export const TANKS = {
     type: "ht",
     land: "ussr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/is-2_var_2.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   25: {
     id: 25,
@@ -215,7 +215,7 @@ export const TANKS = {
     type: "td",
     land: "usa",
     link: "https://lonja971.github.io/WomT_wiki/tanks/usa/t-95.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   26: {
     id: 26,
@@ -224,7 +224,7 @@ export const TANKS = {
     type: "td",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/grill_15.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   27: {
     id: 27,
@@ -233,7 +233,7 @@ export const TANKS = {
     type: "td",
     land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/inter/vindicator.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   28: {
     id: 28,
@@ -242,7 +242,7 @@ export const TANKS = {
     type: "td",
     land: "it",
     link: "https://lonja971.github.io/WomT_wiki/tanks/italy/minotauro.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   29: {
     id: 29,
@@ -251,7 +251,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/bat-chat_25t.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   30: {
     id: 30,
@@ -260,7 +260,7 @@ export const TANKS = {
     type: "ht",
     land: "usa",
     link: "https://lonja971.github.io/WomT_wiki/tanks/usa/t57_heavy.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   31: {
     id: 31,
@@ -269,7 +269,7 @@ export const TANKS = {
     type: "ht",
     land: "br",
     link: "https://lonja971.github.io/WomT_wiki/tanks/britaine/togg_2.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   32: {
     id: 32,
@@ -278,7 +278,7 @@ export const TANKS = {
     type: "ht",
     land: "ussr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/is-7.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   33: {
     id: 33,
@@ -287,7 +287,7 @@ export const TANKS = {
     type: "ht",
     land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/inter/krushitel.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   34: {
     id: 34,
@@ -305,7 +305,7 @@ export const TANKS = {
     type: "td",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/s_35_ca.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   36: {
     id: 36,
@@ -314,7 +314,7 @@ export const TANKS = {
     type: "td",
     land: "br",
     link: "https://lonja971.github.io/WomT_wiki/tanks/britaine/churchill_gc.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   37: {
     id: 37,
@@ -323,7 +323,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_30-1.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   38: {
     id: 38,
@@ -332,7 +332,7 @@ export const TANKS = {
     type: "ht",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/pz_b2.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   39: {
     id: 39,
@@ -341,7 +341,7 @@ export const TANKS = {
     type: "ht",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz_111.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   40: {
     id: 40,
@@ -350,7 +350,7 @@ export const TANKS = {
     type: "td",
     land: "ussr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/sy-130pm.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   41: {
     id: 41,
@@ -359,7 +359,7 @@ export const TANKS = {
     type: "td",
     land: "sw",
     link: "https://lonja971.github.io/WomT_wiki/tanks/sweden/strv_103b.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   42: {
     id: 42,
@@ -369,7 +369,7 @@ export const TANKS = {
     type: "ht",
     land: "inter",
     link: "https://lonja971.github.io/WomT_wiki/tanks/inter/turbo_raumpanzer.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   43: {
     id: 43,
@@ -522,7 +522,7 @@ export const TANKS = {
     type: "td",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/waf_auf_e100.html",
-    exchange: 7500,
+    exchange: 5700,
   },
   60: {
     id: 60,
@@ -541,7 +541,7 @@ export const TANKS = {
     type: "ht",
     land: "ge",
     link: "https://lonja971.github.io/WomT_wiki/tanks/germany/e100.html",
-    exchange: 7500,
+    exchange: 5700,
   },
   62: {
     id: 62,
@@ -560,7 +560,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/char_futur_4.html",
-    exchange: 7500,
+    exchange: 5700,
   },
   64: {
     id: 64,
@@ -569,7 +569,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/project_murat.html",
-    exchange: 7500,
+    exchange: 5700,
   },
   65: {
     id: 65,
@@ -578,7 +578,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/fcm_50t.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   66: {
     id: 66,
@@ -587,7 +587,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_cdc.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   67: {
     id: 67,
@@ -596,7 +596,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_13_57.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   68: {
     id: 68,
@@ -606,7 +606,7 @@ export const TANKS = {
     type: "lt",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/panhard_ebr_105.html",
-    exchange: 7600,
+    exchange: 5700,
   },
   69: {
     id: 69,
@@ -615,7 +615,7 @@ export const TANKS = {
     type: "ht",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_50b.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   70: {
     id: 70,
@@ -624,7 +624,7 @@ export const TANKS = {
     type: "ht",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/amx_30b.html",
-    exchange: 6400,
+    exchange: 4800,
   },
   71: {
     id: 71,
@@ -642,7 +642,7 @@ export const TANKS = {
     type: "td",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/fosh_155.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   73: {
     id: 73,
@@ -696,7 +696,7 @@ export const TANKS = {
     type: "lt",
     land: "ussr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/ussr/titt_rozanov.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   79: {
     id: 79,
@@ -705,7 +705,7 @@ export const TANKS = {
     type: "td",
     land: "jp",
     link: "https://lonja971.github.io/WomT_wiki/tanks/japan/hori_type_3.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   80: {
     id: 80,
@@ -714,7 +714,7 @@ export const TANKS = {
     type: "lt",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/type_59_gold.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   81: {
     id: 81,
@@ -723,7 +723,7 @@ export const TANKS = {
     type: "ht",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz-113.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   82: {
     id: 82,
@@ -733,7 +733,7 @@ export const TANKS = {
     type: "td",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/wz_pilauchiy.html",
-    exchange: 5600,
+    exchange: 4200,
   },
   83: {
     id: 83,
@@ -742,7 +742,7 @@ export const TANKS = {
     type: "lt",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/type_kv2_light.html",
-    exchange: 6800,
+    exchange: 5100,
   },
   84: {
     id: 84,
@@ -789,7 +789,7 @@ export const TANKS = {
     type: "ht",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/bz-176.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   89: {
     id: 89,
@@ -798,7 +798,7 @@ export const TANKS = {
     type: "td",
     land: "ch",
     link: "https://lonja971.github.io/WomT_wiki/tanks/china/114_sp2.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   90: {
     id: 90,
@@ -807,7 +807,7 @@ export const TANKS = {
     type: "ht",
     land: "usa",
     link: "https://lonja971.github.io/WomT_wiki/tanks/usa/ae_phase_1.html",
-    exchange: 7200,
+    exchange: 5400,
   },
   91: {
     id: 91,
