@@ -882,6 +882,24 @@ export const TANKS = {
     link: "https://lonja971.github.io/WomT_wiki/tanks/usa/m5_yoh.html",
     exchange: 1500,
   },
+  99: {
+    id: 99,
+    name: "Jagdpanzer E 100",
+    transcription: "jagdpanzer_E_100",
+    type: "td",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/jag-panzer_e100.html",
+    exchange: 5400,
+  },
+  100: {
+    id: 100,
+    name: "Tortoise",
+    transcription: "tortoise",
+    type: "td",
+    land: "br",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/britaine/tortoise.html",
+    exchange: 4800,
+  },
 };
 
 //---EXCHANGE---

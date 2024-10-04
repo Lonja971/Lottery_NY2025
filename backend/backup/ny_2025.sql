@@ -155,7 +155,7 @@ INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type
 (4, 10, 50, 'tank', 63, 1),
 (5, 13, 50, 'tank', 88, 1),
 (6, 16, 50, 'tank', 2, 1),
-(6, 17, 50, 'tank', 95, 1);
+(7, 17, 50, 'tank', 95, 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +272,9 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (95, 'M6A2E1', 'm6a2e1', 'ht', 'usa', 5100),
 (96, 'T-28 Defender', 't_28_defender', 'td', 'usa', 4500),
 (97, 'Гордий', 'm5_yoh_proud', 'camo', 'usa', 1500),
-(98, 'Клоун', 'm5_yoh_clown', 'camo', 'usa', 1500);
+(98, 'Клоун', 'm5_yoh_clown', 'camo', 'usa', 1500),
+(99, 'Jagdpanzer E 100', 'jagdpanzer_E_100', 'td', 'ge', 5400),
+(100, 'Tortoise', 'tortoise', 'td', 'br', 4800);
 
 -- --------------------------------------------------------
 
@@ -341,7 +343,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `
 (5, 'Killua', '$2y$10$9RcfARbasxfCPBFxnr3voew1uxvaKkf6cmx8.xLk0g/XF5PQKqGZ.', 8500, 4000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
 (6, 'Davidk104', '$2y$10$ZrDIgq5LrRt9ilVOcRC5Se6xprv415k.2I6u53Jw36Kk3k1Y4bu9i', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 108450, 1220500, 1, 173, 7, 199, 17, 23, 17, 5, 22, 0, 1726495293),
-(8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
+(8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
 (9, '7DaysRush', '$2y$10$416G6iwRa4tCCdHdn5xYo.SVvZJf6IOL7ZgFmVGBty42ME1c7BtwW', 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
