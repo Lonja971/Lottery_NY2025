@@ -906,7 +906,7 @@ export const EXCHANGE = {
     drawings: {
       exchange: "drawings",
       exchangeValue: "1",
-      getValue: "400",
+      getValue: "300",
     },
     tokens: {
       exchange: "tokens",
@@ -916,7 +916,7 @@ export const EXCHANGE = {
     red_tokens: {
       exchange: "red_tokens",
       exchangeValue: "1",
-      getValue: "200",
+      getValue: "150",
     },
   },
   red_tokens: {
@@ -927,7 +927,7 @@ export const EXCHANGE = {
     },
     gold: {
       exchange: "gold",
-      exchangeValue: "400",
+      exchangeValue: "250",
       getValue: "1",
     },
   }
@@ -1033,6 +1033,7 @@ export const CASES = {
     animation: "waff_case",
     guarantor: 50,
     guarantorAward: 59,
+    info: "Якщо сили вистачить...",
   },
   france_nation_cases: {
     name: "Французькі Пиріжки",
@@ -1056,9 +1057,10 @@ export const CASES = {
     animation: "obj_490_cases",
     guarantor: 50,
     guarantorAward: 2,
+    info: "Там, де він з'являється, надії ворогів зриваються.",
   },
   usa_nation_cases: {
-    name: "Американські спартанці",
+    name: "Американська Гордість",
     transcription: "usa_nation_cases",
     animation: "usa_nation_cases",
     guarantor: 50,
@@ -1069,7 +1071,7 @@ export const CASES = {
 
 //---CASES-RESOURCES-INFO---
 
-//---ДЛЯ-МАСИВІВ-В-МАСИВІ-TYPE-БУДЕ:
+//---ДЛЯ-ПІДМАСИВІВ-TYPE-БУДЕ:
 //-single-ЯКЩО-МОЖЕ-ВИПАСТИ-ОДИН-ЕЛЕМЕНТ
 //-plural-ЯКЩО-МОЖЕ-ВИПАСТИ-БАГАТО-ЕЛЕМЕНТІВ
 
@@ -1078,11 +1080,11 @@ export const MAIN_CASE = [
     probability: 100,
     type: "single",
     items: [
-      { type: "case", name: "regular_cases", probability: 44, amounts: [1] },
-      { type: "case", name: "special_cases", probability: 32, amounts: [1] },
+      { type: "case", name: "regular_cases", probability: 42.5, amounts: [1] },
+      { type: "case", name: "special_cases", probability: 35, amounts: [1] },
       { type: "case", name: "rare_cases", probability: 18, amounts: [1] },
-      { type: "case", name: "mythical_cases", probability: 5, amounts: [1] },
-      { type: "case", name: "legendary_cases", probability: 1, amounts: [1] },
+      { type: "case", name: "mythical_cases", probability: 3, amounts: [1] },
+      { type: "case", name: "legendary_cases", probability: 1.5, amounts: [1] },
     ]
   },
   { type: "gold", probability: 10, amounts: [ 100, 300, 400 ] },
@@ -1115,16 +1117,16 @@ export const RARE_CASE = [
   { type: "premium_akk", probability: 35, amounts: [1] },
   { type: "gold", probability: 30, amounts: [ 400, 600 ] },
   { type: "red_tokens", probability: 10, amounts: [ 2 ] },
-  { type: "drawings", probability: 10, amounts: [1] },
+  { type: "drawings", probability: 10, amounts: [1, 2] },
 ];
 
 export const MYTHICAL_CASE = [
   { type: "premium_akk", probability: 35, amounts: [2] },
   { type: "gold", probability: 30, amounts: [1000, 2000] },
-  { type: "drawings", probability: 30, amounts: [1, 2], default: true },
-  { type: "red_tokens", probability: 10, amounts: [2, 4] },
+  { type: "drawings", probability: 30, amounts: [2, 3], default: true },
+  { type: "red_tokens", probability: 20, amounts: [2, 4, 6] },
   { 
-    probability: 20,
+    probability: 25,
     type: "single",
     items: [
       { type: "tank", id: 78, probability: 1, amounts: [1] },
@@ -1135,8 +1137,8 @@ export const MYTHICAL_CASE = [
 
 export const LEGENDARY_CASE = [
   { type: "gold", probability: 30, amounts: [2000, 3000] },
-  { type: "drawings", probability: 25, amounts: [2, 3], default: true, dafaultAmount: 2, },
-  { type: "red_tokens", probability: 25, amounts: [2, 4, 6] },
+  { type: "drawings", probability: 25, amounts: [3, 4], default: true, dafaultAmount: 3, },
+  { type: "red_tokens", probability: 25, amounts: [4, 6, 8, 10] },
   { 
     probability: 50,
     type: "single",
@@ -1172,9 +1174,9 @@ export const NEW_YEARS_TANK_2 = [
 //---ІВЕНТОВІ-КЕЙСИ---
 
 export const WAFF_CASE = [
-  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
-  { type: "premium_akk", probability: 35, amounts: [1] },
-  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "silver", probability: 35, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 30, amounts: [1, 2] },
+  { type: "gold", probability: 20, amounts: [ 250, 250, 500 ] },
   //{ type: "red_tokens", probability: 10, amounts: [ 1, 2 ] },
 
   { type: "tank", id: 59, probability: 3, amounts: [1] },
@@ -1182,9 +1184,9 @@ export const WAFF_CASE = [
 ];
 
 export const FRANCE_NATION_CASE = [
-  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
-  { type: "premium_akk", probability: 35, amounts: [1] },
-  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "silver", probability: 35, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 30, amounts: [1, 2] },
+  { type: "gold", probability: 20, amounts: [ 250, 250, 500 ] },
   { type: "tank", id: 63, probability: 2, amounts: [1] },
   { 
     probability: 2,
@@ -1220,9 +1222,9 @@ export const FRANCE_NATION_CASE = [
 ];
 
 export const CHINA_NEW_YEAR_CASE = [
-  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
-  { type: "premium_akk", probability: 35, amounts: [1] },
-  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "silver", probability: 35, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 30, amounts: [1, 2] },
+  { type: "gold", probability: 15, amounts: [ 250, 250, 500 ] },
   { 
     probability: 3,
     type: "single",
@@ -1235,18 +1237,18 @@ export const CHINA_NEW_YEAR_CASE = [
 ];
 
 export const OBJ_490_CASE = [
-  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
-  { type: "premium_akk", probability: 35, amounts: [1] },
-  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "silver", probability: 35, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 30, amounts: [1, 2] },
+  { type: "gold", probability: 20, amounts: [ 250, 250, 500 ] },
 
   { type: "tank", id: 2, probability: 3, amounts: [1] },
   { type: "tank", id: 3, probability: 5, amounts: [1] },
 ];
 
 export const USA_NATION_CASE = [
-  { type: "silver", probability: 30, amounts: [ 3000, 5000 ], default: true },
-  { type: "premium_akk", probability: 35, amounts: [1] },
-  { type: "gold", probability: 30, amounts: [ 500, 700 ] },
+  { type: "silver", probability: 35, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 30, amounts: [1, 2] },
+  { type: "gold", probability: 20, amounts: [ 250, 250, 500 ] },
   { 
     probability: 2,
     type: "single",
@@ -1262,7 +1264,7 @@ export const USA_NATION_CASE = [
     ]
   },
   { 
-    probability: 5,
+    probability: 4.8,
     type: "single",
     items: [
       { type: "tank", id: 54, probability: 1, amounts: [1] },

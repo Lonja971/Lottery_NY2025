@@ -59,7 +59,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="tokens"
               value={playerData.tokens}
-              text='Токени <img src="img/resources/tokens.png" alt="RES" /> - можно забрати раз на годину. За Токени можно покупати кейси під час події "Новорічна Лотерея 2025".'
+              text='Токени <img src="img/resources/tokens.png" alt="RES" /> - можно забрати раз на годину. За Токени можно покупати контейнери під час події "Новорічна Лотерея 2025".'
             />
           }
           redTokensItem={
@@ -68,7 +68,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="red_tokens"
               value={playerData.red_tokens}
-              text='Червоні Токени <img src="img/resources/red_tokens.png" alt="RES" /> - аналог звичайних Токенів <img src="img/resources/tokens.png" alt="RES" />, але на відміну від звичайних Токенів за них можно покупати ексклюзивні кейси під час події "Новорічна Лотерея 2025".'
+              text='Червоні Токени <img src="img/resources/red_tokens.png" alt="RES" /> - аналог звичайних Токенів <img src="img/resources/tokens.png" alt="RES" />, але на відміну від звичайних Токенів за них можно покупати ексклюзивні контейнери під час події "Новорічна Лотерея 2025".'
             />
           }
           tanksItem={
@@ -437,7 +437,7 @@ function ModalStorageLayout({
             </div>
           </div>
           <div className="storage__resources-block">
-            <h2>Кейси</h2>
+            <h2>Контейнери</h2>
             <div className="srb-block resources-block">
               {regularCasesItem}
               {specialCasesItem}

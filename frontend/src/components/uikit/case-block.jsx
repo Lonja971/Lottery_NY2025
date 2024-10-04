@@ -25,6 +25,9 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
                 <p>{CASES[caseData.transcription].collection}</p>
               ) : ""}
               <h3>{CASES[caseData.transcription].name}</h3>
+              {CASES[caseData.transcription].info !== undefined ? (
+                <p>{CASES[caseData.transcription].info}</p>
+              ) : ""}
             </div>
             <div className="buttons-block">
               <div className="buttons-block__buttons">

@@ -20,25 +20,25 @@ export function Shop({playerData, setModalOpenCaseAnimation}) {
          transcription: "new_year_mythical_tank1",
          type: NEW_YEARS_MYTHICAL_TANK1,
          buttonOpenResource: "drawings",
-         buttonPrice: 10,
+         buttonPrice: 15,
       },
       {
          transcription: "new_year_mythical_tank2",
          type: NEW_YEARS_MYTHICAL_TANK2,
          buttonOpenResource: "drawings",
-         buttonPrice: 10,
+         buttonPrice: 15,
       },
       {
          transcription: "new_years_tank1",
          type: NEW_YEARS_TANK_1,
          buttonOpenResource: "drawings",
-         buttonPrice: 12,
+         buttonPrice: 20,
       },
       {
          transcription: "new_years_tank2",
          type: NEW_YEARS_TANK_2,
          buttonOpenResource: "drawings",
-         buttonPrice: 12,
+         buttonPrice: 20,
       },
    ]
 

@@ -55,7 +55,7 @@ INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `
 (10, 'france_nation_cases', NULL, NULL, 2, NULL, NULL, NULL),
 (11, 'new_years_camo1', NULL, NULL, NULL, 6, NULL, NULL),
 (12, 'new_years_camo2', NULL, NULL, NULL, 6, NULL, NULL),
-(13, 'china_new_year_cases', 200, 1, NULL, NULL, NULL, NULL),
+(13, 'china_new_year_cases', 250, 1, 1, NULL, NULL, NULL),
 (14, 'new_year_mythical_tank1', NULL, NULL, NULL, 10, NULL, NULL),
 (15, 'new_year_mythical_tank2', NULL, NULL, NULL, 10, NULL, NULL),
 (16, 'obj_490_cases', NULL, NULL, 2, NULL, NULL, NULL),
@@ -82,8 +82,8 @@ CREATE TABLE `codes` (
 INSERT INTO `codes` (`id`, `code_name`, `get_type`, `get_name`, `get_value`) VALUES
 (1, '5oo', 'resource', 'gold', '500'),
 (3, 'tankk', 'tank', '2', '1'),
-(4, 'na_vse_dobre)', 'resource', 'gold', '1000'),
-(5, 'z_novim_rokom', 'tank', '77', '1');
+(4, 'BYDLASKA)', 'resource', 'gold', '1000'),
+(5, 'HAPPYNY25', 'tank', '77', '1');
 
 -- --------------------------------------------------------
 
@@ -106,9 +106,9 @@ INSERT INTO `exchange_gold` (`id`, `exchange_resource`, `exchange_value`, `get_v
 (1, 'silver', 3500, 100),
 (2, 'counters', 10, 200),
 (3, 'premium_akk', 5, 500),
-(4, 'drawings', 1, 400),
+(4, 'drawings', 1, 300),
 (5, 'tokens', 1, 100),
-(6, 'red_tokens', 1, 200);
+(6, 'red_tokens', 1, 150);
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE `exchange_red_tokens` (
 
 INSERT INTO `exchange_red_tokens` (`id`, `exchange_resource`, `exchange_value`, `get_value`) VALUES
 (1, 'tokens', 2, 1),
-(2, 'gold', 400, 1);
+(2, 'gold', 250, 1);
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,6 @@ INSERT INTO `tanks` (`id`, `name`, `transcription`, `type`, `land`, `conversion_
 (90, 'AE Phase 1', 'ae_phase_1', 'ht', 'usa', 5700),
 (91, 'AE Phase 1 Новорічний', 'ae_phase_1_new_year', 'camo', 'usa', 1500),
 (92, 'Т-20-22 Новорічний', 't_20_22_new_year', 'camo', 'inter', 1500),
-
 (93, 'Sherman Sanders', 'sherman_sanders', 'lt', 'usa', 4500),
 (94, 'T-49', 't_49', 'lt', 'usa', 5100),
 (95, 'M6A2E1', 'm6a2e1', 'ht', 'usa', 5100),
@@ -343,6 +342,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `
 (6, 'Davidk104', '$2y$10$ZrDIgq5LrRt9ilVOcRC5Se6xprv415k.2I6u53Jw36Kk3k1Y4bu9i', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 108450, 1220500, 1, 173, 7, 199, 17, 23, 17, 5, 22, 0, 1726495293),
 (8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
+(9, '7DaysRush', '$2y$10$416G6iwRa4tCCdHdn5xYo.SVvZJf6IOL7ZgFmVGBty42ME1c7BtwW', 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 

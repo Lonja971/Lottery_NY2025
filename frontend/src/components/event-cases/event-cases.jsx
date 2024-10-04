@@ -23,7 +23,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
          buttons: [
             {
                openResource: "red_tokens",
-               price: 2,
+               price: 2
             },
          ],
       },
@@ -34,10 +34,14 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
          buttons: [
             {
                openResource: "gold",
-               price: 200,
+               price: 250,
             },
             {
                openResource: "tokens",
+               price: 1,
+            },
+            {
+               openResource: "red_tokens",
                price: 1,
             },
          ],
@@ -72,7 +76,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             <div className="eventcases__bg"></div>
             <div className="eventcases__content">
                <div className="cases__content-title">
-                  <h2 className="_glass">Івентні Контейнери <img src="img/resources/red_tokens.png" alt="" /></h2>
+                  <h2 className="_glass">Ексклюзивні Контейнери <img src="img/resources/red_tokens.png" alt="" /></h2>
                </div>
                <div className="_cases-container">
                {casesData.map((caseData, index) => (
