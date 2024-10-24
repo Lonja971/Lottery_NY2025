@@ -59,7 +59,8 @@ INSERT INTO `cases` (`id`, `name`, `gold`, `tokens`, `red_tokens`, `drawings`, `
 (14, 'new_year_mythical_tank1', NULL, NULL, NULL, 10, NULL, NULL),
 (15, 'new_year_mythical_tank2', NULL, NULL, NULL, 10, NULL, NULL),
 (16, 'obj_490_cases', NULL, NULL, 2, NULL, NULL, NULL),
-(17, 'usa_nation_cases', NULL, NULL, 2, NULL, NULL, NULL);
+(17, 'usa_nation_cases', NULL, NULL, 2, NULL, NULL, NULL),
+(18, 'td_support_cases', NULL, NULL, 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -155,7 +156,8 @@ INSERT INTO `guarantors` (`id`, `case_id`, `discoveries_number`, `guarantor_type
 (4, 10, 50, 'tank', 63, 1),
 (5, 13, 50, 'tank', 88, 1),
 (6, 16, 50, 'tank', 2, 1),
-(7, 17, 50, 'tank', 95, 1);
+(7, 17, 50, 'tank', 95, 1),
+(8, 18, 50, 'tank', 99, 1);
 
 -- --------------------------------------------------------
 
@@ -344,7 +346,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `gold`, `silver`, `tokens`, `
 (6, 'Davidk104', '$2y$10$ZrDIgq5LrRt9ilVOcRC5Se6xprv415k.2I6u53Jw36Kk3k1Y4bu9i', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (7, 'Відкривачкін', '$2y$10$tn2831PC9wnJ8jjVMELN6eKxwHwdg6EXq4Q4C0k1t1NHpXRvqO4sy', 108450, 1220500, 1, 173, 7, 199, 17, 23, 17, 5, 22, 0, 1726495293),
 (8, 'MrStinger__', '$2y$10$kYk/RVabewLat0.kF0Xg6OC8CJ/G6KYJKA4tyH0KueCWxXYPk3ILK', 38500, 23000, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
-(9, '7DaysRush', '$2y$10$416G6iwRa4tCCdHdn5xYo.SVvZJf6IOL7ZgFmVGBty42ME1c7BtwW', 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
+(9, '7DaysRush', '$2y$10$o1ORquZHnqKiW86O4Hwrn.0mmF.S.pN9D0OZHst3U0LrvMh3CR7ci', 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 

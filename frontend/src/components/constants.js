@@ -884,7 +884,7 @@ export const TANKS = {
   },
   99: {
     id: 99,
-    name: "Jagdpanzer E 100",
+    name: "Jagd. E 100",
     transcription: "jagdpanzer_E_100",
     type: "td",
     land: "ge",
@@ -957,6 +957,7 @@ const COLLECTIONS = {
   main_collection: "Новорічна Колекція",
   nationals_collection: "Колекції Країн",
   china_new_year: "Китайський Новий Рік",
+  roles_collection: "Рольова Колекція",
 };
 
 //---CASES---
@@ -1084,6 +1085,14 @@ export const CASES = {
     guarantor: 50,
     collection: COLLECTIONS.nationals_collection,
     guarantorAward: 95,
+  },
+  td_support_cases: {
+    name: "ПТ-Сау Підтримки",
+    transcription: "td_support_cases",
+    animation: "default",
+    guarantor: 50,
+    collection: COLLECTIONS.roles_collection,
+    guarantorAward: 99,
   },
 };
 
@@ -1288,6 +1297,24 @@ export const USA_NATION_CASE = [
       { type: "tank", id: 54, probability: 1, amounts: [1] },
       { type: "tank", id: 97, probability: 1, amounts: [1] },
       { type: "tank", id: 98, probability: 1, amounts: [1] },
+    ]
+  },
+];
+
+export const TD_SUPPORT_CASE = [
+  { type: "silver", probability: 35, amounts: [ 3000, 5000 ], default: true },
+  { type: "premium_akk", probability: 30, amounts: [1, 2] },
+  { type: "gold", probability: 20, amounts: [ 250, 250, 500 ] },
+  { 
+    probability: 3,
+    type: "single",
+    items: [
+      { type: "tank", id: 99, probability: 1, amounts: [1] },
+      { type: "tank", id: 89, probability: 1, amounts: [1] },
+      { type: "tank", id: 25, probability: 1, amounts: [1] },
+      { type: "tank", id: 100, probability: 1, amounts: [1] },
+      { type: "tank", id: 72, probability: 1, amounts: [1] },
+      { type: "tank", id: 34, probability: 1, amounts: [1] },
     ]
   },
 ];
