@@ -1089,7 +1089,7 @@ export const CASES = {
   td_support_cases: {
     name: "ПТ-Сау Підтримки",
     transcription: "td_support_cases",
-    animation: "default",
+    animation: "td_support_cases",
     guarantor: 50,
     collection: COLLECTIONS.roles_collection,
     guarantorAward: 99,
