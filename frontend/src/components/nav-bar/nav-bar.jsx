@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/nav-bar.css";
 import { NavBarLayout } from "./ui/nav-bar-layout";
 
@@ -24,6 +24,20 @@ export function NavBar({
   addMessage,
   setIsUpdated,
 })  {
+  const [height, setHeight] = useState(window.innerHeight);
+
+  //---Контроль-height-nav-блоку
+  const setDynamicHeight = () => {
+      console.log("Yes")
+      setHeight(window.innerHeight);
+  };
+  useEffect(() => {
+      setDynamicHeight();
+      window.addEventListener('resize', setDynamicHeight);
+      return () => window.removeEventListener('resize', setDynamicHeight);
+  }, []);
+
+
   if (playerData !== null && playerData.userData !== undefined) {
     console.log(playerData.userData[0].id);
   }
@@ -52,7 +66,7 @@ export function NavBar({
 
   return (
     <>
-      <nav className={`nav _glass ${isMenu ? "active" : ""}`}>
+      <nav style={{ height: `${height}px` }} className={`nav _glass ${isMenu ? "active" : ""}`}>
         {playerData && (
           <NavBarLayout
             storageBlock={<NavBarStorage handleModalOpen={handleModalOpen} setActiveStorage={setActiveStorage} modalStorageActive={modalStorageActive}/>}
