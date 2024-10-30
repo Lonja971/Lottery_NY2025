@@ -214,6 +214,9 @@ h2 img{
 .content {
   transition: all 0.3s ease 0s;
 }
+.ttu{
+  text-transform: uppercase;
+}
 
 @media (max-width: 700px) {
   .wrapper {

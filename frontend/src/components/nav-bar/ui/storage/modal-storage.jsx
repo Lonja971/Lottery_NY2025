@@ -113,7 +113,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="special_cases"
               value={playerData.special_cases}
-              text={'Особовий Контейнер <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Особовий Контейнер <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '". Тут у вас є можливість вибити камуфляжі для танків.'}
             />
           }
           rareCasesItem={
@@ -131,7 +131,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="mythical_cases"
               value={playerData.mythical_cases}
-              text={'Міфічний Контейнер <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Міфічний Контейнер <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '". Тут у вас є можливість вибити танки.'}
             />
           }
           legendaryCasesItem={
@@ -140,7 +140,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="legendary_cases"
               value={playerData.legendary_cases}
-              text={'Легендарний Контейнер <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Легендарний Контейнер <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '". Тут у вас є можливість вибити танки.'}
             />
           }
           userTanksItem={<ModalStorageTanks userTanks={playerTanks} />}
@@ -344,7 +344,7 @@ function ModalStorageLayout({
               <div>
                 <label>
                   <input
-                    className="center"
+                    className="center ttu"
                     type="text"
                     name="promo"
                     placeholder="Введіть промо-код"

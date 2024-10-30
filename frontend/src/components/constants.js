@@ -955,7 +955,7 @@ export const EXCHANGE = {
 
 const COLLECTIONS = {
   main_collection: "Новорічна Колекція",
-  nationals_collection: "Колекції Країн",
+  nationals_collection: "Колекція Країни",
   china_new_year: "Китайський Новий Рік",
   roles_collection: "Рольова Колекція",
 };
@@ -1087,7 +1087,7 @@ export const CASES = {
     guarantorAward: 95,
   },
   td_support_cases: {
-    name: "ПТ-Сау Підтримки",
+    name: "Підтримка (ПТ-Сау)",
     transcription: "td_support_cases",
     animation: "td_support_cases",
     guarantor: 50,

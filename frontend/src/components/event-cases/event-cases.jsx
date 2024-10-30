@@ -18,12 +18,34 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
       },
       {
          isManu: false,
+         transcription: "obj_490_cases",
+         type: OBJ_490_CASE,
+         buttons: [
+            {
+               openResource: "red_tokens",
+               price: 2,
+            },
+         ],
+      },
+      {
+         isManu: false,
          transcription: "france_nation_cases",
          type: FRANCE_NATION_CASE,
          buttons: [
             {
                openResource: "red_tokens",
                price: 2
+            },
+         ],
+      },
+      {
+         isManu: false,
+         transcription: "usa_nation_cases",
+         type: USA_NATION_CASE,
+         buttons: [
+            {
+               openResource: "red_tokens",
+               price: 2,
             },
          ],
       },
@@ -43,28 +65,6 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             {
                openResource: "red_tokens",
                price: 1,
-            },
-         ],
-      },
-      {
-         isManu: false,
-         transcription: "obj_490_cases",
-         type: OBJ_490_CASE,
-         buttons: [
-            {
-               openResource: "red_tokens",
-               price: 2,
-            },
-         ],
-      },
-      {
-         isManu: false,
-         transcription: "usa_nation_cases",
-         type: USA_NATION_CASE,
-         buttons: [
-            {
-               openResource: "red_tokens",
-               price: 2,
             },
          ],
       },

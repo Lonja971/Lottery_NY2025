@@ -52,7 +52,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
                       <div className="line line-bottom"></div>
                       <div className="line line-left"></div>
                     </button>
-                  );
+                  )
                 })}
               </div>
             </div>

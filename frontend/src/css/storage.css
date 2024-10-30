@@ -68,6 +68,9 @@
 .storage__user-settings button{
   flex: 0 1 33%
 }
+.storage__user-vignette{
+  pointer-events: none;
+}
 
 @media (max-width:1100px) {
   .storage__user-nickname h1,
