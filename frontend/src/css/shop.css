@@ -32,16 +32,25 @@
    width: auto;
    grid-template-columns: 1fr 75px;
    gap: 15px;
-   padding: 5px 35px;
+   padding: 10px 35px;
    margin-bottom: 50px;
-}
-@media (max-width:580px) {
-   .shop__content-title h2{
-      max-width: 200px;
-   }
 }
 .shop_title img{
    width: 75px;
+   margin: 0 auto;
+}
+@media (max-width:580px) {
+   .shop_title{
+      gap: 0px;
+      max-width: 250px;
+   }
+   .shop__content-title h2{
+      max-width: 200px;
+      font-size: 20px;
+   }
+   .shop_title img{
+      width: 50px;
+   }
 }
 
 /*---CASES---*/

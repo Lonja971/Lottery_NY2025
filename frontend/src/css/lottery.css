@@ -361,6 +361,7 @@
 }
 .back-info div .camo {
   font-size: 13px;
+  font-style: italic;
 }
 .back-info img {
   height: 30px;
@@ -431,25 +432,28 @@
 
 @media (max-width:625px) {
   .caseblock {
-    width: 140px;
-    height: 235px;
+    width: 160px;
+    height: 260px;
   }
   .caseblock .absolute-right{
-    right: 10px;
-    top: 10px;
+    right: 15px;
+    top: 15px;
   }
   .caseblock h3{
-    font-size: 11px;
+    font-size: 13px;
   }
   .caseblock__main-moreinfo{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
   .caseblock__main-moreinfo img{
     height: 10px !important;
   }
+  .caseblock__text {
+    gap: 10px;
+  }
   .caseblock__text p{
-    font-size: 9px;
+    font-size: 12px;
   }
   .buttons-block button{
     font-size: 10px;
@@ -458,11 +462,14 @@
   .buttons-block button img{
     height: 15px;
   }
+  .caseblock-back::-webkit-scrollbar{
+    width: 7px;
+  }
   .caseblock .caseblock__main-amount{
     top: 10px;
     left: 10px;
-    font-size: 10px;
-    min-height: 20px;
+    font-size: 12px;
+    min-height: 25px;
   }
   .caseblock-side{
     padding: 0px 10px 10px 10px;
@@ -472,7 +479,10 @@
   }
   .caseblock-back__info{
     margin: 0px -10px 0px -20px;
-    padding: 5px 5px 5px 15px;
+    padding: 10px 17px 10px 25px;
+  }
+  .caseblock .case-img{
+    width: 80%;
   }
   .caseblock-back__info img{
     height: 20px;
@@ -484,10 +494,11 @@
     height: 10px !important;
   }
   .caseblock-back__items{
-    padding: 10px 0px;
+    padding: 10px 5px;
+    gap: 8px;
   }
   .info-block{
-    font-size: 10px;
+    font-size: 12px;
   }
   .info-block img{
     height: 15px;
@@ -496,7 +507,7 @@
     border: 1px dashed var(--color1);
   }
   .info-block-tank{
-    font-size: 6.5px;
+    font-size: 9px;
   }
   .info-block-tank img{
     height: 12px !important;
@@ -504,37 +515,33 @@
     align-items: center;
   }
   .back-info .camo{
-    font-size: 5px !important;
+    font-size: 9px !important;
   }
   .info-block-tank .back-info{
-    padding: 2px 5px;
+    padding: 5px 5px;
     line-height: 130%;
   }
   .shop__case{
-    width: 140px !important;
-    height: 235px !important;
+    width: 160px !important;
+    height: 260px !important;
     font-size: 10px;
-    padding: 20px 10px 0px 10px;
-  }
-  .shop__case .buttons-block{
-    bottom: 12px;
-  }
-  .shop__case .shop__case-text{
-    margin-top: 5px;
-    font-size: 8px;
-  }
-  .shop_title{
-    font-size: 10px;
-    max-width: 200px;
-    padding: 5px 10px !important;
-    gap: 0px !important;
-  }
-  .shop_title img{
-    width: 50px !important;
-    margin: 0 auto;
+    padding: 20px 15px 10px 15px !important;
   }
   .footer__content{
     font-size: 15px;
     line-height: 170%;
+  }
+  .caseblock-back .info-block{
+    gap: 5px;
+  }
+  .shop__case-text{
+    margin-top: 10px !important;
+  }
+  .shop-button{
+    margin-top: 0px !important;
+  }
+  .shop__case .absolute-right{
+    right: 15px;
+    top: 15px;
   }
 }

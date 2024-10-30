@@ -8,7 +8,7 @@ import { Login } from "./Login";
 //---Ways-to-the-backend:
 const mamp = "http://localhost:8888/LOTTERY_NY2025/backend"
 const osPanel = "http://NY2025/backend"
-const plesk = "https://97108289.hetictlyceum.nl/NY_2025/backend"
+const plesk = "https://97108289.hetictlyceum.nl/NY_2025"
 
 function App() {
 
