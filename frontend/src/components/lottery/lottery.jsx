@@ -80,8 +80,11 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
   return (
     <div className="lottery">
       <div className="_container">
-        <div className="cases__content-title">
-          <h2 className="_glass">Новорічні Контейнери <img src="img/resources/tokens.png" alt="" /></h2>
+        <div className="shop__content-title">
+            <div className="_glass shop_title">
+               <h2>Новорічні Контейнери</h2>
+               <img src="img/resources/tokens.png" alt="" />
+            </div>
         </div>
         <div className="_cases-container">
           {casesData.map((caseData, index) => (

@@ -142,7 +142,7 @@ export function Login({ backendPath }) {
                 <div className="line line-left"></div>
               </button>
             </div>
-            <p className="comment-block center">Ще немає аккаунту? Створіть його <a href="http://localhost:3000/register">тут</a>!</p>
+            <p className="comment-block center">Ще немає аккаунту?<br />Створіть його <a href="http://localhost:3000/register">тут</a>!</p>
           </form>
         </div>
       </div>

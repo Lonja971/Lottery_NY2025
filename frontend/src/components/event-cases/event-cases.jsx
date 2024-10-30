@@ -86,8 +86,11 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
          <div className="eventcases__container _container">
             <div className="eventcases__bg"></div>
             <div className="eventcases__content">
-               <div className="cases__content-title">
-                  <h2 className="_glass">Ексклюзивні Контейнери <img src="img/resources/red_tokens.png" alt="" /></h2>
+               <div className="shop__content-title">
+                  <div className="_glass shop_title">
+                     <h2>Ексклюзивні Контейнери</h2>
+                     <img src="img/resources/red_tokens.png" alt="" />
+                  </div>
                </div>
                <div className="_cases-container">
                {casesData.map((caseData, index) => (

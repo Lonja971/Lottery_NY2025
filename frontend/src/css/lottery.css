@@ -428,3 +428,113 @@
   background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #424142 80%),
     url("../../public/img/flags/default.png");
 }
+
+@media (max-width:625px) {
+  .caseblock {
+    width: 140px;
+    height: 235px;
+  }
+  .caseblock .absolute-right{
+    right: 10px;
+    top: 10px;
+  }
+  .caseblock h3{
+    font-size: 11px;
+  }
+  .caseblock__main-moreinfo{
+    width: 20px;
+    height: 20px;
+  }
+  .caseblock__main-moreinfo img{
+    height: 10px !important;
+  }
+  .caseblock__text p{
+    font-size: 9px;
+  }
+  .buttons-block button{
+    font-size: 10px;
+    min-height: 30px;
+  }
+  .buttons-block button img{
+    height: 15px;
+  }
+  .caseblock .caseblock__main-amount{
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+    min-height: 20px;
+  }
+  .caseblock-side{
+    padding: 0px 10px 10px 10px;
+  }
+  .case-info{
+    display: none;
+  }
+  .caseblock-back__info{
+    margin: 0px -10px 0px -20px;
+    padding: 5px 5px 5px 15px;
+  }
+  .caseblock-back__info img{
+    height: 20px;
+  }
+  .guarantor__container{
+    font-size: 10px;
+  }
+  .guarantor__container-award img{
+    height: 10px !important;
+  }
+  .caseblock-back__items{
+    padding: 10px 0px;
+  }
+  .info-block{
+    font-size: 10px;
+  }
+  .info-block img{
+    height: 15px;
+  }
+  .back-line{
+    border: 1px dashed var(--color1);
+  }
+  .info-block-tank{
+    font-size: 6.5px;
+  }
+  .info-block-tank img{
+    height: 12px !important;
+    display: flex;
+    align-items: center;
+  }
+  .back-info .camo{
+    font-size: 5px !important;
+  }
+  .info-block-tank .back-info{
+    padding: 2px 5px;
+    line-height: 130%;
+  }
+  .shop__case{
+    width: 140px !important;
+    height: 235px !important;
+    font-size: 10px;
+    padding: 20px 10px 0px 10px;
+  }
+  .shop__case .buttons-block{
+    bottom: 12px;
+  }
+  .shop__case .shop__case-text{
+    margin-top: 5px;
+    font-size: 8px;
+  }
+  .shop_title{
+    font-size: 10px;
+    max-width: 200px;
+    padding: 5px 10px !important;
+    gap: 0px !important;
+  }
+  .shop_title img{
+    width: 50px !important;
+    margin: 0 auto;
+  }
+  .footer__content{
+    font-size: 15px;
+    line-height: 170%;
+  }
+}

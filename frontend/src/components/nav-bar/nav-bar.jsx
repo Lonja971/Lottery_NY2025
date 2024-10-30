@@ -14,8 +14,6 @@ export function NavBar({
   playerData,
   newToken,
   setNewToken,
-  setActiveStorage,
-  setActiveExchange,
   addComment,
   isMenu,
   setIsMenu,
@@ -23,6 +21,7 @@ export function NavBar({
   modalExchangeActive,
   addMessage,
   setIsUpdated,
+  handleModalOpen
 })  {
   const [height, setHeight] = useState(window.innerHeight);
 
@@ -41,37 +40,15 @@ export function NavBar({
   if (playerData !== null && playerData.userData !== undefined) {
     console.log(playerData.userData[0].id);
   }
-  function handleModalOpen(name) {
-    if (isMenu) {
-      setIsMenu(false);
-    }
-    switch (name){
-      case "storageModal":
-        if (modalExchangeActive){
-          setActiveExchange(false);
-        }
-        setActiveStorage(!modalStorageActive);
-				break;
-      case "echangeModal":
-        if (modalStorageActive){
-          setActiveStorage(false);
-        }
-        setActiveExchange(!modalExchangeActive);
-        break;
-      default:
-        break;
-    }
-
-  }
 
   return (
     <>
       <nav style={{ height: `${height}px` }} className={`nav _glass ${isMenu ? "active" : ""}`}>
         {playerData && (
           <NavBarLayout
-            storageBlock={<NavBarStorage handleModalOpen={handleModalOpen} setActiveStorage={setActiveStorage} modalStorageActive={modalStorageActive}/>}
+            storageBlock={<NavBarStorage handleModalOpen={handleModalOpen} modalStorageActive={modalStorageActive}/>}
             exchangeBlock={
-              <NavBarExchange handleModalOpen={handleModalOpen} setActiveExchange={setActiveExchange} modalExchangeActive={modalExchangeActive}/>
+              <NavBarExchange handleModalOpen={handleModalOpen} modalExchangeActive={modalExchangeActive}/>
             }
             nameBlock={<NavBarName name={playerData.name} />}
             goldBlock={<NavBarGold gold={playerData.gold} />}

@@ -22,16 +22,26 @@
 .shop__content-title{
    display: flex;
    justify-content: center;
+   padding: 0px 10px;
+}
+.shop__content-title h2{
+   line-height: 120%;
 }
 .shop_title{
-   display: flex;
-   align-items: center;
+   display: grid;
+   width: auto;
+   grid-template-columns: 1fr 75px;
+   gap: 15px;
    padding: 5px 35px;
-   gap: 10px;
    margin-bottom: 50px;
 }
+@media (max-width:580px) {
+   .shop__content-title h2{
+      max-width: 200px;
+   }
+}
 .shop_title img{
-   height: 75px;
+   width: 75px;
 }
 
 /*---CASES---*/
@@ -44,7 +54,7 @@
    justify-content: space-between;
 }
 .shop__case-img{
-   width: 150px;
+   width: 70%;
    display: flex;
    margin: 0 auto;
 }

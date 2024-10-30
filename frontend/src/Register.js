@@ -106,7 +106,7 @@ export function Register({ backendPath }) {
                 <div className="line line-left"></div>
               </button>
             </div>
-            <p className="comment-block center">Вже є аккаунту? Увійдіть в нього <a href="http://localhost:3000/login">тут</a> !</p>
+            <p className="comment-block center">Вже є аккаунту?<br />Увійдіть в нього <a href="http://localhost:3000/login">тут</a> !</p>
           </form>
         </div>
       </div>

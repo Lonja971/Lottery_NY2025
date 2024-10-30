@@ -170,6 +170,34 @@ export function Home({ backendPath }) {
 
   const [modalExchangeActive, setModalExchangeActive] = useState(false);
 
+  //---Відстежування-відкриття-всіх-modal---
+
+  function handleModalOpen(name) {
+    if (isMenu) {
+      setIsMenu(false);
+    }
+    switch (name){
+      case "storageModal":
+        if (modalExchangeActive){
+          setModalExchangeActive(false);
+        }
+        setModalStorageActive(!modalStorageActive);
+        break;
+      case "echangeModal":
+        if (modalStorageActive){
+          setModalStorageActive(false);
+        }
+        setModalExchangeActive(!modalExchangeActive);
+        break;
+      case "close":
+        setModalStorageActive(false);
+        setModalExchangeActive(false);
+        break;
+      default:
+        break;
+    }
+  }
+
   //---Відстежувати-відкриття-модального-вікна-анімації-випадіння---
 
   const [modalOpenCaseAnimation, setModalOpenCaseAnimation] = useState({
@@ -203,22 +231,21 @@ export function Home({ backendPath }) {
           setNewToken={setNewToken}
           newToken={newToken}
           modalStorageActive={modalStorageActive}
-          setActiveStorage={setModalStorageActive}
           modalExchangeActive={modalExchangeActive}
-          setActiveExchange={setModalExchangeActive}
           addMessage={addMessage}
           setIsUpdated={setIsUpdated}
+          handleModalOpen={handleModalOpen}
         />
       }
     >
       <BurgerMenuBtn isMenu={isMenu} setIsMenu={setIsMenu} />
       {modalStorageActive && (
-        <Modal active={modalStorageActive}>
+        <Modal active={modalStorageActive} handleModalOpen={handleModalOpen}>
           <ModalStorage backendPath={backendPath} setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} isComments={isComments} tokenTimeLeft={tokenTimeLeft} />
         </Modal>
       )}
       {modalExchangeActive && (
-        <Modal active={modalExchangeActive}>
+        <Modal active={modalExchangeActive} handleModalOpen={handleModalOpen}>
           <ModalExchange backendPath={backendPath} setIsUpdated={setIsUpdated} playerData={playerData} addMessage={addMessage} />
         </Modal>
       )}

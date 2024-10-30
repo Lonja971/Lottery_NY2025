@@ -252,10 +252,16 @@ h2 img{
 .cases__content-title{
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
   padding: 0px 10px;
 }
 .cases__content-title h2{
-  padding: 5px 35px;
   line-height: 120%;
+}
+.cases__content-title img{
+  height: 75px;
+}
+@media (max-width:500px) {
+  .cases__content-title{
+     padding: 0px 10px;
+  }
 }
