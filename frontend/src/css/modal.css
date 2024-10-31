@@ -122,16 +122,30 @@
   position: fixed;
   top: 0;
   right: 0px;
-  padding: 15px 30px 15px 15px;
+  padding: 0px 30px 0px 15px;
   z-index: 13;
   cursor: pointer;
-  height: 52px;
+  height: 51px;
   transition: all 0.3s ease 0s;
   background: linear-gradient(90deg, var(--glass-color), var(--dark-bg));
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease 0s;
+}
+.modal-close-block:hover{
+  padding: 0px 50px 0px 15px;
+  border: 2px solid var(--green);
+  box-shadow: 0px -1px 5px -1px var(--green) inset;
+}
+.modal-close-block:hover.modal-close-block img{
+  filter: drop-shadow(0px 0px 20px var(--green));
+}
+.modal-close-block img{
+  height: 35px;
 }
 @media (max-width: 700px) {
   .modal-close-block{
-    right: 78px;
+    right: 78.5px;
   }
 }
 .modal-close-kruist{
