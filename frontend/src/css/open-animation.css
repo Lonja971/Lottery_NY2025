@@ -10,6 +10,9 @@
 .fz12 {
   font-size: 12px;
 }
+.camo{
+  font-style: italic;
+}
 .anima-btn {
   position: absolute;
   bottom: 8%;

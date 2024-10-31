@@ -16,6 +16,9 @@
   background-image: url("../../public/img/background/bg_v20-1.png");
   background-size: 500px;
 }
+.modal::-webkit-scrollbar{
+  width: 10px;
+}
 .modal__container {
   width: 100%;
   display: grid;

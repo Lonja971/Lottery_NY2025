@@ -127,7 +127,7 @@ export function ModalOpenCaseAnimation({backendPath, playerId, addMessage, setIs
                   <div className="obj__text">
                     <div className="obj__text-price">
                       {item.type === "tank" && TANKS[item.id].type === "camo" ? (
-                        <span className="fz12">Камуфляж</span>
+                        <span className="fz12 camo">Камуфляж</span>
                       ) : item.type === "tank" ? (
                         <>
                           <img

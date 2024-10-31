@@ -27,7 +27,6 @@ export function NavBar({
 
   //---Контроль-height-nav-блоку
   const setDynamicHeight = () => {
-      console.log("Yes")
       setHeight(window.innerHeight);
   };
   useEffect(() => {
