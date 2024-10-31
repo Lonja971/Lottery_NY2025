@@ -30,6 +30,10 @@ export function Register({ backendPath }) {
       [name]: value,
     }));
   };
+  const handleLinkToLogin = (e) => {
+    e.preventDefault();
+    navigate("/register")
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,7 +110,7 @@ export function Register({ backendPath }) {
                 <div className="line line-left"></div>
               </button>
             </div>
-            <p className="comment-block center">Вже є аккаунту?<br />Увійдіть в нього <a href="/login">тут</a> !</p>
+            <p className="comment-block center">Вже є аккаунту?<br />Увійдіть в нього <a href="#" onClick={handleLinkToLogin}>тут</a> !</p>
           </form>
         </div>
       </div>

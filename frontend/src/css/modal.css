@@ -144,7 +144,7 @@
   filter: drop-shadow(0px 0px 20px var(--green));
 }
 .modal-close-block img{
-  height: 35px;
+  height: 30px;
 }
 @media (max-width: 700px) {
   .modal-close-block{
