@@ -431,6 +431,9 @@
 }
 
 @media (max-width:625px) {
+  ._cases-container{
+    gap: 20px;
+  }
   .caseblock {
     width: 160px;
     height: 260px;
@@ -458,6 +461,7 @@
   .buttons-block button{
     font-size: 10px;
     min-height: 30px;
+    padding: 8px 10px;
   }
   .buttons-block button img{
     height: 15px;
@@ -502,9 +506,11 @@
   }
   .info-block img{
     height: 15px;
+    display: flex;
+    align-items: center;
   }
   .back-line{
-    border: 1px dashed var(--color1);
+    border: 1.5px dashed var(--color1);
   }
   .info-block-tank{
     font-size: 9px;

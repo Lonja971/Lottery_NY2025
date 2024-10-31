@@ -28,10 +28,9 @@
    line-height: 120%;
 }
 .shop_title{
-   display: grid;
+   display: flex;
    width: auto;
-   grid-template-columns: 1fr 75px;
-   gap: 15px;
+   gap: 10px;
    padding: 10px 35px;
    margin-bottom: 50px;
 }

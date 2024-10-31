@@ -11,7 +11,7 @@
    align-items: center;
    justify-content: center;
 
-   animation-duration: 15s;
+   animation-duration: 11s;
    animation-name: welcome_block_anima;
    animation-fill-mode: forwards;
 }
@@ -40,7 +40,7 @@
    margin: 0 auto;
 }
 
-
+/*
 .welcome-alert{
    animation-duration: 15s;
    animation-name: welcome_alert_block;
@@ -48,14 +48,14 @@
 }
 .welcome-alert h3{
    color: red;
-}
+}*/
 .welcome-logo{
-   animation-duration: 15s;
+   animation-duration: 10s;
    animation-name: welcome_logo_block;
    animation-fill-mode: forwards;
 }
 .welcome-lottery{
-   animation-duration: 15s;
+   animation-duration: 10s;
    animation-name: welcome_lottery_block;
    animation-fill-mode: forwards;
 }
@@ -79,7 +79,7 @@
       pointer-events: none;
    }
 }
-@keyframes welcome_alert_block {
+/*@keyframes welcome_alert_block {
    0% {
       opacity: 0;
       pointer-events: none;
@@ -92,27 +92,35 @@
       opacity: 0;
       pointer-events: none;
    }
-}
+}*/
 @keyframes welcome_logo_block {
-   25% {
+   10% {
       opacity: 0;
+      pointer-events: none;
+   }
+   30% {
+      opacity: 1;
       pointer-events: none;
    }
    40% {
       opacity: 1;
       pointer-events: none;
    }
-   60% {
+   50% {
       opacity: 0;
       pointer-events: none;
    }
 }
 @keyframes welcome_lottery_block {
-   55% {
+   50% {
       opacity: 0;
       pointer-events: none;
    }
-   70% {
+   60% {
+      opacity: 1;
+      pointer-events: none;
+   }
+   80% {
       opacity: 1;
       pointer-events: none;
    }
