@@ -32,7 +32,7 @@ export function Register({ backendPath }) {
   };
   const handleLinkToLogin = (e) => {
     e.preventDefault();
-    navigate("/register")
+    navigate("/login")
   }
 
   const handleSubmit = (e) => {
