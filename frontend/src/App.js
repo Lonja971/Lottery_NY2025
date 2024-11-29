@@ -12,7 +12,7 @@ const plesk = "https://97108289.hetictlyceum.nl/NY_2025"
 
 function App() {
 
-  const backendPath = mamp
+  const backendPath = plesk
 
   return (
     <Router>

@@ -49,7 +49,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             },
          ],
       },
-      {
+      /*{
          isManu: false,
          transcription: "china_new_year_cases",
          type: CHINA_NEW_YEAR_CASE,
@@ -67,7 +67,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
                price: 1,
             },
          ],
-      },
+      },*/
       {
          isManu: false,
          transcription: "td_support_cases",
