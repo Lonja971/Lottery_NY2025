@@ -384,7 +384,7 @@ export const TANKS = {
     id: 44,
     name: "Мандарин",
     transcription: "els_even_90_tangerine",
-    bg: "snow_bg",
+    bg: "tangerine_bg2",
     type: "camo",
     land: "fr",
     link: "https://lonja971.github.io/WomT_wiki/tanks/france/els_even_90.html",
@@ -906,6 +906,16 @@ export const TANKS = {
     land: "br",
     link: "https://lonja971.github.io/WomT_wiki/tanks/britaine/tortoise.html",
     exchange: 4800,
+  },
+  101: {
+    id: 101,
+    name: "Мандарин",
+    transcription: "e_25_tangerine",
+    bg: "tangerine_bg2",
+    type: "camo",
+    land: "ge",
+    link: "https://lonja971.github.io/WomT_wiki/tanks/germany/e_25.html",
+    exchange: 1500,
   },
 };
 

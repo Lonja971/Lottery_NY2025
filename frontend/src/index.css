@@ -246,7 +246,7 @@ h2 img{
 ._cases-container{
   display: flex;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 50px;
   justify-content: center;
 }
 .cases__content-title{

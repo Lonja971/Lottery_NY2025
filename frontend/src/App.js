@@ -11,8 +11,7 @@ const osPanel = "http://NY2025/backend"
 const plesk = "https://97108289.hetictlyceum.nl/NY_2025"
 
 function App() {
-
-  const backendPath = plesk
+  const backendPath = osPanel
 
   return (
     <Router>
