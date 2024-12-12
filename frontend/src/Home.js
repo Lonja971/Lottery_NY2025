@@ -17,7 +17,7 @@ import { EventCases } from "./components/event-cases/event-cases";
 
 
 
-export function Home({ backendPath }) {
+export function Home({ backendPath, timeLeft }) {
 
   //---Отримання-даних-гравця-з-бази-даних---
 
@@ -109,7 +109,7 @@ export function Home({ backendPath }) {
 
       return () => clearInterval(intervalId);
     }
-  }, [playerData, serverTime]);
+  }, [playerData, serverTime, backendPath]);
 
   //---Бургер-меню---
 
@@ -273,7 +273,7 @@ export function Home({ backendPath }) {
         setIsComments={setIsComments}
         messages={messages}
       />
-      <Header />
+      <Header/>
       <Lottery
         playerData={playerData}
         addMessage={addMessage}
@@ -290,7 +290,7 @@ export function Home({ backendPath }) {
         setModalOpenCaseAnimation={setModalOpenCaseAnimation}
         playerGuarantors={playerGuarantors}
       />
-      <Footer />
+      <Footer timeLeft={timeLeft}/>
     </HomeLayout>
   );
 }

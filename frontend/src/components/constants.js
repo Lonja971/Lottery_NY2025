@@ -6,6 +6,11 @@ export const RESOURCES = {
   red_tokens: "Червоний Токен",
   drawings: "Креслення",
   premium_akk: "Преміум аккаунт",
+  regular_cases: "Звичайний контейнер",
+  special_cases: "Особливий контейнер",
+  rare_cases: "Рідкісний контейнер",
+  mythical_cases: "Міфічний контейнер",
+  legendary_cases: "Легендарний контейнер",
 };
 
 export const TANKS = {

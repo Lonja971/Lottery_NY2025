@@ -208,6 +208,9 @@ h2{
 h2 img{
   height: 75px;
 }
+.p{
+  padding: 10px 20px;
+}
 
 /*----------CONTENT----------*/
 
@@ -264,4 +267,34 @@ h2 img{
   .cases__content-title{
      padding: 0px 10px;
   }
+}
+
+.timebox{
+  max-width: 500px;
+	font-size: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+  position: relative;
+}
+.timebox-time{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 10px;
+}
+@media (max-width:400px) {
+  .timebox{
+    font-size: 14px;
+  }
+}
+.timebox-time__item{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+.text-center{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

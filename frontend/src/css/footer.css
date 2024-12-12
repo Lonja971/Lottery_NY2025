@@ -5,7 +5,11 @@ footer{
    font-weight: 300;
    line-height: 200%;
 }
-.footer__container{}
+.footer__container{
+   display: flex;
+   flex-direction: column;
+   gap: 40px;
+}
 .footer-bg{
    position: absolute;
    background-color: var(--dark-bg);
