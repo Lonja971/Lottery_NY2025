@@ -309,7 +309,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
             <div className="exchange__range">
               <div className="exchange__range-comment">
                 <div>
-                  Співвідношення: ( {EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].exchangeValue} : {EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].getValue} )
+                Correlation: ( {EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].exchangeValue} : {EXCHANGE[exchangeResources.getRes][exchangeResources.exchangeRes].getValue} )
                 </div>
                 <div>
                   <p>
@@ -350,7 +350,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
                   />
                   <div className="usernum-buttonblock">
                     <button className="btn _glass usersnum-button" type="submit">
-                      Ввести
+                    Enter
                       <div className="line line-top"></div>
                       <div className="line line-right"></div>
                       <div className="line line-bottom"></div>
@@ -360,7 +360,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
                 </form>
                 <div className="exchange-submit">
                   <button className="btn _glass" onClick={handleSendExchange} onMouseEnter={exchangeRotateAnima}>
-                    Обміняти <img src="img/servise/exchange.png" alt="exchange" style={{ transform: `rotateZ(${exchangeRotateNum}deg)` }} />
+                  Exchange <img src="img/servise/exchange.png" alt="exchange" style={{ transform: `rotateZ(${exchangeRotateNum}deg)` }} />
                     <div className="line line-top"></div>
                     <div className="line line-right"></div>
                     <div className="line line-bottom"></div>
@@ -373,7 +373,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
             <div className="exchange__range">
               <div className="exchange__range-comment">
                 <div>
-                  Обміняти:
+                Exchange:
                 </div>
                 <div className="exchange-tank-block">
                   <div className="exchange-tank">
@@ -381,7 +381,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
                       {TANKS[exchangeResources.exchangeRes].type !== "camo" ? (
                         <img src={"img/icons/" + TANKS[exchangeResources.exchangeRes].type + ".png"} alt="TYPE" />
                       ) : (
-                        <span className="camo-text">Камуфляж</span>
+                        <span className="camo-text">Camouflage</span>
                       )}
                       {TANKS[exchangeResources.exchangeRes].land !== null ? (
                         <img src={"img/flags/" + TANKS[exchangeResources.exchangeRes].land + "_big.png"} alt="LAND" />
@@ -402,7 +402,7 @@ export function ModalExchange({ backendPath, setIsUpdated, playerData, addMessag
               <div className="exchange__range-input">
                 <div className="exchange-submit">
                   <button className="btn _glass" onClick={() => setOpenConfimModal(true)} onMouseEnter={exchangeRotateAnima}>
-                    Обміняти <img src="img/servise/exchange.png" alt="exchange" style={{ transform: `rotateZ(${exchangeRotateNum}deg)` }} />
+                  Exchange <img src="img/servise/exchange.png" alt="exchange" style={{ transform: `rotateZ(${exchangeRotateNum}deg)` }} />
                     <div className="line line-top"></div>
                     <div className="line line-right"></div>
                     <div className="line line-bottom"></div>

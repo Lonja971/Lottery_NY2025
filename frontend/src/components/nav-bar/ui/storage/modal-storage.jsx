@@ -299,7 +299,7 @@ function ModalStorageLayout({
         {isChangeName && (
           <DraggableWindow
             id="changeName"
-            title="Змінити нік"
+            title="Change nickname"
             setCloseConst={setIsChangeName}
             isActive={activeWindowId === "changeName"}
             onFocus={handleFocus}
@@ -311,7 +311,7 @@ function ModalStorageLayout({
                   className="center"
                   type="text"
                   name="username"
-                  placeholder="Введіть новий нік"
+                  placeholder="Enter a new nickname"
                   maxLength={15}
                   minLength={1}
                   value={changeNameFormData.username}
@@ -321,7 +321,7 @@ function ModalStorageLayout({
               </label>
               <div className="center">
                 <button className="btn _glass">
-                  <p>Змінити</p>
+                  <p>Change</p>
                   <div className="line line-top"></div>
                   <div className="line line-right"></div>
                   <div className="line line-bottom"></div>
@@ -334,7 +334,7 @@ function ModalStorageLayout({
         {isPromoModal && (
           <DraggableWindow
             id="promoModal"
-            title="Активувати промо-код"
+            title="Activate promo code"
             setCloseConst={setIsPromoModal}
             isActive={activeWindowId === "promoModal"}
             onFocus={handleFocus}
@@ -347,7 +347,7 @@ function ModalStorageLayout({
                     className="center ttu"
                     type="text"
                     name="promo"
-                    placeholder="Введіть промо-код"
+                    placeholder="Enter promo code"
                     maxLength={15}
                     minLength={1}
                     value={promoFormData.promo || ''}
@@ -358,7 +358,7 @@ function ModalStorageLayout({
               </div>
               <div className="center">
                 <button className="btn _glass">
-                  <p>Активувати</p>
+                  <p>Activate</p>
                   <div className="line line-top"></div>
                   <div className="line line-right"></div>
                   <div className="line line-bottom"></div>
@@ -386,10 +386,10 @@ function ModalStorageLayout({
                       <span></span>
                       <span></span>
                     </div>
-                    Ви впевненні що хочете вийти з аккаунту?
+                    Are you sure you want to log out?
                     <div>
                       <button className="btn _glass" onClick={logout}>
-                        Вийти
+                        Go out
                         <div className="line line-top"></div>
                         <div className="line line-right"></div>
                         <div className="line line-bottom"></div>
@@ -401,21 +401,21 @@ function ModalStorageLayout({
               </div>
             ) : ""}
             <button className="btn _glass" onClick={() => setIsChangeName(!isChangeName)}>
-              Змінити нік
+              Change nickname
               <div className="line line-top"></div>
               <div className="line line-right"></div>
               <div className="line line-bottom"></div>
               <div className="line line-left"></div>
             </button>
             <button className="btn _glass" onClick={() => setIsPromoModal(!isPromoModal)}>
-              Промо код
+              Promo code
               <div className="line line-top"></div>
               <div className="line line-right"></div>
               <div className="line line-bottom"></div>
               <div className="line line-left"></div>
             </button>
             <button className="btn _glass" onClick={() => setOpenConfimModal(true)}>
-              Вийти з аккаунту
+              Sign out of the account
               <div className="line line-top"></div>
               <div className="line line-right"></div>
               <div className="line line-bottom"></div>
@@ -425,7 +425,7 @@ function ModalStorageLayout({
         </div>
         <div className="storage__resources">
           <div className="storage__resources-block">
-            <h2>Ресурси</h2>
+            <h2>Resource</h2>
             <div className="srb-block resources-block">
               {goldItem}
               {silverItem}
@@ -437,7 +437,7 @@ function ModalStorageLayout({
             </div>
           </div>
           <div className="storage__resources-block">
-            <h2>Контейнери</h2>
+            <h2>Containers</h2>
             <div className="srb-block resources-block">
               {regularCasesItem}
               {specialCasesItem}
@@ -448,7 +448,7 @@ function ModalStorageLayout({
           </div>
           {playerTanks.length !== 0 ? (
             <div className="storage__resources-block">
-              <h2>Танки</h2>
+              <h2>Tanks</h2>
               <div className="srb-block tanks-block">
                 {userTanksItem}
               </div>
@@ -456,7 +456,7 @@ function ModalStorageLayout({
           ) : ""}
           {playerCamos.length !== 0 ? (
             <div className="storage__resources-block">
-              <h2>Камуфляжі</h2>
+              <h2>Camouflage</h2>
               <div className="srb-block tanks-block">
                 {userCamosItem}
               </div>

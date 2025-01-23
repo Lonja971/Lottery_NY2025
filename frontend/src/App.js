@@ -13,8 +13,8 @@ const plesk = "https://97108289.hetictlyceum.nl/NY_2025"
 function App() {
   const backendPath = osPanel;
 
-  const targetDate = new Date("2024-12-16T12:00:00");
-  const endDate = new Date("2025-01-02T00:00:00");
+  const targetDate = new Date("2024-12-16T11:00:00");
+  const endDate = new Date("2030-01-03T11:00:00");
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -56,12 +56,12 @@ function App() {
           <div className="register">
             <div className="register__container _glass">
               <div className="timebox p">
-                До початку Новорічної Лотереї 2025:
+              Voor aanvang van de Nieuwjaarloterij 2025:
                 <div className="timebox-time">
-                    <div className="timebox-time__item" >{timeLeft.days} <br/> Днів</div>
-                    <div className="timebox-time__item" >{timeLeft.hours} <br/> Годин</div>
-                    <div className="timebox-time__item" >{timeLeft.minutes} <br/> Хвилин</div>
-                    <div className="timebox-time__item" >{timeLeft.seconds} <br/> Секунд</div>
+                    <div className="timebox-time__item" >{timeLeft.days} <br/> Dagen</div>
+                    <div className="timebox-time__item" >{timeLeft.hours} <br/> Uur</div>
+                    <div className="timebox-time__item" >{timeLeft.minutes} <br/> Minuten</div>
+                    <div className="timebox-time__item" >{timeLeft.seconds} <br/> Seconden</div>
                 </div>
               </div>
             </div>
@@ -77,8 +77,8 @@ function App() {
         {timeLeft.status === "after" && (
           <div className="register">
             <div className="register__container _glass text-center">
-              <p>Це була</p>
-              <p>Новорічна Лотерея 2025</p>
+              <p>Het was</p>
+              <p>Nieuwjaarsloterij 2025</p>
               <p>WomT</p>
             </div>
           </div>

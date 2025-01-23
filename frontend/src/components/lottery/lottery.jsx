@@ -82,7 +82,7 @@ export function Lottery({ playerData, addMessage, setModalOpenCaseAnimation, pla
       <div className="_container">
         <div className="shop__content-title">
             <div className="_glass shop_title">
-               <h2>Новорічні Контейнери</h2>
+               <h2>New Year Containers</h2>
                <img src="img/resources/tokens.png" alt="" />
             </div>
         </div>

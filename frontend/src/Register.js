@@ -43,7 +43,7 @@ export function Register({ backendPath }) {
     })
       .then(response => {
         if (response.data.status === 'success') {
-          navigate('/login', { state: { message: "Тепер ви можете увійти в свій аккаунт тут." } });
+          navigate('/login', { state: { message: "You can now log into your account here." } });
         } else {
           setErrorMessage(response.data.message);
           console.log(response.data.message);
@@ -64,7 +64,7 @@ export function Register({ backendPath }) {
           <form onSubmit={handleSubmit}>
             <div>
               <label>
-                <h3>Ім'я:</h3>
+                <h3>Name:</h3>
                 <input
                   className="center"
                   type="text"
@@ -77,7 +77,7 @@ export function Register({ backendPath }) {
             </div>
             <div>
               <label>
-                <h3>Пароль:</h3>
+                <h3>Password:</h3>
                 <input
                   className="center"
                   type="password"
@@ -90,7 +90,7 @@ export function Register({ backendPath }) {
             </div>
             <div>
               <label>
-                <h3>Підтвердіть пароль:</h3>
+                <h3>Confirm password:</h3>
                 <input
                   className="center"
                   type="password"
@@ -103,14 +103,14 @@ export function Register({ backendPath }) {
             </div>
             <div className="center">
               <button className="btn _glass">
-                <p>Зареєструватися</p>
+                <p>Sign up</p>
                 <div className="line line-top"></div>
                 <div className="line line-right"></div>
                 <div className="line line-bottom"></div>
                 <div className="line line-left"></div>
               </button>
             </div>
-            <p className="comment-block center">Вже є аккаунту?<br />Увійдіть в нього <a href="#" onClick={handleLinkToLogin}>тут</a> !</p>
+            <p className="comment-block center">Already have an account?<br />Enter it <a href="#" onClick={handleLinkToLogin}>here</a>!</p>
           </form>
         </div>
       </div>

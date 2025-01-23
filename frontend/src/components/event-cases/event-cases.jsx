@@ -88,7 +88,7 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
             <div className="eventcases__content">
                <div className="shop__content-title">
                   <div className="_glass shop_title">
-                     <h2>Ексклюзивні Контейнери</h2>
+                     <h2>Exclusive Containers</h2>
                      <img src="img/resources/red_tokens.png" alt="" />
                   </div>
                </div>

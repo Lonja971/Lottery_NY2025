@@ -7,7 +7,7 @@ export function NavBarStorage({ modalStorageActive, handleModalOpen }) {
         onClick={() => handleModalOpen("storageModal")}
       >
         <img src="img/servise/storage.png" alt="Storage" />
-        <p>Склад</p>
+        <p>Storage</p>
       </li>
     </>
   );

@@ -36,37 +36,37 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
             case "not_enough":
               return (
                 <div className="error" key={message.id || index}>
-                  У вас недостатньо ресурсів!
+                  You don't have enough resources!
                 </div>
               );
             case "name_changet_successfully":
               return (
                 <div key={message.id || index}>
-                  Ваш нік успішно змінено!
+                  Your nickname has been successfully changed!
                 </div>
               );
             case "new_token_not_available":
               return (
                 <div key={message.id || index}>
-                  Новий токен ще не готовий!
+                  The new token is not ready yet!
                 </div>
               );
             case "promo_already_activated":
               return (
                 <div key={message.id || index}>
-                  Промо-код вже активований!
+                  Promo code is already activated!
                 </div>
               );
             case "the_same_name":
               return (
                 <div key={message.id || index}>
-                  Нік вже зайнятий!
+                  Nick is already busy!
                 </div>
               );
             case "not_found_promo":
               return (
                 <div className="error" key={message.id || index}>
-                  Такий промо-код не існує!
+                  Such a promo code does not exist!
                 </div>
               );
             case "added":
@@ -84,7 +84,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
                         <React.Fragment>
                           {TANKS[message.resource].type !== "camo" ? (
                             <>
-                              Додано танк
+                              Added a tank
                               <img
                                 className="tanksimg-height"
                                 src={"img/flags/" + TANKS[message.resource].land + "_big.png"}
@@ -97,7 +97,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
                               />
                             </>
                           ) : (
-                            "Додано камуфляж "
+                            "Added camouflage "
                           )}
                         </React.Fragment>
                       )}
@@ -126,7 +126,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
                 <div key={message.id || index}>
                   Отримано {message.value?.toLocaleString()}{" "}
                   <img src={"img/resources/" + message.resource + ".png"} alt="RES_IMG" />
-                  {" за повторку "}
+                  {" for repetition"}
                   {message.convertedType === "tank" ? (
                     <React.Fragment>
                       {TANKS[message.convertedItem].type !== "camo" ? (
@@ -143,7 +143,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
                           />
                         </>
                       ) : (
-                        "камуфляж"
+                        "camouflage"
                       )}
                       {" " + convertedBlock}
                     </React.Fragment>
@@ -162,7 +162,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
         })}
         {newToken ? (
           <button className="btn _glass commentsblock-newtoken" onClick={handleNewToken}>
-            <span className="token-button__text">Отримати 1 Токен<img src="img/resources/tokens.png" alt="TOKENS" /> </span>
+            <span className="token-button__text">Get 1 Token<img src="img/resources/tokens.png" alt="TOKENS" /> </span>
             <span className="line line-top"></span>
             <span className="line line-right"></span>
             <span className="line line-bottom"></span>
@@ -172,7 +172,7 @@ export function Comments({ backendPath, setIsUpdated, newToken, setNewToken, add
       </div>
       <div className="_glass comments__panel">
         <div className="comments-nexttoken">
-          <span>Наст. <img src="img/resources/tokens.png" alt="токен" /> :</span> <span className="comments-tokenstimer">{tokenTimeLeft}</span>
+          <span>Next <img src="img/resources/tokens.png" alt="токен" /> :</span> <span className="comments-tokenstimer">{tokenTimeLeft}</span>
         </div>
         <div
           className="_glass comment-button"

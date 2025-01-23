@@ -49,7 +49,7 @@ export function Shop({playerData, setModalOpenCaseAnimation}) {
             <div className="shop__content">
                <div className="shop__content-title">
                   <div className="_glass shop_title">
-                     <h2>Магазин Креслень</h2>
+                     <h2>Drawings Shop</h2>
                      <img src="img/resources/drawings.png" alt="" />
                   </div>
                </div>

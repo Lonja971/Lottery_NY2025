@@ -6,18 +6,15 @@ export function Footer({ timeLeft }){
          <div className="footer__container _container">
             <div className="footer-bg"></div>
             <div className="footer__content">
-               Хочете подивитися на характеристики танків?
-               Ви можете зробити це <a target="_blank" rel="noopener noreferrer" href="https://lonja971.github.io/WomT_wiki/WomT.html">Тут</a> !
-               "Новорічна Лотерея 2025" створена по конструкторній грі "World of mine tanks".
-               Тут ви можете отримати багато ексклюзивних ресурсів з гри, які лімітовано роздаються в кейсах під час події "Новорічна лотерея 2025".
+               "New Year's Lottery 2025" is a site that simulates a New Year's event for the fictional game "World of my tanks". The purpose of the site is to open containers and knock out rewards from them.
             </div>
             <div className="timebox">
-               До кінця події:
+               Until the end of the event:
                <div className="timebox-time">
-                  <div className="timebox-time__item" >{timeLeft.days} <br/> Днів</div>
-                  <div className="timebox-time__item" >{timeLeft.hours} <br/> Годин</div>
-                  <div className="timebox-time__item" >{timeLeft.minutes} <br/> Хвилин</div>
-                  <div className="timebox-time__item" >{timeLeft.seconds} <br/> Секунд</div>
+                  <div className="timebox-time__item" >{timeLeft.days} <br/> Days</div>
+                  <div className="timebox-time__item" >{timeLeft.hours} <br/> Hours</div>
+                  <div className="timebox-time__item" >{timeLeft.minutes} <br/> Minutes</div>
+                  <div className="timebox-time__item" >{timeLeft.seconds} <br/> Seconds</div>
                </div>
             </div>
          </div>

@@ -47,7 +47,7 @@ export function InfoBlock({ item, index, userTanks }){
                 </div>
               ) : (
                 <div>
-                  <span className="camo">камуфляж</span>
+                  <span className="camo">camouflage</span>
                 </div>
               )}
               <p>{TANKS[item.id].smallName !== undefined ? TANKS[item.id].smallName : TANKS[item.id].name }</p>

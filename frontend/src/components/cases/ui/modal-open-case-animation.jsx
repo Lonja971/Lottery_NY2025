@@ -61,7 +61,7 @@ export function ModalOpenCaseAnimation({backendPath, playerId, addMessage, setIs
         className={`btn _glass anima-btn${ !isButtonOpen ? " btn-closed" : ""}`}
         onClick={handleClick}
       >
-        Забрати
+        Collect
         <div className="line line-top"></div>
         <div className="line line-right"></div>
         <div className="line line-bottom"></div>

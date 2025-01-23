@@ -30,7 +30,7 @@ export function NavBarExchange({ modalExchangeActive, handleModalOpen}) {
         src="img/servise/exchange.png"
         alt="RES"
       />
-      <p>Обмін</p>
+      <p>Exchange</p>
     </li>
   );
 }

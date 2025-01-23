@@ -22,7 +22,7 @@ export function ExchangeTankBlock({ tankInfo }){
          <div className="tankblock__text">
          <div className="tankblock-info">
             { fullTankInfo.type === "camo" ? (
-               <p className="camo-text">Камуфляж</p>
+               <p className="camo-text">Camouflage</p>
             ) :(
                <>
                <img src={"img/icons/" + fullTankInfo.type + ".png"} alt="TYPE" />

@@ -63,7 +63,7 @@ export function CaseBlock({ caseData, playerData, setModalOpenCaseAnimation, pla
             <div className="_glass caseblock-back__info">
               <div className="caseblock-back__row1">
                 <h3 className="caseblock__main-amount">
-                  <img src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" /> Шанси:
+                  <img src={`img/cases/${caseData.transcription}.png`} alt="CASE_IMG" /> Probability:
                 </h3>
                 <button className="caseblock__main-moreinfo" onClick={() => setIsBack(false)}>
                   <img src="img/background/info.png" alt="INFO_IMG" />

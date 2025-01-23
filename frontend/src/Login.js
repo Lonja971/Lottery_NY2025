@@ -85,7 +85,7 @@ export function Login({ backendPath }) {
                 src="img/background/alert.png"
                 alt="ALERT-IMG"
               />
-              <h3 className="welcome-text">! Увага !<br></br>В проекті присутній звук</h3>
+              <h3 className="welcome-text">! Please note !<br></br>There is sound in the project</h3>
             </div>
           </div>
           <div className="welcome__item-container">
@@ -94,7 +94,7 @@ export function Login({ backendPath }) {
                 src="logo-big.png"
                 alt="LOGO-IMG"
               />
-              <h3 className="welcome-text">Представляє</h3>
+              <h3 className="welcome-text">Represents</h3>
             </div>
           </div>
           <div className="welcome__item-container">
@@ -103,7 +103,7 @@ export function Login({ backendPath }) {
                 src="img/background/lottery_bg-v1.png"
                 alt="LOTTERY-IMG"
               />
-              <h3 className="welcome-text">Новорічна Лотерея 2025</h3>
+              <h3 className="welcome-text">New Year's Lottery 2025</h3>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@ export function Login({ backendPath }) {
           <form onSubmit={handleSubmit}>
             <div>
               <label>
-                <h3>Ім'я:</h3>
+                <h3>Name:</h3>
                 <input
                   className="center"
                   type="text"
@@ -126,7 +126,7 @@ export function Login({ backendPath }) {
             </div>
             <div>
               <label>
-                <h3>Пароль:</h3>
+                <h3>Password:</h3>
                 <input
                   className="center"
                   type="password"
@@ -139,14 +139,14 @@ export function Login({ backendPath }) {
             </div>
             <div className="center">
               <button className="btn _glass">
-                <p>Увійти</p>
+                <p>Log in</p>
                 <div className="line line-top"></div>
                 <div className="line line-right"></div>
                 <div className="line line-bottom"></div>
                 <div className="line line-left"></div>
               </button>
             </div>
-            <p className="comment-block center">Ще немає аккаунту?<br />Створіть його <a href="#" onClick={handleLinkToRegister}>тут</a>!</p>
+            <p className="comment-block center">Don't have an account yet?<br />Create it <a href="#" onClick={handleLinkToRegister}>here</a>!</p>
           </form>
         </div>
       </div>
