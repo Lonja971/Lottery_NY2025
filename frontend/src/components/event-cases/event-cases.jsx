@@ -7,17 +7,6 @@ export function EventCases({playerData, setModalOpenCaseAnimation, playerGuarant
    const casesData = [
       {
          isManu: false,
-         transcription: "waff_cases",
-         type: WAFF_CASE,
-         buttons: [
-            {
-               openResource: "red_tokens",
-               price: 2,
-            },
-         ],
-      },
-      {
-         isManu: false,
          transcription: "obj_490_cases",
          type: OBJ_490_CASE,
          buttons: [

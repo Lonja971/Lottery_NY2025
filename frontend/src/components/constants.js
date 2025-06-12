@@ -1068,16 +1068,8 @@ export const CASES = {
 
   //---ІВЕНТНІ-КЕЙСИ---
 
-  waff_cases: {
-    name: "Останній Ваффентрагер",
-    transcription: "waff_case",
-    animation: "waff_case",
-    guarantor: 35,
-    guarantorAward: 59,
-    info: "Якщо сили вистачить...",
-  },
   france_nation_cases: {
-    name: "Французькі Пиріжки",
+    name: "French Pies",
     transcription: "france_nation_cases",
     animation: "france_nation_cases",
     guarantor: 35,
@@ -1085,7 +1077,7 @@ export const CASES = {
     guarantorAward: 63,
   },
   china_new_year_cases: {
-    name: "Рік Дерев'яної Змії",
+    name: "Year of the Wood Snake",
     transcription: "china_new_year_cases",
     animation: "china_new_year_cases",
     guarantor: 35,
@@ -1093,15 +1085,14 @@ export const CASES = {
     guarantorAward: 88,
   },
   obj_490_cases: {
-    name: "Білка №490",
+    name: "Squirrel №490",
     transcription: "obj_490_cases",
     animation: "obj_490_cases",
     guarantor: 35,
     guarantorAward: 2,
-    info: "Там, де він з'являється, надії ворогів зриваються.",
   },
   usa_nation_cases: {
-    name: "Американська Гордість",
+    name: "American Pride",
     transcription: "usa_nation_cases",
     animation: "usa_nation_cases",
     guarantor: 35,
@@ -1109,7 +1100,7 @@ export const CASES = {
     guarantorAward: 95,
   },
   td_support_cases: {
-    name: "Підтримка (ПТ-Сау)",
+    name: "Support (TD)",
     transcription: "td_support_cases",
     animation: "td_support_cases",
     guarantor: 35,
@@ -1119,10 +1110,6 @@ export const CASES = {
 };
 
 //---CASES-RESOURCES-INFO---
-
-//---ДЛЯ-ПІДМАСИВІВ-TYPE-БУДЕ:
-//-single-ЯКЩО-МОЖЕ-ВИПАСТИ-ОДИН-ЕЛЕМЕНТ
-//-plural-ЯКЩО-МОЖЕ-ВИПАСТИ-БАГАТО-ЕЛЕМЕНТІВ
 
 export const MAIN_CASE = [
   { 
@@ -1156,7 +1143,7 @@ export const SPECIAL_CASE = [
     type: "single",
     items: [
       { type: "tank", id: 91, probability: 1, amounts: [1] },
-      { type: "tank", id: 62, probability: 1, amounts: [1] },
+      { type: "tank", id: 48, probability: 1, amounts: [1] },
     ]
   },
 ];
@@ -1178,8 +1165,8 @@ export const MYTHICAL_CASE = [
     probability: 25,
     type: "single",
     items: [
-      { type: "tank", id: 78, probability: 1, amounts: [1] },
-      { type: "tank", id: 64, probability: 1, amounts: [1] },
+      { type: "tank", id: 7, probability: 1, amounts: [1] },
+      { type: "tank", id: 36, probability: 1, amounts: [1] },
     ]
   },
 ];
@@ -1193,7 +1180,7 @@ export const LEGENDARY_CASE = [
     type: "single",
     items: [
       { type: "tank", id: 90, probability: 1, amounts: [1] },
-      { type: "tank", id: 61, probability: 1, amounts: [1] },
+      { type: "tank", id: 15, probability: 1, amounts: [1] },
     ]
   },
 ];
@@ -1331,7 +1318,6 @@ export const TD_SUPPORT_CASE = [
     probability: 3,
     type: "single",
     items: [
-      { type: "tank", id: 99, probability: 1, amounts: [1] },
       { type: "tank", id: 89, probability: 1, amounts: [1] },
       { type: "tank", id: 25, probability: 1, amounts: [1] },
       { type: "tank", id: 100, probability: 1, amounts: [1] },

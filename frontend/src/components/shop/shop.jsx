@@ -11,12 +11,6 @@ export function Shop({playerData, setModalOpenCaseAnimation}) {
          buttonPrice: 6,
       },
       {
-         transcription: "new_years_camo2",
-         type: NEW_YEARS_CAMO_2,
-         buttonOpenResource: "drawings",
-         buttonPrice: 6,
-      },
-      {
          transcription: "new_year_mythical_tank1",
          type: NEW_YEARS_MYTHICAL_TANK1,
          buttonOpenResource: "drawings",
@@ -33,13 +27,7 @@ export function Shop({playerData, setModalOpenCaseAnimation}) {
          type: NEW_YEARS_TANK_1,
          buttonOpenResource: "drawings",
          buttonPrice: 20,
-      },
-      {
-         transcription: "new_years_tank2",
-         type: NEW_YEARS_TANK_2,
-         buttonOpenResource: "drawings",
-         buttonPrice: 20,
-      },
+      }
    ]
 
    return (

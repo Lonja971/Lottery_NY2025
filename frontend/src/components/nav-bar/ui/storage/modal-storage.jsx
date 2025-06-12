@@ -41,7 +41,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="gold"
               value={playerData.gold}
-              text='Золото <img src="img/resources/gold.png" alt="RES" /> - головний ресурс. За його допомогою можно покупати танкита скіни. Його можна отримати в спеціальних івентах та в подарунках чи за допомогою преміум аккаунтів. Також в розділі "Обмін" <img src="img/servise/exchange.png" alt="EXCHANGE" /> ви можете отримати більше Золота, обмінявши інші ресурси.'
+              text='Gold <img src="img/resources/gold.png" alt="RES" /> is the main resource. With its help, you can buy tankita skins. It can be obtained in special events and gifts or with the help of premium accounts. Also in the section "Exchange" <img src="img/servise/exchange.png" alt="EXCHANGE" /> you can get more Gold by exchanging other resources.'
             />
           }
           silverItem={
@@ -50,7 +50,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="silver"
               value={playerData.silver}
-              text='Срібло <img src="img/resources/silver.png" alt="RES" /> - використовується на розхідники, такі як покупка єдениць техніки в бій (щоб вийти в бій мало лише мати танки, треба заплатити за кожну єденицю сріблом). В Бойових Пропусках за срібло можно було купити преміум набор. Заробляється в битвах.'
+              text='Silver <img src="img/resources/silver.png" alt="RES" /> - used for consumables, such as buying units of equipment for battle (in order to go into battle, you only need to have tanks, you need to pay for each unit with silver) . In Battle Passes, you could buy a premium set for silver. Earned in battles.'
             />
           }
           tokensItem={
@@ -59,7 +59,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="tokens"
               value={playerData.tokens}
-              text='Токени <img src="img/resources/tokens.png" alt="RES" /> - можно забрати раз на годину. За Токени можно покупати контейнери під час події "Новорічна Лотерея 2025".'
+              text='Tokens <img src="img/resources/tokens.png" alt="RES" /> - can be taken once per hour. Tokens can be used to buy containers during the "New Year`s Lottery 2025" event.'
             />
           }
           redTokensItem={
@@ -68,7 +68,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="red_tokens"
               value={playerData.red_tokens}
-              text='Червоні Токени <img src="img/resources/red_tokens.png" alt="RES" /> - аналог звичайних Токенів <img src="img/resources/tokens.png" alt="RES" />, але на відміну від звичайних Токенів за них можно покупати ексклюзивні контейнери під час події "Новорічна Лотерея 2025".'
+              text='Red Tokens <img src="img/resources/red_tokens.png" alt="RES" /> - analogue of ordinary Tokens <img src="img/resources/tokens.png" alt="RES" />, but unlike from ordinary Tokens, you can use them to buy exclusive containers during the "New Year`s Lottery 2025" event.'
             />
           }
           tanksItem={
@@ -77,7 +77,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="counters"
               value={playerData.counters}
-              text='Танкові жетони <img src="img/resources/counters.png" alt="RES" /> - випадають в івентах. Якщо ви не хочете витрачати срібло на покупку єдениць техніки, ви можете використовувати цей ресурс. Його можно обміняти на золото.'
+              text='Tank tokens <img src="img/resources/counters.png" alt="RES" /> - drop in events. If you don`t want to spend silver on buying equipment, you can use this resource. It can be exchanged for gold.'
             />
           }
           premiumAkkItem={
@@ -86,7 +86,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="premium_akk"
               value={playerData.premium_akk}
-              text='Преміум аккаунт <img src="img/resources/premium_akk.png" alt="RES" /> - допомогає гравцю заробляти Золото <img src="img/resources/gold.png" alt="RES" />, дайчи його за гру в боях. Здобувається в івентах.'
+              text='Premium account <img src="img/resources/premium_akk.png" alt="RES" /> - helps the player earn Gold <img src="img/resources/gold.png" alt="RES" /> by giving it for playing in battles. Obtained in events.'
             />
           }
           drawingsItem={
@@ -95,7 +95,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="resource"
               resource="drawings"
               value={playerData.drawings}
-              text='Креслення <img src="img/resources/drawings.png" alt="RES" /> - їх можно обміняти на танки та камуфляжі в "Магазині" під час події "Новорічна Лотерея 2025".'
+              text='Drawings <img src="img/resources/drawings.png" alt="RES" /> - they can be exchanged for tanks and camouflages in the "Shop" during the "New Year`s Lottery 2025" event.'
             />
           }
           regularCasesItem={
@@ -104,7 +104,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="regular_cases"
               value={playerData.regular_cases}
-              text={'Звичайний Контейнер <img src="img/resources/regular_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Regular Container <img src="img/resources/regular_cases.png" alt="RES" /> - can drop from "' + CASES.main_cases.name + '"'}
             />
           }
           specialCasesItem={
@@ -113,7 +113,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="special_cases"
               value={playerData.special_cases}
-              text={'Особовий Контейнер <img src="img/resources/special_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '". Тут у вас є можливість вибити камуфляжі для танків.'}
+              text={'Special Container <img src="img/resources/special_cases.png" alt="RES" /> - can drop from "' + CASES.main_cases.name + '". Тут у вас є можливість вибити камуфляжі для танків.'}
             />
           }
           rareCasesItem={
@@ -122,7 +122,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="rare_cases"
               value={playerData.rare_cases}
-              text={'Рідкісний Контейнер <img src="img/resources/rare_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '"'}
+              text={'Rare Container <img src="img/resources/rare_cases.png" alt="RES" /> - can drop from "' + CASES.main_cases.name + '"'}
             />
           }
           mythicalCasesItem={
@@ -131,7 +131,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="mythical_cases"
               value={playerData.mythical_cases}
-              text={'Міфічний Контейнер <img src="img/resources/mythical_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '". Тут у вас є можливість вибити танки.'}
+              text={'Mythical Container <img src="img/resources/mythical_cases.png" alt="RES" /> - can drop from "' + CASES.main_cases.name + '". Тут у вас є можливість вибити танки.'}
             />
           }
           legendaryCasesItem={
@@ -140,7 +140,7 @@ export function ModalStorage({ backendPath, setIsUpdated, playerData, addMessage
               type="case"
               resource="legendary_cases"
               value={playerData.legendary_cases}
-              text={'Легендарний Контейнер <img src="img/resources/legendary_cases.png" alt="RES" /> - може випасти з "' + CASES.main_cases.name + '". Тут у вас є можливість вибити танки.'}
+              text={'Legendary Container <img src="img/resources/legendary_cases.png" alt="RES" /> - can drop from "' + CASES.main_cases.name + '". Тут у вас є можливість вибити танки.'}
             />
           }
           userTanksItem={<ModalStorageTanks userTanks={playerTanks} />}

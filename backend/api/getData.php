@@ -1,7 +1,6 @@
 <?php
 include '../db/connect.php';
 
-// Ensure token is passed in the request
 if (!isset($_GET['token'])) {
     http_response_code(400);
     echo json_encode(array('error' => 'Token is required'));
@@ -10,7 +9,6 @@ if (!isset($_GET['token'])) {
 
 $token = $_GET['token'];
 
-// Fetch user id from tokens table using the provided token
 $sql = "SELECT user_id FROM tokens WHERE identifier = '$token'";
 $result = $conn->query($sql);
 
@@ -18,19 +16,21 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $userId = $row['user_id'];
 
-    // Fetch user data
-    $sql_user = "SELECT u.*, ut.tank_id
-                 FROM users u
-                 LEFT JOIN user_tanks ut ON u.id = ut.user_id
-                 WHERE u.id = $userId";
+    $stmt = $pdo->prepare("
+        SELECT u.*, ut.tank_id
+        FROM users u
+        LEFT JOIN user_tanks ut ON u.id = ut.user_id
+        WHERE u.id = :userId
+    ");
 
-    $result_user = $conn->query($sql_user);
+    $stmt->execute(['userId' => $userId]);
+    $result_user = $conn->query($stmt);
 
-    $user = null;
+    $user_info = null;
     if ($result_user->num_rows > 0) {
         $userTanks = array();
         while($row_user = $result_user->fetch_assoc()) {
-            if (!$user) {
+            if (!$user_info) {
                 $user = array(
                     'id' => $row_user['id'],
                     'name' => $row_user['username'],
@@ -69,7 +69,6 @@ if ($result->num_rows > 0) {
         exit;
     }
 
-    // Fetch player guarantors
     $playerGuarantors = array();
     $sql_guarantors = "SELECT ug.case_id, ug.discoveries_number, c.name 
                        FROM user_guarantors ug
@@ -87,11 +86,9 @@ if ($result->num_rows > 0) {
 
     $conn->close();
 
-    // Return both arrays as separate JSON objects
-    echo json_encode(array('user' => $user, 'playerGuarantors' => $playerGuarantors));
+    echo json_encode(array('user' => $user_info, 'playerGuarantors' => $playerGuarantors));
 
 } else {
-    // Token not found
     http_response_code(401);
     echo json_encode(array('error' => 'Invalid token'));
 }
